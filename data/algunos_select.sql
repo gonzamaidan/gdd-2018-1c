@@ -21,3 +21,6 @@ from gd_esquema.Maestra
 /*select distinct Cliente_Pasaporte_Nro, Cliente_Mail, Cliente_Nacionalidad from gd_esquema.Maestra
 where Cliente_Nacionalidad not like 'ARGENTINO' and 
 order by Cliente_Pasaporte_Nro*/
+
+SELECT DISTINCT Regimen_Descripcion, Regimen_Precio
+FROM gd_esquema.Maestra
