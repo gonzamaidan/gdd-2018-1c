@@ -20,7 +20,7 @@ namespace FrbaHotel.Model
             return this.codigoReserva;
            
         }
-        public void setCodigoReserva(unCodigoReserva)
+        public void setCodigoReserva(int unCodigoReserva)
         {
             this.codigoReserva = unCodigoReserva;
         }
@@ -30,7 +30,7 @@ namespace FrbaHotel.Model
             return this.accion;
            
         }
-        public void setAccion(unaAccion)
+        public void setAccion(string unaAccion)
         {
             this.accion = unaAccion;
         }
@@ -40,7 +40,7 @@ namespace FrbaHotel.Model
             return this.fecha;
            
         }
-        public void setFecha(unaFecha)
+        public void setFecha(DateTime unaFecha)
         {
             this.fecha = unaFecha;
         }
@@ -50,7 +50,7 @@ namespace FrbaHotel.Model
             return this.motivo;
            
         }
-        public void setMotivo(unMotivo)
+        public void setMotivo(string unMotivo)
         {
             this.motivo = unMotivo;
         }
@@ -60,7 +60,7 @@ namespace FrbaHotel.Model
             return this.usuario;
            
         }
-        public void setUsuario(unUsuario)
+        public void setUsuario(string unUsuario)
         {
             this.usuario = unUsuario;
         }

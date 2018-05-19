@@ -27,7 +27,7 @@ namespace FrbaHotel.Model
             return this.nombre;
 
         }
-        public void setNombre(unNombre)
+        public void setNombre(string unNombre)
         {
             this.nombre = unNombre;
         }
@@ -37,7 +37,7 @@ namespace FrbaHotel.Model
             return this.apellido;
 
         }
-        public void setApellido(unApellido)
+        public void setApellido(string unApellido)
         {
             this.apellido = unApellido;
         }
@@ -47,7 +47,7 @@ namespace FrbaHotel.Model
             return this.identificacion;
 
         }
-        public void setIdentificacion(unaIdentificacion)
+        public void setIdentificacion(int unaIdentificacion)
         {
             this.identificacion = unaIdentificacion;
         }
@@ -57,19 +57,17 @@ namespace FrbaHotel.Model
             return this.tipoIdentificacion;
 
         }
-        public void setTipoIdentificacion(unTipoDeIdentificacion)
+        public void setTipoIdentificacion(int unTipoDeIdentificacion)
         {
             this.tipoIdentificacion = unTipoDeIdentificacion;
         }
-
-
 
         public string getMail()
         {
             return this.mail;
 
         }
-        public void setMail(unMail)
+        public void setMail(string unMail)
         {
             this.mail = unMail;
         }
@@ -79,7 +77,7 @@ namespace FrbaHotel.Model
             return this.telefono;
 
         }
-        public void setTelefono(unTelefono)
+        public void setTelefono(int unTelefono)
         {
             this.telefono = unTelefono;
         }
@@ -89,7 +87,7 @@ namespace FrbaHotel.Model
             return this.direccion;
            
         }
-        public void setDireccion(unaDireccion)
+        public void setDireccion(string unaDireccion)
         {
             this.direccion = unaDireccion;
         }
@@ -99,7 +97,7 @@ namespace FrbaHotel.Model
             return this.localidad;
            
         }
-        public void setLocalidad(unaLocalidad)
+        public void setLocalidad(string unaLocalidad)
         {
             this.localidad = unaLocalidad;
         }
@@ -109,17 +107,17 @@ namespace FrbaHotel.Model
             return this.pais;
            
         }
-        public void setPais(unPais)
+        public void setPais(string unPais)
         {
             this.pais = unPais;
         }
 
-        public string getPais()
+        public string getNacionalidad()
         {
-            return this.pais;
+            return this.nacionalidad;
            
         }
-        public void setNacionalidad(unaNacionalidad)
+        public void setNacionalidad(string unaNacionalidad)
         {
             this.nacionalidad = unaNacionalidad;
         }
@@ -130,7 +128,7 @@ namespace FrbaHotel.Model
             return this.fechaDeNacimiento;
            
         }
-        public void setFechaDeNacimiento(unaFechaDeNacimiento)
+        public void setFechaDeNacimiento(DateTime unaFechaDeNacimiento)
         {
             this.fechaDeNacimiento = unaFechaDeNacimiento;
         }
@@ -140,7 +138,7 @@ namespace FrbaHotel.Model
             return this.duplicado;
            
         }
-        public void setDuplicado(unDuplicado)
+        public void setDuplicado(bool unDuplicado)
         {
             this.duplicado = unDuplicado;
         }

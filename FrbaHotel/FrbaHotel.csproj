@@ -101,6 +101,7 @@
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Funcionalidad.cs" />
     <Compile Include="Model\Registro_Reservas.cs" />
+    <Compile Include="Model\Reservas.cs" />
     <Compile Include="Model\Rol.cs" />
     <Compile Include="Model\Tipos_Identificacion.cs" />
     <Compile Include="Model\Usuario.cs" />

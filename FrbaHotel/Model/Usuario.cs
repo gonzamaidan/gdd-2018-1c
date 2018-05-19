@@ -21,7 +21,7 @@ namespace FrbaHotel.Model
             return this.password;
 
         }
-        public void setPassword(unaPass)
+        public void setPassword(string unaPass)
         {
             this.password = unaPass;
         }
@@ -31,7 +31,7 @@ namespace FrbaHotel.Model
             return this.nombre;
 
         }
-        public void setNombre(unNombre)
+        public void setNombre(string unNombre)
         {
             this.nombre = unNombre;
         }
@@ -41,7 +41,7 @@ namespace FrbaHotel.Model
             return this.apellido;
 
         }
-        public void setApellido(unApellido)
+        public void setApellido(string unApellido)
         {
             this.apellido = unApellido;
         }
@@ -51,7 +51,7 @@ namespace FrbaHotel.Model
             return this.mail;
 
         }
-        public void setMail(unMail)
+        public void setMail(string unMail)
         {
             this.mail = unMail;
         }
@@ -61,7 +61,7 @@ namespace FrbaHotel.Model
             return this.telefono;
 
         }
-        public void setTelefono(unTelefono)
+        public void setTelefono(int unTelefono)
         {
             this.telefono = unTelefono;
         }
@@ -71,7 +71,7 @@ namespace FrbaHotel.Model
             return this.direccion;
            
         }
-        public void setDireccion(unaDireccion)
+        public void setDireccion(string unaDireccion)
         {
             this.direccion = unaDireccion;
         }
@@ -81,7 +81,7 @@ namespace FrbaHotel.Model
             return this.fechaDeNacimiento;
            
         }
-        public void setFechaDeNacimiento(unaFechaDeNacimiento)
+        public void setFechaDeNacimiento(DateTime unaFechaDeNacimiento)
         {
             this.fechaDeNacimiento = unaFechaDeNacimiento;
         }
