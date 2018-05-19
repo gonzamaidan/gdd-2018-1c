@@ -6,26 +6,22 @@ using System.Threading.Tasks;
 
 namespace FrbaHotel.Model
 {
-    public class Usuario
+    public class Cliente
     {
-        private string password;
         private string nombre;
         private string apellido;
+        private int identificacion;
+        private Tipos_Identificacion tipoIdentificacion;
         private string mail;
         private int telefono;
         private string direccion;
+        private string localidad;
+        private string pais;
+        private string nacionalidad;
         private DateTime fechaDeNacimiento;
+        private bool duplicado;
 
-        public string getPassword()
-        {
-            return this.password;
 
-        }
-        public void setPassword(unaPass)
-        {
-            this.password = unaPass;
-        }
-        
         public string getNombre()
         {
             return this.nombre;
@@ -45,6 +41,28 @@ namespace FrbaHotel.Model
         {
             this.apellido = unApellido;
         }
+
+        public int getIdentificacion()
+        {
+            return this.identificacion;
+
+        }
+        public void setIdentificacion(unaIdentificacion)
+        {
+            this.identificacion = unaIdentificacion;
+        }
+
+        public int getTipoIdentificacion()
+        {
+            return this.tipoIdentificacion;
+
+        }
+        public void setTipoIdentificacion(unTipoDeIdentificacion)
+        {
+            this.tipoIdentificacion = unTipoDeIdentificacion;
+        }
+
+
 
         public string getMail()
         {
@@ -76,6 +94,37 @@ namespace FrbaHotel.Model
             this.direccion = unaDireccion;
         }
 
+        public string getLocalidad()
+        {
+            return this.localidad;
+           
+        }
+        public void setLocalidad(unaLocalidad)
+        {
+            this.localidad = unaLocalidad;
+        }
+
+        public string getPais()
+        {
+            return this.pais;
+           
+        }
+        public void setPais(unPais)
+        {
+            this.pais = unPais;
+        }
+
+        public string getPais()
+        {
+            return this.pais;
+           
+        }
+        public void setNacionalidad(unaNacionalidad)
+        {
+            this.nacionalidad = unaNacionalidad;
+        }
+
+
          public DateTime getFechaDeNacimiento()
         {
             return this.fechaDeNacimiento;
@@ -85,5 +134,16 @@ namespace FrbaHotel.Model
         {
             this.fechaDeNacimiento = unaFechaDeNacimiento;
         }
+
+        public bool getDuplicado()
+        {
+            return this.duplicado;
+           
+        }
+        public void setDuplicado(unDuplicado)
+        {
+            this.duplicado = unDuplicado;
+        }
+
     }
 }
