@@ -98,11 +98,19 @@
     <Compile Include="Login\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Baja_Hotel.cs" />
     <Compile Include="Model\Cliente.cs" />
+    <Compile Include="Model\Consumibles.cs" />
+    <Compile Include="Model\Estadia.cs" />
+    <Compile Include="Model\Facturas.cs" />
     <Compile Include="Model\Funcionalidad.cs" />
+    <Compile Include="Model\Habitaciones.cs" />
+    <Compile Include="Model\Hoteles.cs" />
+    <Compile Include="Model\Item_Factura.cs" />
     <Compile Include="Model\Registro_Reservas.cs" />
     <Compile Include="Model\Reservas.cs" />
     <Compile Include="Model\Rol.cs" />
+    <Compile Include="Model\Tipos_Habitacion.cs" />
     <Compile Include="Model\Tipos_Identificacion.cs" />
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Program.cs" />
