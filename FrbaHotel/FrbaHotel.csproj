@@ -107,6 +107,7 @@
     <Compile Include="Model\Habitaciones.cs" />
     <Compile Include="Model\Hoteles.cs" />
     <Compile Include="Model\Item_Factura.cs" />
+    <Compile Include="Model\Regimenes.cs" />
     <Compile Include="Model\Registro_Reservas.cs" />
     <Compile Include="Model\Reservas.cs" />
     <Compile Include="Model\Rol.cs" />
