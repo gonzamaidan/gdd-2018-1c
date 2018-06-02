@@ -272,11 +272,11 @@ where Estadia_Cant_Noches is not null
 )
 
 -- #FALTA INSERT HABITACIONES_POR_RESERVA 
-/*
-SELECT DISTINCT Reserva_Codigo,Habitacion_Numero, Hotel_Ciudad
-FROM gd_esquema.Maestra
+INSERT INTO LOS_MAGIOS.HABITACIONES_POR_RESERVA(CODIGO_RESERVA,NUMERO_HABITACION, ID_HOTEL)
+SELECT DISTINCT Reserva_Codigo,Habitacion_Numero, ID_HOTEL
+FROM gd_esquema.Maestra JOIN LOS_MAGIOS.HOTELES ON Hotel_Calle + ' ' + STR(Hotel_Nro_Calle) = DIRECCION
 ORDER BY Reserva_Codigo
-*/
+
 
 INSERT INTO LOS_MAGIOS.TIPOS_IDENTIFICACION(DESCRIPCION) VALUES('Pasaporte');
 
