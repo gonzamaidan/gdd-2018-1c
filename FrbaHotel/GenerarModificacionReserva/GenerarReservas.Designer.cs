@@ -1,6 +1,6 @@
 ﻿namespace FrbaHotel.GenerarModificacionReserva
 {
-    partial class Form1
+    partial class GenerarReservas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.calendarDesde = new System.Windows.Forms.MonthCalendar();
+            this.calendarHasta = new System.Windows.Forms.MonthCalendar();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textoFechaReserva = new System.Windows.Forms.Label();
             this.textoHasta = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textoReservar_Desde = new System.Windows.Forms.Label();
@@ -47,25 +45,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // monthCalendar1
+            // calendarDesde
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(212, 74);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 0;
+            this.calendarDesde.Location = new System.Drawing.Point(212, 35);
+            this.calendarDesde.MaxSelectionCount = 1;
+            this.calendarDesde.Name = "calendarDesde";
+            this.calendarDesde.TabIndex = 0;
+            this.calendarDesde.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            this.calendarDesde.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
-            // monthCalendar2
+            // calendarHasta
             // 
-            this.monthCalendar2.Location = new System.Drawing.Point(546, 74);
-            this.monthCalendar2.Name = "monthCalendar2";
-            this.monthCalendar2.TabIndex = 1;
-            this.monthCalendar2.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar2_DateChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(212, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(184, 20);
-            this.textBox1.TabIndex = 2;
+            this.calendarHasta.Location = new System.Drawing.Point(546, 35);
+            this.calendarHasta.MaxSelectionCount = 1;
+            this.calendarHasta.Name = "calendarHasta";
+            this.calendarHasta.TabIndex = 1;
+            this.calendarHasta.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar2_DateChanged);
             // 
             // comboBox1
             // 
@@ -75,19 +70,10 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 3;
             // 
-            // textoFechaReserva
-            // 
-            this.textoFechaReserva.AutoSize = true;
-            this.textoFechaReserva.Location = new System.Drawing.Point(23, 45);
-            this.textoFechaReserva.Name = "textoFechaReserva";
-            this.textoFechaReserva.Size = new System.Drawing.Size(183, 13);
-            this.textoFechaReserva.TabIndex = 4;
-            this.textoFechaReserva.Text = "Fecha en la que se realizo la reserva:";
-            // 
             // textoHasta
             // 
             this.textoHasta.AutoSize = true;
-            this.textoHasta.Location = new System.Drawing.Point(486, 79);
+            this.textoHasta.Location = new System.Drawing.Point(486, 40);
             this.textoHasta.Name = "textoHasta";
             this.textoHasta.Size = new System.Drawing.Size(35, 13);
             this.textoHasta.TabIndex = 5;
@@ -103,7 +89,7 @@
             // textoReservar_Desde
             // 
             this.textoReservar_Desde.AutoSize = true;
-            this.textoReservar_Desde.Location = new System.Drawing.Point(23, 79);
+            this.textoReservar_Desde.Location = new System.Drawing.Point(23, 40);
             this.textoReservar_Desde.Name = "textoReservar_Desde";
             this.textoReservar_Desde.Size = new System.Drawing.Size(84, 13);
             this.textoReservar_Desde.TabIndex = 7;
@@ -152,6 +138,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(870, 150);
             this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // botonGenerarReserva
             // 
@@ -159,8 +146,9 @@
             this.botonGenerarReserva.Name = "botonGenerarReserva";
             this.botonGenerarReserva.Size = new System.Drawing.Size(101, 23);
             this.botonGenerarReserva.TabIndex = 13;
-            this.botonGenerarReserva.Text = "Generar Reserva";
+            this.botonGenerarReserva.Text = "Buscar";
             this.botonGenerarReserva.UseVisualStyleBackColor = true;
+            this.botonGenerarReserva.Click += new System.EventHandler(this.botonGenerarReserva_Click);
             // 
             // botonModificarReserva
             // 
@@ -180,7 +168,7 @@
             this.botonSalir.Text = "Salir";
             this.botonSalir.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // GenerarReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -196,12 +184,11 @@
             this.Controls.Add(this.textoReservar_Desde);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textoHasta);
-            this.Controls.Add(this.textoFechaReserva);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.monthCalendar2);
-            this.Controls.Add(this.monthCalendar1);
-            this.Name = "Form1";
+            this.Controls.Add(this.calendarHasta);
+            this.Controls.Add(this.calendarDesde);
+            this.Name = "GenerarReservas";
+            this.RightToLeftLayout = true;
             this.Text = "Menu de reservas";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -212,11 +199,9 @@
 
         #endregion
 
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.MonthCalendar monthCalendar2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.MonthCalendar calendarDesde;
+        private System.Windows.Forms.MonthCalendar calendarHasta;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label textoFechaReserva;
         private System.Windows.Forms.Label textoHasta;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label textoReservar_Desde;
