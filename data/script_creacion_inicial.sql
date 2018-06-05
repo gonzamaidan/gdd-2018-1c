@@ -328,3 +328,16 @@ INSERT INTO LOS_MAGIOS.CLIENTES_POR_RESERVA(CODIGO_RESERVA, CODIGO_CLIENTE)
 SELECT DISTINCT Reserva_Codigo, CODIGO_CLIENTE
 FROM gd_esquema.Maestra JOIN LOS_MAGIOS.CLIENTES ON (IDENTIFICACION = Cliente_Pasaporte_Nro AND (Cliente_Apellido + 
 			Cliente_Nombre) = (APELLIDO + NOMBRE ))
+					   
+INSERT INTO LOS_MAGIOS.ROLES(NOMBRE,ESTADO) VALUES
+('ADMINISTRADOR',1),
+('RECEPCIONISTA',1),
+('GUEST',1)
+
+--Ver si vale la pena aceptar en todos los campos nulos, para no tener que completar todos los datos en este insert.					   
+INSERT INTO LOS_MAGIOS.USUARIOS(USUARIO,NOMBRE,CONTRASENA, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_DE_NACIMIENTO) VALUES
+('admin','admin','w23e', 'admin', 'admin@admin.com', '48638459', 'Admin 458 9D', DATEFROMPARTS (1993,03,14));					   
+
+INSERT INTO LOS_MAGIOS.ROLES_POR_USUARIO(USUARIO,ID_ROL) VALUES
+('admin',1)												
+					   
