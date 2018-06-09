@@ -33,7 +33,6 @@
             this.tIPOSIDENTIFICACIONBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2018DataSet = new FrbaHotel.GD1C2018DataSet();
             this.tIPOS_IDENTIFICACIONTableAdapter = new FrbaHotel.GD1C2018DataSetTableAdapters.TIPOS_IDENTIFICACIONTableAdapter();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.identificacionTextBox = new System.Windows.Forms.TextBox();
@@ -41,20 +40,25 @@
             this.buscarClienteBtn = new System.Windows.Forms.Button();
             this.clientesDataGridView = new System.Windows.Forms.DataGridView();
             this.modificarClienteBtn = new System.Windows.Forms.Button();
+            this.tIPOSIDENTIFICACIONBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tipoIdentificacionCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tipoIdentificacionComboBox
             // 
-            this.tipoIdentificacionComboBox.DataSource = this.tIPOSIDENTIFICACIONBindingSource;
+            this.tipoIdentificacionComboBox.CausesValidation = false;
+            this.tipoIdentificacionComboBox.DataSource = this.tIPOSIDENTIFICACIONBindingSource1;
+            this.tipoIdentificacionComboBox.DisplayMember = "DESCRIPCION";
             this.tipoIdentificacionComboBox.FormattingEnabled = true;
             this.tipoIdentificacionComboBox.Location = new System.Drawing.Point(194, 32);
             this.tipoIdentificacionComboBox.Name = "tipoIdentificacionComboBox";
             this.tipoIdentificacionComboBox.Size = new System.Drawing.Size(121, 21);
             this.tipoIdentificacionComboBox.TabIndex = 0;
-            this.tipoIdentificacionComboBox.ValueMember = "ID_ROL";
+            this.tipoIdentificacionComboBox.ValueMember = "TIPO_IDENTIFICACION";
             this.tipoIdentificacionComboBox.SelectedIndexChanged += new System.EventHandler(this.tipoIdentificacionComboBox_SelectedIndexChanged);
             // 
             // tIPOSIDENTIFICACIONBindingSource
@@ -70,15 +74,6 @@
             // tIPOS_IDENTIFICACIONTableAdapter
             // 
             this.tIPOS_IDENTIFICACIONTableAdapter.ClearBeforeFill = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tipo de identificacion";
             // 
             // label2
             // 
@@ -104,6 +99,7 @@
             this.identificacionTextBox.Name = "identificacionTextBox";
             this.identificacionTextBox.Size = new System.Drawing.Size(100, 20);
             this.identificacionTextBox.TabIndex = 4;
+            this.identificacionTextBox.TextChanged += new System.EventHandler(this.identificacionTextBox_TextChanged);
             // 
             // emailTextBox
             // 
@@ -111,6 +107,7 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(100, 20);
             this.emailTextBox.TabIndex = 5;
+            this.emailTextBox.TextChanged += new System.EventHandler(this.emailTextBox_TextChanged);
             // 
             // buscarClienteBtn
             // 
@@ -139,11 +136,28 @@
             this.modificarClienteBtn.Text = "Modificar";
             this.modificarClienteBtn.UseVisualStyleBackColor = true;
             // 
+            // tIPOSIDENTIFICACIONBindingSource1
+            // 
+            this.tIPOSIDENTIFICACIONBindingSource1.DataMember = "TIPOS_IDENTIFICACION";
+            this.tIPOSIDENTIFICACIONBindingSource1.DataSource = this.gD1C2018DataSet;
+            // 
+            // tipoIdentificacionCheckBox
+            // 
+            this.tipoIdentificacionCheckBox.AutoSize = true;
+            this.tipoIdentificacionCheckBox.Location = new System.Drawing.Point(48, 32);
+            this.tipoIdentificacionCheckBox.Name = "tipoIdentificacionCheckBox";
+            this.tipoIdentificacionCheckBox.Size = new System.Drawing.Size(127, 17);
+            this.tipoIdentificacionCheckBox.TabIndex = 9;
+            this.tipoIdentificacionCheckBox.Text = "Tipo de identificacion";
+            this.tipoIdentificacionCheckBox.UseVisualStyleBackColor = true;
+            this.tipoIdentificacionCheckBox.CheckedChanged += new System.EventHandler(this.tipoIdentificacionCheckBox_CheckedChanged);
+            // 
             // BusquedaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 315);
+            this.Controls.Add(this.tipoIdentificacionCheckBox);
             this.Controls.Add(this.modificarClienteBtn);
             this.Controls.Add(this.clientesDataGridView);
             this.Controls.Add(this.buscarClienteBtn);
@@ -151,7 +165,6 @@
             this.Controls.Add(this.identificacionTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tipoIdentificacionComboBox);
             this.Name = "BusquedaCliente";
             this.Text = "Busqueda cliente";
@@ -159,6 +172,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,11 +180,9 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox tipoIdentificacionComboBox;
         private GD1C2018DataSet gD1C2018DataSet;
         private System.Windows.Forms.BindingSource tIPOSIDENTIFICACIONBindingSource;
         private GD1C2018DataSetTableAdapters.TIPOS_IDENTIFICACIONTableAdapter tIPOS_IDENTIFICACIONTableAdapter;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox identificacionTextBox;
@@ -178,5 +190,8 @@
         private System.Windows.Forms.Button buscarClienteBtn;
         private System.Windows.Forms.DataGridView clientesDataGridView;
         private System.Windows.Forms.Button modificarClienteBtn;
+        private System.Windows.Forms.BindingSource tIPOSIDENTIFICACIONBindingSource1;
+        private System.Windows.Forms.ComboBox tipoIdentificacionComboBox;
+        private System.Windows.Forms.CheckBox tipoIdentificacionCheckBox;
     }
 }
