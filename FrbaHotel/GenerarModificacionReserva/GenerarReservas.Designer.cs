@@ -28,26 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.calendarDesde = new System.Windows.Forms.MonthCalendar();
             this.calendarHasta = new System.Windows.Forms.MonthCalendar();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textoHasta = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textoReservar_Desde = new System.Windows.Forms.Label();
             this.textoCantidadHuespedes = new System.Windows.Forms.Label();
-            this.textoTipoRegimen = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textoCostoDia = new System.Windows.Forms.Label();
+            this.regimenesComboBox = new System.Windows.Forms.ComboBox();
+            this.rEGIMENESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD1C2018DataSet = new FrbaHotel.GD1C2018DataSet();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.botonGenerarReserva = new System.Windows.Forms.Button();
             this.botonModificarReserva = new System.Windows.Forms.Button();
             this.botonSalir = new System.Windows.Forms.Button();
+            this.rEGIMENESTableAdapter = new FrbaHotel.GD1C2018DataSetTableAdapters.REGIMENESTableAdapter();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.rEGIMENESBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // calendarDesde
             // 
-            this.calendarDesde.Location = new System.Drawing.Point(212, 35);
+            this.calendarDesde.Location = new System.Drawing.Point(173, 35);
             this.calendarDesde.MaxSelectionCount = 1;
             this.calendarDesde.Name = "calendarDesde";
             this.calendarDesde.TabIndex = 0;
@@ -62,14 +71,6 @@
             this.calendarHasta.TabIndex = 1;
             this.calendarHasta.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar2_DateChanged);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(212, 261);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 3;
-            // 
             // textoHasta
             // 
             this.textoHasta.AutoSize = true;
@@ -78,13 +79,6 @@
             this.textoHasta.Size = new System.Drawing.Size(35, 13);
             this.textoHasta.TabIndex = 5;
             this.textoHasta.Text = "Hasta";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(648, 319);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 6;
             // 
             // textoReservar_Desde
             // 
@@ -105,31 +99,29 @@
             this.textoCantidadHuespedes.TabIndex = 8;
             this.textoCantidadHuespedes.Text = "Cantidad de huespedes";
             // 
-            // textoTipoRegimen
+            // regimenesComboBox
             // 
-            this.textoTipoRegimen.AutoSize = true;
-            this.textoTipoRegimen.Location = new System.Drawing.Point(23, 322);
-            this.textoTipoRegimen.Name = "textoTipoRegimen";
-            this.textoTipoRegimen.Size = new System.Drawing.Size(83, 13);
-            this.textoTipoRegimen.TabIndex = 9;
-            this.textoTipoRegimen.Text = "Tipo de regimen";
+            this.regimenesComboBox.CausesValidation = false;
+            this.regimenesComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.rEGIMENESBindingSource, "CODIGO_REGIMEN", true));
+            this.regimenesComboBox.DataSource = this.rEGIMENESBindingSource;
+            this.regimenesComboBox.DisplayMember = "DESCRIPCION";
+            this.regimenesComboBox.FormattingEnabled = true;
+            this.regimenesComboBox.Location = new System.Drawing.Point(173, 304);
+            this.regimenesComboBox.Name = "regimenesComboBox";
+            this.regimenesComboBox.Size = new System.Drawing.Size(193, 21);
+            this.regimenesComboBox.TabIndex = 10;
+            this.regimenesComboBox.ValueMember = "CODIGO_REGIMEN";
+            this.regimenesComboBox.SelectedIndexChanged += new System.EventHandler(this.regimenesComboBox_SelectedIndexChanged);
             // 
-            // comboBox2
+            // rEGIMENESBindingSource
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(212, 319);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(248, 21);
-            this.comboBox2.TabIndex = 10;
+            this.rEGIMENESBindingSource.DataMember = "REGIMENES";
+            this.rEGIMENESBindingSource.DataSource = this.gD1C2018DataSet;
             // 
-            // textoCostoDia
+            // gD1C2018DataSet
             // 
-            this.textoCostoDia.AutoSize = true;
-            this.textoCostoDia.Location = new System.Drawing.Point(543, 322);
-            this.textoCostoDia.Name = "textoCostoDia";
-            this.textoCostoDia.Size = new System.Drawing.Size(69, 13);
-            this.textoCostoDia.TabIndex = 11;
-            this.textoCostoDia.Text = "Costo por dia";
+            this.gD1C2018DataSet.DataSetName = "GD1C2018DataSet";
+            this.gD1C2018DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataGridView1
             // 
@@ -168,30 +160,108 @@
             this.botonSalir.Text = "Salir";
             this.botonSalir.UseVisualStyleBackColor = true;
             // 
+            // rEGIMENESTableAdapter
+            // 
+            this.rEGIMENESTableAdapter.ClearBeforeFill = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(173, 262);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(40, 20);
+            this.numericUpDown1.TabIndex = 16;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(26, 304);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(85, 17);
+            this.checkBox1.TabIndex = 17;
+            this.checkBox1.Text = "Con regimen";
+            this.checkBox1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(546, 259);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(426, 262);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Tipo de habitacion";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(426, 312);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Precio por regimen";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(546, 305);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 21;
+            // 
             // GenerarReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 538);
+            this.ClientSize = new System.Drawing.Size(931, 543);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.botonSalir);
             this.Controls.Add(this.botonModificarReserva);
             this.Controls.Add(this.botonGenerarReserva);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textoCostoDia);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textoTipoRegimen);
+            this.Controls.Add(this.regimenesComboBox);
             this.Controls.Add(this.textoCantidadHuespedes);
             this.Controls.Add(this.textoReservar_Desde);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textoHasta);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.calendarHasta);
             this.Controls.Add(this.calendarDesde);
             this.Name = "GenerarReservas";
             this.RightToLeftLayout = true;
             this.Text = "Menu de reservas";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.rEGIMENESBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,17 +271,22 @@
 
         private System.Windows.Forms.MonthCalendar calendarDesde;
         private System.Windows.Forms.MonthCalendar calendarHasta;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label textoHasta;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label textoReservar_Desde;
         private System.Windows.Forms.Label textoCantidadHuespedes;
-        private System.Windows.Forms.Label textoTipoRegimen;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label textoCostoDia;
+        private System.Windows.Forms.ComboBox regimenesComboBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button botonGenerarReserva;
         private System.Windows.Forms.Button botonModificarReserva;
         private System.Windows.Forms.Button botonSalir;
+        private GD1C2018DataSet gD1C2018DataSet;
+        private System.Windows.Forms.BindingSource rEGIMENESBindingSource;
+        private GD1C2018DataSetTableAdapters.REGIMENESTableAdapter rEGIMENESTableAdapter;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
