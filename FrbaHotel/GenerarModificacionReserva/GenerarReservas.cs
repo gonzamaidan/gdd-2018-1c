@@ -170,5 +170,33 @@ namespace FrbaHotel.GenerarModificacionReserva
             }
         }
 
+        private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                for (int i = 0; i < this.cantidadPersonas; i++)
+                {
+                    AbmCliente.BusquedaCliente busquedaCliente = new AbmCliente.BusquedaCliente(false);
+                    DialogResult result = busquedaCliente.ShowDialog();
+                    Console.WriteLine(i);
+                    Console.WriteLine(result);
+                    Console.WriteLine(busquedaCliente.idClienteSeleccionado);
+                }
+                
+                this.Hide();
+                this.Close();
+
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una habitacion", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

@@ -19,6 +19,7 @@ namespace FrbaHotel.AbmCliente
         Int32 tipoIdentificacion = -1;
         Int32 identificacion = -1;
         String email;
+        public int idClienteSeleccionado = -1;
         public BusquedaCliente(bool editable)
         {
             this.baseDeDatos = ConexionBD.conectar();
@@ -119,6 +120,27 @@ namespace FrbaHotel.AbmCliente
         private void emailTextBox_TextChanged(object sender, EventArgs e)
         {
             this.email = emailTextBox.Text;
+        }
+
+        private void clientesDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void seleccionarButton_Click(object sender, EventArgs e)
+        {
+            if (this.clientesDataGridView.SelectedRows.Count == 1)
+            {
+                MessageBox.Show("Cliente seleccionado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.idClienteSeleccionado = Int32.Parse(this.clientesDataGridView.SelectedCells[0].Value.ToString());
+                this.Hide();
+                this.Close();
+
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 

@@ -30,8 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tipoIdentificacionComboBox = new System.Windows.Forms.ComboBox();
-            this.tIPOSIDENTIFICACIONBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tIPOSIDENTIFICACIONBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2018DataSet = new FrbaHotel.GD1C2018DataSet();
+            this.tIPOSIDENTIFICACIONBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tIPOS_IDENTIFICACIONTableAdapter = new FrbaHotel.GD1C2018DataSetTableAdapters.TIPOS_IDENTIFICACIONTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,12 +41,12 @@
             this.buscarClienteBtn = new System.Windows.Forms.Button();
             this.clientesDataGridView = new System.Windows.Forms.DataGridView();
             this.modificarClienteBtn = new System.Windows.Forms.Button();
-            this.tIPOSIDENTIFICACIONBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tipoIdentificacionCheckBox = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesDataGridView)).BeginInit();
+            this.seleccionarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tipoIdentificacionComboBox
@@ -61,15 +62,20 @@
             this.tipoIdentificacionComboBox.ValueMember = "TIPO_IDENTIFICACION";
             this.tipoIdentificacionComboBox.SelectedIndexChanged += new System.EventHandler(this.tipoIdentificacionComboBox_SelectedIndexChanged);
             // 
-            // tIPOSIDENTIFICACIONBindingSource
+            // tIPOSIDENTIFICACIONBindingSource1
             // 
-            this.tIPOSIDENTIFICACIONBindingSource.DataMember = "TIPOS_IDENTIFICACION";
-            this.tIPOSIDENTIFICACIONBindingSource.DataSource = this.gD1C2018DataSet;
+            this.tIPOSIDENTIFICACIONBindingSource1.DataMember = "TIPOS_IDENTIFICACION";
+            this.tIPOSIDENTIFICACIONBindingSource1.DataSource = this.gD1C2018DataSet;
             // 
             // gD1C2018DataSet
             // 
             this.gD1C2018DataSet.DataSetName = "GD1C2018DataSet";
             this.gD1C2018DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tIPOSIDENTIFICACIONBindingSource
+            // 
+            this.tIPOSIDENTIFICACIONBindingSource.DataMember = "TIPOS_IDENTIFICACION";
+            this.tIPOSIDENTIFICACIONBindingSource.DataSource = this.gD1C2018DataSet;
             // 
             // tIPOS_IDENTIFICACIONTableAdapter
             // 
@@ -121,11 +127,14 @@
             // 
             // clientesDataGridView
             // 
+            this.clientesDataGridView.AllowUserToAddRows = false;
+            this.clientesDataGridView.AllowUserToDeleteRows = false;
             this.clientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.clientesDataGridView.Location = new System.Drawing.Point(48, 153);
             this.clientesDataGridView.Name = "clientesDataGridView";
             this.clientesDataGridView.Size = new System.Drawing.Size(438, 150);
             this.clientesDataGridView.TabIndex = 7;
+            this.clientesDataGridView.DoubleClick += new System.EventHandler(this.clientesDataGridView_DoubleClick);
             // 
             // modificarClienteBtn
             // 
@@ -135,11 +144,6 @@
             this.modificarClienteBtn.TabIndex = 8;
             this.modificarClienteBtn.Text = "Modificar";
             this.modificarClienteBtn.UseVisualStyleBackColor = true;
-            // 
-            // tIPOSIDENTIFICACIONBindingSource1
-            // 
-            this.tIPOSIDENTIFICACIONBindingSource1.DataMember = "TIPOS_IDENTIFICACION";
-            this.tIPOSIDENTIFICACIONBindingSource1.DataSource = this.gD1C2018DataSet;
             // 
             // tipoIdentificacionCheckBox
             // 
@@ -152,11 +156,22 @@
             this.tipoIdentificacionCheckBox.UseVisualStyleBackColor = true;
             this.tipoIdentificacionCheckBox.CheckedChanged += new System.EventHandler(this.tipoIdentificacionCheckBox_CheckedChanged);
             // 
+            // seleccionarButton
+            // 
+            this.seleccionarButton.Location = new System.Drawing.Point(411, 107);
+            this.seleccionarButton.Name = "seleccionarButton";
+            this.seleccionarButton.Size = new System.Drawing.Size(75, 23);
+            this.seleccionarButton.TabIndex = 10;
+            this.seleccionarButton.Text = "Seleccionar";
+            this.seleccionarButton.UseVisualStyleBackColor = true;
+            this.seleccionarButton.Click += new System.EventHandler(this.seleccionarButton_Click);
+            // 
             // BusquedaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 315);
+            this.Controls.Add(this.seleccionarButton);
             this.Controls.Add(this.tipoIdentificacionCheckBox);
             this.Controls.Add(this.modificarClienteBtn);
             this.Controls.Add(this.clientesDataGridView);
@@ -169,10 +184,10 @@
             this.Name = "BusquedaCliente";
             this.Text = "Busqueda cliente";
             this.Load += new System.EventHandler(this.BusquedaCliente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,5 +208,6 @@
         private System.Windows.Forms.BindingSource tIPOSIDENTIFICACIONBindingSource1;
         private System.Windows.Forms.ComboBox tipoIdentificacionComboBox;
         private System.Windows.Forms.CheckBox tipoIdentificacionCheckBox;
+        private System.Windows.Forms.Button seleccionarButton;
     }
 }
