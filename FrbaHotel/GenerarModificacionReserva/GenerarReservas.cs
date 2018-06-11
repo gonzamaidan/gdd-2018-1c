@@ -179,15 +179,48 @@ namespace FrbaHotel.GenerarModificacionReserva
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
+                List<Int32> clientes = new List<int>();
+                int idHotel = Int32.Parse(dataGridView1.SelectedCells[0].Value.ToString());
+                int nroHabitacion = Int32.Parse(dataGridView1.SelectedCells[2].Value.ToString());
+                //TODO: Este usuario deberia sacarlo del login
+                int idUsuario = 1;
                 for (int i = 0; i < this.cantidadPersonas; i++)
                 {
                     AbmCliente.BusquedaCliente busquedaCliente = new AbmCliente.BusquedaCliente(false);
                     DialogResult result = busquedaCliente.ShowDialog();
-                    Console.WriteLine(i);
-                    Console.WriteLine(result);
-                    Console.WriteLine(busquedaCliente.idClienteSeleccionado);
+                    if(busquedaCliente.idClienteSeleccionado != null) 
+                        clientes.Add(busquedaCliente.idClienteSeleccionado);
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar un cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        i--;
+                    }
+
                 }
-                
+
+                if (!this.conRegimen)
+                {
+                    this.codigoRegimen = Int32.Parse(dataGridView1.SelectedCells[7].Value.ToString());
+                }
+
+                try
+                {
+                    baseDeDatos.Open();
+                    int codigoReserva = ingresarReserva();
+                    ingresarClientesPorReserva(clientes, codigoReserva);
+                    ingresarHabitacionPorReserva(idHotel, nroHabitacion, codigoReserva);
+                    ingresarRegistroReserva(idUsuario, codigoReserva, "GENERACION");
+
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine(exc.StackTrace);
+                    MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.baseDeDatos.Close();
+                }
                 this.Hide();
                 this.Close();
 
@@ -196,6 +229,77 @@ namespace FrbaHotel.GenerarModificacionReserva
             {
                 MessageBox.Show("Debe seleccionar una habitacion", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ingresarRegistroReserva(int idUsuario, int codigoReserva, String accion)
+        {
+
+            SqlCommand ingresarRegistroReservaCmd = new SqlCommand("INSERT INTO LOS_MAGIOS.REGISTRO_RESERVAS(CODIGO_RESERVA, FECHA,	ACCION, USUARIO) " +
+                                                                    "VALUES (@CodigoReserva, GETDATE(), @Accion, @IdUsuario)", baseDeDatos);
+            ingresarRegistroReservaCmd.Parameters.Add("@CodigoReserva", SqlDbType.Int);
+            ingresarRegistroReservaCmd.Parameters.Add("@IdUsuario", SqlDbType.Int);
+            ingresarRegistroReservaCmd.Parameters.Add("@Accion", SqlDbType.VarChar);
+            ingresarRegistroReservaCmd.Parameters["@CodigoReserva"].Value = codigoReserva;
+            ingresarRegistroReservaCmd.Parameters["@IdUsuario"].Value = idUsuario;
+            ingresarRegistroReservaCmd.Parameters["@Accion"].Value = accion;
+            ingresarRegistroReservaCmd.ExecuteNonQuery();
+            Console.WriteLine("Registro de reserva generado: " + codigoReserva + "|" + accion);
+        }
+
+        private void ingresarHabitacionPorReserva(int idHotel, int nroHabitacion, int codigoReserva)
+        {
+            SqlCommand ingresarHabitacionPorReserva = new SqlCommand("INSERT INTO LOS_MAGIOS.HABITACIONES_POR_RESERVA(CODIGO_RESERVA, ID_HOTEL, NUMERO_HABITACION) " +
+                                                                             " VALUES(@CodigoReserva, @IdHotel, @NroHabitacion)", baseDeDatos);
+            ingresarHabitacionPorReserva.Parameters.Add("@CodigoReserva", SqlDbType.Int);
+            ingresarHabitacionPorReserva.Parameters.Add("@IdHotel", SqlDbType.Int);
+            ingresarHabitacionPorReserva.Parameters.Add("@NroHabitacion", SqlDbType.Int);
+            ingresarHabitacionPorReserva.Parameters["@CodigoReserva"].Value =  codigoReserva;
+            ingresarHabitacionPorReserva.Parameters["@IdHotel"].Value = idHotel;
+            ingresarHabitacionPorReserva.Parameters["@NroHabitacion"].Value = nroHabitacion;
+            ingresarHabitacionPorReserva.ExecuteNonQuery();
+            Console.WriteLine("Habitacion por reserva generada: " + codigoReserva + "|" + idHotel + "|" + nroHabitacion);
+        }
+
+        private int ingresarReserva()
+        {
+            String queryCodigoReserva = "SELECT MAX(CODIGO_RESERVA) + 1 FROM LOS_MAGIOS.RESERVAS";
+            String ingresarReserva = "INSERT INTO LOS_MAGIOS.RESERVAS(CODIGO_RESERVA, FECHA_RESERVA, FECHA_DESDE, FECHA_HASTA, ID_ESTADO_RESERVA, CODIGO_REGIMEN) "
+                                    + " VALUES (@CodigoReserva, GETDATE(), @FechaDesde, @FechaHasta, 1, @CodigoRegimen)";
+
+            int codigoReserva = (int)(new SqlCommand(queryCodigoReserva, baseDeDatos).ExecuteScalar());
+            SqlCommand comandIngresarReserva = new SqlCommand(ingresarReserva, baseDeDatos);
+            comandIngresarReserva.Parameters.Add("@FechaDesde", SqlDbType.Date);
+            comandIngresarReserva.Parameters.Add("@FechaHasta", SqlDbType.Date);
+            comandIngresarReserva.Parameters.Add("@CodigoRegimen", SqlDbType.Int);
+            comandIngresarReserva.Parameters.Add("@CodigoReserva", SqlDbType.Int);
+            comandIngresarReserva.Parameters["@FechaDesde"].Value = fechaDesde;
+            comandIngresarReserva.Parameters["@FechaHasta"].Value = fechaHasta;
+            comandIngresarReserva.Parameters["@CodigoRegimen"].Value = codigoRegimen;
+            comandIngresarReserva.Parameters["@CodigoReserva"].Value = codigoReserva;
+            comandIngresarReserva.ExecuteNonQuery();
+            Console.WriteLine("Reserva generada: " + codigoReserva);
+            return codigoReserva;
+        }
+
+        private void ingresarClientesPorReserva(List<Int32> clientes, int codigoReserva)
+        {
+
+            StringBuilder clientesPorReservasQueryBuilder = new StringBuilder("INSERT INTO LOS_MAGIOS.CLIENTES_POR_RESERVA(CODIGO_CLIENTE, CODIGO_RESERVA) VALUES ");
+            SqlCommand clientesPorReservasCommand = new SqlCommand();
+            foreach (int idCliente in clientes)
+            {
+                clientesPorReservasQueryBuilder.Append(" (@CodigoCliente" + idCliente + ", @CodigoReserva), ");
+                clientesPorReservasCommand.Parameters.Add("@CodigoCliente" + idCliente, SqlDbType.Int);
+                clientesPorReservasCommand.Parameters["@CodigoCliente" + idCliente].Value = idCliente;
+            }
+            clientesPorReservasQueryBuilder.Remove(clientesPorReservasQueryBuilder.Length - 2, 2);
+            clientesPorReservasCommand.Parameters.Add("@CodigoReserva", SqlDbType.Int);
+            clientesPorReservasCommand.Parameters["@CodigoReserva"].Value = codigoReserva;
+
+            clientesPorReservasCommand.CommandText = clientesPorReservasQueryBuilder.ToString();
+            clientesPorReservasCommand.Connection = baseDeDatos;
+            clientesPorReservasCommand.ExecuteNonQuery();
+            Console.WriteLine("Clientes por reserva generados: " + codigoReserva + "|" + clientes.ToString());
         }
 
     }
