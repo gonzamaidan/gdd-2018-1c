@@ -15,9 +15,9 @@ namespace FrbaHotel.GenerarModificacionReserva
     public partial class GenerarReservas : Form
     {
         SqlConnection baseDeDatos;
-        DateTime fechaDesde;
-        DateTime fechaHasta;
-        int codigoRegimen;
+        DateTime fechaDesde = DateTime.Now;
+        DateTime fechaHasta = DateTime.Now;
+        int codigoRegimen = -1;
         int cantidadPersonas = 1;
         bool conRegimen = false;
         public GenerarReservas()
@@ -60,16 +60,22 @@ namespace FrbaHotel.GenerarModificacionReserva
 
         }
 
-        private void botonGenerarReserva_Click(object sender, EventArgs e)
+        private void botonBuscarDisponibilidad_Click(object sender, EventArgs e)
         {
-            
-            try
+            this.conRegimen = this.checkBox1.Checked;
+            this.cantidadPersonas = (int)this.numericUpDown1.Value;
+            if (fechaDesde > fechaHasta)
+            {
+                MessageBox.Show("La fecha de inicio de la reserva no puede ser anterior a la fecha final de la reserva", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else try
             {
                 baseDeDatos.Open();
                 SqlCommand queryDisponibildad;
                 Console.WriteLine(this.conRegimen);
                 if (this.conRegimen)
                 {
+                    this.codigoRegimen = (int)this.regimenesComboBox.SelectedValue;
                     String queryStringDisponibilidad = "SELECT * FROM LOS_MAGIOS.DAR_DISPONIBILIDAD_CON_REGIMEN(@FechaDesde, @FechaHasta,@CodigoRegimen, @CantidadPersonas)";
                     queryDisponibildad = new SqlCommand(queryStringDisponibilidad, baseDeDatos);
                     queryDisponibildad.Parameters.Add("@FechaDesde", SqlDbType.Date);
@@ -111,49 +117,48 @@ namespace FrbaHotel.GenerarModificacionReserva
 
         private void regimenesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (this.regimenesComboBox.SelectedValue != null)
             {
+                try
+                {
+                    this.baseDeDatos.Open();
+                    SqlCommand queryDisponibildad = new SqlCommand("SELECT PRECIO_DOLARES FROM LOS_MAGIOS.REGIMENES WHERE CODIGO_REGIMEN = @CodigoRegimen", baseDeDatos);
+                    queryDisponibildad.Parameters.Add("@CodigoRegimen", SqlDbType.Int);
+                    queryDisponibildad.Parameters["@CodigoRegimen"].Value = (int)this.regimenesComboBox.SelectedValue;
+                    this.textBox2.Text = "U$S " + queryDisponibildad.ExecuteScalar();
 
-                this.codigoRegimen = (int)this.regimenesComboBox.SelectedValue;
-                this.baseDeDatos.Open();
-                SqlCommand queryDisponibildad = new SqlCommand("SELECT PRECIO_DOLARES FROM LOS_MAGIOS.REGIMENES WHERE CODIGO_REGIMEN = @CodigoRegimen", baseDeDatos);
-                queryDisponibildad.Parameters.Add("@CodigoRegimen", SqlDbType.Int);
-                queryDisponibildad.Parameters["@CodigoRegimen"].Value = codigoRegimen;
-                this.textBox2.Text = "U$S " + queryDisponibildad.ExecuteScalar();
-              
 
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine(exc.StackTrace);
+                    MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.baseDeDatos.Close();
+                }
             }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.StackTrace);
-                MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                this.baseDeDatos.Close();
-            }
-            
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            this.conRegimen = this.checkBox1.Checked;
-            this.regimenesComboBox.Enabled = this.conRegimen;
+            this.regimenesComboBox.Enabled = this.checkBox1.Checked;
             this.regimenesComboBox_SelectedIndexChanged(sender, e);
-            this.textBox2.Visible = this.conRegimen;
-            this.label2.Visible = this.conRegimen;
+            this.textBox2.Visible = this.checkBox1.Checked;
+            this.label2.Visible = this.checkBox1.Checked;
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            this.cantidadPersonas = (int) this.numericUpDown1.Value;
+             
             try
             {
                 this.baseDeDatos.Open();
 
                 SqlCommand queryStringTipoHabitacion = new SqlCommand("SELECT DESCRIPCION_TIPO_HABITACION FROM LOS_MAGIOS.TIPOS_HABITACION WHERE CANTIDAD_PERSONAS = @CantidadPersonas", baseDeDatos);
                 queryStringTipoHabitacion.Parameters.Add("@CantidadPersonas", SqlDbType.Int);
-                queryStringTipoHabitacion.Parameters["@CantidadPersonas"].Value = this.cantidadPersonas;
+                queryStringTipoHabitacion.Parameters["@CantidadPersonas"].Value = (int) this.numericUpDown1.Value;
                 String tipoHabitacion = (String)queryStringTipoHabitacion.ExecuteScalar();
                 this.textBox1.Text = tipoHabitacion;
 
@@ -175,7 +180,7 @@ namespace FrbaHotel.GenerarModificacionReserva
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void generarReservaButton_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
@@ -183,12 +188,12 @@ namespace FrbaHotel.GenerarModificacionReserva
                 int idHotel = Int32.Parse(dataGridView1.SelectedCells[0].Value.ToString());
                 int nroHabitacion = Int32.Parse(dataGridView1.SelectedCells[2].Value.ToString());
                 //TODO: Este usuario deberia sacarlo del login
-                int idUsuario = 1;
+                String usuario = "admin";
                 for (int i = 0; i < this.cantidadPersonas; i++)
                 {
                     AbmCliente.BusquedaCliente busquedaCliente = new AbmCliente.BusquedaCliente(false);
                     DialogResult result = busquedaCliente.ShowDialog();
-                    if(busquedaCliente.idClienteSeleccionado != null) 
+                    if(busquedaCliente.idClienteSeleccionado != -1) 
                         clientes.Add(busquedaCliente.idClienteSeleccionado);
                     else
                     {
@@ -209,8 +214,8 @@ namespace FrbaHotel.GenerarModificacionReserva
                     int codigoReserva = ingresarReserva();
                     ingresarClientesPorReserva(clientes, codigoReserva);
                     ingresarHabitacionPorReserva(idHotel, nroHabitacion, codigoReserva);
-                    ingresarRegistroReserva(idUsuario, codigoReserva, "GENERACION");
-
+                    ingresarRegistroReserva(usuario, codigoReserva, "GENERACION");
+                    MessageBox.Show("Reserva generada", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception exc)
                 {
@@ -221,8 +226,9 @@ namespace FrbaHotel.GenerarModificacionReserva
                 {
                     this.baseDeDatos.Close();
                 }
-                this.Hide();
-                this.Close();
+                this.botonBuscarDisponibilidad_Click(sender, e);
+                //this.Hide();
+                //this.Close();
 
             }
             else
@@ -231,16 +237,16 @@ namespace FrbaHotel.GenerarModificacionReserva
             }
         }
 
-        private void ingresarRegistroReserva(int idUsuario, int codigoReserva, String accion)
+        private void ingresarRegistroReserva(String usuario, int codigoReserva, String accion)
         {
 
             SqlCommand ingresarRegistroReservaCmd = new SqlCommand("INSERT INTO LOS_MAGIOS.REGISTRO_RESERVAS(CODIGO_RESERVA, FECHA,	ACCION, USUARIO) " +
-                                                                    "VALUES (@CodigoReserva, GETDATE(), @Accion, @IdUsuario)", baseDeDatos);
+                                                                    "VALUES (@CodigoReserva, GETDATE(), @Accion, @Usuario)", baseDeDatos);
             ingresarRegistroReservaCmd.Parameters.Add("@CodigoReserva", SqlDbType.Int);
-            ingresarRegistroReservaCmd.Parameters.Add("@IdUsuario", SqlDbType.Int);
+            ingresarRegistroReservaCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
             ingresarRegistroReservaCmd.Parameters.Add("@Accion", SqlDbType.VarChar);
             ingresarRegistroReservaCmd.Parameters["@CodigoReserva"].Value = codigoReserva;
-            ingresarRegistroReservaCmd.Parameters["@IdUsuario"].Value = idUsuario;
+            ingresarRegistroReservaCmd.Parameters["@Usuario"].Value = usuario;
             ingresarRegistroReservaCmd.Parameters["@Accion"].Value = accion;
             ingresarRegistroReservaCmd.ExecuteNonQuery();
             Console.WriteLine("Registro de reserva generado: " + codigoReserva + "|" + accion);

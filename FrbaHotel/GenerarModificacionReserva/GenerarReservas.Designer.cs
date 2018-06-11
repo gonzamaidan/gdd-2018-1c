@@ -38,7 +38,7 @@
             this.rEGIMENESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2018DataSet = new FrbaHotel.GD1C2018DataSet();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.botonGenerarReserva = new System.Windows.Forms.Button();
+            this.botonBuscarDisponibilidad = new System.Windows.Forms.Button();
             this.botonModificarReserva = new System.Windows.Forms.Button();
             this.botonSalir = new System.Windows.Forms.Button();
             this.rEGIMENESTableAdapter = new FrbaHotel.GD1C2018DataSetTableAdapters.REGIMENESTableAdapter();
@@ -134,15 +134,15 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
             // 
-            // botonGenerarReserva
+            // botonBuscarDisponibilidad
             // 
-            this.botonGenerarReserva.Location = new System.Drawing.Point(810, 35);
-            this.botonGenerarReserva.Name = "botonGenerarReserva";
-            this.botonGenerarReserva.Size = new System.Drawing.Size(101, 23);
-            this.botonGenerarReserva.TabIndex = 13;
-            this.botonGenerarReserva.Text = "Buscar";
-            this.botonGenerarReserva.UseVisualStyleBackColor = true;
-            this.botonGenerarReserva.Click += new System.EventHandler(this.botonGenerarReserva_Click);
+            this.botonBuscarDisponibilidad.Location = new System.Drawing.Point(810, 35);
+            this.botonBuscarDisponibilidad.Name = "botonBuscarDisponibilidad";
+            this.botonBuscarDisponibilidad.Size = new System.Drawing.Size(101, 23);
+            this.botonBuscarDisponibilidad.TabIndex = 13;
+            this.botonBuscarDisponibilidad.Text = "Buscar";
+            this.botonBuscarDisponibilidad.UseVisualStyleBackColor = true;
+            this.botonBuscarDisponibilidad.Click += new System.EventHandler(this.botonBuscarDisponibilidad_Click);
             // 
             // botonModificarReserva
             // 
@@ -243,7 +243,7 @@
             this.generarReservaButton.TabIndex = 22;
             this.generarReservaButton.Text = "Generar reserva";
             this.generarReservaButton.UseVisualStyleBackColor = true;
-            this.generarReservaButton.Click += new System.EventHandler(this.button1_Click);
+            this.generarReservaButton.Click += new System.EventHandler(this.generarReservaButton_Click);
             // 
             // GenerarReservas
             // 
@@ -259,7 +259,7 @@
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.botonSalir);
             this.Controls.Add(this.botonModificarReserva);
-            this.Controls.Add(this.botonGenerarReserva);
+            this.Controls.Add(this.botonBuscarDisponibilidad);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.regimenesComboBox);
             this.Controls.Add(this.textoCantidadHuespedes);
@@ -289,7 +289,7 @@
         private System.Windows.Forms.Label textoCantidadHuespedes;
         private System.Windows.Forms.ComboBox regimenesComboBox;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button botonGenerarReserva;
+        private System.Windows.Forms.Button botonBuscarDisponibilidad;
         private System.Windows.Forms.Button botonModificarReserva;
         private System.Windows.Forms.Button botonSalir;
         private GD1C2018DataSet gD1C2018DataSet;
