@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace FrbaHotel.Login
 {
-    public partial class Form1 : Form
+    public partial class ventanaAdmin : Form
     {
-        public Form1()
+        public ventanaAdmin()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

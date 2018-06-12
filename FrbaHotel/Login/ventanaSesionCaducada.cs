@@ -8,23 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FrbaHotel.AbmRol
+namespace FrbaHotel.Login
 {
-    public partial class Form1 : Form
+    public partial class ventanaSesionCaducada : Form
     {
-        public Form1()
+        public ventanaSesionCaducada()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
