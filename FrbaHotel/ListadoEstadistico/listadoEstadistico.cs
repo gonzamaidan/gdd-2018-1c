@@ -33,27 +33,27 @@ namespace FrbaHotel.ListadoEstadistico
         {
             if((String.Equals(Convert.ToString(cmbListado.SelectedValue), "Hoteles con mayor cantidad de reservas canceladas")))
             {
-                dgvListas.DataSource = objLista.ListarHotelesConMayorCantidadDeReservasCanceladas(Convert.ToInt32(txtAnio.Text),Convert.ToInt32(cmbTrimestre.SelectedValue));
+                dgvListas.DataSource = objLista.ListarHotelesConMayorCantidadDeReservasCanceladas(txtAnio.Text,Convert.ToInt32(cmbTrimestre.SelectedValue));
             }
 
             if((String.Equals(Convert.ToString(cmbListado.SelectedValue), "Hoteles con mayor cantidad de consumibles facturados")))
             {
-                dgvListas.DataSource = objLista.ListarHotelesConMayorCantidadDeConsumiblesFacturados(Convert.ToInt32(txtAnio.Text), Convert.ToInt32(cmbTrimestre.SelectedValue));
+                dgvListas.DataSource = objLista.ListarHotelesConMayorCantidadDeConsumiblesFacturados(txtAnio.Text, Convert.ToInt32(cmbTrimestre.SelectedValue));
             }
 
             if((String.Equals(Convert.ToString(cmbListado.SelectedValue), "Hoteles con mayor cantidad de días fuera de servicio")))
             {
-                dgvListas.DataSource = objLista.ListarHotelesConMayorCantidadDeDiasFueraDeServicio(Convert.ToInt32(txtAnio.Text), Convert.ToInt32(cmbTrimestre.SelectedValue));
+                dgvListas.DataSource = objLista.ListarHotelesConMayorCantidadDeDiasFueraDeServicio(txtAnio.Text, Convert.ToInt32(cmbTrimestre.SelectedValue));
             }
 
             if((String.Equals(Convert.ToString(cmbListado.SelectedValue), "Habitaciones con mayor cantidad de días y veces que fueron ocupadas")))
             {
-                dgvListas.DataSource = objLista.ListarHabitacionesCon(Convert.ToInt32(txtAnio.Text), Convert.ToInt32(cmbTrimestre.SelectedValue));
+                dgvListas.DataSource = objLista.ListarHabitacionesCon(txtAnio.Text, Convert.ToInt32(cmbTrimestre.SelectedValue));
             }
 
             if((String.Equals(Convert.ToString(cmbListado.SelectedValue), "Cliente con mayor cantidad de punto")))
             {
-                dgvListas.DataSource = objLista.ListarClientesConMayorCantidadDePuntos(Convert.ToInt32(txtAnio.Text), Convert.ToInt32(cmbTrimestre.SelectedValue));
+                dgvListas.DataSource = objLista.ListarClientesConMayorCantidadDePuntos(txtAnio.Text, Convert.ToInt32(cmbTrimestre.SelectedValue));
             }
         }
 

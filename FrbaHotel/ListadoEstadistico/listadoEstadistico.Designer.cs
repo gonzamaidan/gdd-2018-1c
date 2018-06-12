@@ -79,7 +79,8 @@
             this.cmbTrimestre.Items.AddRange(new object[] {
             "1",
             "2",
-            "3"});
+            "3",
+            "4"});
             this.cmbTrimestre.Location = new System.Drawing.Point(103, 70);
             this.cmbTrimestre.Name = "cmbTrimestre";
             this.cmbTrimestre.Size = new System.Drawing.Size(370, 21);
