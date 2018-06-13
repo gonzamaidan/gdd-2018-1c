@@ -33,7 +33,7 @@ namespace FrbaHotel.GenerarModificacionReserva
             InitializeComponent();
             codigoReservaModificacion = codigoReserva;
             flagModificacionReserva = true;
-
+            this.generarReservaButton.Text = "Modificar";
         }
 
 

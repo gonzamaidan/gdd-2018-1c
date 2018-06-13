@@ -39,8 +39,6 @@
             this.gD1C2018DataSet = new FrbaHotel.GD1C2018DataSet();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.botonBuscarDisponibilidad = new System.Windows.Forms.Button();
-            this.botonModificarReserva = new System.Windows.Forms.Button();
-            this.botonSalir = new System.Windows.Forms.Button();
             this.rEGIMENESTableAdapter = new FrbaHotel.GD1C2018DataSetTableAdapters.REGIMENESTableAdapter();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -145,24 +143,6 @@
             this.botonBuscarDisponibilidad.UseVisualStyleBackColor = true;
             this.botonBuscarDisponibilidad.Click += new System.EventHandler(this.botonBuscarDisponibilidad_Click);
             // 
-            // botonModificarReserva
-            // 
-            this.botonModificarReserva.Location = new System.Drawing.Point(810, 74);
-            this.botonModificarReserva.Name = "botonModificarReserva";
-            this.botonModificarReserva.Size = new System.Drawing.Size(101, 23);
-            this.botonModificarReserva.TabIndex = 14;
-            this.botonModificarReserva.Text = "Modificar Reserva";
-            this.botonModificarReserva.UseVisualStyleBackColor = true;
-            // 
-            // botonSalir
-            // 
-            this.botonSalir.Location = new System.Drawing.Point(810, 112);
-            this.botonSalir.Name = "botonSalir";
-            this.botonSalir.Size = new System.Drawing.Size(101, 23);
-            this.botonSalir.TabIndex = 15;
-            this.botonSalir.Text = "Salir";
-            this.botonSalir.UseVisualStyleBackColor = true;
-            // 
             // rEGIMENESTableAdapter
             // 
             this.rEGIMENESTableAdapter.ClearBeforeFill = true;
@@ -258,8 +238,6 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.botonSalir);
-            this.Controls.Add(this.botonModificarReserva);
             this.Controls.Add(this.botonBuscarDisponibilidad);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.regimenesComboBox);
@@ -291,8 +269,6 @@
         private System.Windows.Forms.ComboBox regimenesComboBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button botonBuscarDisponibilidad;
-        private System.Windows.Forms.Button botonModificarReserva;
-        private System.Windows.Forms.Button botonSalir;
         private GD1C2018DataSet gD1C2018DataSet;
         private System.Windows.Forms.BindingSource rEGIMENESBindingSource;
         private GD1C2018DataSetTableAdapters.REGIMENESTableAdapter rEGIMENESTableAdapter;
