@@ -20,11 +20,23 @@ namespace FrbaHotel.GenerarModificacionReserva
         int codigoRegimen = -1;
         int cantidadPersonas = 1;
         bool conRegimen = false;
+        bool flagModificacionReserva = false;
+        int codigoReservaModificacion = -1;
         public GenerarReservas()
         {
             baseDeDatos = ConexionBD.conectar();
             InitializeComponent();
         }
+        public GenerarReservas(int codigoReserva)
+        {
+            baseDeDatos = ConexionBD.conectar();
+            InitializeComponent();
+            codigoReservaModificacion = codigoReserva;
+            flagModificacionReserva = true;
+
+        }
+
+
 
         private void monthCalendar2_DateChanged(object sender, DateRangeEventArgs e)
         {
@@ -182,59 +194,129 @@ namespace FrbaHotel.GenerarModificacionReserva
 
         private void generarReservaButton_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count == 1)
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                List<Int32> clientes = new List<int>();
-                int idHotel = Int32.Parse(dataGridView1.SelectedCells[0].Value.ToString());
-                int nroHabitacion = Int32.Parse(dataGridView1.SelectedCells[2].Value.ToString());
-                //TODO: Este usuario deberia sacarlo del login
-                String usuario = "admin";
-                for (int i = 0; i < this.cantidadPersonas; i++)
+                List<HabitacionPK> habitaciones = new List<HabitacionPK>();
+
+                for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
                 {
-                    AbmCliente.BusquedaCliente busquedaCliente = new AbmCliente.BusquedaCliente(false);
-                    DialogResult result = busquedaCliente.ShowDialog();
-                    if(busquedaCliente.idClienteSeleccionado != -1) 
-                        clientes.Add(busquedaCliente.idClienteSeleccionado);
-                    else
+                    int idHotel = Int32.Parse(dataGridView1.SelectedRows[i].Cells[0].Value.ToString());
+                    int nroHabitacion = Int32.Parse(dataGridView1.SelectedRows[i].Cells[2].Value.ToString());
+                    if (!this.conRegimen)
                     {
-                        MessageBox.Show("Debe seleccionar un cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        i--;
+                        this.codigoRegimen = Int32.Parse(dataGridView1.SelectedRows[i].Cells[7].Value.ToString());
+                    }
+                    habitaciones.Add(new HabitacionPK(nroHabitacion, idHotel,codigoRegimen));
+                }
+                if (!habitaciones.All(habitacion => habitacion.codigoRegimen == this.codigoRegimen))
+                {
+                    MessageBox.Show("Todas las habitaciones seleccionadas deben pertenecer al mismo regimen", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (habitaciones.Count == 0)
+                {
+                    MessageBox.Show("Seleccione al menos una habitacion", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+
+                    int idClienteSeleccionado = -1;
+
+                    //TODO: Este usuario deberia sacarlo del login
+                    String usuario = "admin";
+                    if(!flagModificacionReserva)
+                        while (idClienteSeleccionado == -1)
+                            {
+                                AbmCliente.BusquedaCliente busquedaCliente = new AbmCliente.BusquedaCliente(false);
+                                DialogResult result = busquedaCliente.ShowDialog();
+
+                                if (busquedaCliente.idClienteSeleccionado != -1)
+                                    idClienteSeleccionado = busquedaCliente.idClienteSeleccionado;
+                                else
+                                    MessageBox.Show("Debe seleccionar un cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
+
+                    if (!this.conRegimen)
+                    {
+                        this.codigoRegimen = Int32.Parse(dataGridView1.SelectedCells[7].Value.ToString());
                     }
 
+                    try
+                    {
+                        baseDeDatos.Open();
+                        if (!flagModificacionReserva)
+                        {
+                            int codigoReserva = ingresarReserva();
+                            List<Int32> clientes = new List<Int32>();
+                            clientes.Add(idClienteSeleccionado);
+                            ingresarClientePorReserva(clientes, codigoReserva);
+                            ingresarHabitacionPorReserva(habitaciones, codigoReserva);
+                            ingresarRegistroReserva(usuario, codigoReserva, "GENERACION");
+                            MessageBox.Show("Reserva generada con el codigo " + codigoReserva, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {   
+                            String estadoReserva = "MODIFICADA";
+                            updateFechaReserva();
+                            updateEstadoReserva(estadoReserva, this.codigoReservaModificacion);
+                            eliminarHabitaciones(this.codigoReservaModificacion);
+                            ingresarHabitacionPorReserva(habitaciones, this.codigoReservaModificacion);
+                            ingresarRegistroReserva(usuario, codigoReservaModificacion, "MODIFICACION");
+                            this.DialogResult = DialogResult.OK;
+                            this.Hide();
+                            this.Close();
+                        }
+                    }
+                    catch (Exception exc)
+                    {
+                        Console.WriteLine(exc.StackTrace);
+                        MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        this.baseDeDatos.Close();
+                    }
+                    this.botonBuscarDisponibilidad_Click(sender, e);
+                    //this.Hide();
+                    //this.Close();
                 }
-
-                if (!this.conRegimen)
-                {
-                    this.codigoRegimen = Int32.Parse(dataGridView1.SelectedCells[7].Value.ToString());
-                }
-
-                try
-                {
-                    baseDeDatos.Open();
-                    int codigoReserva = ingresarReserva();
-                    ingresarClientesPorReserva(clientes, codigoReserva);
-                    ingresarHabitacionPorReserva(idHotel, nroHabitacion, codigoReserva);
-                    ingresarRegistroReserva(usuario, codigoReserva, "GENERACION");
-                    MessageBox.Show("Reserva generada", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception exc)
-                {
-                    Console.WriteLine(exc.StackTrace);
-                    MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    this.baseDeDatos.Close();
-                }
-                this.botonBuscarDisponibilidad_Click(sender, e);
-                //this.Hide();
-                //this.Close();
-
             }
             else
             {
-                MessageBox.Show("Debe seleccionar una habitacion", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar al menos una habitacion", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void updateFechaReserva()
+        {
+            SqlCommand updateFechaReservaCmd = new SqlCommand("UPDATE LOS_MAGIOS.RESERVAS SET FECHA_DESDE = @FechaDesde, FECHA_HASTA = @FechaHasta "
+                                                              + " WHERE CODIGO_RESERVA = @CodigoReserva", baseDeDatos);
+            updateFechaReservaCmd.Parameters.Add("@FechaDesde", SqlDbType.Date);
+            updateFechaReservaCmd.Parameters.Add("@FechaHasta", SqlDbType.Date);
+            updateFechaReservaCmd.Parameters.Add("@CodigoReserva", SqlDbType.Int);
+            updateFechaReservaCmd.Parameters["@FechaDesde"].Value = fechaDesde;
+            updateFechaReservaCmd.Parameters["@FechaHasta"].Value = fechaHasta;
+            updateFechaReservaCmd.Parameters["@CodigoReserva"].Value = codigoReservaModificacion;
+            updateFechaReservaCmd.ExecuteNonQuery();
+        }
+
+        private void eliminarHabitaciones(int codigoReserva)
+        {
+            SqlCommand eliminarHabitacionesCmd = new SqlCommand("DELETE FROM LOS_MAGIOS.HABITACIONES_POR_RESERVA WHERE CODIGO_RESERVA = @CodigoReserva", baseDeDatos);
+            eliminarHabitacionesCmd.Parameters.Add("@CodigoReserva", SqlDbType.Int);
+            eliminarHabitacionesCmd.Parameters["@CodigoReserva"].Value = codigoReserva;
+            eliminarHabitacionesCmd.ExecuteNonQuery();
+        }
+
+        private void updateEstadoReserva(String estadoReserva, int codigoReserva)
+        {
+            SqlCommand updateEstadoReserva = new SqlCommand("UPDATE LOS_MAGIOS.RESERVAS SET ID_ESTADO_RESERVA = (SELECT ID_ESTADO_RESERVA FROM LOS_MAGIOS.ESTADOS_RESERVA WHERE DESCRIPCION_ESTADO_RESERVA = @EstadoReserva) " + 
+                                                            "WHERE CODIGO_RESERVA = @CodigoReserva", baseDeDatos);
+            updateEstadoReserva.Parameters.Add("@EstadoReserva", SqlDbType.VarChar);
+            updateEstadoReserva.Parameters.Add("@CodigoReserva", SqlDbType.Int);
+            updateEstadoReserva.Parameters["@EstadoReserva"].Value = estadoReserva;
+            updateEstadoReserva.Parameters["@CodigoReserva"].Value = codigoReserva;
+            updateEstadoReserva.ExecuteNonQuery();
         }
 
         private void ingresarRegistroReserva(String usuario, int codigoReserva, String accion)
@@ -252,18 +334,27 @@ namespace FrbaHotel.GenerarModificacionReserva
             Console.WriteLine("Registro de reserva generado: " + codigoReserva + "|" + accion);
         }
 
-        private void ingresarHabitacionPorReserva(int idHotel, int nroHabitacion, int codigoReserva)
+        private void ingresarHabitacionPorReserva(List<HabitacionPK> habitaciones, int codigoReserva)
         {
-            SqlCommand ingresarHabitacionPorReserva = new SqlCommand("INSERT INTO LOS_MAGIOS.HABITACIONES_POR_RESERVA(CODIGO_RESERVA, ID_HOTEL, NUMERO_HABITACION) " +
-                                                                             " VALUES(@CodigoReserva, @IdHotel, @NroHabitacion)", baseDeDatos);
+            StringBuilder builder = new StringBuilder("INSERT INTO LOS_MAGIOS.HABITACIONES_POR_RESERVA(CODIGO_RESERVA, ID_HOTEL, NUMERO_HABITACION) VALUES");
+            SqlCommand ingresarHabitacionPorReserva = new SqlCommand();
+            for (int i = 0; i < habitaciones.Count; i++)
+            {
+                builder.Append("(@CodigoReserva, @IdHotel" + i +", @NroHabitacion"+ i+"), ");
+                ingresarHabitacionPorReserva.Parameters.Add("@IdHotel"+i, SqlDbType.Int);
+                ingresarHabitacionPorReserva.Parameters.Add("@NroHabitacion"+i, SqlDbType.Int);
+                ingresarHabitacionPorReserva.Parameters["@IdHotel"+i].Value = habitaciones[i].idHotel;
+                ingresarHabitacionPorReserva.Parameters["@NroHabitacion"+i].Value = habitaciones[i].nroHabitacion;
+            }
+            builder.Remove(builder.Length - 2, 2);
+
+            ingresarHabitacionPorReserva.CommandText = builder.ToString();
+            ingresarHabitacionPorReserva.Connection = baseDeDatos;
             ingresarHabitacionPorReserva.Parameters.Add("@CodigoReserva", SqlDbType.Int);
-            ingresarHabitacionPorReserva.Parameters.Add("@IdHotel", SqlDbType.Int);
-            ingresarHabitacionPorReserva.Parameters.Add("@NroHabitacion", SqlDbType.Int);
             ingresarHabitacionPorReserva.Parameters["@CodigoReserva"].Value =  codigoReserva;
-            ingresarHabitacionPorReserva.Parameters["@IdHotel"].Value = idHotel;
-            ingresarHabitacionPorReserva.Parameters["@NroHabitacion"].Value = nroHabitacion;
+            
             ingresarHabitacionPorReserva.ExecuteNonQuery();
-            Console.WriteLine("Habitacion por reserva generada: " + codigoReserva + "|" + idHotel + "|" + nroHabitacion);
+            Console.WriteLine("Habitacion por reserva generada");
         }
 
         private int ingresarReserva()
@@ -287,7 +378,7 @@ namespace FrbaHotel.GenerarModificacionReserva
             return codigoReserva;
         }
 
-        private void ingresarClientesPorReserva(List<Int32> clientes, int codigoReserva)
+        private void ingresarClientePorReserva(List<Int32> clientes, int codigoReserva)
         {
 
             StringBuilder clientesPorReservasQueryBuilder = new StringBuilder("INSERT INTO LOS_MAGIOS.CLIENTES_POR_RESERVA(CODIGO_CLIENTE, CODIGO_RESERVA) VALUES ");

@@ -93,6 +93,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GD1C2018DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GenerarModificacionReserva\HabitacionPK.cs" />
+    <Compile Include="GenerarModificacionReserva\ModificarReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenerarModificacionReserva\ModificarReserva.Designer.cs">
+      <DependentUpon>ModificarReserva.cs</DependentUpon>
+    </Compile>
     <Compile Include="GenerarModificacionReserva\GenerarReservas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CancelarReserva\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenerarModificacionReserva\ModificarReserva.resx">
+      <DependentUpon>ModificarReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GenerarModificacionReserva\GenerarReservas.resx">
       <DependentUpon>GenerarReservas.cs</DependentUpon>
