@@ -24,7 +24,7 @@
     <Shape ID="DesignTable:REGIMENES_POR_HOTEL" ZOrder="33" X="627" Y="1598" Height="115" Width="288" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:REGISTRO_RESERVAS" ZOrder="32" X="344" Y="1209" Height="172" Width="268" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:RESERVAS" ZOrder="31" X="70" Y="70" Height="191" Width="204" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
-    <Shape ID="DesignTable:ROLES" ZOrder="30" X="1300" Y="1394" Height="134" Width="182" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:ROLES" ZOrder="30" X="1300" Y="1394" Height="153" Width="182" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:ROLES_POR_USUARIO" ZOrder="29" X="958" Y="1394" Height="115" Width="272" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:TIPOS_HABITACION" ZOrder="28" X="1019" Y="687" Height="134" Width="261" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:TIPOS_IDENTIFICACION" ZOrder="27" X="971" Y="70" Height="115" Width="283" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />

@@ -11,7 +11,8 @@ namespace FrbaHotel
     {
         public static SqlConnection conectar()
         {
-            return new SqlConnection(Program.connectionString);
+            SqlConnection baseDeDatos = new SqlConnection(Program.connectionString);
+            return baseDeDatos;
         }
 
     }
