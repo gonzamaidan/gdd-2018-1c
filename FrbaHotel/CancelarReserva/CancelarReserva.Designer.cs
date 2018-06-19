@@ -1,6 +1,6 @@
 ﻿namespace FrbaHotel.CancelarReserva
 {
-    partial class Form1
+    partial class CancelarReserva
     {
         /// <summary>
         /// Required designer variable.
@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.codigoReservaTB = new System.Windows.Forms.TextBox();
             this.textoNumeroReserva = new System.Windows.Forms.Label();
             this.botonAceptar = new System.Windows.Forms.Button();
             this.textoMotivo = new System.Windows.Forms.Label();
             this.fechaCancelacion = new System.Windows.Forms.Label();
             this.textoUsuarioQueCancelo = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.motivoReservaTB = new System.Windows.Forms.TextBox();
+            this.usuarioCanceladorTB = new System.Windows.Forms.TextBox();
             this.botonSalir = new System.Windows.Forms.Button();
+            this.fechaCancelacionPicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
-            // textBox1
+            // codigoReservaTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(183, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.codigoReservaTB.Location = new System.Drawing.Point(183, 29);
+            this.codigoReservaTB.Name = "codigoReservaTB";
+            this.codigoReservaTB.Size = new System.Drawing.Size(100, 20);
+            this.codigoReservaTB.TabIndex = 0;
             // 
             // textoNumeroReserva
             // 
@@ -65,6 +65,7 @@
             this.botonAceptar.TabIndex = 2;
             this.botonAceptar.Text = "Aceptar";
             this.botonAceptar.UseVisualStyleBackColor = true;
+            this.botonAceptar.Click += new System.EventHandler(this.botonAceptar_Click);
             // 
             // textoMotivo
             // 
@@ -94,27 +95,20 @@
             this.textoUsuarioQueCancelo.TabIndex = 5;
             this.textoUsuarioQueCancelo.Text = "Usuario que cancelo:";
             // 
-            // textBox2
+            // motivoReservaTB
             // 
-            this.textBox2.Location = new System.Drawing.Point(183, 61);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(305, 86);
-            this.textBox2.TabIndex = 6;
+            this.motivoReservaTB.Location = new System.Drawing.Point(183, 61);
+            this.motivoReservaTB.Multiline = true;
+            this.motivoReservaTB.Name = "motivoReservaTB";
+            this.motivoReservaTB.Size = new System.Drawing.Size(305, 86);
+            this.motivoReservaTB.TabIndex = 6;
             // 
-            // textBox3
+            // usuarioCanceladorTB
             // 
-            this.textBox3.Location = new System.Drawing.Point(183, 156);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 7;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(183, 188);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(227, 20);
-            this.textBox4.TabIndex = 8;
+            this.usuarioCanceladorTB.Location = new System.Drawing.Point(183, 188);
+            this.usuarioCanceladorTB.Name = "usuarioCanceladorTB";
+            this.usuarioCanceladorTB.Size = new System.Drawing.Size(227, 20);
+            this.usuarioCanceladorTB.TabIndex = 8;
             // 
             // botonSalir
             // 
@@ -125,22 +119,30 @@
             this.botonSalir.Text = "Salir";
             this.botonSalir.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // fechaCancelacionPicker
+            // 
+            this.fechaCancelacionPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fechaCancelacionPicker.Location = new System.Drawing.Point(183, 156);
+            this.fechaCancelacionPicker.Name = "fechaCancelacionPicker";
+            this.fechaCancelacionPicker.Size = new System.Drawing.Size(200, 20);
+            this.fechaCancelacionPicker.TabIndex = 10;
+            // 
+            // CancelarReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(507, 275);
+            this.Controls.Add(this.fechaCancelacionPicker);
             this.Controls.Add(this.botonSalir);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.usuarioCanceladorTB);
+            this.Controls.Add(this.motivoReservaTB);
             this.Controls.Add(this.textoUsuarioQueCancelo);
             this.Controls.Add(this.fechaCancelacion);
             this.Controls.Add(this.textoMotivo);
             this.Controls.Add(this.botonAceptar);
             this.Controls.Add(this.textoNumeroReserva);
-            this.Controls.Add(this.textBox1);
-            this.Name = "Form1";
+            this.Controls.Add(this.codigoReservaTB);
+            this.Name = "CancelarReserva";
             this.Text = "Cancelar reserva";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -149,15 +151,15 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox codigoReservaTB;
         private System.Windows.Forms.Label textoNumeroReserva;
         private System.Windows.Forms.Button botonAceptar;
         private System.Windows.Forms.Label textoMotivo;
         private System.Windows.Forms.Label fechaCancelacion;
         private System.Windows.Forms.Label textoUsuarioQueCancelo;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox motivoReservaTB;
+        private System.Windows.Forms.TextBox usuarioCanceladorTB;
         private System.Windows.Forms.Button botonSalir;
+        private System.Windows.Forms.DateTimePicker fechaCancelacionPicker;
     }
 }
