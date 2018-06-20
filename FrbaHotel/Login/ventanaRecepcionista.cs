@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FrbaHotel.ListadoEstadistico
+namespace FrbaHotel.Login
 {
-    public partial class Form1 : Form
+    public partial class ventanaRecepcionista : Form
     {
-        public Form1()
+        public ventanaRecepcionista()
         {
             InitializeComponent();
         }

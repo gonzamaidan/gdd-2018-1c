@@ -24,8 +24,6 @@ namespace FrbaHotel {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class GD1C2018DataSet : global::System.Data.DataSet {
         
-        private MaestraDataTable tableMaestra;
-        
         private BAJA_HOTELESDataTable tableBAJA_HOTELES;
         
         private CLIENTESDataTable tableCLIENTES;
@@ -72,53 +70,53 @@ namespace FrbaHotel {
         
         private USUARIOSDataTable tableUSUARIOS;
         
-        private global::System.Data.DataRelation relationFK__BAJA_HOTE__ID_HO__5535A963;
+        private global::System.Data.DataRelation relationFK__BAJA_HOTE__ID_HO__4CAB505A;
         
-        private global::System.Data.DataRelation relationFK__CLIENTES__TIPO_I__5165187F;
+        private global::System.Data.DataRelation relationFK__CLIENTES__TIPO_I__48DABF76;
         
-        private global::System.Data.DataRelation relationFK__CLIENTES___CODIG__5812160E;
+        private global::System.Data.DataRelation relationFK__CLIENTES___CODIG__4F87BD05;
         
-        private global::System.Data.DataRelation relationFK__CLIENTES___CODIG__59063A47;
+        private global::System.Data.DataRelation relationFK__CLIENTES___CODIG__507BE13E;
         
-        private global::System.Data.DataRelation relationFK__ESTADIAS__CODIGO__3A81B327;
+        private global::System.Data.DataRelation relationFK__ESTADIAS__CODIGO__31F75A1E;
         
-        private global::System.Data.DataRelation relationFK__FACTURA__CODIGO___45F365D3;
+        private global::System.Data.DataRelation relationFK__FACTURA__CODIGO___3D690CCA;
         
-        private global::System.Data.DataRelation relationFK__FUNCIONAL__ID_FU__29572725;
+        private global::System.Data.DataRelation relationFK__FUNCIONAL__ID_FU__20CCCE1C;
         
-        private global::System.Data.DataRelation relationFK__FUNCIONAL__ID_RO__286302EC;
+        private global::System.Data.DataRelation relationFK__FUNCIONAL__ID_RO__1FD8A9E3;
         
-        private global::System.Data.DataRelation relationFK__HABITACIO__CODIG__1ED998B2;
+        private global::System.Data.DataRelation relationFK__HABITACIO__CODIG__164F3FA9;
         
-        private global::System.Data.DataRelation relationFK__HABITACIO__ID_HO__1DE57479;
+        private global::System.Data.DataRelation relationFK__HABITACIO__ID_HO__155B1B70;
         
-        private global::System.Data.DataRelation relationFK__HABITACIO__CODIG__3D5E1FD2;
+        private global::System.Data.DataRelation relationFK__HABITACIO__CODIG__34D3C6C9;
         
-        private global::System.Data.DataRelation relationFK__HABITACIONES_POR__3E52440B;
+        private global::System.Data.DataRelation relationFK__HABITACIONES_POR__35C7EB02;
         
-        private global::System.Data.DataRelation relationFK__HOTELES_P__ID_HO__30F848ED;
+        private global::System.Data.DataRelation relationFK__HOTELES_P__ID_HO__286DEFE4;
         
-        private global::System.Data.DataRelation relationFK__HOTELES_P__USUAR__300424B4;
+        private global::System.Data.DataRelation relationFK__HOTELES_P__USUAR__2779CBAB;
         
-        private global::System.Data.DataRelation relationFK__ITEM_FACT__CODIG__4CA06362;
+        private global::System.Data.DataRelation relationFK__ITEM_FACT__CODIG__44160A59;
         
-        private global::System.Data.DataRelation relationFK__ITEM_FACT__NUMER__4BAC3F29;
+        private global::System.Data.DataRelation relationFK__ITEM_FACT__NUMER__4321E620;
         
-        private global::System.Data.DataRelation relationFK__REGIMENES__CODIG__1920BF5C;
+        private global::System.Data.DataRelation relationFK__REGIMENES__CODIG__10966653;
         
-        private global::System.Data.DataRelation relationFK__REGIMENES__ID_HO__182C9B23;
+        private global::System.Data.DataRelation relationFK__REGIMENES__ID_HO__0FA2421A;
         
-        private global::System.Data.DataRelation relationFK__REGISTRO___CODIG__412EB0B6;
+        private global::System.Data.DataRelation relationFK__REGISTRO___CODIG__38A457AD;
         
-        private global::System.Data.DataRelation relationFK__REGISTRO___USUAR__4222D4EF;
+        private global::System.Data.DataRelation relationFK__REGISTRO___USUAR__39987BE6;
         
-        private global::System.Data.DataRelation relationFK__RESERVAS__CODIGO__37A5467C;
+        private global::System.Data.DataRelation relationFK__RESERVAS__CODIGO__2F1AED73;
         
-        private global::System.Data.DataRelation relationFK__RESERVAS__ID_EST__36B12243;
+        private global::System.Data.DataRelation relationFK__RESERVAS__ID_EST__2E26C93A;
         
-        private global::System.Data.DataRelation relationFK__ROLES_POR__ID_RO__2D27B809;
+        private global::System.Data.DataRelation relationFK__ROLES_POR__ID_RO__249D5F00;
         
-        private global::System.Data.DataRelation relationFK__ROLES_POR__USUAR__2C3393D0;
+        private global::System.Data.DataRelation relationFK__ROLES_POR__USUAR__23A93AC7;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -148,9 +146,6 @@ namespace FrbaHotel {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Maestra"] != null)) {
-                    base.Tables.Add(new MaestraDataTable(ds.Tables["Maestra"]));
-                }
                 if ((ds.Tables["BAJA_HOTELES"] != null)) {
                     base.Tables.Add(new BAJA_HOTELESDataTable(ds.Tables["BAJA_HOTELES"]));
                 }
@@ -236,16 +231,6 @@ namespace FrbaHotel {
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
             base.Tables.CollectionChanged += schemaChangedHandler;
             this.Relations.CollectionChanged += schemaChangedHandler;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public MaestraDataTable Maestra {
-            get {
-                return this.tableMaestra;
-            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -545,9 +530,6 @@ namespace FrbaHotel {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Maestra"] != null)) {
-                    base.Tables.Add(new MaestraDataTable(ds.Tables["Maestra"]));
-                }
                 if ((ds.Tables["BAJA_HOTELES"] != null)) {
                     base.Tables.Add(new BAJA_HOTELESDataTable(ds.Tables["BAJA_HOTELES"]));
                 }
@@ -650,12 +632,6 @@ namespace FrbaHotel {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableMaestra = ((MaestraDataTable)(base.Tables["Maestra"]));
-            if ((initTable == true)) {
-                if ((this.tableMaestra != null)) {
-                    this.tableMaestra.InitVars();
-                }
-            }
             this.tableBAJA_HOTELES = ((BAJA_HOTELESDataTable)(base.Tables["BAJA_HOTELES"]));
             if ((initTable == true)) {
                 if ((this.tableBAJA_HOTELES != null)) {
@@ -794,30 +770,30 @@ namespace FrbaHotel {
                     this.tableUSUARIOS.InitVars();
                 }
             }
-            this.relationFK__BAJA_HOTE__ID_HO__5535A963 = this.Relations["FK__BAJA_HOTE__ID_HO__5535A963"];
-            this.relationFK__CLIENTES__TIPO_I__5165187F = this.Relations["FK__CLIENTES__TIPO_I__5165187F"];
-            this.relationFK__CLIENTES___CODIG__5812160E = this.Relations["FK__CLIENTES___CODIG__5812160E"];
-            this.relationFK__CLIENTES___CODIG__59063A47 = this.Relations["FK__CLIENTES___CODIG__59063A47"];
-            this.relationFK__ESTADIAS__CODIGO__3A81B327 = this.Relations["FK__ESTADIAS__CODIGO__3A81B327"];
-            this.relationFK__FACTURA__CODIGO___45F365D3 = this.Relations["FK__FACTURA__CODIGO___45F365D3"];
-            this.relationFK__FUNCIONAL__ID_FU__29572725 = this.Relations["FK__FUNCIONAL__ID_FU__29572725"];
-            this.relationFK__FUNCIONAL__ID_RO__286302EC = this.Relations["FK__FUNCIONAL__ID_RO__286302EC"];
-            this.relationFK__HABITACIO__CODIG__1ED998B2 = this.Relations["FK__HABITACIO__CODIG__1ED998B2"];
-            this.relationFK__HABITACIO__ID_HO__1DE57479 = this.Relations["FK__HABITACIO__ID_HO__1DE57479"];
-            this.relationFK__HABITACIO__CODIG__3D5E1FD2 = this.Relations["FK__HABITACIO__CODIG__3D5E1FD2"];
-            this.relationFK__HABITACIONES_POR__3E52440B = this.Relations["FK__HABITACIONES_POR__3E52440B"];
-            this.relationFK__HOTELES_P__ID_HO__30F848ED = this.Relations["FK__HOTELES_P__ID_HO__30F848ED"];
-            this.relationFK__HOTELES_P__USUAR__300424B4 = this.Relations["FK__HOTELES_P__USUAR__300424B4"];
-            this.relationFK__ITEM_FACT__CODIG__4CA06362 = this.Relations["FK__ITEM_FACT__CODIG__4CA06362"];
-            this.relationFK__ITEM_FACT__NUMER__4BAC3F29 = this.Relations["FK__ITEM_FACT__NUMER__4BAC3F29"];
-            this.relationFK__REGIMENES__CODIG__1920BF5C = this.Relations["FK__REGIMENES__CODIG__1920BF5C"];
-            this.relationFK__REGIMENES__ID_HO__182C9B23 = this.Relations["FK__REGIMENES__ID_HO__182C9B23"];
-            this.relationFK__REGISTRO___CODIG__412EB0B6 = this.Relations["FK__REGISTRO___CODIG__412EB0B6"];
-            this.relationFK__REGISTRO___USUAR__4222D4EF = this.Relations["FK__REGISTRO___USUAR__4222D4EF"];
-            this.relationFK__RESERVAS__CODIGO__37A5467C = this.Relations["FK__RESERVAS__CODIGO__37A5467C"];
-            this.relationFK__RESERVAS__ID_EST__36B12243 = this.Relations["FK__RESERVAS__ID_EST__36B12243"];
-            this.relationFK__ROLES_POR__ID_RO__2D27B809 = this.Relations["FK__ROLES_POR__ID_RO__2D27B809"];
-            this.relationFK__ROLES_POR__USUAR__2C3393D0 = this.Relations["FK__ROLES_POR__USUAR__2C3393D0"];
+            this.relationFK__BAJA_HOTE__ID_HO__4CAB505A = this.Relations["FK__BAJA_HOTE__ID_HO__4CAB505A"];
+            this.relationFK__CLIENTES__TIPO_I__48DABF76 = this.Relations["FK__CLIENTES__TIPO_I__48DABF76"];
+            this.relationFK__CLIENTES___CODIG__4F87BD05 = this.Relations["FK__CLIENTES___CODIG__4F87BD05"];
+            this.relationFK__CLIENTES___CODIG__507BE13E = this.Relations["FK__CLIENTES___CODIG__507BE13E"];
+            this.relationFK__ESTADIAS__CODIGO__31F75A1E = this.Relations["FK__ESTADIAS__CODIGO__31F75A1E"];
+            this.relationFK__FACTURA__CODIGO___3D690CCA = this.Relations["FK__FACTURA__CODIGO___3D690CCA"];
+            this.relationFK__FUNCIONAL__ID_FU__20CCCE1C = this.Relations["FK__FUNCIONAL__ID_FU__20CCCE1C"];
+            this.relationFK__FUNCIONAL__ID_RO__1FD8A9E3 = this.Relations["FK__FUNCIONAL__ID_RO__1FD8A9E3"];
+            this.relationFK__HABITACIO__CODIG__164F3FA9 = this.Relations["FK__HABITACIO__CODIG__164F3FA9"];
+            this.relationFK__HABITACIO__ID_HO__155B1B70 = this.Relations["FK__HABITACIO__ID_HO__155B1B70"];
+            this.relationFK__HABITACIO__CODIG__34D3C6C9 = this.Relations["FK__HABITACIO__CODIG__34D3C6C9"];
+            this.relationFK__HABITACIONES_POR__35C7EB02 = this.Relations["FK__HABITACIONES_POR__35C7EB02"];
+            this.relationFK__HOTELES_P__ID_HO__286DEFE4 = this.Relations["FK__HOTELES_P__ID_HO__286DEFE4"];
+            this.relationFK__HOTELES_P__USUAR__2779CBAB = this.Relations["FK__HOTELES_P__USUAR__2779CBAB"];
+            this.relationFK__ITEM_FACT__CODIG__44160A59 = this.Relations["FK__ITEM_FACT__CODIG__44160A59"];
+            this.relationFK__ITEM_FACT__NUMER__4321E620 = this.Relations["FK__ITEM_FACT__NUMER__4321E620"];
+            this.relationFK__REGIMENES__CODIG__10966653 = this.Relations["FK__REGIMENES__CODIG__10966653"];
+            this.relationFK__REGIMENES__ID_HO__0FA2421A = this.Relations["FK__REGIMENES__ID_HO__0FA2421A"];
+            this.relationFK__REGISTRO___CODIG__38A457AD = this.Relations["FK__REGISTRO___CODIG__38A457AD"];
+            this.relationFK__REGISTRO___USUAR__39987BE6 = this.Relations["FK__REGISTRO___USUAR__39987BE6"];
+            this.relationFK__RESERVAS__CODIGO__2F1AED73 = this.Relations["FK__RESERVAS__CODIGO__2F1AED73"];
+            this.relationFK__RESERVAS__ID_EST__2E26C93A = this.Relations["FK__RESERVAS__ID_EST__2E26C93A"];
+            this.relationFK__ROLES_POR__ID_RO__249D5F00 = this.Relations["FK__ROLES_POR__ID_RO__249D5F00"];
+            this.relationFK__ROLES_POR__USUAR__23A93AC7 = this.Relations["FK__ROLES_POR__USUAR__23A93AC7"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -828,8 +804,6 @@ namespace FrbaHotel {
             this.Namespace = "http://tempuri.org/GD1C2018DataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableMaestra = new MaestraDataTable();
-            base.Tables.Add(this.tableMaestra);
             this.tableBAJA_HOTELES = new BAJA_HOTELESDataTable();
             base.Tables.Add(this.tableBAJA_HOTELES);
             this.tableCLIENTES = new CLIENTESDataTable();
@@ -876,110 +850,104 @@ namespace FrbaHotel {
             base.Tables.Add(this.tableTIPOS_IDENTIFICACION);
             this.tableUSUARIOS = new USUARIOSDataTable();
             base.Tables.Add(this.tableUSUARIOS);
-            this.relationFK__BAJA_HOTE__ID_HO__5535A963 = new global::System.Data.DataRelation("FK__BAJA_HOTE__ID_HO__5535A963", new global::System.Data.DataColumn[] {
+            this.relationFK__BAJA_HOTE__ID_HO__4CAB505A = new global::System.Data.DataRelation("FK__BAJA_HOTE__ID_HO__4CAB505A", new global::System.Data.DataColumn[] {
                         this.tableHOTELES.ID_HOTELColumn}, new global::System.Data.DataColumn[] {
                         this.tableBAJA_HOTELES.ID_HOTELColumn}, false);
-            this.Relations.Add(this.relationFK__BAJA_HOTE__ID_HO__5535A963);
-            this.relationFK__CLIENTES__TIPO_I__5165187F = new global::System.Data.DataRelation("FK__CLIENTES__TIPO_I__5165187F", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__BAJA_HOTE__ID_HO__4CAB505A);
+            this.relationFK__CLIENTES__TIPO_I__48DABF76 = new global::System.Data.DataRelation("FK__CLIENTES__TIPO_I__48DABF76", new global::System.Data.DataColumn[] {
                         this.tableTIPOS_IDENTIFICACION.TIPO_IDENTIFICACIONColumn}, new global::System.Data.DataColumn[] {
                         this.tableCLIENTES.TIPO_IDENTIFICACIONColumn}, false);
-            this.Relations.Add(this.relationFK__CLIENTES__TIPO_I__5165187F);
-            this.relationFK__CLIENTES___CODIG__5812160E = new global::System.Data.DataRelation("FK__CLIENTES___CODIG__5812160E", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__CLIENTES__TIPO_I__48DABF76);
+            this.relationFK__CLIENTES___CODIG__4F87BD05 = new global::System.Data.DataRelation("FK__CLIENTES___CODIG__4F87BD05", new global::System.Data.DataColumn[] {
                         this.tableCLIENTES.CODIGO_CLIENTEColumn}, new global::System.Data.DataColumn[] {
                         this.tableCLIENTES_POR_RESERVA.CODIGO_CLIENTEColumn}, false);
-            this.Relations.Add(this.relationFK__CLIENTES___CODIG__5812160E);
-            this.relationFK__CLIENTES___CODIG__59063A47 = new global::System.Data.DataRelation("FK__CLIENTES___CODIG__59063A47", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__CLIENTES___CODIG__4F87BD05);
+            this.relationFK__CLIENTES___CODIG__507BE13E = new global::System.Data.DataRelation("FK__CLIENTES___CODIG__507BE13E", new global::System.Data.DataColumn[] {
                         this.tableRESERVAS.CODIGO_RESERVAColumn}, new global::System.Data.DataColumn[] {
                         this.tableCLIENTES_POR_RESERVA.CODIGO_RESERVAColumn}, false);
-            this.Relations.Add(this.relationFK__CLIENTES___CODIG__59063A47);
-            this.relationFK__ESTADIAS__CODIGO__3A81B327 = new global::System.Data.DataRelation("FK__ESTADIAS__CODIGO__3A81B327", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__CLIENTES___CODIG__507BE13E);
+            this.relationFK__ESTADIAS__CODIGO__31F75A1E = new global::System.Data.DataRelation("FK__ESTADIAS__CODIGO__31F75A1E", new global::System.Data.DataColumn[] {
                         this.tableRESERVAS.CODIGO_RESERVAColumn}, new global::System.Data.DataColumn[] {
                         this.tableESTADIAS.CODIGO_RESERVAColumn}, false);
-            this.Relations.Add(this.relationFK__ESTADIAS__CODIGO__3A81B327);
-            this.relationFK__FACTURA__CODIGO___45F365D3 = new global::System.Data.DataRelation("FK__FACTURA__CODIGO___45F365D3", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__ESTADIAS__CODIGO__31F75A1E);
+            this.relationFK__FACTURA__CODIGO___3D690CCA = new global::System.Data.DataRelation("FK__FACTURA__CODIGO___3D690CCA", new global::System.Data.DataColumn[] {
                         this.tableESTADIAS.CODIGO_RESERVAColumn}, new global::System.Data.DataColumn[] {
                         this.tableFACTURA.CODIGO_RESERVAColumn}, false);
-            this.Relations.Add(this.relationFK__FACTURA__CODIGO___45F365D3);
-            this.relationFK__FUNCIONAL__ID_FU__29572725 = new global::System.Data.DataRelation("FK__FUNCIONAL__ID_FU__29572725", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__FACTURA__CODIGO___3D690CCA);
+            this.relationFK__FUNCIONAL__ID_FU__20CCCE1C = new global::System.Data.DataRelation("FK__FUNCIONAL__ID_FU__20CCCE1C", new global::System.Data.DataColumn[] {
                         this.tableFUNCIONALIDADES.ID_FUNCIONALIDADColumn}, new global::System.Data.DataColumn[] {
                         this.tableFUNCIONALIDADES_POR_ROL.ID_FUNCIONALIDADColumn}, false);
-            this.Relations.Add(this.relationFK__FUNCIONAL__ID_FU__29572725);
-            this.relationFK__FUNCIONAL__ID_RO__286302EC = new global::System.Data.DataRelation("FK__FUNCIONAL__ID_RO__286302EC", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__FUNCIONAL__ID_FU__20CCCE1C);
+            this.relationFK__FUNCIONAL__ID_RO__1FD8A9E3 = new global::System.Data.DataRelation("FK__FUNCIONAL__ID_RO__1FD8A9E3", new global::System.Data.DataColumn[] {
                         this.tableROLES.ID_ROLColumn}, new global::System.Data.DataColumn[] {
                         this.tableFUNCIONALIDADES_POR_ROL.ID_ROLColumn}, false);
-            this.Relations.Add(this.relationFK__FUNCIONAL__ID_RO__286302EC);
-            this.relationFK__HABITACIO__CODIG__1ED998B2 = new global::System.Data.DataRelation("FK__HABITACIO__CODIG__1ED998B2", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__FUNCIONAL__ID_RO__1FD8A9E3);
+            this.relationFK__HABITACIO__CODIG__164F3FA9 = new global::System.Data.DataRelation("FK__HABITACIO__CODIG__164F3FA9", new global::System.Data.DataColumn[] {
                         this.tableTIPOS_HABITACION.CODIGO_TIPO_HABITACIONColumn}, new global::System.Data.DataColumn[] {
                         this.tableHABITACIONES.CODIGO_TIPO_HABITACIONColumn}, false);
-            this.Relations.Add(this.relationFK__HABITACIO__CODIG__1ED998B2);
-            this.relationFK__HABITACIO__ID_HO__1DE57479 = new global::System.Data.DataRelation("FK__HABITACIO__ID_HO__1DE57479", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__HABITACIO__CODIG__164F3FA9);
+            this.relationFK__HABITACIO__ID_HO__155B1B70 = new global::System.Data.DataRelation("FK__HABITACIO__ID_HO__155B1B70", new global::System.Data.DataColumn[] {
                         this.tableHOTELES.ID_HOTELColumn}, new global::System.Data.DataColumn[] {
                         this.tableHABITACIONES.ID_HOTELColumn}, false);
-            this.Relations.Add(this.relationFK__HABITACIO__ID_HO__1DE57479);
-            this.relationFK__HABITACIO__CODIG__3D5E1FD2 = new global::System.Data.DataRelation("FK__HABITACIO__CODIG__3D5E1FD2", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__HABITACIO__ID_HO__155B1B70);
+            this.relationFK__HABITACIO__CODIG__34D3C6C9 = new global::System.Data.DataRelation("FK__HABITACIO__CODIG__34D3C6C9", new global::System.Data.DataColumn[] {
                         this.tableRESERVAS.CODIGO_RESERVAColumn}, new global::System.Data.DataColumn[] {
                         this.tableHABITACIONES_POR_RESERVA.CODIGO_RESERVAColumn}, false);
-            this.Relations.Add(this.relationFK__HABITACIO__CODIG__3D5E1FD2);
-            this.relationFK__HABITACIONES_POR__3E52440B = new global::System.Data.DataRelation("FK__HABITACIONES_POR__3E52440B", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__HABITACIO__CODIG__34D3C6C9);
+            this.relationFK__HABITACIONES_POR__35C7EB02 = new global::System.Data.DataRelation("FK__HABITACIONES_POR__35C7EB02", new global::System.Data.DataColumn[] {
                         this.tableHABITACIONES.ID_HOTELColumn,
                         this.tableHABITACIONES.NUMERO_HABITACIONColumn}, new global::System.Data.DataColumn[] {
                         this.tableHABITACIONES_POR_RESERVA.ID_HOTELColumn,
                         this.tableHABITACIONES_POR_RESERVA.NUMERO_HABITACIONColumn}, false);
-            this.Relations.Add(this.relationFK__HABITACIONES_POR__3E52440B);
-            this.relationFK__HOTELES_P__ID_HO__30F848ED = new global::System.Data.DataRelation("FK__HOTELES_P__ID_HO__30F848ED", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__HABITACIONES_POR__35C7EB02);
+            this.relationFK__HOTELES_P__ID_HO__286DEFE4 = new global::System.Data.DataRelation("FK__HOTELES_P__ID_HO__286DEFE4", new global::System.Data.DataColumn[] {
                         this.tableHOTELES.ID_HOTELColumn}, new global::System.Data.DataColumn[] {
                         this.tableHOTELES_POR_USUARIO.ID_HOTELColumn}, false);
-            this.Relations.Add(this.relationFK__HOTELES_P__ID_HO__30F848ED);
-            this.relationFK__HOTELES_P__USUAR__300424B4 = new global::System.Data.DataRelation("FK__HOTELES_P__USUAR__300424B4", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__HOTELES_P__ID_HO__286DEFE4);
+            this.relationFK__HOTELES_P__USUAR__2779CBAB = new global::System.Data.DataRelation("FK__HOTELES_P__USUAR__2779CBAB", new global::System.Data.DataColumn[] {
                         this.tableUSUARIOS.USUARIOColumn}, new global::System.Data.DataColumn[] {
                         this.tableHOTELES_POR_USUARIO.USUARIOColumn}, false);
-            this.Relations.Add(this.relationFK__HOTELES_P__USUAR__300424B4);
-            this.relationFK__ITEM_FACT__CODIG__4CA06362 = new global::System.Data.DataRelation("FK__ITEM_FACT__CODIG__4CA06362", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__HOTELES_P__USUAR__2779CBAB);
+            this.relationFK__ITEM_FACT__CODIG__44160A59 = new global::System.Data.DataRelation("FK__ITEM_FACT__CODIG__44160A59", new global::System.Data.DataColumn[] {
                         this.tableCONSUMIBLES.CODIGO_CONSUMIBLEColumn}, new global::System.Data.DataColumn[] {
                         this.tableITEM_FACTURA.CODIGO_CONSUMIBLEColumn}, false);
-            this.Relations.Add(this.relationFK__ITEM_FACT__CODIG__4CA06362);
-            this.relationFK__ITEM_FACT__NUMER__4BAC3F29 = new global::System.Data.DataRelation("FK__ITEM_FACT__NUMER__4BAC3F29", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__ITEM_FACT__CODIG__44160A59);
+            this.relationFK__ITEM_FACT__NUMER__4321E620 = new global::System.Data.DataRelation("FK__ITEM_FACT__NUMER__4321E620", new global::System.Data.DataColumn[] {
                         this.tableFACTURA.NUMERO_FACTURAColumn}, new global::System.Data.DataColumn[] {
                         this.tableITEM_FACTURA.NUMERO_FACTURAColumn}, false);
-            this.Relations.Add(this.relationFK__ITEM_FACT__NUMER__4BAC3F29);
-            this.relationFK__REGIMENES__CODIG__1920BF5C = new global::System.Data.DataRelation("FK__REGIMENES__CODIG__1920BF5C", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__ITEM_FACT__NUMER__4321E620);
+            this.relationFK__REGIMENES__CODIG__10966653 = new global::System.Data.DataRelation("FK__REGIMENES__CODIG__10966653", new global::System.Data.DataColumn[] {
                         this.tableREGIMENES.CODIGO_REGIMENColumn}, new global::System.Data.DataColumn[] {
                         this.tableREGIMENES_POR_HOTEL.CODIGO_REGIMENColumn}, false);
-            this.Relations.Add(this.relationFK__REGIMENES__CODIG__1920BF5C);
-            this.relationFK__REGIMENES__ID_HO__182C9B23 = new global::System.Data.DataRelation("FK__REGIMENES__ID_HO__182C9B23", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__REGIMENES__CODIG__10966653);
+            this.relationFK__REGIMENES__ID_HO__0FA2421A = new global::System.Data.DataRelation("FK__REGIMENES__ID_HO__0FA2421A", new global::System.Data.DataColumn[] {
                         this.tableHOTELES.ID_HOTELColumn}, new global::System.Data.DataColumn[] {
                         this.tableREGIMENES_POR_HOTEL.ID_HOTELColumn}, false);
-            this.Relations.Add(this.relationFK__REGIMENES__ID_HO__182C9B23);
-            this.relationFK__REGISTRO___CODIG__412EB0B6 = new global::System.Data.DataRelation("FK__REGISTRO___CODIG__412EB0B6", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__REGIMENES__ID_HO__0FA2421A);
+            this.relationFK__REGISTRO___CODIG__38A457AD = new global::System.Data.DataRelation("FK__REGISTRO___CODIG__38A457AD", new global::System.Data.DataColumn[] {
                         this.tableRESERVAS.CODIGO_RESERVAColumn}, new global::System.Data.DataColumn[] {
                         this.tableREGISTRO_RESERVAS.CODIGO_RESERVAColumn}, false);
-            this.Relations.Add(this.relationFK__REGISTRO___CODIG__412EB0B6);
-            this.relationFK__REGISTRO___USUAR__4222D4EF = new global::System.Data.DataRelation("FK__REGISTRO___USUAR__4222D4EF", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__REGISTRO___CODIG__38A457AD);
+            this.relationFK__REGISTRO___USUAR__39987BE6 = new global::System.Data.DataRelation("FK__REGISTRO___USUAR__39987BE6", new global::System.Data.DataColumn[] {
                         this.tableUSUARIOS.USUARIOColumn}, new global::System.Data.DataColumn[] {
                         this.tableREGISTRO_RESERVAS.USUARIOColumn}, false);
-            this.Relations.Add(this.relationFK__REGISTRO___USUAR__4222D4EF);
-            this.relationFK__RESERVAS__CODIGO__37A5467C = new global::System.Data.DataRelation("FK__RESERVAS__CODIGO__37A5467C", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__REGISTRO___USUAR__39987BE6);
+            this.relationFK__RESERVAS__CODIGO__2F1AED73 = new global::System.Data.DataRelation("FK__RESERVAS__CODIGO__2F1AED73", new global::System.Data.DataColumn[] {
                         this.tableREGIMENES.CODIGO_REGIMENColumn}, new global::System.Data.DataColumn[] {
                         this.tableRESERVAS.CODIGO_REGIMENColumn}, false);
-            this.Relations.Add(this.relationFK__RESERVAS__CODIGO__37A5467C);
-            this.relationFK__RESERVAS__ID_EST__36B12243 = new global::System.Data.DataRelation("FK__RESERVAS__ID_EST__36B12243", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__RESERVAS__CODIGO__2F1AED73);
+            this.relationFK__RESERVAS__ID_EST__2E26C93A = new global::System.Data.DataRelation("FK__RESERVAS__ID_EST__2E26C93A", new global::System.Data.DataColumn[] {
                         this.tableESTADOS_RESERVA.ID_ESTADO_RESERVAColumn}, new global::System.Data.DataColumn[] {
                         this.tableRESERVAS.ID_ESTADO_RESERVAColumn}, false);
-            this.Relations.Add(this.relationFK__RESERVAS__ID_EST__36B12243);
-            this.relationFK__ROLES_POR__ID_RO__2D27B809 = new global::System.Data.DataRelation("FK__ROLES_POR__ID_RO__2D27B809", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__RESERVAS__ID_EST__2E26C93A);
+            this.relationFK__ROLES_POR__ID_RO__249D5F00 = new global::System.Data.DataRelation("FK__ROLES_POR__ID_RO__249D5F00", new global::System.Data.DataColumn[] {
                         this.tableROLES.ID_ROLColumn}, new global::System.Data.DataColumn[] {
                         this.tableROLES_POR_USUARIO.ID_ROLColumn}, false);
-            this.Relations.Add(this.relationFK__ROLES_POR__ID_RO__2D27B809);
-            this.relationFK__ROLES_POR__USUAR__2C3393D0 = new global::System.Data.DataRelation("FK__ROLES_POR__USUAR__2C3393D0", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__ROLES_POR__ID_RO__249D5F00);
+            this.relationFK__ROLES_POR__USUAR__23A93AC7 = new global::System.Data.DataRelation("FK__ROLES_POR__USUAR__23A93AC7", new global::System.Data.DataColumn[] {
                         this.tableUSUARIOS.USUARIOColumn}, new global::System.Data.DataColumn[] {
                         this.tableROLES_POR_USUARIO.USUARIOColumn}, false);
-            this.Relations.Add(this.relationFK__ROLES_POR__USUAR__2C3393D0);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeMaestra() {
-            return false;
+            this.Relations.Add(this.relationFK__ROLES_POR__USUAR__23A93AC7);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1176,9 +1144,6 @@ namespace FrbaHotel {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void MaestraRowChangeEventHandler(object sender, MaestraRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void BAJA_HOTELESRowChangeEventHandler(object sender, BAJA_HOTELESRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1246,791 +1211,6 @@ namespace FrbaHotel {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void USUARIOSRowChangeEventHandler(object sender, USUARIOSRowChangeEvent e);
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class MaestraDataTable : global::System.Data.TypedTableBase<MaestraRow> {
-            
-            private global::System.Data.DataColumn columnHotel_Ciudad;
-            
-            private global::System.Data.DataColumn columnHotel_Calle;
-            
-            private global::System.Data.DataColumn columnHotel_Nro_Calle;
-            
-            private global::System.Data.DataColumn columnHotel_CantEstrella;
-            
-            private global::System.Data.DataColumn columnHotel_Recarga_Estrella;
-            
-            private global::System.Data.DataColumn columnHabitacion_Numero;
-            
-            private global::System.Data.DataColumn columnHabitacion_Piso;
-            
-            private global::System.Data.DataColumn columnHabitacion_Frente;
-            
-            private global::System.Data.DataColumn columnHabitacion_Tipo_Codigo;
-            
-            private global::System.Data.DataColumn columnHabitacion_Tipo_Descripcion;
-            
-            private global::System.Data.DataColumn columnHabitacion_Tipo_Porcentual;
-            
-            private global::System.Data.DataColumn columnRegimen_Descripcion;
-            
-            private global::System.Data.DataColumn columnRegimen_Precio;
-            
-            private global::System.Data.DataColumn columnReserva_Fecha_Inicio;
-            
-            private global::System.Data.DataColumn columnReserva_Codigo;
-            
-            private global::System.Data.DataColumn columnReserva_Cant_Noches;
-            
-            private global::System.Data.DataColumn columnEstadia_Fecha_Inicio;
-            
-            private global::System.Data.DataColumn columnEstadia_Cant_Noches;
-            
-            private global::System.Data.DataColumn columnConsumible_Codigo;
-            
-            private global::System.Data.DataColumn columnConsumible_Descripcion;
-            
-            private global::System.Data.DataColumn columnConsumible_Precio;
-            
-            private global::System.Data.DataColumn columnItem_Factura_Cantidad;
-            
-            private global::System.Data.DataColumn columnItem_Factura_Monto;
-            
-            private global::System.Data.DataColumn columnFactura_Nro;
-            
-            private global::System.Data.DataColumn columnFactura_Fecha;
-            
-            private global::System.Data.DataColumn columnFactura_Total;
-            
-            private global::System.Data.DataColumn columnCliente_Pasaporte_Nro;
-            
-            private global::System.Data.DataColumn columnCliente_Apellido;
-            
-            private global::System.Data.DataColumn columnCliente_Nombre;
-            
-            private global::System.Data.DataColumn columnCliente_Fecha_Nac;
-            
-            private global::System.Data.DataColumn columnCliente_Mail;
-            
-            private global::System.Data.DataColumn columnCliente_Dom_Calle;
-            
-            private global::System.Data.DataColumn columnCliente_Nro_Calle;
-            
-            private global::System.Data.DataColumn columnCliente_Piso;
-            
-            private global::System.Data.DataColumn columnCliente_Depto;
-            
-            private global::System.Data.DataColumn columnCliente_Nacionalidad;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MaestraDataTable() {
-                this.TableName = "Maestra";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal MaestraDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected MaestraDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Hotel_CiudadColumn {
-                get {
-                    return this.columnHotel_Ciudad;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Hotel_CalleColumn {
-                get {
-                    return this.columnHotel_Calle;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Hotel_Nro_CalleColumn {
-                get {
-                    return this.columnHotel_Nro_Calle;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Hotel_CantEstrellaColumn {
-                get {
-                    return this.columnHotel_CantEstrella;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Hotel_Recarga_EstrellaColumn {
-                get {
-                    return this.columnHotel_Recarga_Estrella;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Habitacion_NumeroColumn {
-                get {
-                    return this.columnHabitacion_Numero;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Habitacion_PisoColumn {
-                get {
-                    return this.columnHabitacion_Piso;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Habitacion_FrenteColumn {
-                get {
-                    return this.columnHabitacion_Frente;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Habitacion_Tipo_CodigoColumn {
-                get {
-                    return this.columnHabitacion_Tipo_Codigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Habitacion_Tipo_DescripcionColumn {
-                get {
-                    return this.columnHabitacion_Tipo_Descripcion;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Habitacion_Tipo_PorcentualColumn {
-                get {
-                    return this.columnHabitacion_Tipo_Porcentual;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Regimen_DescripcionColumn {
-                get {
-                    return this.columnRegimen_Descripcion;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Regimen_PrecioColumn {
-                get {
-                    return this.columnRegimen_Precio;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Reserva_Fecha_InicioColumn {
-                get {
-                    return this.columnReserva_Fecha_Inicio;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Reserva_CodigoColumn {
-                get {
-                    return this.columnReserva_Codigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Reserva_Cant_NochesColumn {
-                get {
-                    return this.columnReserva_Cant_Noches;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Estadia_Fecha_InicioColumn {
-                get {
-                    return this.columnEstadia_Fecha_Inicio;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Estadia_Cant_NochesColumn {
-                get {
-                    return this.columnEstadia_Cant_Noches;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Consumible_CodigoColumn {
-                get {
-                    return this.columnConsumible_Codigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Consumible_DescripcionColumn {
-                get {
-                    return this.columnConsumible_Descripcion;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Consumible_PrecioColumn {
-                get {
-                    return this.columnConsumible_Precio;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Item_Factura_CantidadColumn {
-                get {
-                    return this.columnItem_Factura_Cantidad;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Item_Factura_MontoColumn {
-                get {
-                    return this.columnItem_Factura_Monto;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Factura_NroColumn {
-                get {
-                    return this.columnFactura_Nro;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Factura_FechaColumn {
-                get {
-                    return this.columnFactura_Fecha;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Factura_TotalColumn {
-                get {
-                    return this.columnFactura_Total;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Cliente_Pasaporte_NroColumn {
-                get {
-                    return this.columnCliente_Pasaporte_Nro;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Cliente_ApellidoColumn {
-                get {
-                    return this.columnCliente_Apellido;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Cliente_NombreColumn {
-                get {
-                    return this.columnCliente_Nombre;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Cliente_Fecha_NacColumn {
-                get {
-                    return this.columnCliente_Fecha_Nac;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Cliente_MailColumn {
-                get {
-                    return this.columnCliente_Mail;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Cliente_Dom_CalleColumn {
-                get {
-                    return this.columnCliente_Dom_Calle;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Cliente_Nro_CalleColumn {
-                get {
-                    return this.columnCliente_Nro_Calle;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Cliente_PisoColumn {
-                get {
-                    return this.columnCliente_Piso;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Cliente_DeptoColumn {
-                get {
-                    return this.columnCliente_Depto;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Cliente_NacionalidadColumn {
-                get {
-                    return this.columnCliente_Nacionalidad;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MaestraRow this[int index] {
-                get {
-                    return ((MaestraRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event MaestraRowChangeEventHandler MaestraRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event MaestraRowChangeEventHandler MaestraRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event MaestraRowChangeEventHandler MaestraRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event MaestraRowChangeEventHandler MaestraRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddMaestraRow(MaestraRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MaestraRow AddMaestraRow(
-                        string Hotel_Ciudad, 
-                        string Hotel_Calle, 
-                        decimal Hotel_Nro_Calle, 
-                        decimal Hotel_CantEstrella, 
-                        decimal Hotel_Recarga_Estrella, 
-                        decimal Habitacion_Numero, 
-                        decimal Habitacion_Piso, 
-                        string Habitacion_Frente, 
-                        decimal Habitacion_Tipo_Codigo, 
-                        string Habitacion_Tipo_Descripcion, 
-                        decimal Habitacion_Tipo_Porcentual, 
-                        string Regimen_Descripcion, 
-                        decimal Regimen_Precio, 
-                        System.DateTime Reserva_Fecha_Inicio, 
-                        decimal Reserva_Codigo, 
-                        decimal Reserva_Cant_Noches, 
-                        System.DateTime Estadia_Fecha_Inicio, 
-                        decimal Estadia_Cant_Noches, 
-                        decimal Consumible_Codigo, 
-                        string Consumible_Descripcion, 
-                        decimal Consumible_Precio, 
-                        decimal Item_Factura_Cantidad, 
-                        decimal Item_Factura_Monto, 
-                        decimal Factura_Nro, 
-                        System.DateTime Factura_Fecha, 
-                        decimal Factura_Total, 
-                        decimal Cliente_Pasaporte_Nro, 
-                        string Cliente_Apellido, 
-                        string Cliente_Nombre, 
-                        System.DateTime Cliente_Fecha_Nac, 
-                        string Cliente_Mail, 
-                        string Cliente_Dom_Calle, 
-                        decimal Cliente_Nro_Calle, 
-                        decimal Cliente_Piso, 
-                        string Cliente_Depto, 
-                        string Cliente_Nacionalidad) {
-                MaestraRow rowMaestraRow = ((MaestraRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        Hotel_Ciudad,
-                        Hotel_Calle,
-                        Hotel_Nro_Calle,
-                        Hotel_CantEstrella,
-                        Hotel_Recarga_Estrella,
-                        Habitacion_Numero,
-                        Habitacion_Piso,
-                        Habitacion_Frente,
-                        Habitacion_Tipo_Codigo,
-                        Habitacion_Tipo_Descripcion,
-                        Habitacion_Tipo_Porcentual,
-                        Regimen_Descripcion,
-                        Regimen_Precio,
-                        Reserva_Fecha_Inicio,
-                        Reserva_Codigo,
-                        Reserva_Cant_Noches,
-                        Estadia_Fecha_Inicio,
-                        Estadia_Cant_Noches,
-                        Consumible_Codigo,
-                        Consumible_Descripcion,
-                        Consumible_Precio,
-                        Item_Factura_Cantidad,
-                        Item_Factura_Monto,
-                        Factura_Nro,
-                        Factura_Fecha,
-                        Factura_Total,
-                        Cliente_Pasaporte_Nro,
-                        Cliente_Apellido,
-                        Cliente_Nombre,
-                        Cliente_Fecha_Nac,
-                        Cliente_Mail,
-                        Cliente_Dom_Calle,
-                        Cliente_Nro_Calle,
-                        Cliente_Piso,
-                        Cliente_Depto,
-                        Cliente_Nacionalidad};
-                rowMaestraRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowMaestraRow);
-                return rowMaestraRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                MaestraDataTable cln = ((MaestraDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new MaestraDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnHotel_Ciudad = base.Columns["Hotel_Ciudad"];
-                this.columnHotel_Calle = base.Columns["Hotel_Calle"];
-                this.columnHotel_Nro_Calle = base.Columns["Hotel_Nro_Calle"];
-                this.columnHotel_CantEstrella = base.Columns["Hotel_CantEstrella"];
-                this.columnHotel_Recarga_Estrella = base.Columns["Hotel_Recarga_Estrella"];
-                this.columnHabitacion_Numero = base.Columns["Habitacion_Numero"];
-                this.columnHabitacion_Piso = base.Columns["Habitacion_Piso"];
-                this.columnHabitacion_Frente = base.Columns["Habitacion_Frente"];
-                this.columnHabitacion_Tipo_Codigo = base.Columns["Habitacion_Tipo_Codigo"];
-                this.columnHabitacion_Tipo_Descripcion = base.Columns["Habitacion_Tipo_Descripcion"];
-                this.columnHabitacion_Tipo_Porcentual = base.Columns["Habitacion_Tipo_Porcentual"];
-                this.columnRegimen_Descripcion = base.Columns["Regimen_Descripcion"];
-                this.columnRegimen_Precio = base.Columns["Regimen_Precio"];
-                this.columnReserva_Fecha_Inicio = base.Columns["Reserva_Fecha_Inicio"];
-                this.columnReserva_Codigo = base.Columns["Reserva_Codigo"];
-                this.columnReserva_Cant_Noches = base.Columns["Reserva_Cant_Noches"];
-                this.columnEstadia_Fecha_Inicio = base.Columns["Estadia_Fecha_Inicio"];
-                this.columnEstadia_Cant_Noches = base.Columns["Estadia_Cant_Noches"];
-                this.columnConsumible_Codigo = base.Columns["Consumible_Codigo"];
-                this.columnConsumible_Descripcion = base.Columns["Consumible_Descripcion"];
-                this.columnConsumible_Precio = base.Columns["Consumible_Precio"];
-                this.columnItem_Factura_Cantidad = base.Columns["Item_Factura_Cantidad"];
-                this.columnItem_Factura_Monto = base.Columns["Item_Factura_Monto"];
-                this.columnFactura_Nro = base.Columns["Factura_Nro"];
-                this.columnFactura_Fecha = base.Columns["Factura_Fecha"];
-                this.columnFactura_Total = base.Columns["Factura_Total"];
-                this.columnCliente_Pasaporte_Nro = base.Columns["Cliente_Pasaporte_Nro"];
-                this.columnCliente_Apellido = base.Columns["Cliente_Apellido"];
-                this.columnCliente_Nombre = base.Columns["Cliente_Nombre"];
-                this.columnCliente_Fecha_Nac = base.Columns["Cliente_Fecha_Nac"];
-                this.columnCliente_Mail = base.Columns["Cliente_Mail"];
-                this.columnCliente_Dom_Calle = base.Columns["Cliente_Dom_Calle"];
-                this.columnCliente_Nro_Calle = base.Columns["Cliente_Nro_Calle"];
-                this.columnCliente_Piso = base.Columns["Cliente_Piso"];
-                this.columnCliente_Depto = base.Columns["Cliente_Depto"];
-                this.columnCliente_Nacionalidad = base.Columns["Cliente_Nacionalidad"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnHotel_Ciudad = new global::System.Data.DataColumn("Hotel_Ciudad", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHotel_Ciudad);
-                this.columnHotel_Calle = new global::System.Data.DataColumn("Hotel_Calle", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHotel_Calle);
-                this.columnHotel_Nro_Calle = new global::System.Data.DataColumn("Hotel_Nro_Calle", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHotel_Nro_Calle);
-                this.columnHotel_CantEstrella = new global::System.Data.DataColumn("Hotel_CantEstrella", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHotel_CantEstrella);
-                this.columnHotel_Recarga_Estrella = new global::System.Data.DataColumn("Hotel_Recarga_Estrella", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHotel_Recarga_Estrella);
-                this.columnHabitacion_Numero = new global::System.Data.DataColumn("Habitacion_Numero", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHabitacion_Numero);
-                this.columnHabitacion_Piso = new global::System.Data.DataColumn("Habitacion_Piso", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHabitacion_Piso);
-                this.columnHabitacion_Frente = new global::System.Data.DataColumn("Habitacion_Frente", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHabitacion_Frente);
-                this.columnHabitacion_Tipo_Codigo = new global::System.Data.DataColumn("Habitacion_Tipo_Codigo", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHabitacion_Tipo_Codigo);
-                this.columnHabitacion_Tipo_Descripcion = new global::System.Data.DataColumn("Habitacion_Tipo_Descripcion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHabitacion_Tipo_Descripcion);
-                this.columnHabitacion_Tipo_Porcentual = new global::System.Data.DataColumn("Habitacion_Tipo_Porcentual", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHabitacion_Tipo_Porcentual);
-                this.columnRegimen_Descripcion = new global::System.Data.DataColumn("Regimen_Descripcion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRegimen_Descripcion);
-                this.columnRegimen_Precio = new global::System.Data.DataColumn("Regimen_Precio", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRegimen_Precio);
-                this.columnReserva_Fecha_Inicio = new global::System.Data.DataColumn("Reserva_Fecha_Inicio", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReserva_Fecha_Inicio);
-                this.columnReserva_Codigo = new global::System.Data.DataColumn("Reserva_Codigo", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReserva_Codigo);
-                this.columnReserva_Cant_Noches = new global::System.Data.DataColumn("Reserva_Cant_Noches", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReserva_Cant_Noches);
-                this.columnEstadia_Fecha_Inicio = new global::System.Data.DataColumn("Estadia_Fecha_Inicio", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEstadia_Fecha_Inicio);
-                this.columnEstadia_Cant_Noches = new global::System.Data.DataColumn("Estadia_Cant_Noches", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEstadia_Cant_Noches);
-                this.columnConsumible_Codigo = new global::System.Data.DataColumn("Consumible_Codigo", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnConsumible_Codigo);
-                this.columnConsumible_Descripcion = new global::System.Data.DataColumn("Consumible_Descripcion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnConsumible_Descripcion);
-                this.columnConsumible_Precio = new global::System.Data.DataColumn("Consumible_Precio", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnConsumible_Precio);
-                this.columnItem_Factura_Cantidad = new global::System.Data.DataColumn("Item_Factura_Cantidad", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnItem_Factura_Cantidad);
-                this.columnItem_Factura_Monto = new global::System.Data.DataColumn("Item_Factura_Monto", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnItem_Factura_Monto);
-                this.columnFactura_Nro = new global::System.Data.DataColumn("Factura_Nro", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFactura_Nro);
-                this.columnFactura_Fecha = new global::System.Data.DataColumn("Factura_Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFactura_Fecha);
-                this.columnFactura_Total = new global::System.Data.DataColumn("Factura_Total", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFactura_Total);
-                this.columnCliente_Pasaporte_Nro = new global::System.Data.DataColumn("Cliente_Pasaporte_Nro", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCliente_Pasaporte_Nro);
-                this.columnCliente_Apellido = new global::System.Data.DataColumn("Cliente_Apellido", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCliente_Apellido);
-                this.columnCliente_Nombre = new global::System.Data.DataColumn("Cliente_Nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCliente_Nombre);
-                this.columnCliente_Fecha_Nac = new global::System.Data.DataColumn("Cliente_Fecha_Nac", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCliente_Fecha_Nac);
-                this.columnCliente_Mail = new global::System.Data.DataColumn("Cliente_Mail", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCliente_Mail);
-                this.columnCliente_Dom_Calle = new global::System.Data.DataColumn("Cliente_Dom_Calle", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCliente_Dom_Calle);
-                this.columnCliente_Nro_Calle = new global::System.Data.DataColumn("Cliente_Nro_Calle", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCliente_Nro_Calle);
-                this.columnCliente_Piso = new global::System.Data.DataColumn("Cliente_Piso", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCliente_Piso);
-                this.columnCliente_Depto = new global::System.Data.DataColumn("Cliente_Depto", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCliente_Depto);
-                this.columnCliente_Nacionalidad = new global::System.Data.DataColumn("Cliente_Nacionalidad", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCliente_Nacionalidad);
-                this.columnHotel_Ciudad.MaxLength = 255;
-                this.columnHotel_Calle.MaxLength = 255;
-                this.columnHabitacion_Frente.MaxLength = 50;
-                this.columnHabitacion_Tipo_Descripcion.MaxLength = 255;
-                this.columnRegimen_Descripcion.MaxLength = 255;
-                this.columnConsumible_Descripcion.MaxLength = 255;
-                this.columnCliente_Apellido.MaxLength = 255;
-                this.columnCliente_Nombre.MaxLength = 255;
-                this.columnCliente_Mail.MaxLength = 255;
-                this.columnCliente_Dom_Calle.MaxLength = 255;
-                this.columnCliente_Depto.MaxLength = 50;
-                this.columnCliente_Nacionalidad.MaxLength = 255;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MaestraRow NewMaestraRow() {
-                return ((MaestraRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new MaestraRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(MaestraRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.MaestraRowChanged != null)) {
-                    this.MaestraRowChanged(this, new MaestraRowChangeEvent(((MaestraRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.MaestraRowChanging != null)) {
-                    this.MaestraRowChanging(this, new MaestraRowChangeEvent(((MaestraRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.MaestraRowDeleted != null)) {
-                    this.MaestraRowDeleted(this, new MaestraRowChangeEvent(((MaestraRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.MaestraRowDeleting != null)) {
-                    this.MaestraRowDeleting(this, new MaestraRowChangeEvent(((MaestraRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveMaestraRow(MaestraRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                GD1C2018DataSet ds = new GD1C2018DataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "MaestraDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2149,15 +1329,15 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BAJA_HOTELESRow AddBAJA_HOTELESRow(HOTELESRow parentHOTELESRowByFK__BAJA_HOTE__ID_HO__5535A963, System.DateTime FECHA_INICIO_BAJA, System.DateTime FECHA_FIN_BAJA) {
+            public BAJA_HOTELESRow AddBAJA_HOTELESRow(HOTELESRow parentHOTELESRowByFK__BAJA_HOTE__ID_HO__4CAB505A, System.DateTime FECHA_INICIO_BAJA, System.DateTime FECHA_FIN_BAJA) {
                 BAJA_HOTELESRow rowBAJA_HOTELESRow = ((BAJA_HOTELESRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         FECHA_INICIO_BAJA,
                         FECHA_FIN_BAJA};
-                if ((parentHOTELESRowByFK__BAJA_HOTE__ID_HO__5535A963 != null)) {
-                    columnValuesArray[1] = parentHOTELESRowByFK__BAJA_HOTE__ID_HO__5535A963[0];
+                if ((parentHOTELESRowByFK__BAJA_HOTE__ID_HO__4CAB505A != null)) {
+                    columnValuesArray[1] = parentHOTELESRowByFK__BAJA_HOTE__ID_HO__4CAB505A[0];
                 }
                 rowBAJA_HOTELESRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBAJA_HOTELESRow);
@@ -2547,7 +1727,7 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CLIENTESRow AddCLIENTESRow(string NOMBRE, string APELLIDO, int IDENTIFICACION, TIPOS_IDENTIFICACIONRow parentTIPOS_IDENTIFICACIONRowByFK__CLIENTES__TIPO_I__5165187F, string MAIL, int TELEFONO, string DIRECCION, string LOCALIDAD, string PAIS, string NACIONALIDAD, System.DateTime FECHA_NACIMIENTO, bool DUPLICADO) {
+            public CLIENTESRow AddCLIENTESRow(string NOMBRE, string APELLIDO, int IDENTIFICACION, TIPOS_IDENTIFICACIONRow parentTIPOS_IDENTIFICACIONRowByFK__CLIENTES__TIPO_I__48DABF76, string MAIL, int TELEFONO, string DIRECCION, string LOCALIDAD, string PAIS, string NACIONALIDAD, System.DateTime FECHA_NACIMIENTO, bool DUPLICADO) {
                 CLIENTESRow rowCLIENTESRow = ((CLIENTESRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2563,8 +1743,8 @@ namespace FrbaHotel {
                         NACIONALIDAD,
                         FECHA_NACIMIENTO,
                         DUPLICADO};
-                if ((parentTIPOS_IDENTIFICACIONRowByFK__CLIENTES__TIPO_I__5165187F != null)) {
-                    columnValuesArray[4] = parentTIPOS_IDENTIFICACIONRowByFK__CLIENTES__TIPO_I__5165187F[0];
+                if ((parentTIPOS_IDENTIFICACIONRowByFK__CLIENTES__TIPO_I__48DABF76 != null)) {
+                    columnValuesArray[4] = parentTIPOS_IDENTIFICACIONRowByFK__CLIENTES__TIPO_I__48DABF76[0];
                 }
                 rowCLIENTESRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCLIENTESRow);
@@ -2882,16 +2062,16 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CLIENTES_POR_RESERVARow AddCLIENTES_POR_RESERVARow(CLIENTESRow parentCLIENTESRowByFK__CLIENTES___CODIG__5812160E, RESERVASRow parentRESERVASRowByFK__CLIENTES___CODIG__59063A47) {
+            public CLIENTES_POR_RESERVARow AddCLIENTES_POR_RESERVARow(CLIENTESRow parentCLIENTESRowByFK__CLIENTES___CODIG__4F87BD05, RESERVASRow parentRESERVASRowByFK__CLIENTES___CODIG__507BE13E) {
                 CLIENTES_POR_RESERVARow rowCLIENTES_POR_RESERVARow = ((CLIENTES_POR_RESERVARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null};
-                if ((parentCLIENTESRowByFK__CLIENTES___CODIG__5812160E != null)) {
-                    columnValuesArray[0] = parentCLIENTESRowByFK__CLIENTES___CODIG__5812160E[0];
+                if ((parentCLIENTESRowByFK__CLIENTES___CODIG__4F87BD05 != null)) {
+                    columnValuesArray[0] = parentCLIENTESRowByFK__CLIENTES___CODIG__4F87BD05[0];
                 }
-                if ((parentRESERVASRowByFK__CLIENTES___CODIG__59063A47 != null)) {
-                    columnValuesArray[1] = parentRESERVASRowByFK__CLIENTES___CODIG__59063A47[0];
+                if ((parentRESERVASRowByFK__CLIENTES___CODIG__507BE13E != null)) {
+                    columnValuesArray[1] = parentRESERVASRowByFK__CLIENTES___CODIG__507BE13E[0];
                 }
                 rowCLIENTES_POR_RESERVARow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCLIENTES_POR_RESERVARow);
@@ -3459,14 +2639,14 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ESTADIASRow AddESTADIASRow(RESERVASRow parentRESERVASRowByFK__ESTADIAS__CODIGO__3A81B327, System.DateTime FECHA_INGRESO, System.DateTime FECHA_EGRESO) {
+            public ESTADIASRow AddESTADIASRow(RESERVASRow parentRESERVASRowByFK__ESTADIAS__CODIGO__31F75A1E, System.DateTime FECHA_INGRESO, System.DateTime FECHA_EGRESO) {
                 ESTADIASRow rowESTADIASRow = ((ESTADIASRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         FECHA_INGRESO,
                         FECHA_EGRESO};
-                if ((parentRESERVASRowByFK__ESTADIAS__CODIGO__3A81B327 != null)) {
-                    columnValuesArray[0] = parentRESERVASRowByFK__ESTADIAS__CODIGO__3A81B327[0];
+                if ((parentRESERVASRowByFK__ESTADIAS__CODIGO__31F75A1E != null)) {
+                    columnValuesArray[0] = parentRESERVASRowByFK__ESTADIAS__CODIGO__31F75A1E[0];
                 }
                 rowESTADIASRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowESTADIASRow);
@@ -4048,7 +3228,7 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FACTURARow AddFACTURARow(int NUMERO_FACTURA, ESTADIASRow parentESTADIASRowByFK__FACTURA__CODIGO___45F365D3, System.DateTime FECHA_FACTURA, decimal TOTAL_FACTURA, bool INCONSISTENTE) {
+            public FACTURARow AddFACTURARow(int NUMERO_FACTURA, ESTADIASRow parentESTADIASRowByFK__FACTURA__CODIGO___3D690CCA, System.DateTime FECHA_FACTURA, decimal TOTAL_FACTURA, bool INCONSISTENTE) {
                 FACTURARow rowFACTURARow = ((FACTURARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NUMERO_FACTURA,
@@ -4056,8 +3236,8 @@ namespace FrbaHotel {
                         FECHA_FACTURA,
                         TOTAL_FACTURA,
                         INCONSISTENTE};
-                if ((parentESTADIASRowByFK__FACTURA__CODIGO___45F365D3 != null)) {
-                    columnValuesArray[1] = parentESTADIASRowByFK__FACTURA__CODIGO___45F365D3[0];
+                if ((parentESTADIASRowByFK__FACTURA__CODIGO___3D690CCA != null)) {
+                    columnValuesArray[1] = parentESTADIASRowByFK__FACTURA__CODIGO___3D690CCA[0];
                 }
                 rowFACTURARow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFACTURARow);
@@ -4614,16 +3794,16 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FUNCIONALIDADES_POR_ROLRow AddFUNCIONALIDADES_POR_ROLRow(ROLESRow parentROLESRowByFK__FUNCIONAL__ID_RO__286302EC, FUNCIONALIDADESRow parentFUNCIONALIDADESRowByFK__FUNCIONAL__ID_FU__29572725) {
+            public FUNCIONALIDADES_POR_ROLRow AddFUNCIONALIDADES_POR_ROLRow(ROLESRow parentROLESRowByFK__FUNCIONAL__ID_RO__1FD8A9E3, FUNCIONALIDADESRow parentFUNCIONALIDADESRowByFK__FUNCIONAL__ID_FU__20CCCE1C) {
                 FUNCIONALIDADES_POR_ROLRow rowFUNCIONALIDADES_POR_ROLRow = ((FUNCIONALIDADES_POR_ROLRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null};
-                if ((parentROLESRowByFK__FUNCIONAL__ID_RO__286302EC != null)) {
-                    columnValuesArray[0] = parentROLESRowByFK__FUNCIONAL__ID_RO__286302EC[0];
+                if ((parentROLESRowByFK__FUNCIONAL__ID_RO__1FD8A9E3 != null)) {
+                    columnValuesArray[0] = parentROLESRowByFK__FUNCIONAL__ID_RO__1FD8A9E3[0];
                 }
-                if ((parentFUNCIONALIDADESRowByFK__FUNCIONAL__ID_FU__29572725 != null)) {
-                    columnValuesArray[1] = parentFUNCIONALIDADESRowByFK__FUNCIONAL__ID_FU__29572725[0];
+                if ((parentFUNCIONALIDADESRowByFK__FUNCIONAL__ID_FU__20CCCE1C != null)) {
+                    columnValuesArray[1] = parentFUNCIONALIDADESRowByFK__FUNCIONAL__ID_FU__20CCCE1C[0];
                 }
                 rowFUNCIONALIDADES_POR_ROLRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFUNCIONALIDADES_POR_ROLRow);
@@ -4924,7 +4104,7 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public HABITACIONESRow AddHABITACIONESRow(HOTELESRow parentHOTELESRowByFK__HABITACIO__ID_HO__1DE57479, int NUMERO_HABITACION, int PISO, string UBICACION, TIPOS_HABITACIONRow parentTIPOS_HABITACIONRowByFK__HABITACIO__CODIG__1ED998B2) {
+            public HABITACIONESRow AddHABITACIONESRow(HOTELESRow parentHOTELESRowByFK__HABITACIO__ID_HO__155B1B70, int NUMERO_HABITACION, int PISO, string UBICACION, TIPOS_HABITACIONRow parentTIPOS_HABITACIONRowByFK__HABITACIO__CODIG__164F3FA9) {
                 HABITACIONESRow rowHABITACIONESRow = ((HABITACIONESRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4932,11 +4112,11 @@ namespace FrbaHotel {
                         PISO,
                         UBICACION,
                         null};
-                if ((parentHOTELESRowByFK__HABITACIO__ID_HO__1DE57479 != null)) {
-                    columnValuesArray[0] = parentHOTELESRowByFK__HABITACIO__ID_HO__1DE57479[0];
+                if ((parentHOTELESRowByFK__HABITACIO__ID_HO__155B1B70 != null)) {
+                    columnValuesArray[0] = parentHOTELESRowByFK__HABITACIO__ID_HO__155B1B70[0];
                 }
-                if ((parentTIPOS_HABITACIONRowByFK__HABITACIO__CODIG__1ED998B2 != null)) {
-                    columnValuesArray[4] = parentTIPOS_HABITACIONRowByFK__HABITACIO__CODIG__1ED998B2[0];
+                if ((parentTIPOS_HABITACIONRowByFK__HABITACIO__CODIG__164F3FA9 != null)) {
+                    columnValuesArray[4] = parentTIPOS_HABITACIONRowByFK__HABITACIO__CODIG__164F3FA9[0];
                 }
                 rowHABITACIONESRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHABITACIONESRow);
@@ -5227,14 +4407,14 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public HABITACIONES_POR_RESERVARow AddHABITACIONES_POR_RESERVARow(int NUMERO_HABITACION, int ID_HOTEL, RESERVASRow parentRESERVASRowByFK__HABITACIO__CODIG__3D5E1FD2) {
+            public HABITACIONES_POR_RESERVARow AddHABITACIONES_POR_RESERVARow(int NUMERO_HABITACION, int ID_HOTEL, RESERVASRow parentRESERVASRowByFK__HABITACIO__CODIG__34D3C6C9) {
                 HABITACIONES_POR_RESERVARow rowHABITACIONES_POR_RESERVARow = ((HABITACIONES_POR_RESERVARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NUMERO_HABITACION,
                         ID_HOTEL,
                         null};
-                if ((parentRESERVASRowByFK__HABITACIO__CODIG__3D5E1FD2 != null)) {
-                    columnValuesArray[2] = parentRESERVASRowByFK__HABITACIO__CODIG__3D5E1FD2[0];
+                if ((parentRESERVASRowByFK__HABITACIO__CODIG__34D3C6C9 != null)) {
+                    columnValuesArray[2] = parentRESERVASRowByFK__HABITACIO__CODIG__34D3C6C9[0];
                 }
                 rowHABITACIONES_POR_RESERVARow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHABITACIONES_POR_RESERVARow);
@@ -5895,16 +5075,16 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public HOTELES_POR_USUARIORow AddHOTELES_POR_USUARIORow(USUARIOSRow parentUSUARIOSRowByFK__HOTELES_P__USUAR__300424B4, HOTELESRow parentHOTELESRowByFK__HOTELES_P__ID_HO__30F848ED) {
+            public HOTELES_POR_USUARIORow AddHOTELES_POR_USUARIORow(USUARIOSRow parentUSUARIOSRowByFK__HOTELES_P__USUAR__2779CBAB, HOTELESRow parentHOTELESRowByFK__HOTELES_P__ID_HO__286DEFE4) {
                 HOTELES_POR_USUARIORow rowHOTELES_POR_USUARIORow = ((HOTELES_POR_USUARIORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null};
-                if ((parentUSUARIOSRowByFK__HOTELES_P__USUAR__300424B4 != null)) {
-                    columnValuesArray[0] = parentUSUARIOSRowByFK__HOTELES_P__USUAR__300424B4[0];
+                if ((parentUSUARIOSRowByFK__HOTELES_P__USUAR__2779CBAB != null)) {
+                    columnValuesArray[0] = parentUSUARIOSRowByFK__HOTELES_P__USUAR__2779CBAB[0];
                 }
-                if ((parentHOTELESRowByFK__HOTELES_P__ID_HO__30F848ED != null)) {
-                    columnValuesArray[1] = parentHOTELESRowByFK__HOTELES_P__ID_HO__30F848ED[0];
+                if ((parentHOTELESRowByFK__HOTELES_P__ID_HO__286DEFE4 != null)) {
+                    columnValuesArray[1] = parentHOTELESRowByFK__HOTELES_P__ID_HO__286DEFE4[0];
                 }
                 rowHOTELES_POR_USUARIORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHOTELES_POR_USUARIORow);
@@ -6206,7 +5386,7 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ITEM_FACTURARow AddITEM_FACTURARow(FACTURARow parentFACTURARowByFK__ITEM_FACT__NUMER__4BAC3F29, int CANTIDAD, decimal PRECIO_UNIDAD, CONSUMIBLESRow parentCONSUMIBLESRowByFK__ITEM_FACT__CODIG__4CA06362) {
+            public ITEM_FACTURARow AddITEM_FACTURARow(FACTURARow parentFACTURARowByFK__ITEM_FACT__NUMER__4321E620, int CANTIDAD, decimal PRECIO_UNIDAD, CONSUMIBLESRow parentCONSUMIBLESRowByFK__ITEM_FACT__CODIG__44160A59) {
                 ITEM_FACTURARow rowITEM_FACTURARow = ((ITEM_FACTURARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -6214,11 +5394,11 @@ namespace FrbaHotel {
                         CANTIDAD,
                         PRECIO_UNIDAD,
                         null};
-                if ((parentFACTURARowByFK__ITEM_FACT__NUMER__4BAC3F29 != null)) {
-                    columnValuesArray[1] = parentFACTURARowByFK__ITEM_FACT__NUMER__4BAC3F29[0];
+                if ((parentFACTURARowByFK__ITEM_FACT__NUMER__4321E620 != null)) {
+                    columnValuesArray[1] = parentFACTURARowByFK__ITEM_FACT__NUMER__4321E620[0];
                 }
-                if ((parentCONSUMIBLESRowByFK__ITEM_FACT__CODIG__4CA06362 != null)) {
-                    columnValuesArray[4] = parentCONSUMIBLESRowByFK__ITEM_FACT__CODIG__4CA06362[0];
+                if ((parentCONSUMIBLESRowByFK__ITEM_FACT__CODIG__44160A59 != null)) {
+                    columnValuesArray[4] = parentCONSUMIBLESRowByFK__ITEM_FACT__CODIG__44160A59[0];
                 }
                 rowITEM_FACTURARow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowITEM_FACTURARow);
@@ -6808,16 +5988,16 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public REGIMENES_POR_HOTELRow AddREGIMENES_POR_HOTELRow(HOTELESRow parentHOTELESRowByFK__REGIMENES__ID_HO__182C9B23, REGIMENESRow parentREGIMENESRowByFK__REGIMENES__CODIG__1920BF5C) {
+            public REGIMENES_POR_HOTELRow AddREGIMENES_POR_HOTELRow(HOTELESRow parentHOTELESRowByFK__REGIMENES__ID_HO__0FA2421A, REGIMENESRow parentREGIMENESRowByFK__REGIMENES__CODIG__10966653) {
                 REGIMENES_POR_HOTELRow rowREGIMENES_POR_HOTELRow = ((REGIMENES_POR_HOTELRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null};
-                if ((parentHOTELESRowByFK__REGIMENES__ID_HO__182C9B23 != null)) {
-                    columnValuesArray[0] = parentHOTELESRowByFK__REGIMENES__ID_HO__182C9B23[0];
+                if ((parentHOTELESRowByFK__REGIMENES__ID_HO__0FA2421A != null)) {
+                    columnValuesArray[0] = parentHOTELESRowByFK__REGIMENES__ID_HO__0FA2421A[0];
                 }
-                if ((parentREGIMENESRowByFK__REGIMENES__CODIG__1920BF5C != null)) {
-                    columnValuesArray[1] = parentREGIMENESRowByFK__REGIMENES__CODIG__1920BF5C[0];
+                if ((parentREGIMENESRowByFK__REGIMENES__CODIG__10966653 != null)) {
+                    columnValuesArray[1] = parentREGIMENESRowByFK__REGIMENES__CODIG__10966653[0];
                 }
                 rowREGIMENES_POR_HOTELRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowREGIMENES_POR_HOTELRow);
@@ -7118,7 +6298,7 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public REGISTRO_RESERVASRow AddREGISTRO_RESERVASRow(RESERVASRow parentRESERVASRowByFK__REGISTRO___CODIG__412EB0B6, USUARIOSRow parentUSUARIOSRowByFK__REGISTRO___USUAR__4222D4EF, string ACCION, System.DateTime FECHA) {
+            public REGISTRO_RESERVASRow AddREGISTRO_RESERVASRow(RESERVASRow parentRESERVASRowByFK__REGISTRO___CODIG__38A457AD, USUARIOSRow parentUSUARIOSRowByFK__REGISTRO___USUAR__39987BE6, string ACCION, System.DateTime FECHA) {
                 REGISTRO_RESERVASRow rowREGISTRO_RESERVASRow = ((REGISTRO_RESERVASRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -7126,11 +6306,11 @@ namespace FrbaHotel {
                         null,
                         ACCION,
                         FECHA};
-                if ((parentRESERVASRowByFK__REGISTRO___CODIG__412EB0B6 != null)) {
-                    columnValuesArray[1] = parentRESERVASRowByFK__REGISTRO___CODIG__412EB0B6[0];
+                if ((parentRESERVASRowByFK__REGISTRO___CODIG__38A457AD != null)) {
+                    columnValuesArray[1] = parentRESERVASRowByFK__REGISTRO___CODIG__38A457AD[0];
                 }
-                if ((parentUSUARIOSRowByFK__REGISTRO___USUAR__4222D4EF != null)) {
-                    columnValuesArray[2] = parentUSUARIOSRowByFK__REGISTRO___USUAR__4222D4EF[0];
+                if ((parentUSUARIOSRowByFK__REGISTRO___USUAR__39987BE6 != null)) {
+                    columnValuesArray[2] = parentUSUARIOSRowByFK__REGISTRO___USUAR__39987BE6[0];
                 }
                 rowREGISTRO_RESERVASRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowREGISTRO_RESERVASRow);
@@ -7456,7 +6636,7 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RESERVASRow AddRESERVASRow(int CODIGO_RESERVA, System.DateTime FECHA_RESERVA, System.DateTime FECHA_DESDE, System.DateTime FECHA_HASTA, ESTADOS_RESERVARow parentESTADOS_RESERVARowByFK__RESERVAS__ID_EST__36B12243, REGIMENESRow parentREGIMENESRowByFK__RESERVAS__CODIGO__37A5467C) {
+            public RESERVASRow AddRESERVASRow(int CODIGO_RESERVA, System.DateTime FECHA_RESERVA, System.DateTime FECHA_DESDE, System.DateTime FECHA_HASTA, ESTADOS_RESERVARow parentESTADOS_RESERVARowByFK__RESERVAS__ID_EST__2E26C93A, REGIMENESRow parentREGIMENESRowByFK__RESERVAS__CODIGO__2F1AED73) {
                 RESERVASRow rowRESERVASRow = ((RESERVASRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CODIGO_RESERVA,
@@ -7465,11 +6645,11 @@ namespace FrbaHotel {
                         FECHA_HASTA,
                         null,
                         null};
-                if ((parentESTADOS_RESERVARowByFK__RESERVAS__ID_EST__36B12243 != null)) {
-                    columnValuesArray[4] = parentESTADOS_RESERVARowByFK__RESERVAS__ID_EST__36B12243[0];
+                if ((parentESTADOS_RESERVARowByFK__RESERVAS__ID_EST__2E26C93A != null)) {
+                    columnValuesArray[4] = parentESTADOS_RESERVARowByFK__RESERVAS__ID_EST__2E26C93A[0];
                 }
-                if ((parentREGIMENESRowByFK__RESERVAS__CODIGO__37A5467C != null)) {
-                    columnValuesArray[5] = parentREGIMENESRowByFK__RESERVAS__CODIGO__37A5467C[0];
+                if ((parentREGIMENESRowByFK__RESERVAS__CODIGO__2F1AED73 != null)) {
+                    columnValuesArray[5] = parentREGIMENESRowByFK__RESERVAS__CODIGO__2F1AED73[0];
                 }
                 rowRESERVASRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRESERVASRow);
@@ -8047,16 +7227,16 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ROLES_POR_USUARIORow AddROLES_POR_USUARIORow(USUARIOSRow parentUSUARIOSRowByFK__ROLES_POR__USUAR__2C3393D0, ROLESRow parentROLESRowByFK__ROLES_POR__ID_RO__2D27B809) {
+            public ROLES_POR_USUARIORow AddROLES_POR_USUARIORow(USUARIOSRow parentUSUARIOSRowByFK__ROLES_POR__USUAR__23A93AC7, ROLESRow parentROLESRowByFK__ROLES_POR__ID_RO__249D5F00) {
                 ROLES_POR_USUARIORow rowROLES_POR_USUARIORow = ((ROLES_POR_USUARIORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null};
-                if ((parentUSUARIOSRowByFK__ROLES_POR__USUAR__2C3393D0 != null)) {
-                    columnValuesArray[0] = parentUSUARIOSRowByFK__ROLES_POR__USUAR__2C3393D0[0];
+                if ((parentUSUARIOSRowByFK__ROLES_POR__USUAR__23A93AC7 != null)) {
+                    columnValuesArray[0] = parentUSUARIOSRowByFK__ROLES_POR__USUAR__23A93AC7[0];
                 }
-                if ((parentROLESRowByFK__ROLES_POR__ID_RO__2D27B809 != null)) {
-                    columnValuesArray[1] = parentROLESRowByFK__ROLES_POR__ID_RO__2D27B809[0];
+                if ((parentROLESRowByFK__ROLES_POR__ID_RO__249D5F00 != null)) {
+                    columnValuesArray[1] = parentROLESRowByFK__ROLES_POR__ID_RO__249D5F00[0];
                 }
                 rowROLES_POR_USUARIORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowROLES_POR_USUARIORow);
@@ -9169,1029 +8349,6 @@ namespace FrbaHotel {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class MaestraRow : global::System.Data.DataRow {
-            
-            private MaestraDataTable tableMaestra;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal MaestraRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableMaestra = ((MaestraDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Hotel_Ciudad {
-                get {
-                    try {
-                        return ((string)(this[this.tableMaestra.Hotel_CiudadColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Hotel_Ciudad\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Hotel_CiudadColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Hotel_Calle {
-                get {
-                    try {
-                        return ((string)(this[this.tableMaestra.Hotel_CalleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Hotel_Calle\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Hotel_CalleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Hotel_Nro_Calle {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Hotel_Nro_CalleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Hotel_Nro_Calle\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Hotel_Nro_CalleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Hotel_CantEstrella {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Hotel_CantEstrellaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Hotel_CantEstrella\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Hotel_CantEstrellaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Hotel_Recarga_Estrella {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Hotel_Recarga_EstrellaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Hotel_Recarga_Estrella\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Hotel_Recarga_EstrellaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Habitacion_Numero {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Habitacion_NumeroColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Habitacion_Numero\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Habitacion_NumeroColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Habitacion_Piso {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Habitacion_PisoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Habitacion_Piso\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Habitacion_PisoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Habitacion_Frente {
-                get {
-                    try {
-                        return ((string)(this[this.tableMaestra.Habitacion_FrenteColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Habitacion_Frente\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Habitacion_FrenteColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Habitacion_Tipo_Codigo {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Habitacion_Tipo_CodigoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Habitacion_Tipo_Codigo\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Habitacion_Tipo_CodigoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Habitacion_Tipo_Descripcion {
-                get {
-                    try {
-                        return ((string)(this[this.tableMaestra.Habitacion_Tipo_DescripcionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Habitacion_Tipo_Descripcion\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Habitacion_Tipo_DescripcionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Habitacion_Tipo_Porcentual {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Habitacion_Tipo_PorcentualColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Habitacion_Tipo_Porcentual\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Habitacion_Tipo_PorcentualColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Regimen_Descripcion {
-                get {
-                    try {
-                        return ((string)(this[this.tableMaestra.Regimen_DescripcionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Regimen_Descripcion\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Regimen_DescripcionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Regimen_Precio {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Regimen_PrecioColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Regimen_Precio\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Regimen_PrecioColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Reserva_Fecha_Inicio {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableMaestra.Reserva_Fecha_InicioColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Reserva_Fecha_Inicio\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Reserva_Fecha_InicioColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Reserva_Codigo {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Reserva_CodigoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Reserva_Codigo\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Reserva_CodigoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Reserva_Cant_Noches {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Reserva_Cant_NochesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Reserva_Cant_Noches\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Reserva_Cant_NochesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Estadia_Fecha_Inicio {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableMaestra.Estadia_Fecha_InicioColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Estadia_Fecha_Inicio\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Estadia_Fecha_InicioColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Estadia_Cant_Noches {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Estadia_Cant_NochesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Estadia_Cant_Noches\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Estadia_Cant_NochesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Consumible_Codigo {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Consumible_CodigoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Consumible_Codigo\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Consumible_CodigoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Consumible_Descripcion {
-                get {
-                    try {
-                        return ((string)(this[this.tableMaestra.Consumible_DescripcionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Consumible_Descripcion\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Consumible_DescripcionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Consumible_Precio {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Consumible_PrecioColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Consumible_Precio\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Consumible_PrecioColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Item_Factura_Cantidad {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Item_Factura_CantidadColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Item_Factura_Cantidad\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Item_Factura_CantidadColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Item_Factura_Monto {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Item_Factura_MontoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Item_Factura_Monto\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Item_Factura_MontoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Factura_Nro {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Factura_NroColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Factura_Nro\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Factura_NroColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Factura_Fecha {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableMaestra.Factura_FechaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Factura_Fecha\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Factura_FechaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Factura_Total {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Factura_TotalColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Factura_Total\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Factura_TotalColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Cliente_Pasaporte_Nro {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Cliente_Pasaporte_NroColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente_Pasaporte_Nro\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Cliente_Pasaporte_NroColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Cliente_Apellido {
-                get {
-                    try {
-                        return ((string)(this[this.tableMaestra.Cliente_ApellidoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente_Apellido\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Cliente_ApellidoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Cliente_Nombre {
-                get {
-                    try {
-                        return ((string)(this[this.tableMaestra.Cliente_NombreColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente_Nombre\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Cliente_NombreColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Cliente_Fecha_Nac {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableMaestra.Cliente_Fecha_NacColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente_Fecha_Nac\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Cliente_Fecha_NacColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Cliente_Mail {
-                get {
-                    try {
-                        return ((string)(this[this.tableMaestra.Cliente_MailColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente_Mail\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Cliente_MailColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Cliente_Dom_Calle {
-                get {
-                    try {
-                        return ((string)(this[this.tableMaestra.Cliente_Dom_CalleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente_Dom_Calle\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Cliente_Dom_CalleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Cliente_Nro_Calle {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Cliente_Nro_CalleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente_Nro_Calle\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Cliente_Nro_CalleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Cliente_Piso {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableMaestra.Cliente_PisoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente_Piso\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Cliente_PisoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Cliente_Depto {
-                get {
-                    try {
-                        return ((string)(this[this.tableMaestra.Cliente_DeptoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente_Depto\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Cliente_DeptoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Cliente_Nacionalidad {
-                get {
-                    try {
-                        return ((string)(this[this.tableMaestra.Cliente_NacionalidadColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cliente_Nacionalidad\' in table \'Maestra\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMaestra.Cliente_NacionalidadColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHotel_CiudadNull() {
-                return this.IsNull(this.tableMaestra.Hotel_CiudadColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHotel_CiudadNull() {
-                this[this.tableMaestra.Hotel_CiudadColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHotel_CalleNull() {
-                return this.IsNull(this.tableMaestra.Hotel_CalleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHotel_CalleNull() {
-                this[this.tableMaestra.Hotel_CalleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHotel_Nro_CalleNull() {
-                return this.IsNull(this.tableMaestra.Hotel_Nro_CalleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHotel_Nro_CalleNull() {
-                this[this.tableMaestra.Hotel_Nro_CalleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHotel_CantEstrellaNull() {
-                return this.IsNull(this.tableMaestra.Hotel_CantEstrellaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHotel_CantEstrellaNull() {
-                this[this.tableMaestra.Hotel_CantEstrellaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHotel_Recarga_EstrellaNull() {
-                return this.IsNull(this.tableMaestra.Hotel_Recarga_EstrellaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHotel_Recarga_EstrellaNull() {
-                this[this.tableMaestra.Hotel_Recarga_EstrellaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHabitacion_NumeroNull() {
-                return this.IsNull(this.tableMaestra.Habitacion_NumeroColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHabitacion_NumeroNull() {
-                this[this.tableMaestra.Habitacion_NumeroColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHabitacion_PisoNull() {
-                return this.IsNull(this.tableMaestra.Habitacion_PisoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHabitacion_PisoNull() {
-                this[this.tableMaestra.Habitacion_PisoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHabitacion_FrenteNull() {
-                return this.IsNull(this.tableMaestra.Habitacion_FrenteColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHabitacion_FrenteNull() {
-                this[this.tableMaestra.Habitacion_FrenteColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHabitacion_Tipo_CodigoNull() {
-                return this.IsNull(this.tableMaestra.Habitacion_Tipo_CodigoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHabitacion_Tipo_CodigoNull() {
-                this[this.tableMaestra.Habitacion_Tipo_CodigoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHabitacion_Tipo_DescripcionNull() {
-                return this.IsNull(this.tableMaestra.Habitacion_Tipo_DescripcionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHabitacion_Tipo_DescripcionNull() {
-                this[this.tableMaestra.Habitacion_Tipo_DescripcionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHabitacion_Tipo_PorcentualNull() {
-                return this.IsNull(this.tableMaestra.Habitacion_Tipo_PorcentualColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHabitacion_Tipo_PorcentualNull() {
-                this[this.tableMaestra.Habitacion_Tipo_PorcentualColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsRegimen_DescripcionNull() {
-                return this.IsNull(this.tableMaestra.Regimen_DescripcionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetRegimen_DescripcionNull() {
-                this[this.tableMaestra.Regimen_DescripcionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsRegimen_PrecioNull() {
-                return this.IsNull(this.tableMaestra.Regimen_PrecioColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetRegimen_PrecioNull() {
-                this[this.tableMaestra.Regimen_PrecioColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsReserva_Fecha_InicioNull() {
-                return this.IsNull(this.tableMaestra.Reserva_Fecha_InicioColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetReserva_Fecha_InicioNull() {
-                this[this.tableMaestra.Reserva_Fecha_InicioColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsReserva_CodigoNull() {
-                return this.IsNull(this.tableMaestra.Reserva_CodigoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetReserva_CodigoNull() {
-                this[this.tableMaestra.Reserva_CodigoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsReserva_Cant_NochesNull() {
-                return this.IsNull(this.tableMaestra.Reserva_Cant_NochesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetReserva_Cant_NochesNull() {
-                this[this.tableMaestra.Reserva_Cant_NochesColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsEstadia_Fecha_InicioNull() {
-                return this.IsNull(this.tableMaestra.Estadia_Fecha_InicioColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetEstadia_Fecha_InicioNull() {
-                this[this.tableMaestra.Estadia_Fecha_InicioColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsEstadia_Cant_NochesNull() {
-                return this.IsNull(this.tableMaestra.Estadia_Cant_NochesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetEstadia_Cant_NochesNull() {
-                this[this.tableMaestra.Estadia_Cant_NochesColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsConsumible_CodigoNull() {
-                return this.IsNull(this.tableMaestra.Consumible_CodigoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetConsumible_CodigoNull() {
-                this[this.tableMaestra.Consumible_CodigoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsConsumible_DescripcionNull() {
-                return this.IsNull(this.tableMaestra.Consumible_DescripcionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetConsumible_DescripcionNull() {
-                this[this.tableMaestra.Consumible_DescripcionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsConsumible_PrecioNull() {
-                return this.IsNull(this.tableMaestra.Consumible_PrecioColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetConsumible_PrecioNull() {
-                this[this.tableMaestra.Consumible_PrecioColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsItem_Factura_CantidadNull() {
-                return this.IsNull(this.tableMaestra.Item_Factura_CantidadColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetItem_Factura_CantidadNull() {
-                this[this.tableMaestra.Item_Factura_CantidadColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsItem_Factura_MontoNull() {
-                return this.IsNull(this.tableMaestra.Item_Factura_MontoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetItem_Factura_MontoNull() {
-                this[this.tableMaestra.Item_Factura_MontoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFactura_NroNull() {
-                return this.IsNull(this.tableMaestra.Factura_NroColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFactura_NroNull() {
-                this[this.tableMaestra.Factura_NroColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFactura_FechaNull() {
-                return this.IsNull(this.tableMaestra.Factura_FechaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFactura_FechaNull() {
-                this[this.tableMaestra.Factura_FechaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFactura_TotalNull() {
-                return this.IsNull(this.tableMaestra.Factura_TotalColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFactura_TotalNull() {
-                this[this.tableMaestra.Factura_TotalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCliente_Pasaporte_NroNull() {
-                return this.IsNull(this.tableMaestra.Cliente_Pasaporte_NroColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCliente_Pasaporte_NroNull() {
-                this[this.tableMaestra.Cliente_Pasaporte_NroColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCliente_ApellidoNull() {
-                return this.IsNull(this.tableMaestra.Cliente_ApellidoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCliente_ApellidoNull() {
-                this[this.tableMaestra.Cliente_ApellidoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCliente_NombreNull() {
-                return this.IsNull(this.tableMaestra.Cliente_NombreColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCliente_NombreNull() {
-                this[this.tableMaestra.Cliente_NombreColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCliente_Fecha_NacNull() {
-                return this.IsNull(this.tableMaestra.Cliente_Fecha_NacColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCliente_Fecha_NacNull() {
-                this[this.tableMaestra.Cliente_Fecha_NacColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCliente_MailNull() {
-                return this.IsNull(this.tableMaestra.Cliente_MailColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCliente_MailNull() {
-                this[this.tableMaestra.Cliente_MailColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCliente_Dom_CalleNull() {
-                return this.IsNull(this.tableMaestra.Cliente_Dom_CalleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCliente_Dom_CalleNull() {
-                this[this.tableMaestra.Cliente_Dom_CalleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCliente_Nro_CalleNull() {
-                return this.IsNull(this.tableMaestra.Cliente_Nro_CalleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCliente_Nro_CalleNull() {
-                this[this.tableMaestra.Cliente_Nro_CalleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCliente_PisoNull() {
-                return this.IsNull(this.tableMaestra.Cliente_PisoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCliente_PisoNull() {
-                this[this.tableMaestra.Cliente_PisoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCliente_DeptoNull() {
-                return this.IsNull(this.tableMaestra.Cliente_DeptoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCliente_DeptoNull() {
-                this[this.tableMaestra.Cliente_DeptoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCliente_NacionalidadNull() {
-                return this.IsNull(this.tableMaestra.Cliente_NacionalidadColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCliente_NacionalidadNull() {
-                this[this.tableMaestra.Cliente_NacionalidadColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class BAJA_HOTELESRow : global::System.Data.DataRow {
             
             private BAJA_HOTELESDataTable tableBAJA_HOTELES;
@@ -10261,10 +8418,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public HOTELESRow HOTELESRow {
                 get {
-                    return ((HOTELESRow)(this.GetParentRow(this.Table.ParentRelations["FK__BAJA_HOTE__ID_HO__5535A963"])));
+                    return ((HOTELESRow)(this.GetParentRow(this.Table.ParentRelations["FK__BAJA_HOTE__ID_HO__4CAB505A"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__BAJA_HOTE__ID_HO__5535A963"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__BAJA_HOTE__ID_HO__4CAB505A"]);
                 }
             }
             
@@ -10489,10 +8646,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TIPOS_IDENTIFICACIONRow TIPOS_IDENTIFICACIONRow {
                 get {
-                    return ((TIPOS_IDENTIFICACIONRow)(this.GetParentRow(this.Table.ParentRelations["FK__CLIENTES__TIPO_I__5165187F"])));
+                    return ((TIPOS_IDENTIFICACIONRow)(this.GetParentRow(this.Table.ParentRelations["FK__CLIENTES__TIPO_I__48DABF76"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__CLIENTES__TIPO_I__5165187F"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__CLIENTES__TIPO_I__48DABF76"]);
                 }
             }
             
@@ -10583,11 +8740,11 @@ namespace FrbaHotel {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CLIENTES_POR_RESERVARow[] GetCLIENTES_POR_RESERVARows() {
-                if ((this.Table.ChildRelations["FK__CLIENTES___CODIG__5812160E"] == null)) {
+                if ((this.Table.ChildRelations["FK__CLIENTES___CODIG__4F87BD05"] == null)) {
                     return new CLIENTES_POR_RESERVARow[0];
                 }
                 else {
-                    return ((CLIENTES_POR_RESERVARow[])(base.GetChildRows(this.Table.ChildRelations["FK__CLIENTES___CODIG__5812160E"])));
+                    return ((CLIENTES_POR_RESERVARow[])(base.GetChildRows(this.Table.ChildRelations["FK__CLIENTES___CODIG__4F87BD05"])));
                 }
             }
         }
@@ -10632,10 +8789,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CLIENTESRow CLIENTESRow {
                 get {
-                    return ((CLIENTESRow)(this.GetParentRow(this.Table.ParentRelations["FK__CLIENTES___CODIG__5812160E"])));
+                    return ((CLIENTESRow)(this.GetParentRow(this.Table.ParentRelations["FK__CLIENTES___CODIG__4F87BD05"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__CLIENTES___CODIG__5812160E"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__CLIENTES___CODIG__4F87BD05"]);
                 }
             }
             
@@ -10643,10 +8800,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RESERVASRow RESERVASRow {
                 get {
-                    return ((RESERVASRow)(this.GetParentRow(this.Table.ParentRelations["FK__CLIENTES___CODIG__59063A47"])));
+                    return ((RESERVASRow)(this.GetParentRow(this.Table.ParentRelations["FK__CLIENTES___CODIG__507BE13E"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__CLIENTES___CODIG__59063A47"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__CLIENTES___CODIG__507BE13E"]);
                 }
             }
         }
@@ -10735,11 +8892,11 @@ namespace FrbaHotel {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ITEM_FACTURARow[] GetITEM_FACTURARows() {
-                if ((this.Table.ChildRelations["FK__ITEM_FACT__CODIG__4CA06362"] == null)) {
+                if ((this.Table.ChildRelations["FK__ITEM_FACT__CODIG__44160A59"] == null)) {
                     return new ITEM_FACTURARow[0];
                 }
                 else {
-                    return ((ITEM_FACTURARow[])(base.GetChildRows(this.Table.ChildRelations["FK__ITEM_FACT__CODIG__4CA06362"])));
+                    return ((ITEM_FACTURARow[])(base.GetChildRows(this.Table.ChildRelations["FK__ITEM_FACT__CODIG__44160A59"])));
                 }
             }
         }
@@ -10795,21 +8952,21 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RESERVASRow RESERVASRow {
                 get {
-                    return ((RESERVASRow)(this.GetParentRow(this.Table.ParentRelations["FK__ESTADIAS__CODIGO__3A81B327"])));
+                    return ((RESERVASRow)(this.GetParentRow(this.Table.ParentRelations["FK__ESTADIAS__CODIGO__31F75A1E"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__ESTADIAS__CODIGO__3A81B327"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__ESTADIAS__CODIGO__31F75A1E"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public FACTURARow[] GetFACTURARows() {
-                if ((this.Table.ChildRelations["FK__FACTURA__CODIGO___45F365D3"] == null)) {
+                if ((this.Table.ChildRelations["FK__FACTURA__CODIGO___3D690CCA"] == null)) {
                     return new FACTURARow[0];
                 }
                 else {
-                    return ((FACTURARow[])(base.GetChildRows(this.Table.ChildRelations["FK__FACTURA__CODIGO___45F365D3"])));
+                    return ((FACTURARow[])(base.GetChildRows(this.Table.ChildRelations["FK__FACTURA__CODIGO___3D690CCA"])));
                 }
             }
         }
@@ -10853,11 +9010,11 @@ namespace FrbaHotel {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RESERVASRow[] GetRESERVASRows() {
-                if ((this.Table.ChildRelations["FK__RESERVAS__ID_EST__36B12243"] == null)) {
+                if ((this.Table.ChildRelations["FK__RESERVAS__ID_EST__2E26C93A"] == null)) {
                     return new RESERVASRow[0];
                 }
                 else {
-                    return ((RESERVASRow[])(base.GetChildRows(this.Table.ChildRelations["FK__RESERVAS__ID_EST__36B12243"])));
+                    return ((RESERVASRow[])(base.GetChildRows(this.Table.ChildRelations["FK__RESERVAS__ID_EST__2E26C93A"])));
                 }
             }
         }
@@ -10945,10 +9102,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ESTADIASRow ESTADIASRow {
                 get {
-                    return ((ESTADIASRow)(this.GetParentRow(this.Table.ParentRelations["FK__FACTURA__CODIGO___45F365D3"])));
+                    return ((ESTADIASRow)(this.GetParentRow(this.Table.ParentRelations["FK__FACTURA__CODIGO___3D690CCA"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__FACTURA__CODIGO___45F365D3"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__FACTURA__CODIGO___3D690CCA"]);
                 }
             }
             
@@ -10979,11 +9136,11 @@ namespace FrbaHotel {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ITEM_FACTURARow[] GetITEM_FACTURARows() {
-                if ((this.Table.ChildRelations["FK__ITEM_FACT__NUMER__4BAC3F29"] == null)) {
+                if ((this.Table.ChildRelations["FK__ITEM_FACT__NUMER__4321E620"] == null)) {
                     return new ITEM_FACTURARow[0];
                 }
                 else {
-                    return ((ITEM_FACTURARow[])(base.GetChildRows(this.Table.ChildRelations["FK__ITEM_FACT__NUMER__4BAC3F29"])));
+                    return ((ITEM_FACTURARow[])(base.GetChildRows(this.Table.ChildRelations["FK__ITEM_FACT__NUMER__4321E620"])));
                 }
             }
         }
@@ -11044,11 +9201,11 @@ namespace FrbaHotel {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public FUNCIONALIDADES_POR_ROLRow[] GetFUNCIONALIDADES_POR_ROLRows() {
-                if ((this.Table.ChildRelations["FK__FUNCIONAL__ID_FU__29572725"] == null)) {
+                if ((this.Table.ChildRelations["FK__FUNCIONAL__ID_FU__20CCCE1C"] == null)) {
                     return new FUNCIONALIDADES_POR_ROLRow[0];
                 }
                 else {
-                    return ((FUNCIONALIDADES_POR_ROLRow[])(base.GetChildRows(this.Table.ChildRelations["FK__FUNCIONAL__ID_FU__29572725"])));
+                    return ((FUNCIONALIDADES_POR_ROLRow[])(base.GetChildRows(this.Table.ChildRelations["FK__FUNCIONAL__ID_FU__20CCCE1C"])));
                 }
             }
         }
@@ -11093,10 +9250,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public FUNCIONALIDADESRow FUNCIONALIDADESRow {
                 get {
-                    return ((FUNCIONALIDADESRow)(this.GetParentRow(this.Table.ParentRelations["FK__FUNCIONAL__ID_FU__29572725"])));
+                    return ((FUNCIONALIDADESRow)(this.GetParentRow(this.Table.ParentRelations["FK__FUNCIONAL__ID_FU__20CCCE1C"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__FUNCIONAL__ID_FU__29572725"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__FUNCIONAL__ID_FU__20CCCE1C"]);
                 }
             }
             
@@ -11104,10 +9261,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ROLESRow ROLESRow {
                 get {
-                    return ((ROLESRow)(this.GetParentRow(this.Table.ParentRelations["FK__FUNCIONAL__ID_RO__286302EC"])));
+                    return ((ROLESRow)(this.GetParentRow(this.Table.ParentRelations["FK__FUNCIONAL__ID_RO__1FD8A9E3"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__FUNCIONAL__ID_RO__286302EC"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__FUNCIONAL__ID_RO__1FD8A9E3"]);
                 }
             }
         }
@@ -11200,10 +9357,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TIPOS_HABITACIONRow TIPOS_HABITACIONRow {
                 get {
-                    return ((TIPOS_HABITACIONRow)(this.GetParentRow(this.Table.ParentRelations["FK__HABITACIO__CODIG__1ED998B2"])));
+                    return ((TIPOS_HABITACIONRow)(this.GetParentRow(this.Table.ParentRelations["FK__HABITACIO__CODIG__164F3FA9"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__HABITACIO__CODIG__1ED998B2"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__HABITACIO__CODIG__164F3FA9"]);
                 }
             }
             
@@ -11211,10 +9368,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public HOTELESRow HOTELESRow {
                 get {
-                    return ((HOTELESRow)(this.GetParentRow(this.Table.ParentRelations["FK__HABITACIO__ID_HO__1DE57479"])));
+                    return ((HOTELESRow)(this.GetParentRow(this.Table.ParentRelations["FK__HABITACIO__ID_HO__155B1B70"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__HABITACIO__ID_HO__1DE57479"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__HABITACIO__ID_HO__155B1B70"]);
                 }
             }
             
@@ -11257,11 +9414,11 @@ namespace FrbaHotel {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public HABITACIONES_POR_RESERVARow[] GetHABITACIONES_POR_RESERVARows() {
-                if ((this.Table.ChildRelations["FK__HABITACIONES_POR__3E52440B"] == null)) {
+                if ((this.Table.ChildRelations["FK__HABITACIONES_POR__35C7EB02"] == null)) {
                     return new HABITACIONES_POR_RESERVARow[0];
                 }
                 else {
-                    return ((HABITACIONES_POR_RESERVARow[])(base.GetChildRows(this.Table.ChildRelations["FK__HABITACIONES_POR__3E52440B"])));
+                    return ((HABITACIONES_POR_RESERVARow[])(base.GetChildRows(this.Table.ChildRelations["FK__HABITACIONES_POR__35C7EB02"])));
                 }
             }
         }
@@ -11317,10 +9474,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RESERVASRow RESERVASRow {
                 get {
-                    return ((RESERVASRow)(this.GetParentRow(this.Table.ParentRelations["FK__HABITACIO__CODIG__3D5E1FD2"])));
+                    return ((RESERVASRow)(this.GetParentRow(this.Table.ParentRelations["FK__HABITACIO__CODIG__34D3C6C9"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__HABITACIO__CODIG__3D5E1FD2"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__HABITACIO__CODIG__34D3C6C9"]);
                 }
             }
             
@@ -11328,10 +9485,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public HABITACIONESRow HABITACIONESRowParent {
                 get {
-                    return ((HABITACIONESRow)(this.GetParentRow(this.Table.ParentRelations["FK__HABITACIONES_POR__3E52440B"])));
+                    return ((HABITACIONESRow)(this.GetParentRow(this.Table.ParentRelations["FK__HABITACIONES_POR__35C7EB02"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__HABITACIONES_POR__3E52440B"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__HABITACIONES_POR__35C7EB02"]);
                 }
             }
         }
@@ -11503,44 +9660,44 @@ namespace FrbaHotel {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BAJA_HOTELESRow[] GetBAJA_HOTELESRows() {
-                if ((this.Table.ChildRelations["FK__BAJA_HOTE__ID_HO__5535A963"] == null)) {
+                if ((this.Table.ChildRelations["FK__BAJA_HOTE__ID_HO__4CAB505A"] == null)) {
                     return new BAJA_HOTELESRow[0];
                 }
                 else {
-                    return ((BAJA_HOTELESRow[])(base.GetChildRows(this.Table.ChildRelations["FK__BAJA_HOTE__ID_HO__5535A963"])));
+                    return ((BAJA_HOTELESRow[])(base.GetChildRows(this.Table.ChildRelations["FK__BAJA_HOTE__ID_HO__4CAB505A"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public HABITACIONESRow[] GetHABITACIONESRows() {
-                if ((this.Table.ChildRelations["FK__HABITACIO__ID_HO__1DE57479"] == null)) {
+                if ((this.Table.ChildRelations["FK__HABITACIO__ID_HO__155B1B70"] == null)) {
                     return new HABITACIONESRow[0];
                 }
                 else {
-                    return ((HABITACIONESRow[])(base.GetChildRows(this.Table.ChildRelations["FK__HABITACIO__ID_HO__1DE57479"])));
+                    return ((HABITACIONESRow[])(base.GetChildRows(this.Table.ChildRelations["FK__HABITACIO__ID_HO__155B1B70"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public HOTELES_POR_USUARIORow[] GetHOTELES_POR_USUARIORows() {
-                if ((this.Table.ChildRelations["FK__HOTELES_P__ID_HO__30F848ED"] == null)) {
+                if ((this.Table.ChildRelations["FK__HOTELES_P__ID_HO__286DEFE4"] == null)) {
                     return new HOTELES_POR_USUARIORow[0];
                 }
                 else {
-                    return ((HOTELES_POR_USUARIORow[])(base.GetChildRows(this.Table.ChildRelations["FK__HOTELES_P__ID_HO__30F848ED"])));
+                    return ((HOTELES_POR_USUARIORow[])(base.GetChildRows(this.Table.ChildRelations["FK__HOTELES_P__ID_HO__286DEFE4"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public REGIMENES_POR_HOTELRow[] GetREGIMENES_POR_HOTELRows() {
-                if ((this.Table.ChildRelations["FK__REGIMENES__ID_HO__182C9B23"] == null)) {
+                if ((this.Table.ChildRelations["FK__REGIMENES__ID_HO__0FA2421A"] == null)) {
                     return new REGIMENES_POR_HOTELRow[0];
                 }
                 else {
-                    return ((REGIMENES_POR_HOTELRow[])(base.GetChildRows(this.Table.ChildRelations["FK__REGIMENES__ID_HO__182C9B23"])));
+                    return ((REGIMENES_POR_HOTELRow[])(base.GetChildRows(this.Table.ChildRelations["FK__REGIMENES__ID_HO__0FA2421A"])));
                 }
             }
         }
@@ -11585,10 +9742,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public HOTELESRow HOTELESRow {
                 get {
-                    return ((HOTELESRow)(this.GetParentRow(this.Table.ParentRelations["FK__HOTELES_P__ID_HO__30F848ED"])));
+                    return ((HOTELESRow)(this.GetParentRow(this.Table.ParentRelations["FK__HOTELES_P__ID_HO__286DEFE4"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__HOTELES_P__ID_HO__30F848ED"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__HOTELES_P__ID_HO__286DEFE4"]);
                 }
             }
             
@@ -11596,10 +9753,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public USUARIOSRow USUARIOSRow {
                 get {
-                    return ((USUARIOSRow)(this.GetParentRow(this.Table.ParentRelations["FK__HOTELES_P__USUAR__300424B4"])));
+                    return ((USUARIOSRow)(this.GetParentRow(this.Table.ParentRelations["FK__HOTELES_P__USUAR__2779CBAB"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__HOTELES_P__USUAR__300424B4"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__HOTELES_P__USUAR__2779CBAB"]);
                 }
             }
         }
@@ -11687,10 +9844,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CONSUMIBLESRow CONSUMIBLESRow {
                 get {
-                    return ((CONSUMIBLESRow)(this.GetParentRow(this.Table.ParentRelations["FK__ITEM_FACT__CODIG__4CA06362"])));
+                    return ((CONSUMIBLESRow)(this.GetParentRow(this.Table.ParentRelations["FK__ITEM_FACT__CODIG__44160A59"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__ITEM_FACT__CODIG__4CA06362"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__ITEM_FACT__CODIG__44160A59"]);
                 }
             }
             
@@ -11698,10 +9855,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public FACTURARow FACTURARow {
                 get {
-                    return ((FACTURARow)(this.GetParentRow(this.Table.ParentRelations["FK__ITEM_FACT__NUMER__4BAC3F29"])));
+                    return ((FACTURARow)(this.GetParentRow(this.Table.ParentRelations["FK__ITEM_FACT__NUMER__4321E620"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__ITEM_FACT__NUMER__4BAC3F29"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__ITEM_FACT__NUMER__4321E620"]);
                 }
             }
             
@@ -11825,22 +9982,22 @@ namespace FrbaHotel {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public REGIMENES_POR_HOTELRow[] GetREGIMENES_POR_HOTELRows() {
-                if ((this.Table.ChildRelations["FK__REGIMENES__CODIG__1920BF5C"] == null)) {
+                if ((this.Table.ChildRelations["FK__REGIMENES__CODIG__10966653"] == null)) {
                     return new REGIMENES_POR_HOTELRow[0];
                 }
                 else {
-                    return ((REGIMENES_POR_HOTELRow[])(base.GetChildRows(this.Table.ChildRelations["FK__REGIMENES__CODIG__1920BF5C"])));
+                    return ((REGIMENES_POR_HOTELRow[])(base.GetChildRows(this.Table.ChildRelations["FK__REGIMENES__CODIG__10966653"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RESERVASRow[] GetRESERVASRows() {
-                if ((this.Table.ChildRelations["FK__RESERVAS__CODIGO__37A5467C"] == null)) {
+                if ((this.Table.ChildRelations["FK__RESERVAS__CODIGO__2F1AED73"] == null)) {
                     return new RESERVASRow[0];
                 }
                 else {
-                    return ((RESERVASRow[])(base.GetChildRows(this.Table.ChildRelations["FK__RESERVAS__CODIGO__37A5467C"])));
+                    return ((RESERVASRow[])(base.GetChildRows(this.Table.ChildRelations["FK__RESERVAS__CODIGO__2F1AED73"])));
                 }
             }
         }
@@ -11885,10 +10042,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public REGIMENESRow REGIMENESRow {
                 get {
-                    return ((REGIMENESRow)(this.GetParentRow(this.Table.ParentRelations["FK__REGIMENES__CODIG__1920BF5C"])));
+                    return ((REGIMENESRow)(this.GetParentRow(this.Table.ParentRelations["FK__REGIMENES__CODIG__10966653"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__REGIMENES__CODIG__1920BF5C"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__REGIMENES__CODIG__10966653"]);
                 }
             }
             
@@ -11896,10 +10053,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public HOTELESRow HOTELESRow {
                 get {
-                    return ((HOTELESRow)(this.GetParentRow(this.Table.ParentRelations["FK__REGIMENES__ID_HO__182C9B23"])));
+                    return ((HOTELESRow)(this.GetParentRow(this.Table.ParentRelations["FK__REGIMENES__ID_HO__0FA2421A"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__REGIMENES__ID_HO__182C9B23"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__REGIMENES__ID_HO__0FA2421A"]);
                 }
             }
         }
@@ -11987,10 +10144,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RESERVASRow RESERVASRow {
                 get {
-                    return ((RESERVASRow)(this.GetParentRow(this.Table.ParentRelations["FK__REGISTRO___CODIG__412EB0B6"])));
+                    return ((RESERVASRow)(this.GetParentRow(this.Table.ParentRelations["FK__REGISTRO___CODIG__38A457AD"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__REGISTRO___CODIG__412EB0B6"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__REGISTRO___CODIG__38A457AD"]);
                 }
             }
             
@@ -11998,10 +10155,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public USUARIOSRow USUARIOSRow {
                 get {
-                    return ((USUARIOSRow)(this.GetParentRow(this.Table.ParentRelations["FK__REGISTRO___USUAR__4222D4EF"])));
+                    return ((USUARIOSRow)(this.GetParentRow(this.Table.ParentRelations["FK__REGISTRO___USUAR__39987BE6"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__REGISTRO___USUAR__4222D4EF"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__REGISTRO___USUAR__39987BE6"]);
                 }
             }
             
@@ -12119,10 +10276,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public REGIMENESRow REGIMENESRow {
                 get {
-                    return ((REGIMENESRow)(this.GetParentRow(this.Table.ParentRelations["FK__RESERVAS__CODIGO__37A5467C"])));
+                    return ((REGIMENESRow)(this.GetParentRow(this.Table.ParentRelations["FK__RESERVAS__CODIGO__2F1AED73"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__RESERVAS__CODIGO__37A5467C"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__RESERVAS__CODIGO__2F1AED73"]);
                 }
             }
             
@@ -12130,10 +10287,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ESTADOS_RESERVARow ESTADOS_RESERVARow {
                 get {
-                    return ((ESTADOS_RESERVARow)(this.GetParentRow(this.Table.ParentRelations["FK__RESERVAS__ID_EST__36B12243"])));
+                    return ((ESTADOS_RESERVARow)(this.GetParentRow(this.Table.ParentRelations["FK__RESERVAS__ID_EST__2E26C93A"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__RESERVAS__ID_EST__36B12243"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__RESERVAS__ID_EST__2E26C93A"]);
                 }
             }
             
@@ -12152,44 +10309,44 @@ namespace FrbaHotel {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CLIENTES_POR_RESERVARow[] GetCLIENTES_POR_RESERVARows() {
-                if ((this.Table.ChildRelations["FK__CLIENTES___CODIG__59063A47"] == null)) {
+                if ((this.Table.ChildRelations["FK__CLIENTES___CODIG__507BE13E"] == null)) {
                     return new CLIENTES_POR_RESERVARow[0];
                 }
                 else {
-                    return ((CLIENTES_POR_RESERVARow[])(base.GetChildRows(this.Table.ChildRelations["FK__CLIENTES___CODIG__59063A47"])));
+                    return ((CLIENTES_POR_RESERVARow[])(base.GetChildRows(this.Table.ChildRelations["FK__CLIENTES___CODIG__507BE13E"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ESTADIASRow[] GetESTADIASRows() {
-                if ((this.Table.ChildRelations["FK__ESTADIAS__CODIGO__3A81B327"] == null)) {
+                if ((this.Table.ChildRelations["FK__ESTADIAS__CODIGO__31F75A1E"] == null)) {
                     return new ESTADIASRow[0];
                 }
                 else {
-                    return ((ESTADIASRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ESTADIAS__CODIGO__3A81B327"])));
+                    return ((ESTADIASRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ESTADIAS__CODIGO__31F75A1E"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public HABITACIONES_POR_RESERVARow[] GetHABITACIONES_POR_RESERVARows() {
-                if ((this.Table.ChildRelations["FK__HABITACIO__CODIG__3D5E1FD2"] == null)) {
+                if ((this.Table.ChildRelations["FK__HABITACIO__CODIG__34D3C6C9"] == null)) {
                     return new HABITACIONES_POR_RESERVARow[0];
                 }
                 else {
-                    return ((HABITACIONES_POR_RESERVARow[])(base.GetChildRows(this.Table.ChildRelations["FK__HABITACIO__CODIG__3D5E1FD2"])));
+                    return ((HABITACIONES_POR_RESERVARow[])(base.GetChildRows(this.Table.ChildRelations["FK__HABITACIO__CODIG__34D3C6C9"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public REGISTRO_RESERVASRow[] GetREGISTRO_RESERVASRows() {
-                if ((this.Table.ChildRelations["FK__REGISTRO___CODIG__412EB0B6"] == null)) {
+                if ((this.Table.ChildRelations["FK__REGISTRO___CODIG__38A457AD"] == null)) {
                     return new REGISTRO_RESERVASRow[0];
                 }
                 else {
-                    return ((REGISTRO_RESERVASRow[])(base.GetChildRows(this.Table.ChildRelations["FK__REGISTRO___CODIG__412EB0B6"])));
+                    return ((REGISTRO_RESERVASRow[])(base.GetChildRows(this.Table.ChildRelations["FK__REGISTRO___CODIG__38A457AD"])));
                 }
             }
         }
@@ -12244,22 +10401,22 @@ namespace FrbaHotel {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public FUNCIONALIDADES_POR_ROLRow[] GetFUNCIONALIDADES_POR_ROLRows() {
-                if ((this.Table.ChildRelations["FK__FUNCIONAL__ID_RO__286302EC"] == null)) {
+                if ((this.Table.ChildRelations["FK__FUNCIONAL__ID_RO__1FD8A9E3"] == null)) {
                     return new FUNCIONALIDADES_POR_ROLRow[0];
                 }
                 else {
-                    return ((FUNCIONALIDADES_POR_ROLRow[])(base.GetChildRows(this.Table.ChildRelations["FK__FUNCIONAL__ID_RO__286302EC"])));
+                    return ((FUNCIONALIDADES_POR_ROLRow[])(base.GetChildRows(this.Table.ChildRelations["FK__FUNCIONAL__ID_RO__1FD8A9E3"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ROLES_POR_USUARIORow[] GetROLES_POR_USUARIORows() {
-                if ((this.Table.ChildRelations["FK__ROLES_POR__ID_RO__2D27B809"] == null)) {
+                if ((this.Table.ChildRelations["FK__ROLES_POR__ID_RO__249D5F00"] == null)) {
                     return new ROLES_POR_USUARIORow[0];
                 }
                 else {
-                    return ((ROLES_POR_USUARIORow[])(base.GetChildRows(this.Table.ChildRelations["FK__ROLES_POR__ID_RO__2D27B809"])));
+                    return ((ROLES_POR_USUARIORow[])(base.GetChildRows(this.Table.ChildRelations["FK__ROLES_POR__ID_RO__249D5F00"])));
                 }
             }
         }
@@ -12304,10 +10461,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ROLESRow ROLESRow {
                 get {
-                    return ((ROLESRow)(this.GetParentRow(this.Table.ParentRelations["FK__ROLES_POR__ID_RO__2D27B809"])));
+                    return ((ROLESRow)(this.GetParentRow(this.Table.ParentRelations["FK__ROLES_POR__ID_RO__249D5F00"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__ROLES_POR__ID_RO__2D27B809"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__ROLES_POR__ID_RO__249D5F00"]);
                 }
             }
             
@@ -12315,10 +10472,10 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public USUARIOSRow USUARIOSRow {
                 get {
-                    return ((USUARIOSRow)(this.GetParentRow(this.Table.ParentRelations["FK__ROLES_POR__USUAR__2C3393D0"])));
+                    return ((USUARIOSRow)(this.GetParentRow(this.Table.ParentRelations["FK__ROLES_POR__USUAR__23A93AC7"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__ROLES_POR__USUAR__2C3393D0"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__ROLES_POR__USUAR__23A93AC7"]);
                 }
             }
         }
@@ -12373,11 +10530,11 @@ namespace FrbaHotel {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public HABITACIONESRow[] GetHABITACIONESRows() {
-                if ((this.Table.ChildRelations["FK__HABITACIO__CODIG__1ED998B2"] == null)) {
+                if ((this.Table.ChildRelations["FK__HABITACIO__CODIG__164F3FA9"] == null)) {
                     return new HABITACIONESRow[0];
                 }
                 else {
-                    return ((HABITACIONESRow[])(base.GetChildRows(this.Table.ChildRelations["FK__HABITACIO__CODIG__1ED998B2"])));
+                    return ((HABITACIONESRow[])(base.GetChildRows(this.Table.ChildRelations["FK__HABITACIO__CODIG__164F3FA9"])));
                 }
             }
         }
@@ -12438,11 +10595,11 @@ namespace FrbaHotel {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CLIENTESRow[] GetCLIENTESRows() {
-                if ((this.Table.ChildRelations["FK__CLIENTES__TIPO_I__5165187F"] == null)) {
+                if ((this.Table.ChildRelations["FK__CLIENTES__TIPO_I__48DABF76"] == null)) {
                     return new CLIENTESRow[0];
                 }
                 else {
-                    return ((CLIENTESRow[])(base.GetChildRows(this.Table.ChildRelations["FK__CLIENTES__TIPO_I__5165187F"])));
+                    return ((CLIENTESRow[])(base.GetChildRows(this.Table.ChildRelations["FK__CLIENTES__TIPO_I__48DABF76"])));
                 }
             }
         }
@@ -12552,67 +10709,33 @@ namespace FrbaHotel {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public HOTELES_POR_USUARIORow[] GetHOTELES_POR_USUARIORows() {
-                if ((this.Table.ChildRelations["FK__HOTELES_P__USUAR__300424B4"] == null)) {
+                if ((this.Table.ChildRelations["FK__HOTELES_P__USUAR__2779CBAB"] == null)) {
                     return new HOTELES_POR_USUARIORow[0];
                 }
                 else {
-                    return ((HOTELES_POR_USUARIORow[])(base.GetChildRows(this.Table.ChildRelations["FK__HOTELES_P__USUAR__300424B4"])));
+                    return ((HOTELES_POR_USUARIORow[])(base.GetChildRows(this.Table.ChildRelations["FK__HOTELES_P__USUAR__2779CBAB"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public REGISTRO_RESERVASRow[] GetREGISTRO_RESERVASRows() {
-                if ((this.Table.ChildRelations["FK__REGISTRO___USUAR__4222D4EF"] == null)) {
+                if ((this.Table.ChildRelations["FK__REGISTRO___USUAR__39987BE6"] == null)) {
                     return new REGISTRO_RESERVASRow[0];
                 }
                 else {
-                    return ((REGISTRO_RESERVASRow[])(base.GetChildRows(this.Table.ChildRelations["FK__REGISTRO___USUAR__4222D4EF"])));
+                    return ((REGISTRO_RESERVASRow[])(base.GetChildRows(this.Table.ChildRelations["FK__REGISTRO___USUAR__39987BE6"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ROLES_POR_USUARIORow[] GetROLES_POR_USUARIORows() {
-                if ((this.Table.ChildRelations["FK__ROLES_POR__USUAR__2C3393D0"] == null)) {
+                if ((this.Table.ChildRelations["FK__ROLES_POR__USUAR__23A93AC7"] == null)) {
                     return new ROLES_POR_USUARIORow[0];
                 }
                 else {
-                    return ((ROLES_POR_USUARIORow[])(base.GetChildRows(this.Table.ChildRelations["FK__ROLES_POR__USUAR__2C3393D0"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class MaestraRowChangeEvent : global::System.EventArgs {
-            
-            private MaestraRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MaestraRowChangeEvent(MaestraRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MaestraRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
+                    return ((ROLES_POR_USUARIORow[])(base.GetChildRows(this.Table.ChildRelations["FK__ROLES_POR__USUAR__23A93AC7"])));
                 }
             }
         }
@@ -13412,569 +11535,6 @@ namespace FrbaHotel.GD1C2018DataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class MaestraTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public MaestraTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Maestra";
-            tableMapping.ColumnMappings.Add("Hotel_Ciudad", "Hotel_Ciudad");
-            tableMapping.ColumnMappings.Add("Hotel_Calle", "Hotel_Calle");
-            tableMapping.ColumnMappings.Add("Hotel_Nro_Calle", "Hotel_Nro_Calle");
-            tableMapping.ColumnMappings.Add("Hotel_CantEstrella", "Hotel_CantEstrella");
-            tableMapping.ColumnMappings.Add("Hotel_Recarga_Estrella", "Hotel_Recarga_Estrella");
-            tableMapping.ColumnMappings.Add("Habitacion_Numero", "Habitacion_Numero");
-            tableMapping.ColumnMappings.Add("Habitacion_Piso", "Habitacion_Piso");
-            tableMapping.ColumnMappings.Add("Habitacion_Frente", "Habitacion_Frente");
-            tableMapping.ColumnMappings.Add("Habitacion_Tipo_Codigo", "Habitacion_Tipo_Codigo");
-            tableMapping.ColumnMappings.Add("Habitacion_Tipo_Descripcion", "Habitacion_Tipo_Descripcion");
-            tableMapping.ColumnMappings.Add("Habitacion_Tipo_Porcentual", "Habitacion_Tipo_Porcentual");
-            tableMapping.ColumnMappings.Add("Regimen_Descripcion", "Regimen_Descripcion");
-            tableMapping.ColumnMappings.Add("Regimen_Precio", "Regimen_Precio");
-            tableMapping.ColumnMappings.Add("Reserva_Fecha_Inicio", "Reserva_Fecha_Inicio");
-            tableMapping.ColumnMappings.Add("Reserva_Codigo", "Reserva_Codigo");
-            tableMapping.ColumnMappings.Add("Reserva_Cant_Noches", "Reserva_Cant_Noches");
-            tableMapping.ColumnMappings.Add("Estadia_Fecha_Inicio", "Estadia_Fecha_Inicio");
-            tableMapping.ColumnMappings.Add("Estadia_Cant_Noches", "Estadia_Cant_Noches");
-            tableMapping.ColumnMappings.Add("Consumible_Codigo", "Consumible_Codigo");
-            tableMapping.ColumnMappings.Add("Consumible_Descripcion", "Consumible_Descripcion");
-            tableMapping.ColumnMappings.Add("Consumible_Precio", "Consumible_Precio");
-            tableMapping.ColumnMappings.Add("Item_Factura_Cantidad", "Item_Factura_Cantidad");
-            tableMapping.ColumnMappings.Add("Item_Factura_Monto", "Item_Factura_Monto");
-            tableMapping.ColumnMappings.Add("Factura_Nro", "Factura_Nro");
-            tableMapping.ColumnMappings.Add("Factura_Fecha", "Factura_Fecha");
-            tableMapping.ColumnMappings.Add("Factura_Total", "Factura_Total");
-            tableMapping.ColumnMappings.Add("Cliente_Pasaporte_Nro", "Cliente_Pasaporte_Nro");
-            tableMapping.ColumnMappings.Add("Cliente_Apellido", "Cliente_Apellido");
-            tableMapping.ColumnMappings.Add("Cliente_Nombre", "Cliente_Nombre");
-            tableMapping.ColumnMappings.Add("Cliente_Fecha_Nac", "Cliente_Fecha_Nac");
-            tableMapping.ColumnMappings.Add("Cliente_Mail", "Cliente_Mail");
-            tableMapping.ColumnMappings.Add("Cliente_Dom_Calle", "Cliente_Dom_Calle");
-            tableMapping.ColumnMappings.Add("Cliente_Nro_Calle", "Cliente_Nro_Calle");
-            tableMapping.ColumnMappings.Add("Cliente_Piso", "Cliente_Piso");
-            tableMapping.ColumnMappings.Add("Cliente_Depto", "Cliente_Depto");
-            tableMapping.ColumnMappings.Add("Cliente_Nacionalidad", "Cliente_Nacionalidad");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [gd_esquema].[Maestra] ([Hotel_Ciudad], [Hotel_Calle], [Hotel_Nro_Cal" +
-                "le], [Hotel_CantEstrella], [Hotel_Recarga_Estrella], [Habitacion_Numero], [Habit" +
-                "acion_Piso], [Habitacion_Frente], [Habitacion_Tipo_Codigo], [Habitacion_Tipo_Des" +
-                "cripcion], [Habitacion_Tipo_Porcentual], [Regimen_Descripcion], [Regimen_Precio]" +
-                ", [Reserva_Fecha_Inicio], [Reserva_Codigo], [Reserva_Cant_Noches], [Estadia_Fech" +
-                "a_Inicio], [Estadia_Cant_Noches], [Consumible_Codigo], [Consumible_Descripcion]," +
-                " [Consumible_Precio], [Item_Factura_Cantidad], [Item_Factura_Monto], [Factura_Nr" +
-                "o], [Factura_Fecha], [Factura_Total], [Cliente_Pasaporte_Nro], [Cliente_Apellido" +
-                "], [Cliente_Nombre], [Cliente_Fecha_Nac], [Cliente_Mail], [Cliente_Dom_Calle], [" +
-                "Cliente_Nro_Calle], [Cliente_Piso], [Cliente_Depto], [Cliente_Nacionalidad]) VAL" +
-                "UES (@Hotel_Ciudad, @Hotel_Calle, @Hotel_Nro_Calle, @Hotel_CantEstrella, @Hotel_" +
-                "Recarga_Estrella, @Habitacion_Numero, @Habitacion_Piso, @Habitacion_Frente, @Hab" +
-                "itacion_Tipo_Codigo, @Habitacion_Tipo_Descripcion, @Habitacion_Tipo_Porcentual, " +
-                "@Regimen_Descripcion, @Regimen_Precio, @Reserva_Fecha_Inicio, @Reserva_Codigo, @" +
-                "Reserva_Cant_Noches, @Estadia_Fecha_Inicio, @Estadia_Cant_Noches, @Consumible_Co" +
-                "digo, @Consumible_Descripcion, @Consumible_Precio, @Item_Factura_Cantidad, @Item" +
-                "_Factura_Monto, @Factura_Nro, @Factura_Fecha, @Factura_Total, @Cliente_Pasaporte" +
-                "_Nro, @Cliente_Apellido, @Cliente_Nombre, @Cliente_Fecha_Nac, @Cliente_Mail, @Cl" +
-                "iente_Dom_Calle, @Cliente_Nro_Calle, @Cliente_Piso, @Cliente_Depto, @Cliente_Nac" +
-                "ionalidad)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Ciudad", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Ciudad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Calle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Hotel_Calle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Nro_Calle", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Hotel_Nro_Calle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_CantEstrella", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Hotel_CantEstrella", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Hotel_Recarga_Estrella", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Hotel_Recarga_Estrella", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Habitacion_Numero", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Habitacion_Numero", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Habitacion_Piso", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Habitacion_Piso", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Habitacion_Frente", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Habitacion_Frente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Habitacion_Tipo_Codigo", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Habitacion_Tipo_Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Habitacion_Tipo_Descripcion", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Habitacion_Tipo_Descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Habitacion_Tipo_Porcentual", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Habitacion_Tipo_Porcentual", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Regimen_Descripcion", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Regimen_Descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Regimen_Precio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Regimen_Precio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Reserva_Fecha_Inicio", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reserva_Fecha_Inicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Reserva_Codigo", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Reserva_Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Reserva_Cant_Noches", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Reserva_Cant_Noches", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estadia_Fecha_Inicio", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Estadia_Fecha_Inicio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Estadia_Cant_Noches", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Estadia_Cant_Noches", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consumible_Codigo", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Consumible_Codigo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consumible_Descripcion", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consumible_Descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consumible_Precio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Consumible_Precio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Item_Factura_Cantidad", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Item_Factura_Cantidad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Item_Factura_Monto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Item_Factura_Monto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Factura_Nro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Factura_Nro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Factura_Fecha", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Factura_Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Factura_Total", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Factura_Total", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente_Pasaporte_Nro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Cliente_Pasaporte_Nro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente_Apellido", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente_Apellido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente_Nombre", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente_Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente_Fecha_Nac", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente_Fecha_Nac", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente_Mail", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente_Mail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente_Dom_Calle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente_Dom_Calle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente_Nro_Calle", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Cliente_Nro_Calle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente_Piso", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Cliente_Piso", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente_Depto", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente_Depto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cliente_Nacionalidad", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cliente_Nacionalidad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT Hotel_Ciudad, Hotel_Calle, Hotel_Nro_Calle, Hotel_CantEstrella, Hotel_Recarga_Estrella, Habitacion_Numero, Habitacion_Piso, Habitacion_Frente, Habitacion_Tipo_Codigo, Habitacion_Tipo_Descripcion, Habitacion_Tipo_Porcentual, Regimen_Descripcion, Regimen_Precio, Reserva_Fecha_Inicio, Reserva_Codigo, Reserva_Cant_Noches, Estadia_Fecha_Inicio, Estadia_Cant_Noches, Consumible_Codigo, Consumible_Descripcion, Consumible_Precio, Item_Factura_Cantidad, Item_Factura_Monto, Factura_Nro, Factura_Fecha, Factura_Total, Cliente_Pasaporte_Nro, Cliente_Apellido, Cliente_Nombre, Cliente_Fecha_Nac, Cliente_Mail, Cliente_Dom_Calle, Cliente_Nro_Calle, Cliente_Piso, Cliente_Depto, Cliente_Nacionalidad FROM gd_esquema.Maestra";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(GD1C2018DataSet.MaestraDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual GD1C2018DataSet.MaestraDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            GD1C2018DataSet.MaestraDataTable dataTable = new GD1C2018DataSet.MaestraDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(GD1C2018DataSet.MaestraDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(GD1C2018DataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Maestra");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(
-                    string Hotel_Ciudad, 
-                    string Hotel_Calle, 
-                    global::System.Nullable<decimal> Hotel_Nro_Calle, 
-                    global::System.Nullable<decimal> Hotel_CantEstrella, 
-                    global::System.Nullable<decimal> Hotel_Recarga_Estrella, 
-                    global::System.Nullable<decimal> Habitacion_Numero, 
-                    global::System.Nullable<decimal> Habitacion_Piso, 
-                    string Habitacion_Frente, 
-                    global::System.Nullable<decimal> Habitacion_Tipo_Codigo, 
-                    string Habitacion_Tipo_Descripcion, 
-                    global::System.Nullable<decimal> Habitacion_Tipo_Porcentual, 
-                    string Regimen_Descripcion, 
-                    global::System.Nullable<decimal> Regimen_Precio, 
-                    global::System.Nullable<global::System.DateTime> Reserva_Fecha_Inicio, 
-                    global::System.Nullable<decimal> Reserva_Codigo, 
-                    global::System.Nullable<decimal> Reserva_Cant_Noches, 
-                    global::System.Nullable<global::System.DateTime> Estadia_Fecha_Inicio, 
-                    global::System.Nullable<decimal> Estadia_Cant_Noches, 
-                    global::System.Nullable<decimal> Consumible_Codigo, 
-                    string Consumible_Descripcion, 
-                    global::System.Nullable<decimal> Consumible_Precio, 
-                    global::System.Nullable<decimal> Item_Factura_Cantidad, 
-                    global::System.Nullable<decimal> Item_Factura_Monto, 
-                    global::System.Nullable<decimal> Factura_Nro, 
-                    global::System.Nullable<global::System.DateTime> Factura_Fecha, 
-                    global::System.Nullable<decimal> Factura_Total, 
-                    global::System.Nullable<decimal> Cliente_Pasaporte_Nro, 
-                    string Cliente_Apellido, 
-                    string Cliente_Nombre, 
-                    global::System.Nullable<global::System.DateTime> Cliente_Fecha_Nac, 
-                    string Cliente_Mail, 
-                    string Cliente_Dom_Calle, 
-                    global::System.Nullable<decimal> Cliente_Nro_Calle, 
-                    global::System.Nullable<decimal> Cliente_Piso, 
-                    string Cliente_Depto, 
-                    string Cliente_Nacionalidad) {
-            if ((Hotel_Ciudad == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Hotel_Ciudad));
-            }
-            if ((Hotel_Calle == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Hotel_Calle));
-            }
-            if ((Hotel_Nro_Calle.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(Hotel_Nro_Calle.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Hotel_CantEstrella.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(Hotel_CantEstrella.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Hotel_Recarga_Estrella.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(Hotel_Recarga_Estrella.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Habitacion_Numero.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Habitacion_Numero.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Habitacion_Piso.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(Habitacion_Piso.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Habitacion_Frente == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Habitacion_Frente));
-            }
-            if ((Habitacion_Tipo_Codigo.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(Habitacion_Tipo_Codigo.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((Habitacion_Tipo_Descripcion == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Habitacion_Tipo_Descripcion));
-            }
-            if ((Habitacion_Tipo_Porcentual.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(Habitacion_Tipo_Porcentual.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Regimen_Descripcion == null)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Regimen_Descripcion));
-            }
-            if ((Regimen_Precio.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((decimal)(Regimen_Precio.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((Reserva_Fecha_Inicio.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((System.DateTime)(Reserva_Fecha_Inicio.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            if ((Reserva_Codigo.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((decimal)(Reserva_Codigo.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Reserva_Cant_Noches.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((decimal)(Reserva_Cant_Noches.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((Estadia_Fecha_Inicio.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((System.DateTime)(Estadia_Fecha_Inicio.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((Estadia_Cant_Noches.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((decimal)(Estadia_Cant_Noches.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((Consumible_Codigo.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((decimal)(Consumible_Codigo.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            if ((Consumible_Descripcion == null)) {
-                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(Consumible_Descripcion));
-            }
-            if ((Consumible_Precio.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[20].Value = ((decimal)(Consumible_Precio.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            if ((Item_Factura_Cantidad.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[21].Value = ((decimal)(Item_Factura_Cantidad.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            if ((Item_Factura_Monto.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[22].Value = ((decimal)(Item_Factura_Monto.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            if ((Factura_Nro.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[23].Value = ((decimal)(Factura_Nro.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            if ((Factura_Fecha.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[24].Value = ((System.DateTime)(Factura_Fecha.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            if ((Factura_Total.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[25].Value = ((decimal)(Factura_Total.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            if ((Cliente_Pasaporte_Nro.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[26].Value = ((decimal)(Cliente_Pasaporte_Nro.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            if ((Cliente_Apellido == null)) {
-                this.Adapter.InsertCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[27].Value = ((string)(Cliente_Apellido));
-            }
-            if ((Cliente_Nombre == null)) {
-                this.Adapter.InsertCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[28].Value = ((string)(Cliente_Nombre));
-            }
-            if ((Cliente_Fecha_Nac.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[29].Value = ((System.DateTime)(Cliente_Fecha_Nac.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            if ((Cliente_Mail == null)) {
-                this.Adapter.InsertCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[30].Value = ((string)(Cliente_Mail));
-            }
-            if ((Cliente_Dom_Calle == null)) {
-                this.Adapter.InsertCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[31].Value = ((string)(Cliente_Dom_Calle));
-            }
-            if ((Cliente_Nro_Calle.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[32].Value = ((decimal)(Cliente_Nro_Calle.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[32].Value = global::System.DBNull.Value;
-            }
-            if ((Cliente_Piso.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[33].Value = ((decimal)(Cliente_Piso.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[33].Value = global::System.DBNull.Value;
-            }
-            if ((Cliente_Depto == null)) {
-                this.Adapter.InsertCommand.Parameters[34].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[34].Value = ((string)(Cliente_Depto));
-            }
-            if ((Cliente_Nacionalidad == null)) {
-                this.Adapter.InsertCommand.Parameters[35].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[35].Value = ((string)(Cliente_Nacionalidad));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class BAJA_HOTELESTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -14131,7 +11691,7 @@ SELECT ID_BAJA_HOTEL, ID_HOTEL, FECHA_INICIO_BAJA, FECHA_FIN_BAJA FROM LOS_MAGIO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14571,7 +12131,7 @@ SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MA
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15194,7 +12754,7 @@ SELECT CODIGO_CLIENTE, CODIGO_RESERVA FROM LOS_MAGIOS.CLIENTES_POR_RESERVA WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15501,7 +13061,7 @@ SELECT CODIGO_CONSUMIBLE, DESCRIPCION, PRECIO_CONSUMIBLE FROM LOS_MAGIOS.CONSUMI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15859,7 +13419,7 @@ SELECT CODIGO_RESERVA, FECHA_INGRESO, FECHA_EGRESO FROM LOS_MAGIOS.ESTADIAS WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16164,7 +13724,7 @@ SELECT ID_ESTADO_RESERVA, DESCRIPCION_ESTADO_RESERVA FROM LOS_MAGIOS.ESTADOS_RES
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16501,7 +14061,7 @@ SELECT NUMERO_FACTURA, CODIGO_RESERVA, FECHA_FACTURA, TOTAL_FACTURA, INCONSISTEN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16864,7 +14424,7 @@ SELECT ID_FUNCIONALIDAD, DESCRIPCION FROM LOS_MAGIOS.FUNCIONALIDADES WHERE (ID_F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17186,7 +14746,7 @@ SELECT ID_ROL, ID_FUNCIONALIDAD FROM LOS_MAGIOS.FUNCIONALIDADES_POR_ROL WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17505,23 +15065,18 @@ SELECT ID_HOTEL, NUMERO_HABITACION, PISO, UBICACION, CODIGO_TIPO_HABITACION FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_HOTEL, NUMERO_HABITACION, PISO, UBICACION, CODIGO_TIPO_HABITACION FROM " +
                 "LOS_MAGIOS.HABITACIONES";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        ID_HOTEL, NUMERO_HABITACION, PISO, UBICACION, CODIGO_TIPO_HABITACIO" +
-                "N\r\nFROM            LOS_MAGIOS.HABITACIONES\r\nWHERE        (ID_HOTEL = 1)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17546,19 +15101,6 @@ SELECT ID_HOTEL, NUMERO_HABITACION, PISO, UBICACION, CODIGO_TIPO_HABITACION FROM
             GD1C2018DataSet.HABITACIONESDataTable dataTable = new GD1C2018DataSet.HABITACIONESDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(GD1C2018DataSet.HABITACIONESDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17913,7 +15455,7 @@ SELECT NUMERO_HABITACION, ID_HOTEL, CODIGO_RESERVA FROM LOS_MAGIOS.HABITACIONES_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18256,7 +15798,7 @@ SELECT ID_HOTEL, NOMBRE, MAIL, TELEFONO, DIRECCION, ESTRELLAS, CIUDAD, PAIS, FEC
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18751,7 +16293,7 @@ SELECT USUARIO, ID_HOTEL FROM LOS_MAGIOS.HOTELES_POR_USUARIO WHERE (ID_HOTEL = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19087,7 +16629,7 @@ SELECT ID_ITEM_FACTURA, NUMERO_FACTURA, CANTIDAD, PRECIO_UNIDAD, CODIGO_CONSUMIB
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19458,13 +17000,13 @@ SELECT CODIGO_REGIMEN, DESCRIPCION, PRECIO_DOLARES, ESTADO FROM LOS_MAGIOS.REGIM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT CODIGO_REGIMEN, DESCRIPCION, PRECIO_DOLARES, ESTADO FROM LOS_MAGIOS.REGIME" +
@@ -19473,13 +17015,8 @@ SELECT CODIGO_REGIMEN, DESCRIPCION, PRECIO_DOLARES, ESTADO FROM LOS_MAGIOS.REGIM
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT CODIGO_REGIMEN, DESCRIPCION, PRECIO_DOLARES, ESTADO FROM LOS_MAGIOS.REGIME" +
-                "NES";
+                "NES ORDER BY DESCRIPCION";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT CODIGO_REGIMEN, DESCRIPCION, PRECIO_DOLARES, ESTADO FROM LOS_MAGIOS.REGIME" +
-                "NES";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19512,19 +17049,6 @@ SELECT CODIGO_REGIMEN, DESCRIPCION, PRECIO_DOLARES, ESTADO FROM LOS_MAGIOS.REGIM
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy(GD1C2018DataSet.REGIMENESDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy1(GD1C2018DataSet.REGIMENESDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -19851,7 +17375,7 @@ SELECT ID_HOTEL, CODIGO_REGIMEN FROM LOS_MAGIOS.REGIMENES_POR_HOTEL WHERE (CODIG
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20167,7 +17691,7 @@ SELECT ID_REGISTRO, CODIGO_RESERVA, USUARIO, ACCION, FECHA FROM LOS_MAGIOS.REGIS
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20567,7 +18091,7 @@ SELECT CODIGO_RESERVA, FECHA_RESERVA, FECHA_DESDE, FECHA_HASTA, ID_ESTADO_RESERV
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20914,7 +18438,7 @@ SELECT CODIGO_RESERVA, FECHA_RESERVA, FECHA_DESDE, FECHA_HASTA, ID_ESTADO_RESERV
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21237,7 +18761,7 @@ SELECT USUARIO, ID_ROL FROM LOS_MAGIOS.ROLES_POR_USUARIO WHERE (ID_ROL = @ID_ROL
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21562,43 +19086,18 @@ SELECT CODIGO_TIPO_HABITACION, DESCRIPCION_TIPO_HABITACION, PORCENTAJE FROM LOS_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT CODIGO_TIPO_HABITACION, DESCRIPCION_TIPO_HABITACION, PORCENTAJE FROM LOS_M" +
                 "AGIOS.TIPOS_HABITACION";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT CODIGO_TIPO_HABITACION, DESCRIPCION_TIPO_HABITACION, PORCENTAJE FROM LOS_M" +
-                "AGIOS.TIPOS_HABITACION";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT CODIGO_TIPO_HABITACION, DESCRIPCION_TIPO_HABITACION, PORCENTAJE FROM LOS_M" +
-                "AGIOS.TIPOS_HABITACION";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT CODIGO_TIPO_HABITACION, DESCRIPCION_TIPO_HABITACION, PORCENTAJE FROM LOS_M" +
-                "AGIOS.TIPOS_HABITACION";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT CODIGO_TIPO_HABITACION, DESCRIPCION_TIPO_HABITACION, PORCENTAJE FROM LOS_M" +
-                "AGIOS.TIPOS_HABITACION";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT CODIGO_TIPO_HABITACION, DESCRIPCION_TIPO_HABITACION, PORCENTAJE FROM LOS_M" +
-                "AGIOS.TIPOS_HABITACION";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21623,71 +19122,6 @@ SELECT CODIGO_TIPO_HABITACION, DESCRIPCION_TIPO_HABITACION, PORCENTAJE FROM LOS_
             GD1C2018DataSet.TIPOS_HABITACIONDataTable dataTable = new GD1C2018DataSet.TIPOS_HABITACIONDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(GD1C2018DataSet.TIPOS_HABITACIONDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy1(GD1C2018DataSet.TIPOS_HABITACIONDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTipoHab(GD1C2018DataSet.TIPOS_HABITACIONDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTipoHabitacion(GD1C2018DataSet.TIPOS_HABITACIONDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTipoHabitacion1(GD1C2018DataSet.TIPOS_HABITACIONDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21979,7 +19413,7 @@ SELECT TIPO_IDENTIFICACION, DESCRIPCION FROM LOS_MAGIOS.TIPOS_IDENTIFICACION WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22330,7 +19764,7 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22666,7 +20100,7 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
         private void InitCommandCollection() {
             this._commandCollection = new global::System.Data.IDbCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::FrbaHotel.Properties.Settings.Default.ConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::FrbaHotel.Properties.Settings.Default.GD1C2018ConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "LOS_MAGIOS.FRENTE_TO_UBICACION";
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.ReturnValue, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -22718,8 +20152,6 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
     public partial class TableAdapterManager : global::System.ComponentModel.Component {
         
         private UpdateOrderOption _updateOrder;
-        
-        private MaestraTableAdapter _maestraTableAdapter;
         
         private BAJA_HOTELESTableAdapter _bAJA_HOTELESTableAdapter;
         
@@ -22779,20 +20211,6 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public MaestraTableAdapter MaestraTableAdapter {
-            get {
-                return this._maestraTableAdapter;
-            }
-            set {
-                this._maestraTableAdapter = value;
             }
         }
         
@@ -23137,10 +20555,6 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._maestraTableAdapter != null) 
-                            && (this._maestraTableAdapter.Connection != null))) {
-                    return this._maestraTableAdapter.Connection;
-                }
                 if (((this._bAJA_HOTELESTableAdapter != null) 
                             && (this._bAJA_HOTELESTableAdapter.Connection != null))) {
                     return this._bAJA_HOTELESTableAdapter.Connection;
@@ -23246,9 +20660,6 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._maestraTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._bAJA_HOTELESTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -23356,6 +20767,15 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._hOTELESTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.HOTELES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._hOTELESTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._tIPOS_HABITACIONTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.TIPOS_HABITACION.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -23383,60 +20803,6 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._hOTELESTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.HOTELES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._hOTELESTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._uSUARIOSTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.USUARIOS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._uSUARIOSTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._cLIENTESTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CLIENTES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._cLIENTESTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._cONSUMIBLESTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CONSUMIBLES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._cONSUMIBLESTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._fACTURATableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.FACTURA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._fACTURATableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._fUNCIONALIDADESTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.FUNCIONALIDADES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._fUNCIONALIDADESTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._rOLESTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.ROLES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -23455,21 +20821,48 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._rOLES_POR_USUARIOTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ROLES_POR_USUARIO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._uSUARIOSTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.USUARIOS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._rOLES_POR_USUARIOTableAdapter.Update(updatedRows));
+                    result = (result + this._uSUARIOSTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._rEGISTRO_RESERVASTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.REGISTRO_RESERVAS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._fUNCIONALIDADESTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.FUNCIONALIDADES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._rEGISTRO_RESERVASTableAdapter.Update(updatedRows));
+                    result = (result + this._fUNCIONALIDADESTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._fACTURATableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.FACTURA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._fACTURATableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._cONSUMIBLESTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CONSUMIBLES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cONSUMIBLESTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._cLIENTESTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CLIENTES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cLIENTESTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -23482,15 +20875,6 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._iTEM_FACTURATableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ITEM_FACTURA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._iTEM_FACTURATableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._hOTELES_POR_USUARIOTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.HOTELES_POR_USUARIO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -23500,30 +20884,12 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._fUNCIONALIDADES_POR_ROLTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.FUNCIONALIDADES_POR_ROL.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._iTEM_FACTURATableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ITEM_FACTURA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._fUNCIONALIDADES_POR_ROLTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._cLIENTES_POR_RESERVATableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CLIENTES_POR_RESERVA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._cLIENTES_POR_RESERVATableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._bAJA_HOTELESTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.BAJA_HOTELES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._bAJA_HOTELESTableAdapter.Update(updatedRows));
+                    result = (result + this._iTEM_FACTURATableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -23536,12 +20902,48 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._maestraTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Maestra.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._rEGISTRO_RESERVASTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.REGISTRO_RESERVAS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._maestraTableAdapter.Update(updatedRows));
+                    result = (result + this._rEGISTRO_RESERVASTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._cLIENTES_POR_RESERVATableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CLIENTES_POR_RESERVA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cLIENTES_POR_RESERVATableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._rOLES_POR_USUARIOTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ROLES_POR_USUARIO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._rOLES_POR_USUARIOTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._fUNCIONALIDADES_POR_ROLTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.FUNCIONALIDADES_POR_ROL.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._fUNCIONALIDADES_POR_ROLTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._bAJA_HOTELESTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.BAJA_HOTELES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._bAJA_HOTELESTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -23579,6 +20981,14 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._hOTELESTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.HOTELES.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._hOTELESTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._tIPOS_HABITACIONTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.TIPOS_HABITACION.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -23603,54 +21013,6 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._hOTELESTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.HOTELES.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._hOTELESTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._uSUARIOSTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.USUARIOS.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._uSUARIOSTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._cLIENTESTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CLIENTES.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._cLIENTESTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._cONSUMIBLESTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CONSUMIBLES.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._cONSUMIBLESTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._fACTURATableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.FACTURA.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._fACTURATableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._fUNCIONALIDADESTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.FUNCIONALIDADES.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._fUNCIONALIDADESTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._rOLESTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.ROLES.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -23667,19 +21029,43 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._rOLES_POR_USUARIOTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ROLES_POR_USUARIO.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._uSUARIOSTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.USUARIOS.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._rOLES_POR_USUARIOTableAdapter.Update(addedRows));
+                    result = (result + this._uSUARIOSTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._rEGISTRO_RESERVASTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.REGISTRO_RESERVAS.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._fUNCIONALIDADESTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.FUNCIONALIDADES.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._rEGISTRO_RESERVASTableAdapter.Update(addedRows));
+                    result = (result + this._fUNCIONALIDADESTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._fACTURATableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.FACTURA.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._fACTURATableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._cONSUMIBLESTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CONSUMIBLES.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cONSUMIBLESTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._cLIENTESTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CLIENTES.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cLIENTESTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -23691,14 +21077,6 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._iTEM_FACTURATableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ITEM_FACTURA.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._iTEM_FACTURATableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._hOTELES_POR_USUARIOTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.HOTELES_POR_USUARIO.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -23707,27 +21085,11 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._fUNCIONALIDADES_POR_ROLTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.FUNCIONALIDADES_POR_ROL.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._iTEM_FACTURATableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ITEM_FACTURA.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._fUNCIONALIDADES_POR_ROLTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._cLIENTES_POR_RESERVATableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CLIENTES_POR_RESERVA.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._cLIENTES_POR_RESERVATableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._bAJA_HOTELESTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.BAJA_HOTELES.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._bAJA_HOTELESTableAdapter.Update(addedRows));
+                    result = (result + this._iTEM_FACTURATableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -23739,11 +21101,43 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._maestraTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Maestra.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._rEGISTRO_RESERVASTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.REGISTRO_RESERVAS.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._maestraTableAdapter.Update(addedRows));
+                    result = (result + this._rEGISTRO_RESERVASTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._cLIENTES_POR_RESERVATableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CLIENTES_POR_RESERVA.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cLIENTES_POR_RESERVATableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._rOLES_POR_USUARIOTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ROLES_POR_USUARIO.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._rOLES_POR_USUARIOTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._fUNCIONALIDADES_POR_ROLTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.FUNCIONALIDADES_POR_ROL.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._fUNCIONALIDADES_POR_ROLTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._bAJA_HOTELESTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.BAJA_HOTELES.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._bAJA_HOTELESTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -23757,35 +21151,11 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(GD1C2018DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._maestraTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Maestra.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._maestraTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._rEGIMENES_POR_HOTELTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.REGIMENES_POR_HOTEL.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._rEGIMENES_POR_HOTELTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._bAJA_HOTELESTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.BAJA_HOTELES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._bAJA_HOTELESTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._cLIENTES_POR_RESERVATableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CLIENTES_POR_RESERVA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._cLIENTES_POR_RESERVATableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -23797,27 +21167,19 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._hOTELES_POR_USUARIOTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.HOTELES_POR_USUARIO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._rOLES_POR_USUARIOTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ROLES_POR_USUARIO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._hOTELES_POR_USUARIOTableAdapter.Update(deletedRows));
+                    result = (result + this._rOLES_POR_USUARIOTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._iTEM_FACTURATableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ITEM_FACTURA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._cLIENTES_POR_RESERVATableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.CLIENTES_POR_RESERVA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._iTEM_FACTURATableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._hABITACIONES_POR_RESERVATableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.HABITACIONES_POR_RESERVA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._hABITACIONES_POR_RESERVATableAdapter.Update(deletedRows));
+                    result = (result + this._cLIENTES_POR_RESERVATableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -23829,11 +21191,75 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._rOLES_POR_USUARIOTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ROLES_POR_USUARIO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._rEGIMENES_POR_HOTELTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.REGIMENES_POR_HOTEL.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._rOLES_POR_USUARIOTableAdapter.Update(deletedRows));
+                    result = (result + this._rEGIMENES_POR_HOTELTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._iTEM_FACTURATableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ITEM_FACTURA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._iTEM_FACTURATableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._hOTELES_POR_USUARIOTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.HOTELES_POR_USUARIO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._hOTELES_POR_USUARIOTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._hABITACIONES_POR_RESERVATableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.HABITACIONES_POR_RESERVA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._hABITACIONES_POR_RESERVATableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._cLIENTESTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.CLIENTES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._cLIENTESTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._cONSUMIBLESTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.CONSUMIBLES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._cONSUMIBLESTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._fACTURATableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.FACTURA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._fACTURATableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._fUNCIONALIDADESTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.FUNCIONALIDADES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._fUNCIONALIDADESTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._uSUARIOSTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.USUARIOS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._uSUARIOSTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -23850,54 +21276,6 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._rOLESTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._fUNCIONALIDADESTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.FUNCIONALIDADES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._fUNCIONALIDADESTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._fACTURATableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.FACTURA.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._fACTURATableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._cONSUMIBLESTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CONSUMIBLES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._cONSUMIBLESTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._cLIENTESTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CLIENTES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._cLIENTESTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._uSUARIOSTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.USUARIOS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._uSUARIOSTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._hOTELESTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.HOTELES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._hOTELESTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -23922,6 +21300,14 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._tIPOS_HABITACIONTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._hOTELESTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.HOTELES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._hOTELESTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -23987,11 +21373,6 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
-            }
-            if (((this._maestraTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._maestraTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
             }
             if (((this._bAJA_HOTELESTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._bAJA_HOTELESTableAdapter.Connection) == false))) {
@@ -24140,15 +21521,6 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._maestraTableAdapter != null)) {
-                    revertConnections.Add(this._maestraTableAdapter, this._maestraTableAdapter.Connection);
-                    this._maestraTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._maestraTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._maestraTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._maestraTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._maestraTableAdapter.Adapter);
-                    }
-                }
                 if ((this._bAJA_HOTELESTableAdapter != null)) {
                     revertConnections.Add(this._bAJA_HOTELESTableAdapter, this._bAJA_HOTELESTableAdapter.Connection);
                     this._bAJA_HOTELESTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -24413,10 +21785,6 @@ SELECT USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_D
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._maestraTableAdapter != null)) {
-                    this._maestraTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._maestraTableAdapter]));
-                    this._maestraTableAdapter.Transaction = null;
                 }
                 if ((this._bAJA_HOTELESTableAdapter != null)) {
                     this._bAJA_HOTELESTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._bAJA_HOTELESTableAdapter]));

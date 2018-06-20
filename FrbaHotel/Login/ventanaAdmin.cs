@@ -8,23 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FrbaHotel.CancelarReserva
+namespace FrbaHotel.Login
 {
-    public partial class Form1 : Form
+    public partial class ventanaAdmin : Form
     {
-        public Form1()
+        public ventanaAdmin()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fechaCancelacion_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

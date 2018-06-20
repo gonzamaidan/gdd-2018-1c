@@ -12,15 +12,16 @@ namespace FrbaHotel
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
+        //[STAThread]
 
         public static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new AbmHabitacion.FormNewHabitacion(1,1));
-            //Application.Run(new AbmHabitacion.ListadoHabitaciones(1));
-            Application.Run(new AbmHoteles.BusquedaHotel());
+            //Application.Run(new GenerarModificacionReserva.GenerarReservas());
+            Application.Run(new CancelarReserva.CancelarReserva());
         }
     }
 }

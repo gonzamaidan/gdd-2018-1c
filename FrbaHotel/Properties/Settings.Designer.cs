@@ -26,11 +26,11 @@ namespace FrbaHotel.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ASUS\\SQLSERVER2012;Initial Catalog=GD1C2018;Persist Security Info=Tru" +
-            "e;User ID=gdHotel2018;Password=gd2018")]
-        public string ConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\SQLSERVER2012;Initial Catalog=GD1C2018;Persist Security Inf" +
+            "o=True;User ID=gdHotel2018;Password=gd2018")]
+        public string GD1C2018ConnectionString {
             get {
-                return ((string)(this["ConnectionString"]));
+                return ((string)(this["GD1C2018ConnectionString"]));
             }
         }
     }

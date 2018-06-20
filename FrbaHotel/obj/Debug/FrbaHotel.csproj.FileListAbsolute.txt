@@ -9,25 +9,21 @@
 C:\Users\Nicolas\Desktop\gdd\tp\Aplicacion Desktop\FrbaHotel\bin\Debug\FrbaHotel.exe.config
 C:\Users\Nicolas\Desktop\gdd\tp\Aplicacion Desktop\FrbaHotel\obj\Debug\FrbaHotel.exe
 C:\Users\Nicolas\Desktop\gdd\tp\Aplicacion Desktop\FrbaHotel\obj\Debug\FrbaHotel.pdb
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\bin\Debug\FrbaHotel.exe.config
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.exe
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.pdb
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.AbmCliente.Form1.resources
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.AbmHabitacion.FormNewHabitacion.resources
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.AbmRegimen.Form1.resources
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.AbmRol.Form1.resources
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.CancelarReserva.Form1.resources
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.GenerarModificacionReserva.Form1.resources
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.ListadoEstadistico.Form1.resources
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.Login.Form1.resources
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.Properties.Resources.resources
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.RegistrarConsumible.Form1.resources
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.RegistrarEstadia.Form1.resources
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.csproj.GenerateResource.Cache
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\bin\Debug\FrbaHotel.exe
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\bin\Debug\FrbaHotel.pdb
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.AbmHoteles.FormNewHotel.resources
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.csprojResolveAssemblyReference.cache
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.AbmHoteles.BusquedaHotel.resources
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.AbmHoteles.BajaHotel.resources
-C:\Users\Administrador.000\Desktop\Borrar\REPO\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.AbmHabitacion.ListadoHabitaciones.resources
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\bin\Debug\FrbaHotel.exe.config
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.exe
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.pdb
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\bin\Debug\FrbaHotel.exe
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\bin\Debug\FrbaHotel.pdb
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.csprojResolveAssemblyReference.cache
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.AbmCliente.Form1.resources
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.AbmHabitacion.Form1.resources
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.AbmRegimen.Form1.resources
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.AbmRol.Form1.resources
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.CancelarReserva.Form1.resources
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.ListadoEstadistico.Form1.resources
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.Login.Form1.resources
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.Properties.Resources.resources
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.RegistrarConsumible.Form1.resources
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.RegistrarEstadia.Form1.resources
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.csproj.GenerateResource.Cache
+D:\UTN\Gestion\tp\gdd-2018-1c\FrbaHotel\obj\Debug\FrbaHotel.GenerarModificacionReserva.GenerarReservas.resources

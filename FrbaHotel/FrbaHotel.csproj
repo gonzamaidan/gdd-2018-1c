@@ -51,7 +51,13 @@
     <Compile Include="AbmCliente\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbmHabitacion\FormNewHabitacion.cs">
+    <Compile Include="AbmCliente\BusquedaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCliente\BusquedaCliente.Designer.cs">
+      <DependentUpon>BusquedaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmHabitacion\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AbmHabitacion\FormNewHabitacion.Designer.cs">
@@ -87,18 +93,29 @@
     <Compile Include="AbmRegimen\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbmRol\Form1.cs">
+    <Compile Include="AbmRol\ventanaFuncionalidades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmRol\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AbmRol\ventanaFuncionalidades.Designer.cs">
+      <DependentUpon>ventanaFuncionalidades.cs</DependentUpon>
     </Compile>
-    <Compile Include="CancelarReserva\Form1.cs">
+    <Compile Include="AbmRol\ventanaRoles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CancelarReserva\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AbmRol\ventanaRoles.Designer.cs">
+      <DependentUpon>ventanaRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="CancelarReserva\CancelarReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancelarReserva\CancelarReserva.Designer.cs">
+      <DependentUpon>CancelarReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases varias\conexion.cs" />
+    <Compile Include="Clases varias\conexionUsuarios.cs" />
+    <Compile Include="Clases varias\listados.cs" />
+    <Compile Include="Clases varias\modeloUsuario.cs" />
+    <Compile Include="Clases varias\rolesDeUsuario.cs" />
     <Compile Include="ConexionBD.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -111,23 +128,48 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GD1C2018DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="GenerarModificacionReserva\Form1.cs">
+    <Compile Include="GenerarModificacionReserva\HabitacionPK.cs" />
+    <Compile Include="GenerarModificacionReserva\ModificarReserva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GenerarModificacionReserva\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GenerarModificacionReserva\ModificarReserva.Designer.cs">
+      <DependentUpon>ModificarReserva.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListadoEstadistico\Form1.cs">
+    <Compile Include="GenerarModificacionReserva\GenerarReservas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ListadoEstadistico\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GenerarModificacionReserva\GenerarReservas.Designer.cs">
+      <DependentUpon>GenerarReservas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\Form1.cs">
+    <Compile Include="ListadoEstadistico\listadoEstadistico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ListadoEstadistico\listadoEstadistico.Designer.cs">
+      <DependentUpon>listadoEstadistico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\FormLogin.cs" />
+    <Compile Include="Login\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\listadoDeRol.cs" />
+    <Compile Include="Login\listadoDeRol.Designer.cs">
+      <DependentUpon>listadoDeRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\ventanaAdmin.cs" />
+    <Compile Include="Login\ventanaAdmin.Designer.cs">
+      <DependentUpon>ventanaAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\ventanaPrincipal.cs" />
+    <Compile Include="Login\ventanaPrincipal.Designer.cs">
+      <DependentUpon>ventanaPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\ventanaRecepcionista.cs" />
+    <Compile Include="Login\ventanaRecepcionista.Designer.cs">
+      <DependentUpon>ventanaRecepcionista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\ventanaSesionCaducada.cs" />
+    <Compile Include="Login\ventanaSesionCaducada.Designer.cs">
+      <DependentUpon>ventanaSesionCaducada.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -143,6 +185,9 @@
     <Compile Include="RegistrarEstadia\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AbmCliente\BusquedaCliente.resx">
+      <DependentUpon>BusquedaCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AbmCliente\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,20 +209,35 @@
     <EmbeddedResource Include="AbmRegimen\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AbmRol\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AbmRol\ventanaFuncionalidades.resx">
+      <DependentUpon>ventanaFuncionalidades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CancelarReserva\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AbmRol\ventanaRoles.resx">
+      <DependentUpon>ventanaRoles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GenerarModificacionReserva\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="CancelarReserva\CancelarReserva.resx">
+      <DependentUpon>CancelarReserva.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListadoEstadistico\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GenerarModificacionReserva\ModificarReserva.resx">
+      <DependentUpon>ModificarReserva.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GenerarModificacionReserva\GenerarReservas.resx">
+      <DependentUpon>GenerarReservas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadoEstadistico\listadoEstadistico.resx">
+      <DependentUpon>listadoEstadistico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\listadoDeRol.resx">
+      <DependentUpon>listadoDeRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\ventanaPrincipal.resx">
+      <DependentUpon>ventanaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\ventanaSesionCaducada.resx">
+      <DependentUpon>ventanaSesionCaducada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
