@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,11 +51,35 @@
     <Compile Include="AbmCliente\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbmHabitacion\Form1.cs">
+    <Compile Include="AbmHabitacion\FormNewHabitacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmHabitacion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AbmHabitacion\FormNewHabitacion.Designer.cs">
+      <DependentUpon>FormNewHabitacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmHabitacion\ListadoHabitaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmHabitacion\ListadoHabitaciones.Designer.cs">
+      <DependentUpon>ListadoHabitaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmHoteles\BajaHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmHoteles\BajaHotel.Designer.cs">
+      <DependentUpon>BajaHotel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmHoteles\BusquedaHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmHoteles\BusquedaHotel.Designer.cs">
+      <DependentUpon>BusquedaHotel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmHoteles\FormNewHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmHoteles\FormNewHotel.Designer.cs">
+      <DependentUpon>FormNewHotel.cs</DependentUpon>
     </Compile>
     <Compile Include="AbmRegimen\Form1.cs">
       <SubType>Form</SubType>
@@ -74,11 +99,17 @@
     <Compile Include="CancelarReserva\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConexionBD.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GD1C2018DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GD1C2018DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="GenerarModificacionReserva\Form1.cs">
       <SubType>Form</SubType>
@@ -115,8 +146,20 @@
     <EmbeddedResource Include="AbmCliente\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AbmHabitacion\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AbmHabitacion\FormNewHabitacion.resx">
+      <DependentUpon>FormNewHabitacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmHabitacion\ListadoHabitaciones.resx">
+      <DependentUpon>ListadoHabitaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmHoteles\BajaHotel.resx">
+      <DependentUpon>BajaHotel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmHoteles\BusquedaHotel.resx">
+      <DependentUpon>BusquedaHotel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmHoteles\FormNewHotel.resx">
+      <DependentUpon>FormNewHotel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AbmRegimen\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -151,6 +194,17 @@
     <EmbeddedResource Include="RegistrarEstadia\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="GD1C2018DataSet.xsc">
+      <DependentUpon>GD1C2018DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GD1C2018DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GD1C2018DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GD1C2018DataSet.xss">
+      <DependentUpon>GD1C2018DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
