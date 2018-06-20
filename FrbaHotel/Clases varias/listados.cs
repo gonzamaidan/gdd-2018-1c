@@ -32,7 +32,7 @@ namespace FrbaHotel.Clases_varias
             fecha = ajustarFecha(anio, trimestre);
             DataTable Tabla = new DataTable();
             comando.Connection = unaConexion.abrirConexion();
-            comando.CommandText = ""; ;
+            comando.CommandText = ""; 
             LeerFilas = comando.ExecuteReader();
             Tabla.Load(LeerFilas);
             LeerFilas.Close();
