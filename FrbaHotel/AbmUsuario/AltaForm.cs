@@ -16,6 +16,8 @@ namespace FrbaHotel.AbmUsuario
     {
         SqlConnection baseDeDatos;
         List<Hotel> hoteles = new List<Hotel>();
+        Boolean flagEdicion = false;
+        String usuarioAModificar;
 
         private void llenarListaCheckbox()
         {
@@ -49,6 +51,20 @@ namespace FrbaHotel.AbmUsuario
             InitializeComponent();
             
             
+        }
+
+        public AltaForm(String usuario)
+        {
+            baseDeDatos = ConexionBD.conectar();
+            InitializeComponent();
+
+            usuarioAModificar = usuario;
+            flagEdicion = true;
+
+            this.guardarBtn.Text = "Modificar";
+            this.usuarioTB.Text = usuario;
+            this.usuarioTB.Enabled = false;
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -92,24 +108,48 @@ namespace FrbaHotel.AbmUsuario
             try
             {
                 validarTBNoVacios();
-                validarUsername();
                 validarCantidadHoteles();
-                SqlTransaction transaction = baseDeDatos.BeginTransaction("InsertarUsuario");
-                try
+                if (!flagEdicion)
                 {
-                    insertarUsuario(transaction);
-                    insertarAsociacionRol(transaction);
-                    insertarAsociacionesHoteles(transaction);
-                    transaction.Commit();
-                    MessageBox.Show("Usuario creado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    validarUsername();
+                    SqlTransaction transaction = baseDeDatos.BeginTransaction("InsertarUsuario");
+                    try
+                    {
+                        insertarUsuario(transaction);
+                        insertarAsociacionRol(transaction);
+                        insertarAsociacionesHoteles(transaction);
+                        transaction.Commit();
+                        MessageBox.Show("Usuario creado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception exc)
+                    {
+                        transaction.Rollback();
+                        throw exc;
+                    }
+
                 }
-                catch (Exception exc)
+                else
                 {
-                    transaction.Rollback();
-                    throw exc;
+                    SqlTransaction transaction = baseDeDatos.BeginTransaction("EditarUsuario");
+                    try
+                    {
+                        editarUsuario(transaction);
+                        
+                        eliminarAsociacionRol(transaction);
+                        insertarAsociacionRol(transaction);
+
+                        eliminarAsociacionHotel(transaction);
+                        insertarAsociacionesHoteles(transaction);
+                        
+                        transaction.Commit();
+                        MessageBox.Show("Usuario modificado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception exc)
+                    {
+                        transaction.Rollback();
+                        throw exc;
+                    }
                 }
-                
-               
                 
             }
             catch (Exception exc)
@@ -151,6 +191,25 @@ namespace FrbaHotel.AbmUsuario
             insertarAsociacionHotelesCmd.ExecuteNonQuery();
         }
 
+        private void eliminarAsociacionHotel(SqlTransaction transaction)
+        {
+            SqlCommand eliminarAsociacionHotelCmd = new SqlCommand("DELETE FROM LOS_MAGIOS.HOTELES_POR_USUARIO WHERE USUARIO = @Usuario", baseDeDatos);
+            eliminarAsociacionHotelCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
+            eliminarAsociacionHotelCmd.Parameters["@Usuario"].Value = usuarioAModificar;
+            eliminarAsociacionHotelCmd.Transaction = transaction;
+            eliminarAsociacionHotelCmd.ExecuteNonQuery();
+        }
+
+
+        private void eliminarAsociacionRol(SqlTransaction transaction)
+        {
+            SqlCommand eliminarAsociacionRolCmd = new SqlCommand("DELETE FROM LOS_MAGIOS.ROLES_POR_USUARIO WHERE USUARIO = @Usuario", baseDeDatos);
+            eliminarAsociacionRolCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
+            eliminarAsociacionRolCmd.Parameters["@Usuario"].Value = usuarioAModificar;
+            eliminarAsociacionRolCmd.Transaction = transaction;
+            eliminarAsociacionRolCmd.ExecuteNonQuery();
+        }
+
         private void insertarAsociacionRol(SqlTransaction transaction)
         {
             SqlCommand insertarAsociacionRolCmd = new SqlCommand("INSERT INTO LOS_MAGIOS.ROLES_POR_USUARIO(ID_ROL, USUARIO) VALUES (@IdRol, @Usuario)", baseDeDatos);
@@ -168,6 +227,37 @@ namespace FrbaHotel.AbmUsuario
             validarUsernameCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
             validarUsernameCmd.Parameters["@Usuario"].Value = usuarioTB.Text;
             if ((int)validarUsernameCmd.ExecuteScalar() == 1) throw new Exception("El nombre de usuario ya existe");
+        }
+
+        private void editarUsuario(SqlTransaction transaction)
+        {
+
+            SqlCommand editarUsuarioCmd = new SqlCommand("UPDATE LOS_MAGIOS.USUARIOS SET CONTRASENA = @Contrasena, NOMBRE = @Nombre, APELLIDO = @Apellido, MAIL = @Mail, TELEFONO = @Telefono, " +
+                                                        "DIRECCION = @Direccion, FECHA_DE_NACIMIENTO = @FechaNac, IDENTIFICACION = @Identificacion, TIPO_IDENTIFICACION = @TipoIdentificacion WHERE USUARIO = @Usuario", baseDeDatos);
+            editarUsuarioCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
+            editarUsuarioCmd.Parameters.Add("@Contrasena", SqlDbType.VarChar);
+            editarUsuarioCmd.Parameters.Add("@Nombre", SqlDbType.VarChar);
+            editarUsuarioCmd.Parameters.Add("@Apellido", SqlDbType.VarChar);
+            editarUsuarioCmd.Parameters.Add("@Mail", SqlDbType.VarChar);
+            editarUsuarioCmd.Parameters.Add("@Telefono", SqlDbType.Int);
+            editarUsuarioCmd.Parameters.Add("@Direccion", SqlDbType.VarChar);
+            editarUsuarioCmd.Parameters.Add("@FechaNac", SqlDbType.Date);
+            editarUsuarioCmd.Parameters.Add("@Identificacion", SqlDbType.Int);
+            editarUsuarioCmd.Parameters.Add("@TipoIdentificacion", SqlDbType.Int);
+
+
+            editarUsuarioCmd.Parameters["@Usuario"].Value = usuarioAModificar;
+            editarUsuarioCmd.Parameters["@Contrasena"].Value = hashPassword(passwordTB.Text);
+            editarUsuarioCmd.Parameters["@Nombre"].Value = nombreTB.Text;
+            editarUsuarioCmd.Parameters["@Apellido"].Value = apellidoTB.Text;
+            editarUsuarioCmd.Parameters["@Mail"].Value = mailTB.Text;
+            editarUsuarioCmd.Parameters["@Telefono"].Value = Int32.Parse(telefonoTB.Text);
+            editarUsuarioCmd.Parameters["@Direccion"].Value = direccionTB.Text;
+            editarUsuarioCmd.Parameters["@FechaNac"].Value = nacimientoDatePicker.Value;
+            editarUsuarioCmd.Parameters["@Identificacion"].Value = Int32.Parse(numeroIdTB.Text);
+            editarUsuarioCmd.Parameters["@TipoIdentificacion"].Value = tipoIdCB.SelectedValue;
+            editarUsuarioCmd.Transaction = transaction;
+            editarUsuarioCmd.ExecuteNonQuery();
         }
 
         private void insertarUsuario(SqlTransaction transaction)
