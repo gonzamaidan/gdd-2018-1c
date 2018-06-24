@@ -58,12 +58,67 @@ namespace FrbaHotel.AbmUsuario
             baseDeDatos = ConexionBD.conectar();
             InitializeComponent();
 
+            
             usuarioAModificar = usuario;
             flagEdicion = true;
-
+            
             this.guardarBtn.Text = "Modificar";
             this.usuarioTB.Text = usuario;
             this.usuarioTB.Enabled = false;
+
+        }
+
+        private void llenarDatos()
+        {
+            try
+            {
+                baseDeDatos.Open();
+                SqlCommand getUsuarioCmd = new SqlCommand("SELECT R.ID_ROL, U.NOMBRE, APELLIDO, T.TIPO_IDENTIFICACION, IDENTIFICACION, MAIL, TELEFONO, DIRECCION, FECHA_DE_NACIMIENTO FROM LOS_MAGIOS.USUARIOS U JOIN LOS_MAGIOS.TIPOS_IDENTIFICACION T ON T.TIPO_IDENTIFICACION = U.TIPO_IDENTIFICACION JOIN LOS_MAGIOS.ROLES_POR_USUARIO RU ON RU.USUARIO = U.USUARIO JOIN LOS_MAGIOS.ROLES R ON RU.ID_ROL = R.ID_ROL WHERE U.USUARIO = @Usuario", baseDeDatos);
+                getUsuarioCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
+                getUsuarioCmd.Parameters["@Usuario"].Value = usuarioAModificar;
+
+                SqlDataReader reader = getUsuarioCmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    usuarioTB.Text = usuarioAModificar;
+                    rolComboBox.SelectedValue = reader.GetInt32(0);
+                    nombreTB.Text = reader.GetString(1);
+                    apellidoTB.Text = reader.GetString(2);
+                    tipoIdCB.SelectedValue = reader.GetInt32(3);
+                    numeroIdTB.Text = reader.GetInt32(4).ToString();
+                    mailTB.Text = reader.GetString(5);
+                    telefonoTB.Text = reader.GetInt32(6).ToString();
+                    direccionTB.Text = reader.GetString(7);
+                    nacimientoDatePicker.Value = reader.GetDateTime(8);
+                }
+                reader.Close();
+                SqlCommand getHotelesCmd = new SqlCommand("SELECT ID_HOTEL FROM LOS_MAGIOS.HOTELES_POR_USUARIO WHERE USUARIO = @Usuario", baseDeDatos);
+                getHotelesCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
+                getHotelesCmd.Parameters["@Usuario"].Value = usuarioAModificar;
+
+                reader = getHotelesCmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    for (int i = 0; i < hotelesCLB.Items.Count; i++)
+                    {
+                        if (((DataRowView)hotelesCLB.Items[i]).Row["ID_HOTEL"].Equals(reader.GetInt32(0)))
+                        {
+                            hotelesCLB.SetItemChecked(i, true);
+                        }
+
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.StackTrace);
+                MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.baseDeDatos.Close();
+            }
 
         }
 
@@ -81,7 +136,8 @@ namespace FrbaHotel.AbmUsuario
             // TODO: This line of code loads data into the 'gD1C2018DataSet.ROLES' table. You can move, or remove it, as needed.
             this.rOLESTableAdapter.Fill(this.gD1C2018DataSet.ROLES);
             //llenarListaCheckbox();
-
+            if(flagEdicion)
+                llenarDatos();
         }
 
         private void label11_Click(object sender, EventArgs e)
@@ -120,6 +176,9 @@ namespace FrbaHotel.AbmUsuario
                         insertarAsociacionesHoteles(transaction);
                         transaction.Commit();
                         MessageBox.Show("Usuario creado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.DialogResult = DialogResult.OK;
+                        this.Hide();
+                        this.Close();
                     }
                     catch (Exception exc)
                     {
@@ -142,7 +201,11 @@ namespace FrbaHotel.AbmUsuario
                         insertarAsociacionesHoteles(transaction);
                         
                         transaction.Commit();
-                        MessageBox.Show("Usuario modificado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show("Usuario modificado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.DialogResult = DialogResult.OK;
+                        this.Hide();
+                        this.Close();
+
                     }
                     catch (Exception exc)
                     {
@@ -161,12 +224,17 @@ namespace FrbaHotel.AbmUsuario
             {
                 this.baseDeDatos.Close();
             }
+            
 
         }
 
         private void validarCantidadHoteles()
         {
-            if (hotelesCLB.SelectedItems.Count == 0) throw new Exception("Seleccione al menos un hotel donde trabaja el usuario");
+            for (int i = 0; i < hotelesCLB.Items.Count; i++)
+            {
+                if (hotelesCLB.GetItemChecked(i)) return;    
+            }
+            throw new Exception("Seleccione al menos un hotel donde trabaja el usuario");
         }
 
         private void insertarAsociacionesHoteles(SqlTransaction transaction)

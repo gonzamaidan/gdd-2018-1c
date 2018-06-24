@@ -146,7 +146,14 @@ namespace FrbaHotel.AbmUsuario
 
         private void editarBtn_Click(object sender, EventArgs e)
         {
-
+            if (dataGridView1.SelectedRows.Count != 1) throw new Exception("Seleccione 1 usuario");
+            AltaForm editarUsuario = new AbmUsuario.AltaForm(dataGridView1.SelectedRows[0].Cells["USUARIO"].Value.ToString());
+            DialogResult result = editarUsuario.ShowDialog();
+            if(result == DialogResult.OK)
+                MessageBox.Show("Usuario editado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("El usuario no se edito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            buscarBtn_Click(sender, e);
         }
 
         private void eliminarBtn_Click(object sender, EventArgs e)
@@ -159,6 +166,9 @@ namespace FrbaHotel.AbmUsuario
                 eliminarUsuarioCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
                 eliminarUsuarioCmd.Parameters["@Usuario"].Value = dataGridView1.SelectedRows[0].Cells["USUARIO"].Value;
                 eliminarUsuarioCmd.ExecuteNonQuery();
+                MessageBox.Show("Usuario eliminado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.buscarBtn_Click(sender, e);
+
             }
             catch (Exception exc)
             {
