@@ -240,6 +240,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(41, 268);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(547, 150);
             this.dataGridView1.TabIndex = 49;
             // 
@@ -251,6 +252,7 @@
             this.editarBtn.TabIndex = 50;
             this.editarBtn.Text = "Editar";
             this.editarBtn.UseVisualStyleBackColor = true;
+            this.editarBtn.Click += new System.EventHandler(this.editarBtn_Click);
             // 
             // eliminarBtn
             // 
@@ -260,6 +262,7 @@
             this.eliminarBtn.TabIndex = 51;
             this.eliminarBtn.Text = "Eliminar";
             this.eliminarBtn.UseVisualStyleBackColor = true;
+            this.eliminarBtn.Click += new System.EventHandler(this.eliminarBtn_Click);
             // 
             // buscarBtn
             // 

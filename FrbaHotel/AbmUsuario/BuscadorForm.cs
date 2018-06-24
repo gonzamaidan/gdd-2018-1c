@@ -143,5 +143,32 @@ namespace FrbaHotel.AbmUsuario
             }
 
         }
+
+        private void editarBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eliminarBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                baseDeDatos.Open();
+                if (dataGridView1.SelectedRows.Count != 1) throw new Exception("Seleccione 1 usuario");
+                SqlCommand eliminarUsuarioCmd = new SqlCommand("UPDATE LOS_MAGIOS.USUARIOS SET ESTADO = 0 WHERE USUARIO = @Usuario", baseDeDatos);
+                eliminarUsuarioCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
+                eliminarUsuarioCmd.Parameters["@Usuario"].Value = dataGridView1.SelectedRows[0].Cells["USUARIO"].Value;
+                eliminarUsuarioCmd.ExecuteNonQuery();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.StackTrace);
+                MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.baseDeDatos.Close();
+            }
+        }
     }
 }
