@@ -14,7 +14,7 @@ namespace FrbaHotel
         SqlDataAdapter da;
         DataTable dt;
 
-        private SqlConnection conexionBD = new SqlConnection("Data Source=NICO\\SQLSERVER2012;Initial Catalog=GD1C2018;User ID=gdHotel2018;Password=gd2018");
+        private SqlConnection conexionBD = new SqlConnection(Program.connectionString);
 
         public SqlConnection abrirConexion()
         {

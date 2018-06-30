@@ -145,17 +145,7 @@ namespace FrbaHotel.AbmUsuario
 
         }
 
-        private String hashPassword(String password) {
-            byte[] bytes = Encoding.UTF8.GetBytes(password);
-            SHA256Managed provider = new SHA256Managed();
-            byte[] hash = provider.ComputeHash(bytes);
-            String hashedPassword = "";
-            foreach (byte x in hash)
-            {
-                hashedPassword += String.Format("{0:X2}", x);
-            }
-            return hashedPassword;
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -323,7 +313,7 @@ namespace FrbaHotel.AbmUsuario
 
 
             editarUsuarioCmd.Parameters["@Usuario"].Value = usuarioAModificar;
-            editarUsuarioCmd.Parameters["@Contrasena"].Value = hashPassword(passwordTB.Text);
+            editarUsuarioCmd.Parameters["@Contrasena"].Value = Program.hashPassword(passwordTB.Text);
             editarUsuarioCmd.Parameters["@Nombre"].Value = nombreTB.Text;
             editarUsuarioCmd.Parameters["@Apellido"].Value = apellidoTB.Text;
             editarUsuarioCmd.Parameters["@Mail"].Value = mailTB.Text;
@@ -354,7 +344,7 @@ namespace FrbaHotel.AbmUsuario
 
 
             insertarUsuarioCmd.Parameters["@Usuario"].Value = usuarioTB.Text;
-            insertarUsuarioCmd.Parameters["@Contrasena"].Value = hashPassword(passwordTB.Text);
+            insertarUsuarioCmd.Parameters["@Contrasena"].Value = Program.hashPassword(passwordTB.Text);
             insertarUsuarioCmd.Parameters["@Nombre"].Value = nombreTB.Text;
             insertarUsuarioCmd.Parameters["@Apellido"].Value = apellidoTB.Text;
             insertarUsuarioCmd.Parameters["@Mail"].Value = mailTB.Text;

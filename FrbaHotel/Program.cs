@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,7 +28,21 @@ namespace FrbaHotel
            // Application.Run(new GenerarModificacionReserva.GenerarReservas());
             //Application.Run(new GenerarModificacionReserva.ModificarReserva());
             //Application.Run(new CancelarReserva.CancelarReserva());
-            Application.Run(new AbmUsuario.BuscadorForm());
+            //Application.Run(new AbmUsuario.BuscadorForm());
+            Application.Run(new Login.FormLogin());
+        }
+
+        public static String hashPassword(String password)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(password);
+            SHA256Managed provider = new SHA256Managed();
+            byte[] hash = provider.ComputeHash(bytes);
+            String hashedPassword = "";
+            foreach (byte x in hash)
+            {
+                hashedPassword += String.Format("{0:X2}", x);
+            }
+            return hashedPassword;
         }
 
         
