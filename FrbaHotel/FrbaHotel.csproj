@@ -81,6 +81,19 @@
     <Compile Include="AbmRol\ventanaRoles.Designer.cs">
       <DependentUpon>ventanaRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="AbmUsuario\AltaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmUsuario\AltaForm.Designer.cs">
+      <DependentUpon>AltaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmUsuario\BuscadorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmUsuario\BuscadorForm.Designer.cs">
+      <DependentUpon>BuscadorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmUsuario\Hotel.cs" />
     <Compile Include="CancelarReserva\CancelarReserva.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +191,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AbmRol\ventanaRoles.resx">
       <DependentUpon>ventanaRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmUsuario\AltaForm.resx">
+      <DependentUpon>AltaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmUsuario\BuscadorForm.resx">
+      <DependentUpon>BuscadorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CancelarReserva\CancelarReserva.resx">
       <DependentUpon>CancelarReserva.cs</DependentUpon>

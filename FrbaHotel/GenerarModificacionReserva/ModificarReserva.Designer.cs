@@ -68,7 +68,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.codigoReservaTB);
             this.Name = "ModificarReserva";
-            this.Text = "Form1";
+            this.Text = "Modificar reserva";
             this.ResumeLayout(false);
             this.PerformLayout();
 

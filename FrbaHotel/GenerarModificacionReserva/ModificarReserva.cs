@@ -28,7 +28,12 @@ namespace FrbaHotel.GenerarModificacionReserva
             }
             else
             {
-                int codigoReserva = Int32.Parse(this.codigoReservaTB.Text);
+                int codigoReserva;
+                if (!Int32.TryParse(this.codigoReservaTB.Text, out codigoReserva))
+                {
+                    MessageBox.Show("Se debe ingresar un numero de reserva", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 try
                 {
                     baseDeDatos.Open();
