@@ -25,6 +25,7 @@ namespace FrbaHotel.AbmUsuario
             try
             {
                 baseDeDatos.Open();
+                validarDatosNumericos();
                 SqlCommand buscarUsuariosCmd = new SqlCommand();
                 StringBuilder buscarUsuariosQuery = new StringBuilder("SELECT U.USUARIO, R.NOMBRE AS ROL, U.NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_DE_NACIMIENTO, IDENTIFICACION, T.DESCRIPCION FROM LOS_MAGIOS.USUARIOS U JOIN LOS_MAGIOS.TIPOS_IDENTIFICACION T ON T.TIPO_IDENTIFICACION = U.TIPO_IDENTIFICACION JOIN LOS_MAGIOS.ROLES_POR_USUARIO RU ON RU.USUARIO = U.USUARIO JOIN LOS_MAGIOS.ROLES R ON RU.ID_ROL = R.ID_ROL WHERE U.ESTADO = 1");
                 llenarCmdBusqueda(buscarUsuariosCmd, buscarUsuariosQuery);
@@ -52,6 +53,13 @@ namespace FrbaHotel.AbmUsuario
         private String agregarPorcentajes(String str)
         {
             return "%" + str + "%";
+        }
+
+        private void validarDatosNumericos()
+        {
+            int value;
+            if (this.numeroIdTB.Text != "" && !Int32.TryParse(this.numeroIdTB.Text, out value)) throw new Exception("Ingrese un numero de identificacion valido");
+            if (this.telefonoTB.Text != "" && !Int32.TryParse(this.telefonoTB.Text, out value)) throw new Exception("Ingrese un numero de telefono valido");
         }
 
         private void llenarCmdBusqueda(SqlCommand cmd, StringBuilder query)

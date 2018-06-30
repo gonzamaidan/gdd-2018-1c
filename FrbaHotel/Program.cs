@@ -25,8 +25,8 @@ namespace FrbaHotel
             Application.SetCompatibleTextRenderingDefault(false);
            // Application.Run(new GenerarModificacionReserva.GenerarReservas());
             //Application.Run(new GenerarModificacionReserva.ModificarReserva());
-            Application.Run(new CancelarReserva.CancelarReserva());
-            //Application.Run(new AbmUsuario.BuscadorForm());
+            //Application.Run(new CancelarReserva.CancelarReserva());
+            Application.Run(new AbmUsuario.BuscadorForm());
         }
 
         

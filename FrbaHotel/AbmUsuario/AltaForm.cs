@@ -165,6 +165,7 @@ namespace FrbaHotel.AbmUsuario
             {
                 validarTBNoVacios();
                 validarCantidadHoteles();
+                validarDatosNumericos();
                 if (!flagEdicion)
                 {
                     validarUsername();
@@ -226,6 +227,13 @@ namespace FrbaHotel.AbmUsuario
             }
             
 
+        }
+
+        private void validarDatosNumericos()
+        {
+            int value;
+            if (!Int32.TryParse(this.numeroIdTB.Text, out value)) throw new Exception("Ingrese un numero de identificacion valido");
+            if (!Int32.TryParse(this.telefonoTB.Text, out value)) throw new Exception("Ingrese un numero de telefono valido");
         }
 
         private void validarCantidadHoteles()
