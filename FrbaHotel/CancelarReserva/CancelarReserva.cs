@@ -90,11 +90,14 @@ namespace FrbaHotel.CancelarReserva
         {
 
             SqlCommand ingresarRegistroReservaCmd = new SqlCommand("INSERT INTO LOS_MAGIOS.REGISTRO_RESERVAS(CODIGO_RESERVA, FECHA,	ACCION, USUARIO) " +
-                                                                    "VALUES (@CodigoReserva, GETDATE(), @Accion, @Usuario)", baseDeDatos);
+                                                                    "VALUES (@CodigoReserva, @FechaHoy, @Accion, @Usuario)", baseDeDatos);
             ingresarRegistroReservaCmd.Parameters.Add("@CodigoReserva", SqlDbType.Int);
+            ingresarRegistroReservaCmd.Parameters.Add("@FechaHoy", SqlDbType.Date);
+            ingresarRegistroReservaCmd.Parameters["@FechaHoy"].Value = Program.fechaHoy;
             ingresarRegistroReservaCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
             ingresarRegistroReservaCmd.Parameters.Add("@Accion", SqlDbType.VarChar);
             ingresarRegistroReservaCmd.Parameters["@CodigoReserva"].Value = codigoReserva;
+            
             ingresarRegistroReservaCmd.Parameters["@Usuario"].Value = usuario;
             ingresarRegistroReservaCmd.Parameters["@Accion"].Value = accion;
             ingresarRegistroReservaCmd.ExecuteNonQuery();

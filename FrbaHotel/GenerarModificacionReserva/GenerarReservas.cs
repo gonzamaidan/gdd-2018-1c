@@ -15,8 +15,10 @@ namespace FrbaHotel.GenerarModificacionReserva
     public partial class GenerarReservas : Form
     {
         SqlConnection baseDeDatos;
-        DateTime fechaDesde = DateTime.Now;
-        DateTime fechaHasta = DateTime.Now;
+        DateTime fechaDesde = Program.fechaHoy;
+        DateTime fechaHasta = Program.fechaHoy;
+        DateTime fechaDesdeSeleccionada;
+        DateTime fechaHastaSeleccionada;
         int codigoRegimen = -1;
         int cantidadPersonas = 1;
         bool conRegimen = false;
@@ -55,6 +57,13 @@ namespace FrbaHotel.GenerarModificacionReserva
             this.numericUpDown1_ValueChanged(sender, e);
             this.checkBox1_CheckedChanged(sender, e);
             this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            this.calendarDesde.TodayDate = Program.fechaHoy;
+            this.calendarDesde.SelectionStart = Program.fechaHoy;
+            this.calendarDesde.SelectionEnd = Program.fechaHoy;
+
+            this.calendarHasta.TodayDate = Program.fechaHoy;
+            this.calendarHasta.SelectionStart = Program.fechaHoy;
+            this.calendarHasta.SelectionEnd = Program.fechaHoy;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -76,55 +85,61 @@ namespace FrbaHotel.GenerarModificacionReserva
         {
             this.conRegimen = this.checkBox1.Checked;
             this.cantidadPersonas = (int)this.numericUpDown1.Value;
+            this.fechaDesdeSeleccionada = fechaDesde.Date;
+            this.fechaHastaSeleccionada = fechaHasta.Date;
             if (fechaDesde > fechaHasta)
             {
                 MessageBox.Show("La fecha de inicio de la reserva no puede ser anterior a la fecha final de la reserva", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (fechaDesde < Program.fechaHoy)
+            {
+                MessageBox.Show("La reserva no puede ser anterior al dia de hoy", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else try
-            {
-                baseDeDatos.Open();
-                SqlCommand queryDisponibildad;
-                Console.WriteLine(this.conRegimen);
-                if (this.conRegimen)
                 {
-                    this.codigoRegimen = (int)this.regimenesComboBox.SelectedValue;
-                    String queryStringDisponibilidad = "SELECT * FROM LOS_MAGIOS.DAR_DISPONIBILIDAD_CON_REGIMEN(@FechaDesde, @FechaHasta,@CodigoRegimen, @CantidadPersonas)";
-                    queryDisponibildad = new SqlCommand(queryStringDisponibilidad, baseDeDatos);
-                    queryDisponibildad.Parameters.Add("@FechaDesde", SqlDbType.Date);
-                    queryDisponibildad.Parameters.Add("@FechaHasta", SqlDbType.Date);
-                    queryDisponibildad.Parameters.Add("@CodigoRegimen", SqlDbType.Int);
-                    queryDisponibildad.Parameters.Add("@CantidadPersonas", SqlDbType.Int);
-                    queryDisponibildad.Parameters["@FechaDesde"].Value = fechaDesde;
-                    queryDisponibildad.Parameters["@FechaHasta"].Value = fechaHasta;
-                    queryDisponibildad.Parameters["@CodigoRegimen"].Value = codigoRegimen;
-                    queryDisponibildad.Parameters["@CantidadPersonas"].Value = this.cantidadPersonas;
-                }
-                else
-                {
-                    String queryStringDisponibilidad = "SELECT * FROM LOS_MAGIOS.DAR_DISPONIBILIDAD_SIN_REGIMEN(@FechaDesde, @FechaHasta, @CantidadPersonas)";
-                    queryDisponibildad = new SqlCommand(queryStringDisponibilidad, baseDeDatos);
-                    queryDisponibildad.Parameters.Add("@FechaDesde", SqlDbType.Date);
-                    queryDisponibildad.Parameters.Add("@FechaHasta", SqlDbType.Date);
-                    queryDisponibildad.Parameters.Add("@CantidadPersonas", SqlDbType.Int);
-                    queryDisponibildad.Parameters["@FechaDesde"].Value = fechaDesde;
-                    queryDisponibildad.Parameters["@FechaHasta"].Value = fechaHasta;
-                    queryDisponibildad.Parameters["@CantidadPersonas"].Value = this.cantidadPersonas;
-                }
-                SqlDataAdapter adapter = new SqlDataAdapter(queryDisponibildad);
-                DataTable resultados = new DataTable();
-                adapter.Fill(resultados);
+                    baseDeDatos.Open();
+                    SqlCommand queryDisponibildad;
+                    Console.WriteLine(this.conRegimen);
+                    if (this.conRegimen)
+                    {
+                        this.codigoRegimen = (int)this.regimenesComboBox.SelectedValue;
+                        String queryStringDisponibilidad = "SELECT * FROM LOS_MAGIOS.DAR_DISPONIBILIDAD_CON_REGIMEN(@FechaDesde, @FechaHasta,@CodigoRegimen, @CantidadPersonas)";
+                        queryDisponibildad = new SqlCommand(queryStringDisponibilidad, baseDeDatos);
+                        queryDisponibildad.Parameters.Add("@FechaDesde", SqlDbType.Date);
+                        queryDisponibildad.Parameters.Add("@FechaHasta", SqlDbType.Date);
+                        queryDisponibildad.Parameters.Add("@CodigoRegimen", SqlDbType.Int);
+                        queryDisponibildad.Parameters.Add("@CantidadPersonas", SqlDbType.Int);
+                        queryDisponibildad.Parameters["@FechaDesde"].Value = fechaDesde;
+                        queryDisponibildad.Parameters["@FechaHasta"].Value = fechaHasta;
+                        queryDisponibildad.Parameters["@CodigoRegimen"].Value = codigoRegimen;
+                        queryDisponibildad.Parameters["@CantidadPersonas"].Value = this.cantidadPersonas;
+                    }
+                    else
+                    {
+                        String queryStringDisponibilidad = "SELECT * FROM LOS_MAGIOS.DAR_DISPONIBILIDAD_SIN_REGIMEN(@FechaDesde, @FechaHasta, @CantidadPersonas)";
+                        queryDisponibildad = new SqlCommand(queryStringDisponibilidad, baseDeDatos);
+                        queryDisponibildad.Parameters.Add("@FechaDesde", SqlDbType.Date);
+                        queryDisponibildad.Parameters.Add("@FechaHasta", SqlDbType.Date);
+                        queryDisponibildad.Parameters.Add("@CantidadPersonas", SqlDbType.Int);
+                        queryDisponibildad.Parameters["@FechaDesde"].Value = fechaDesde;
+                        queryDisponibildad.Parameters["@FechaHasta"].Value = fechaHasta;
+                        queryDisponibildad.Parameters["@CantidadPersonas"].Value = this.cantidadPersonas;
+                    }
+                    SqlDataAdapter adapter = new SqlDataAdapter(queryDisponibildad);
+                    DataTable resultados = new DataTable();
+                    adapter.Fill(resultados);
 
-                dataGridView1.DataSource = resultados;
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.StackTrace);
-                MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                baseDeDatos.Close();
-            }
+                    dataGridView1.DataSource = resultados;
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine(exc.StackTrace);
+                    MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    baseDeDatos.Close();
+                }
         }
 
         private void regimenesComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -232,7 +247,11 @@ namespace FrbaHotel.GenerarModificacionReserva
                                 if (busquedaCliente.idClienteSeleccionado != -1)
                                     idClienteSeleccionado = busquedaCliente.idClienteSeleccionado;
                                 else
+                                {
+
                                     MessageBox.Show("Debe seleccionar un cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
                             }
 
 
@@ -294,8 +313,8 @@ namespace FrbaHotel.GenerarModificacionReserva
             updateFechaReservaCmd.Parameters.Add("@FechaDesde", SqlDbType.Date);
             updateFechaReservaCmd.Parameters.Add("@FechaHasta", SqlDbType.Date);
             updateFechaReservaCmd.Parameters.Add("@CodigoReserva", SqlDbType.Int);
-            updateFechaReservaCmd.Parameters["@FechaDesde"].Value = fechaDesde;
-            updateFechaReservaCmd.Parameters["@FechaHasta"].Value = fechaHasta;
+            updateFechaReservaCmd.Parameters["@FechaDesde"].Value = fechaDesdeSeleccionada;
+            updateFechaReservaCmd.Parameters["@FechaHasta"].Value = fechaHastaSeleccionada;
             updateFechaReservaCmd.Parameters["@CodigoReserva"].Value = codigoReservaModificacion;
             updateFechaReservaCmd.ExecuteNonQuery();
         }
@@ -323,8 +342,11 @@ namespace FrbaHotel.GenerarModificacionReserva
         {
 
             SqlCommand ingresarRegistroReservaCmd = new SqlCommand("INSERT INTO LOS_MAGIOS.REGISTRO_RESERVAS(CODIGO_RESERVA, FECHA,	ACCION, USUARIO) " +
-                                                                    "VALUES (@CodigoReserva, GETDATE(), @Accion, @Usuario)", baseDeDatos);
+                                                                    "VALUES (@CodigoReserva, @FechaHoy, @Accion, @Usuario)", baseDeDatos);
             ingresarRegistroReservaCmd.Parameters.Add("@CodigoReserva", SqlDbType.Int);
+            ingresarRegistroReservaCmd.Parameters.Add("@FechaHoy", SqlDbType.Date);
+            ingresarRegistroReservaCmd.Parameters["@FechaHoy"].Value = Program.fechaHoy;
+
             ingresarRegistroReservaCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
             ingresarRegistroReservaCmd.Parameters.Add("@Accion", SqlDbType.VarChar);
             ingresarRegistroReservaCmd.Parameters["@CodigoReserva"].Value = codigoReserva;
@@ -361,16 +383,18 @@ namespace FrbaHotel.GenerarModificacionReserva
         {
             String queryCodigoReserva = "SELECT MAX(CODIGO_RESERVA) + 1 FROM LOS_MAGIOS.RESERVAS";
             String ingresarReserva = "INSERT INTO LOS_MAGIOS.RESERVAS(CODIGO_RESERVA, FECHA_RESERVA, FECHA_DESDE, FECHA_HASTA, ID_ESTADO_RESERVA, CODIGO_REGIMEN) "
-                                    + " VALUES (@CodigoReserva, GETDATE(), @FechaDesde, @FechaHasta, 1, @CodigoRegimen)";
+                                    + " VALUES (@CodigoReserva, @FechaHoy, @FechaDesde, @FechaHasta, 1, @CodigoRegimen)";
 
             int codigoReserva = (int)(new SqlCommand(queryCodigoReserva, baseDeDatos).ExecuteScalar());
             SqlCommand comandIngresarReserva = new SqlCommand(ingresarReserva, baseDeDatos);
             comandIngresarReserva.Parameters.Add("@FechaDesde", SqlDbType.Date);
             comandIngresarReserva.Parameters.Add("@FechaHasta", SqlDbType.Date);
+            comandIngresarReserva.Parameters.Add("@FechaHoy", SqlDbType.Date);
+            comandIngresarReserva.Parameters["@FechaHoy"].Value = Program.fechaHoy;
             comandIngresarReserva.Parameters.Add("@CodigoRegimen", SqlDbType.Int);
             comandIngresarReserva.Parameters.Add("@CodigoReserva", SqlDbType.Int);
-            comandIngresarReserva.Parameters["@FechaDesde"].Value = fechaDesde;
-            comandIngresarReserva.Parameters["@FechaHasta"].Value = fechaHasta;
+            comandIngresarReserva.Parameters["@FechaDesde"].Value = fechaDesdeSeleccionada;
+            comandIngresarReserva.Parameters["@FechaHasta"].Value = fechaHastaSeleccionada;
             comandIngresarReserva.Parameters["@CodigoRegimen"].Value = codigoRegimen;
             comandIngresarReserva.Parameters["@CodigoReserva"].Value = codigoReserva;
             comandIngresarReserva.ExecuteNonQuery();
