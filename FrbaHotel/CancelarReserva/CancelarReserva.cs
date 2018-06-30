@@ -18,6 +18,7 @@ namespace FrbaHotel.CancelarReserva
         {
             baseDeDatos = ConexionBD.conectar();
             InitializeComponent();
+            this.fechaCancelacionPicker.Value = Program.fechaHoy;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -38,9 +39,14 @@ namespace FrbaHotel.CancelarReserva
                 if (this.motivoReservaTB.Text == "") throw new Exception("Ingrese un motivo");
                 if (this.fechaCancelacionPicker.Value == null) throw new Exception("Ingrese la fecha de cancelacion");
                 if (this.usuarioCanceladorTB.Text == "") throw new Exception("Ingrese el usuario cancelador");
-                int codigoReserva = Int32.Parse(this.codigoReservaTB.Text);
+                int codigoReserva;
+                if(!Int32.TryParse(this.codigoReservaTB.Text, out codigoReserva)) {
+                    MessageBox.Show("Se debe ingresar un codigo de reserva valido", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 baseDeDatos.Open();
                 validarReservaFecha(codigoReserva);
+                validarExistenciaUsuario();
                 
                 var confirmar = MessageBox.Show("Confirme cancelar la reserva", "Cancelacion", MessageBoxButtons.YesNo);
                 if (confirmar == DialogResult.Yes)
@@ -61,6 +67,16 @@ namespace FrbaHotel.CancelarReserva
             {
                 this.baseDeDatos.Close();
             } 
+        }
+
+        private void validarExistenciaUsuario()
+        {
+            SqlCommand validarDatosCmd = new SqlCommand("SELECT COUNT(*) FROM LOS_MAGIOS.USUARIOS" +
+                                                        " WHERE USUARIO = @Usuario AND ESTADO = 1", baseDeDatos);
+            validarDatosCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
+            validarDatosCmd.Parameters["@Usuario"].Value = this.usuarioCanceladorTB.Text;
+            
+            if (validarDatosCmd.ExecuteScalar().Equals(0)) throw new Exception("El usuario cancelador no existe");
         }
 
         private void validarReservaFecha(int codigoReserva)
