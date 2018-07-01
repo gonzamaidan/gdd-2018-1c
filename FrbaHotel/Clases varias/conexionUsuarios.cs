@@ -15,14 +15,14 @@ namespace FrbaHotel
 
         public SqlDataReader iniciarSesion(string user, string pass)
         {
-            string sql = "SELECT * FROM LOS_MAGIOS.USUARIOS WHERE USUARIO = @Usuario AND CONTRASENA = @Password";
+            string sql = "SELECT * FROM LOS_MAGIOS.USUARIOS WHERE USUARIO = @Usuario AND CONTRASENA = HASHBYTES('SHA2_256',@Password)";
             SqlCommand comando = new SqlCommand();
             comando.Connection = unaConexion.abrirConexion();
             comando.CommandText = sql;
             comando.Parameters.Add("@Usuario", SqlDbType.VarChar);
             comando.Parameters["@Usuario"].Value = user;
             comando.Parameters.Add("@Password", SqlDbType.VarChar);
-            comando.Parameters["@Password"].Value = Program.hashPassword(pass);
+            comando.Parameters["@Password"].Value = pass;
             leer = comando.ExecuteReader();
             return leer;
         }

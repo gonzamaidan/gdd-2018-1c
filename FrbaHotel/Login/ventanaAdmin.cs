@@ -15,6 +15,20 @@ namespace FrbaHotel.Login
         public ventanaAdmin()
         {
             InitializeComponent();
+            listadoClientesBtn.Enabled = Program.sesion.getFuncionalidades().Contains(1);
+            listadoHotelesBtn.Enabled = Program.sesion.getFuncionalidades().Contains(2);
+        }
+
+        private void listadoCliente_Click(object sender, EventArgs e)
+        {
+            AbmCliente.ListadoClientes ventana  = new AbmCliente.ListadoClientes();
+            ventana.Show();
+        }
+
+        private void listadoHotelesBtn_Click(object sender, EventArgs e)
+        {
+            AbmHoteles.BusquedaHotel ventana = new AbmHoteles.BusquedaHotel();
+            ventana.Show();
         }
     }
 }

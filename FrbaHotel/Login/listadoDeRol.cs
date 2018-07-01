@@ -35,20 +35,15 @@ namespace FrbaHotel.Login
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if(cmbListaRoles.Text == "ADMINISTRADOR" || cmbListaRoles.Text == "administrador")
-            {
-                ventanaAdmin nuevaVentanaAdmin = new ventanaAdmin();
-                this.Hide();
-                nuevaVentanaAdmin.Show();
-            }
-
-            if (cmbListaRoles.Text == "RECEPCIONISTA" || cmbListaRoles.Text == "recepcionista")
-            {
-                ventanaRecepcionista nuevaVentanaRecepcionista = new ventanaRecepcionista();
-                this.Hide();
-                nuevaVentanaRecepcionista.Show();
-            }
+            Program.sesion.setRol(cmbListaRoles.Text);
+            Program.sesion.setIdRol((Int32)cmbListaRoles.SelectedValue);
+           
+            ventanaAdmin nuevaVentanaAdmin = new ventanaAdmin();
+            this.Hide();
+            this.Close();
             
+            nuevaVentanaAdmin.Show();
+           
         }
 
     }

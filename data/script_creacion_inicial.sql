@@ -344,12 +344,23 @@ INSERT INTO LOS_MAGIOS.ROLES(NOMBRE,ESTADO) VALUES
 
 --Ver si vale la pena aceptar en todos los campos nulos, para no tener que completar todos los datos en este insert.					   
 INSERT INTO LOS_MAGIOS.USUARIOS(USUARIO,NOMBRE,CONTRASENA, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_DE_NACIMIENTO,TIPO_IDENTIFICACION, IDENTIFICACION) VALUES
-('admin','admin','w23e', 'admin', 'admin@admin.com', '48638459', 'Admin 458 9D', DATEFROMPARTS (1993,03,14), 1, 0);					   
+('admin','admin',HASHBYTES('SHA2_256','admin'), 'admin', 'admin@admin.com', '48638459', 'Admin 458 9D', DATEFROMPARTS (1993,03,14), 1, 0),
+('recepcionista','recep',HASHBYTES('SHA2_256','admin'), 'admin', 'rec@admin.com', '48638459', 'Admin 458 9D', DATEFROMPARTS (1993,03,14), 1, 1);					   
 
 INSERT INTO LOS_MAGIOS.ROLES_POR_USUARIO(USUARIO,ID_ROL) VALUES
-('admin',1)	
-
+('admin',1),
+('admin',2),	
+('recepcionista', 2);
 GO
+
+INSERT INTO LOS_MAGIOS.FUNCIONALIDADES(DESCRIPCION) VALUES
+('ABM Clientes'),
+('ABM Hoteles');
+
+INSERT INTO LOS_MAGIOS.FUNCIONALIDADES_POR_ROL(ID_ROL,ID_FUNCIONALIDAD) VALUES
+(1,1),
+(1,2),
+(2,1);
 
 CREATE FUNCTION LOS_MAGIOS.INCREMENTO_POR_ESTRELLAS(@ESTRELLAS INT) 
 RETURNS INTEGER
