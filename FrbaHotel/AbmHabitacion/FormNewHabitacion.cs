@@ -183,7 +183,7 @@ namespace FrbaHotel.AbmHabitacion
         {
             try
             {
-                //this.tIPOS_HABITACIONTableAdapter.FillByTipoHabitacion(this.gD1C2018DataSet.TIPOS_HABITACION);
+                //this.tIPOS_HABITACIONTableAdapter.fillBy1ToolStripButton(this.gD1C2018DataSet.TIPOS_HABITACION);
             }
             catch (System.Exception ex)
             {

@@ -41,13 +41,10 @@
             this.radioBotonInterior = new System.Windows.Forms.RadioButton();
             this.radioBotonExterior = new System.Windows.Forms.RadioButton();
             this.tIPOS_HABITACIONTableAdapter = new FrbaHotel.GD1C2018DataSetTableAdapters.TIPOS_HABITACIONTableAdapter();
-            this.fillBy1ToolStrip = new System.Windows.Forms.ToolStrip();
-            this.fillBy1ToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.textoPisoHab = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tIPOSHABITACIONBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).BeginInit();
-            this.fillBy1ToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // botonGuardar
@@ -63,13 +60,13 @@
             // comboBoxTipoHab
             // 
             this.comboBoxTipoHab.DataSource = this.tIPOSHABITACIONBindingSource;
-            this.comboBoxTipoHab.DisplayMember = "CODIGO_TIPO_HABITACION";
+            this.comboBoxTipoHab.DisplayMember = "DESCRIPCION_TIPO_HABITACION";
             this.comboBoxTipoHab.FormattingEnabled = true;
             this.comboBoxTipoHab.Location = new System.Drawing.Point(74, 164);
             this.comboBoxTipoHab.Name = "comboBoxTipoHab";
             this.comboBoxTipoHab.Size = new System.Drawing.Size(172, 21);
             this.comboBoxTipoHab.TabIndex = 4;
-            this.comboBoxTipoHab.ValueMember = "DESCRIPCION_TIPO_HABITACION";
+            this.comboBoxTipoHab.ValueMember = "CODIGO_TIPO_HABITACION";
             this.comboBoxTipoHab.SelectedIndexChanged += new System.EventHandler(this.tipoHabComboBox_SelectedIndexChanged);
             // 
             // tIPOSHABITACIONBindingSource
@@ -155,24 +152,6 @@
             // 
             this.tIPOS_HABITACIONTableAdapter.ClearBeforeFill = true;
             // 
-            // fillBy1ToolStrip
-            // 
-            this.fillBy1ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fillBy1ToolStripButton});
-            this.fillBy1ToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.fillBy1ToolStrip.Name = "fillBy1ToolStrip";
-            this.fillBy1ToolStrip.Size = new System.Drawing.Size(464, 25);
-            this.fillBy1ToolStrip.TabIndex = 19;
-            this.fillBy1ToolStrip.Text = "fillBy1ToolStrip";
-            // 
-            // fillBy1ToolStripButton
-            // 
-            this.fillBy1ToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillBy1ToolStripButton.Name = "fillBy1ToolStripButton";
-            this.fillBy1ToolStripButton.Size = new System.Drawing.Size(45, 22);
-            this.fillBy1ToolStripButton.Text = "FillBy1";
-            this.fillBy1ToolStripButton.Click += new System.EventHandler(this.fillByTipoHabitacionToolStripButton_Click);
-            // 
             // textoPisoHab
             // 
             this.textoPisoHab.Location = new System.Drawing.Point(74, 82);
@@ -196,7 +175,6 @@
             this.ClientSize = new System.Drawing.Size(464, 225);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textoPisoHab);
-            this.Controls.Add(this.fillBy1ToolStrip);
             this.Controls.Add(this.radioBotonInterior);
             this.Controls.Add(this.radioBotonExterior);
             this.Controls.Add(this.textNumeroHab);
@@ -211,8 +189,6 @@
             this.Load += new System.EventHandler(this.FormNewHabitacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tIPOSHABITACIONBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).EndInit();
-            this.fillBy1ToolStrip.ResumeLayout(false);
-            this.fillBy1ToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,8 +210,6 @@
         private GD1C2018DataSet gD1C2018DataSet;
         private System.Windows.Forms.BindingSource tIPOSHABITACIONBindingSource;
         private GD1C2018DataSetTableAdapters.TIPOS_HABITACIONTableAdapter tIPOS_HABITACIONTableAdapter;
-        private System.Windows.Forms.ToolStrip fillBy1ToolStrip;
-        private System.Windows.Forms.ToolStripButton fillBy1ToolStripButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textoPisoHab;
     }

@@ -210,6 +210,9 @@
     <Compile Include="RegistrarEstadia\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AbmHabitacion\FormNewHabitacion.resx">
+      <DependentUpon>FormNewHabitacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AbmRegimen\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

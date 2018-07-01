@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace FrbaHotel.AbmHoteles
 {
@@ -21,6 +22,7 @@ namespace FrbaHotel.AbmHoteles
         Int32 id_hotel;
         DataTable dtRegimenesPorHotel;
         DataTable dtRegimenes;
+        public static string fechaHoyString = ConfigurationManager.AppSettings["fechaHoy"];
 
         public FormNewHotel()
         {
@@ -202,7 +204,7 @@ namespace FrbaHotel.AbmHoteles
                     queryInsert.Parameters.Add(new SqlParameter("@estrellas", this.numericUpDownEstrellas.Value));
                     queryInsert.Parameters.Add(new SqlParameter("@ciudad", this.textBoxCiudad.Text));
                     queryInsert.Parameters.Add(new SqlParameter("@pais", this.textBoxPais.Text));
-                    queryInsert.Parameters.Add(new SqlParameter("@fechaCreacion", DateTime.Today));
+                    queryInsert.Parameters.Add(new SqlParameter("@fechaCreacion", DateTime.ParseExact(fechaHoyString, "yyyy-M-d", null)));
 
                     queryInsert.CommandType = CommandType.Text;
                     queryInsert.ExecuteNonQuery();
@@ -286,7 +288,7 @@ namespace FrbaHotel.AbmHoteles
                 queryDisponibildad.Parameters.Add("@fecha", SqlDbType.Date);
                 queryDisponibildad.Parameters.Add("@CodigoRegimen", SqlDbType.Int);
                 queryDisponibildad.Parameters.Add("@IdHotel", SqlDbType.Int);
-                queryDisponibildad.Parameters["@fecha"].Value = DateTime.Today.Date;
+                queryDisponibildad.Parameters["@fecha"].Value = DateTime.ParseExact(fechaHoyString, "yyyy-M-d", null).Date;
                 queryDisponibildad.Parameters["@CodigoRegimen"].Value = e.Index + 1;
                 queryDisponibildad.Parameters["@IdHotel"].Value = id_hotel;
 
