@@ -45,23 +45,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbmCliente\Form1.cs">
+    <Compile Include="AbmCliente\FormCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmCliente\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AbmCliente\FormCliente.Designer.cs">
+      <DependentUpon>FormCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbmCliente\BusquedaCliente.cs">
+    <Compile Include="AbmCliente\ListadoClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmCliente\BusquedaCliente.Designer.cs">
-      <DependentUpon>BusquedaCliente.cs</DependentUpon>
+    <Compile Include="AbmCliente\ListadoClientes.Designer.cs">
+      <DependentUpon>ListadoClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbmHabitacion\Form1.cs">
+    <Compile Include="AbmHabitacion\FormNewHabitacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmHabitacion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AbmHabitacion\FormNewHabitacion.Designer.cs">
+      <DependentUpon>FormNewHabitacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmHabitacion\ListadoHabitaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmHabitacion\ListadoHabitaciones.Designer.cs">
+      <DependentUpon>ListadoHabitaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmHoteles\BajaHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmHoteles\BajaHotel.Designer.cs">
+      <DependentUpon>BajaHotel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmHoteles\BusquedaHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmHoteles\BusquedaHotel.Designer.cs">
+      <DependentUpon>BusquedaHotel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmHoteles\FormNewHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmHoteles\FormNewHotel.Designer.cs">
+      <DependentUpon>FormNewHotel.cs</DependentUpon>
     </Compile>
     <Compile Include="AbmRegimen\Form1.cs">
       <SubType>Form</SubType>
@@ -136,27 +160,39 @@
     <Compile Include="ListadoEstadistico\listadoEstadistico.Designer.cs">
       <DependentUpon>listadoEstadistico.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\FormLogin.cs" />
+    <Compile Include="Login\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\listadoDeRol.cs" />
+    <Compile Include="Login\listadoDeRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login\listadoDeRol.Designer.cs">
       <DependentUpon>listadoDeRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\ventanaAdmin.cs" />
+    <Compile Include="Login\ventanaAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login\ventanaAdmin.Designer.cs">
       <DependentUpon>ventanaAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\ventanaPrincipal.cs" />
+    <Compile Include="Login\ventanaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login\ventanaPrincipal.Designer.cs">
       <DependentUpon>ventanaPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\ventanaRecepcionista.cs" />
+    <Compile Include="Login\ventanaRecepcionista.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login\ventanaRecepcionista.Designer.cs">
       <DependentUpon>ventanaRecepcionista.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\ventanaSesionCaducada.cs" />
+    <Compile Include="Login\ventanaSesionCaducada.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login\ventanaSesionCaducada.Designer.cs">
       <DependentUpon>ventanaSesionCaducada.cs</DependentUpon>
     </Compile>
@@ -174,14 +210,8 @@
     <Compile Include="RegistrarEstadia\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AbmCliente\BusquedaCliente.resx">
-      <DependentUpon>BusquedaCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AbmCliente\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AbmHabitacion\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AbmHabitacion\FormNewHabitacion.resx">
+      <DependentUpon>FormNewHabitacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AbmRegimen\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
