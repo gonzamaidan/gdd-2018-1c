@@ -241,17 +241,17 @@ namespace FrbaHotel.GenerarModificacionReserva
                     if(!flagModificacionReserva)
                         while (idClienteSeleccionado == -1)
                             {
-                                AbmCliente.BusquedaCliente busquedaCliente = new AbmCliente.BusquedaCliente(false);
+                                AbmCliente.ListadoClientes busquedaCliente = new AbmCliente.ListadoClientes();
                                 DialogResult result = busquedaCliente.ShowDialog();
 
-                                if (busquedaCliente.idClienteSeleccionado != -1)
+                                /*if (busquedaCliente.idClienteSeleccionado != -1)
                                     idClienteSeleccionado = busquedaCliente.idClienteSeleccionado;
                                 else
                                 {
 
                                     MessageBox.Show("Debe seleccionar un cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     return;
-                                }
+                                }*/
                             }
 
 
