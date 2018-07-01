@@ -235,8 +235,8 @@ namespace FrbaHotel.AbmCliente
         private void buttonSalir_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //ListadoClientes formHotel = new ListadoClientes();
-            //formHotel.ShowDialog();
+            ListadoClientes formHotel = new ListadoClientes();
+            formHotel.ShowDialog();
         }
     }
 }
