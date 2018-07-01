@@ -206,7 +206,8 @@ namespace FrbaHotel.AbmHabitacion
         {
             try
             {
-                Int32.TryParse(this.comboBoxTipoHab.Text, out this.codigoTipoHab);
+                ComboBox cmb = (ComboBox)sender;
+                codigoTipoHab = (int)cmb.SelectedValue;
             }
             catch (System.Exception ex)
             {
