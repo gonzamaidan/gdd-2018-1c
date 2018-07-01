@@ -69,6 +69,24 @@
     <Compile Include="AbmHabitacion\ListadoHabitaciones.Designer.cs">
       <DependentUpon>ListadoHabitaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="AbmHoteles\BajaHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmHoteles\BajaHotel.Designer.cs">
+      <DependentUpon>BajaHotel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmHoteles\BusquedaHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmHoteles\BusquedaHotel.Designer.cs">
+      <DependentUpon>BusquedaHotel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmHoteles\FormNewHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmHoteles\FormNewHotel.Designer.cs">
+      <DependentUpon>FormNewHotel.cs</DependentUpon>
+    </Compile>
     <Compile Include="AbmRegimen\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
