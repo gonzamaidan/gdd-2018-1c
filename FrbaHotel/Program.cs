@@ -15,13 +15,16 @@ namespace FrbaHotel
         //[STAThread]
 
         public static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        public static string fechaHoyString = ConfigurationManager.AppSettings["fechaHoy"];
+        public static DateTime fechaHoy;
 
         static void Main()
         {
+            fechaHoy = DateTime.ParseExact(fechaHoyString, "yyyy-M-d", null);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new GenerarModificacionReserva.GenerarReservas());
-            Application.Run(new GenerarModificacionReserva.GenerarReservas());
+            Application.Run(new RegistrarEstadia.RegistrarEstadia());
         }
     }
 }
