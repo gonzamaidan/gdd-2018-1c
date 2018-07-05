@@ -27,6 +27,8 @@ namespace FrbaHotel.AbmCliente
 
         private void ListadoClientes_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'gD1C2018DataSet.CLIENTES_POR_RESERVA' table. You can move, or remove it, as needed.
+            this.cLIENTES_POR_RESERVATableAdapter.Fill(this.gD1C2018DataSet.CLIENTES_POR_RESERVA);
             // TODO: This line of code loads data into the 'gD1C2018DataSet.TIPOS_IDENTIFICACION' table. You can move, or remove it, as needed.
             this.tIPOS_IDENTIFICACIONTableAdapter.Fill(this.gD1C2018DataSet.TIPOS_IDENTIFICACION);
             // TODO: This line of code loads data into the 'gD1C2018DataSet.CLIENTES' table. You can move, or remove it, as needed.
@@ -129,7 +131,68 @@ namespace FrbaHotel.AbmCliente
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cmb = (ComboBox)sender;
-            tipoDni = (int)cmb.SelectedValue;
+            if(cmb.SelectedValue!=null)
+                tipoDni = (int)cmb.SelectedValue;
+        }
+
+        private void buttonBorrar_Click(object sender, EventArgs e)
+        {
+            if ((Boolean)(dataGridViewClientes.SelectedRows[0].Cells[13].Value) == true)
+            {
+                baseDeDatos.Open();
+
+                this.idClienteSeleccionado = Int32.Parse(dataGridViewClientes.SelectedRows[0].Cells[0].Value.ToString());
+                SqlCommand queryInsert = new SqlCommand("UPDATE LOS_MAGIOS.CLIENTES " +
+                                                                "SET HABILITADO = 0 Where CODIGO_CLIENTE = @idCliente", baseDeDatos);
+                queryInsert.CommandType = CommandType.StoredProcedure;
+                queryInsert.Parameters.Add(new SqlParameter("@idCliente", idClienteSeleccionado));
+                queryInsert.CommandType = CommandType.Text;
+                queryInsert.ExecuteNonQuery();
+                MessageBox.Show("El cliente se deshabilito correctamente", "Cliente deshabilitado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                actualizar();
+                baseDeDatos.Close();
+            }
+            else
+            {
+                MessageBox.Show("El cliente ya ésta habilitado", "Cliente habilitado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
+
+        private void actualizar()
+        {
+            string consulta = "Select * From LOS_MAGIOS.CLIENTES h";
+            SqlCommand comando2 = new SqlCommand(consulta, baseDeDatos);
+            SqlDataAdapter sda = new SqlDataAdapter(comando2);
+
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+            dataGridViewClientes.DataSource = dt;
+        }
+
+        private void buttonHabilitar_Click(object sender, EventArgs e)
+        {
+            if ((Boolean)(dataGridViewClientes.SelectedRows[0].Cells[13].Value)==false)
+            {
+                baseDeDatos.Open();
+
+                this.idClienteSeleccionado = Int32.Parse(dataGridViewClientes.SelectedRows[0].Cells[0].Value.ToString());
+                SqlCommand queryInsert = new SqlCommand("UPDATE LOS_MAGIOS.CLIENTES " +
+                                                                "SET HABILITADO = 1 Where CODIGO_CLIENTE = @idCliente", baseDeDatos);
+                queryInsert.CommandType = CommandType.StoredProcedure;
+                queryInsert.Parameters.Add(new SqlParameter("@idCliente", idClienteSeleccionado));
+                queryInsert.CommandType = CommandType.Text;
+                queryInsert.ExecuteNonQuery();
+                MessageBox.Show("El cliente se habilito correctamente", "Cliente habilitado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                actualizar();
+                baseDeDatos.Close();
+            }
+            else
+            {
+                MessageBox.Show("El cliente ya ésta habilitado", "Cliente habilitado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
     }
 }

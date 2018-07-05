@@ -1553,6 +1553,8 @@ namespace FrbaHotel {
             
             private global::System.Data.DataColumn columnDUPLICADO;
             
+            private global::System.Data.DataColumn columnHABILITADO;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CLIENTESDataTable() {
@@ -1692,6 +1694,14 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HABILITADOColumn {
+                get {
+                    return this.columnHABILITADO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1727,7 +1737,7 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CLIENTESRow AddCLIENTESRow(string NOMBRE, string APELLIDO, int IDENTIFICACION, TIPOS_IDENTIFICACIONRow parentTIPOS_IDENTIFICACIONRowByFK__CLIENTES__TIPO_I__48DABF76, string MAIL, int TELEFONO, string DIRECCION, string LOCALIDAD, string PAIS, string NACIONALIDAD, System.DateTime FECHA_NACIMIENTO, bool DUPLICADO) {
+            public CLIENTESRow AddCLIENTESRow(string NOMBRE, string APELLIDO, int IDENTIFICACION, TIPOS_IDENTIFICACIONRow parentTIPOS_IDENTIFICACIONRowByFK__CLIENTES__TIPO_I__48DABF76, string MAIL, int TELEFONO, string DIRECCION, string LOCALIDAD, string PAIS, string NACIONALIDAD, System.DateTime FECHA_NACIMIENTO, bool DUPLICADO, bool HABILITADO) {
                 CLIENTESRow rowCLIENTESRow = ((CLIENTESRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1742,7 +1752,8 @@ namespace FrbaHotel {
                         PAIS,
                         NACIONALIDAD,
                         FECHA_NACIMIENTO,
-                        DUPLICADO};
+                        DUPLICADO,
+                        HABILITADO};
                 if ((parentTIPOS_IDENTIFICACIONRowByFK__CLIENTES__TIPO_I__48DABF76 != null)) {
                     columnValuesArray[4] = parentTIPOS_IDENTIFICACIONRowByFK__CLIENTES__TIPO_I__48DABF76[0];
                 }
@@ -1788,6 +1799,7 @@ namespace FrbaHotel {
                 this.columnNACIONALIDAD = base.Columns["NACIONALIDAD"];
                 this.columnFECHA_NACIMIENTO = base.Columns["FECHA_NACIMIENTO"];
                 this.columnDUPLICADO = base.Columns["DUPLICADO"];
+                this.columnHABILITADO = base.Columns["HABILITADO"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1819,6 +1831,8 @@ namespace FrbaHotel {
                 base.Columns.Add(this.columnFECHA_NACIMIENTO);
                 this.columnDUPLICADO = new global::System.Data.DataColumn("DUPLICADO", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDUPLICADO);
+                this.columnHABILITADO = new global::System.Data.DataColumn("HABILITADO", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHABILITADO);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCODIGO_CLIENTE}, true));
                 this.columnCODIGO_CLIENTE.AutoIncrement = true;
@@ -8644,6 +8658,22 @@ namespace FrbaHotel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool HABILITADO {
+                get {
+                    try {
+                        return ((bool)(this[this.tableCLIENTES.HABILITADOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HABILITADO\' in table \'CLIENTES\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCLIENTES.HABILITADOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TIPOS_IDENTIFICACIONRow TIPOS_IDENTIFICACIONRow {
                 get {
                     return ((TIPOS_IDENTIFICACIONRow)(this.GetParentRow(this.Table.ParentRelations["FK__CLIENTES__TIPO_I__48DABF76"])));
@@ -8735,6 +8765,18 @@ namespace FrbaHotel {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDUPLICADONull() {
                 this[this.tableCLIENTES.DUPLICADOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHABILITADONull() {
+                return this.IsNull(this.tableCLIENTES.HABILITADOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHABILITADONull() {
+                this[this.tableCLIENTES.HABILITADOColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12027,10 +12069,11 @@ SELECT ID_BAJA_HOTEL, ID_HOTEL, FECHA_INICIO_BAJA, FECHA_FIN_BAJA FROM LOS_MAGIO
             tableMapping.ColumnMappings.Add("NACIONALIDAD", "NACIONALIDAD");
             tableMapping.ColumnMappings.Add("FECHA_NACIMIENTO", "FECHA_NACIMIENTO");
             tableMapping.ColumnMappings.Add("DUPLICADO", "DUPLICADO");
+            tableMapping.ColumnMappings.Add("HABILITADO", "HABILITADO");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [LOS_MAGIOS].[CLIENTES] WHERE (([CODIGO_CLIENTE] = @Original_CODIGO_CLIENTE) AND ((@IsNull_NOMBRE = 1 AND [NOMBRE] IS NULL) OR ([NOMBRE] = @Original_NOMBRE)) AND ((@IsNull_APELLIDO = 1 AND [APELLIDO] IS NULL) OR ([APELLIDO] = @Original_APELLIDO)) AND ([IDENTIFICACION] = @Original_IDENTIFICACION) AND ((@IsNull_TIPO_IDENTIFICACION = 1 AND [TIPO_IDENTIFICACION] IS NULL) OR ([TIPO_IDENTIFICACION] = @Original_TIPO_IDENTIFICACION)) AND ([MAIL] = @Original_MAIL) AND ((@IsNull_TELEFONO = 1 AND [TELEFONO] IS NULL) OR ([TELEFONO] = @Original_TELEFONO)) AND ([DIRECCION] = @Original_DIRECCION) AND ((@IsNull_LOCALIDAD = 1 AND [LOCALIDAD] IS NULL) OR ([LOCALIDAD] = @Original_LOCALIDAD)) AND ((@IsNull_PAIS = 1 AND [PAIS] IS NULL) OR ([PAIS] = @Original_PAIS)) AND ([NACIONALIDAD] = @Original_NACIONALIDAD) AND ([FECHA_NACIMIENTO] = @Original_FECHA_NACIMIENTO) AND ((@IsNull_DUPLICADO = 1 AND [DUPLICADO] IS NULL) OR ([DUPLICADO] = @Original_DUPLICADO)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [LOS_MAGIOS].[CLIENTES] WHERE (([CODIGO_CLIENTE] = @Original_CODIGO_CLIENTE) AND ((@IsNull_NOMBRE = 1 AND [NOMBRE] IS NULL) OR ([NOMBRE] = @Original_NOMBRE)) AND ((@IsNull_APELLIDO = 1 AND [APELLIDO] IS NULL) OR ([APELLIDO] = @Original_APELLIDO)) AND ([IDENTIFICACION] = @Original_IDENTIFICACION) AND ((@IsNull_TIPO_IDENTIFICACION = 1 AND [TIPO_IDENTIFICACION] IS NULL) OR ([TIPO_IDENTIFICACION] = @Original_TIPO_IDENTIFICACION)) AND ([MAIL] = @Original_MAIL) AND ((@IsNull_TELEFONO = 1 AND [TELEFONO] IS NULL) OR ([TELEFONO] = @Original_TELEFONO)) AND ([DIRECCION] = @Original_DIRECCION) AND ((@IsNull_LOCALIDAD = 1 AND [LOCALIDAD] IS NULL) OR ([LOCALIDAD] = @Original_LOCALIDAD)) AND ((@IsNull_PAIS = 1 AND [PAIS] IS NULL) OR ([PAIS] = @Original_PAIS)) AND ([NACIONALIDAD] = @Original_NACIONALIDAD) AND ([FECHA_NACIMIENTO] = @Original_FECHA_NACIMIENTO) AND ((@IsNull_DUPLICADO = 1 AND [DUPLICADO] IS NULL) OR ([DUPLICADO] = @Original_DUPLICADO)) AND ((@IsNull_HABILITADO = 1 AND [HABILITADO] IS NULL) OR ([HABILITADO] = @Original_HABILITADO)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CODIGO_CLIENTE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODIGO_CLIENTE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOMBRE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMBRE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -12052,10 +12095,12 @@ SELECT ID_BAJA_HOTEL, ID_HOTEL, FECHA_INICIO_BAJA, FECHA_FIN_BAJA FROM LOS_MAGIO
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHA_NACIMIENTO", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_NACIMIENTO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DUPLICADO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DUPLICADO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DUPLICADO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DUPLICADO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HABILITADO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HABILITADO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HABILITADO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HABILITADO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [LOS_MAGIOS].[CLIENTES] ([NOMBRE], [APELLIDO], [IDENTIFICACION], [TIPO_IDENTIFICACION], [MAIL], [TELEFONO], [DIRECCION], [LOCALIDAD], [PAIS], [NACIONALIDAD], [FECHA_NACIMIENTO], [DUPLICADO]) VALUES (@NOMBRE, @APELLIDO, @IDENTIFICACION, @TIPO_IDENTIFICACION, @MAIL, @TELEFONO, @DIRECCION, @LOCALIDAD, @PAIS, @NACIONALIDAD, @FECHA_NACIMIENTO, @DUPLICADO);
-SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MAIL, TELEFONO, DIRECCION, LOCALIDAD, PAIS, NACIONALIDAD, FECHA_NACIMIENTO, DUPLICADO FROM LOS_MAGIOS.CLIENTES WHERE (CODIGO_CLIENTE = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [LOS_MAGIOS].[CLIENTES] ([NOMBRE], [APELLIDO], [IDENTIFICACION], [TIPO_IDENTIFICACION], [MAIL], [TELEFONO], [DIRECCION], [LOCALIDAD], [PAIS], [NACIONALIDAD], [FECHA_NACIMIENTO], [DUPLICADO], [HABILITADO]) VALUES (@NOMBRE, @APELLIDO, @IDENTIFICACION, @TIPO_IDENTIFICACION, @MAIL, @TELEFONO, @DIRECCION, @LOCALIDAD, @PAIS, @NACIONALIDAD, @FECHA_NACIMIENTO, @DUPLICADO, @HABILITADO);
+SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MAIL, TELEFONO, DIRECCION, LOCALIDAD, PAIS, NACIONALIDAD, FECHA_NACIMIENTO, DUPLICADO, HABILITADO FROM LOS_MAGIOS.CLIENTES WHERE (CODIGO_CLIENTE = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOMBRE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@APELLIDO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "APELLIDO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12069,28 +12114,30 @@ SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MA
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NACIONALIDAD", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NACIONALIDAD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHA_NACIMIENTO", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_NACIMIENTO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DUPLICADO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DUPLICADO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HABILITADO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HABILITADO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [LOS_MAGIOS].[CLIENTES] SET [NOMBRE] = @NOMBRE, [APELLIDO] = @APELLIDO, [I" +
                 "DENTIFICACION] = @IDENTIFICACION, [TIPO_IDENTIFICACION] = @TIPO_IDENTIFICACION, " +
                 "[MAIL] = @MAIL, [TELEFONO] = @TELEFONO, [DIRECCION] = @DIRECCION, [LOCALIDAD] = " +
                 "@LOCALIDAD, [PAIS] = @PAIS, [NACIONALIDAD] = @NACIONALIDAD, [FECHA_NACIMIENTO] =" +
-                " @FECHA_NACIMIENTO, [DUPLICADO] = @DUPLICADO WHERE (([CODIGO_CLIENTE] = @Origina" +
-                "l_CODIGO_CLIENTE) AND ((@IsNull_NOMBRE = 1 AND [NOMBRE] IS NULL) OR ([NOMBRE] = " +
-                "@Original_NOMBRE)) AND ((@IsNull_APELLIDO = 1 AND [APELLIDO] IS NULL) OR ([APELL" +
-                "IDO] = @Original_APELLIDO)) AND ([IDENTIFICACION] = @Original_IDENTIFICACION) AN" +
-                "D ((@IsNull_TIPO_IDENTIFICACION = 1 AND [TIPO_IDENTIFICACION] IS NULL) OR ([TIPO" +
-                "_IDENTIFICACION] = @Original_TIPO_IDENTIFICACION)) AND ([MAIL] = @Original_MAIL)" +
-                " AND ((@IsNull_TELEFONO = 1 AND [TELEFONO] IS NULL) OR ([TELEFONO] = @Original_T" +
-                "ELEFONO)) AND ([DIRECCION] = @Original_DIRECCION) AND ((@IsNull_LOCALIDAD = 1 AN" +
-                "D [LOCALIDAD] IS NULL) OR ([LOCALIDAD] = @Original_LOCALIDAD)) AND ((@IsNull_PAI" +
-                "S = 1 AND [PAIS] IS NULL) OR ([PAIS] = @Original_PAIS)) AND ([NACIONALIDAD] = @O" +
-                "riginal_NACIONALIDAD) AND ([FECHA_NACIMIENTO] = @Original_FECHA_NACIMIENTO) AND " +
-                "((@IsNull_DUPLICADO = 1 AND [DUPLICADO] IS NULL) OR ([DUPLICADO] = @Original_DUP" +
-                "LICADO)));\r\nSELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTI" +
-                "FICACION, MAIL, TELEFONO, DIRECCION, LOCALIDAD, PAIS, NACIONALIDAD, FECHA_NACIMI" +
-                "ENTO, DUPLICADO FROM LOS_MAGIOS.CLIENTES WHERE (CODIGO_CLIENTE = @CODIGO_CLIENTE" +
-                ")";
+                " @FECHA_NACIMIENTO, [DUPLICADO] = @DUPLICADO, [HABILITADO] = @HABILITADO WHERE (" +
+                "([CODIGO_CLIENTE] = @Original_CODIGO_CLIENTE) AND ((@IsNull_NOMBRE = 1 AND [NOMB" +
+                "RE] IS NULL) OR ([NOMBRE] = @Original_NOMBRE)) AND ((@IsNull_APELLIDO = 1 AND [A" +
+                "PELLIDO] IS NULL) OR ([APELLIDO] = @Original_APELLIDO)) AND ([IDENTIFICACION] = " +
+                "@Original_IDENTIFICACION) AND ((@IsNull_TIPO_IDENTIFICACION = 1 AND [TIPO_IDENTI" +
+                "FICACION] IS NULL) OR ([TIPO_IDENTIFICACION] = @Original_TIPO_IDENTIFICACION)) A" +
+                "ND ([MAIL] = @Original_MAIL) AND ((@IsNull_TELEFONO = 1 AND [TELEFONO] IS NULL) " +
+                "OR ([TELEFONO] = @Original_TELEFONO)) AND ([DIRECCION] = @Original_DIRECCION) AN" +
+                "D ((@IsNull_LOCALIDAD = 1 AND [LOCALIDAD] IS NULL) OR ([LOCALIDAD] = @Original_L" +
+                "OCALIDAD)) AND ((@IsNull_PAIS = 1 AND [PAIS] IS NULL) OR ([PAIS] = @Original_PAI" +
+                "S)) AND ([NACIONALIDAD] = @Original_NACIONALIDAD) AND ([FECHA_NACIMIENTO] = @Ori" +
+                "ginal_FECHA_NACIMIENTO) AND ((@IsNull_DUPLICADO = 1 AND [DUPLICADO] IS NULL) OR " +
+                "([DUPLICADO] = @Original_DUPLICADO)) AND ((@IsNull_HABILITADO = 1 AND [HABILITAD" +
+                "O] IS NULL) OR ([HABILITADO] = @Original_HABILITADO)));\r\nSELECT CODIGO_CLIENTE, " +
+                "NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MAIL, TELEFONO, DIRECCION" +
+                ", LOCALIDAD, PAIS, NACIONALIDAD, FECHA_NACIMIENTO, DUPLICADO, HABILITADO FROM LO" +
+                "S_MAGIOS.CLIENTES WHERE (CODIGO_CLIENTE = @CODIGO_CLIENTE)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOMBRE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMBRE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@APELLIDO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "APELLIDO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12104,6 +12151,7 @@ SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MA
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NACIONALIDAD", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NACIONALIDAD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHA_NACIMIENTO", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_NACIMIENTO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DUPLICADO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DUPLICADO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HABILITADO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HABILITADO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CODIGO_CLIENTE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODIGO_CLIENTE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_NOMBRE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMBRE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOMBRE", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMBRE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -12124,6 +12172,8 @@ SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MA
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHA_NACIMIENTO", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_NACIMIENTO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DUPLICADO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DUPLICADO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DUPLICADO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DUPLICADO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HABILITADO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HABILITADO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HABILITADO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HABILITADO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CODIGO_CLIENTE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CODIGO_CLIENTE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -12142,7 +12192,7 @@ SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MA
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MAI" +
                 "L, TELEFONO, DIRECCION, LOCALIDAD, PAIS, NACIONALIDAD, FECHA_NACIMIENTO, DUPLICA" +
-                "DO FROM LOS_MAGIOS.CLIENTES";
+                "DO, HABILITADO FROM LOS_MAGIOS.CLIENTES";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -12203,7 +12253,7 @@ SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MA
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_CODIGO_CLIENTE, string Original_NOMBRE, string Original_APELLIDO, int Original_IDENTIFICACION, global::System.Nullable<int> Original_TIPO_IDENTIFICACION, string Original_MAIL, global::System.Nullable<int> Original_TELEFONO, string Original_DIRECCION, string Original_LOCALIDAD, string Original_PAIS, string Original_NACIONALIDAD, System.DateTime Original_FECHA_NACIMIENTO, global::System.Nullable<bool> Original_DUPLICADO) {
+        public virtual int Delete(int Original_CODIGO_CLIENTE, string Original_NOMBRE, string Original_APELLIDO, int Original_IDENTIFICACION, global::System.Nullable<int> Original_TIPO_IDENTIFICACION, string Original_MAIL, global::System.Nullable<int> Original_TELEFONO, string Original_DIRECCION, string Original_LOCALIDAD, string Original_PAIS, string Original_NACIONALIDAD, System.DateTime Original_FECHA_NACIMIENTO, global::System.Nullable<bool> Original_DUPLICADO, global::System.Nullable<bool> Original_HABILITADO) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_CODIGO_CLIENTE));
             if ((Original_NOMBRE == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -12281,6 +12331,14 @@ SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MA
                 this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
+            if ((Original_HABILITADO.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((bool)(Original_HABILITADO.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12301,7 +12359,7 @@ SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MA
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string NOMBRE, string APELLIDO, int IDENTIFICACION, global::System.Nullable<int> TIPO_IDENTIFICACION, string MAIL, global::System.Nullable<int> TELEFONO, string DIRECCION, string LOCALIDAD, string PAIS, string NACIONALIDAD, System.DateTime FECHA_NACIMIENTO, global::System.Nullable<bool> DUPLICADO) {
+        public virtual int Insert(string NOMBRE, string APELLIDO, int IDENTIFICACION, global::System.Nullable<int> TIPO_IDENTIFICACION, string MAIL, global::System.Nullable<int> TELEFONO, string DIRECCION, string LOCALIDAD, string PAIS, string NACIONALIDAD, System.DateTime FECHA_NACIMIENTO, global::System.Nullable<bool> DUPLICADO, global::System.Nullable<bool> HABILITADO) {
             if ((NOMBRE == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -12364,6 +12422,12 @@ SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MA
             else {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
+            if ((HABILITADO.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((bool)(HABILITADO.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12397,6 +12461,7 @@ SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MA
                     string NACIONALIDAD, 
                     System.DateTime FECHA_NACIMIENTO, 
                     global::System.Nullable<bool> DUPLICADO, 
+                    global::System.Nullable<bool> HABILITADO, 
                     int Original_CODIGO_CLIENTE, 
                     string Original_NOMBRE, 
                     string Original_APELLIDO, 
@@ -12410,6 +12475,7 @@ SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MA
                     string Original_NACIONALIDAD, 
                     System.DateTime Original_FECHA_NACIMIENTO, 
                     global::System.Nullable<bool> Original_DUPLICADO, 
+                    global::System.Nullable<bool> Original_HABILITADO, 
                     int CODIGO_CLIENTE) {
             if ((NOMBRE == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -12473,84 +12539,98 @@ SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MA
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_CODIGO_CLIENTE));
-            if ((Original_NOMBRE == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            if ((HABILITADO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((bool)(HABILITADO.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_NOMBRE));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_CODIGO_CLIENTE));
+            if ((Original_NOMBRE == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_NOMBRE));
             }
             if ((Original_APELLIDO == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_APELLIDO));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_APELLIDO));
             }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_IDENTIFICACION));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_IDENTIFICACION));
             if ((Original_TIPO_IDENTIFICACION.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_TIPO_IDENTIFICACION.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_TIPO_IDENTIFICACION.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             if ((Original_MAIL == null)) {
                 throw new global::System.ArgumentNullException("Original_MAIL");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_MAIL));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_MAIL));
             }
             if ((Original_TELEFONO.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_TELEFONO.Value));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_TELEFONO.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             if ((Original_DIRECCION == null)) {
                 throw new global::System.ArgumentNullException("Original_DIRECCION");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_DIRECCION));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_DIRECCION));
             }
             if ((Original_LOCALIDAD == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_LOCALIDAD));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_LOCALIDAD));
             }
             if ((Original_PAIS == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_PAIS));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_PAIS));
             }
             if ((Original_NACIONALIDAD == null)) {
                 throw new global::System.ArgumentNullException("Original_NACIONALIDAD");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_NACIONALIDAD));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_NACIONALIDAD));
             }
-            this.Adapter.UpdateCommand.Parameters[29].Value = ((System.DateTime)(Original_FECHA_NACIMIENTO));
+            this.Adapter.UpdateCommand.Parameters[30].Value = ((System.DateTime)(Original_FECHA_NACIMIENTO));
             if ((Original_DUPLICADO.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((bool)(Original_DUPLICADO.Value));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((bool)(Original_DUPLICADO.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(CODIGO_CLIENTE));
+            if ((Original_HABILITADO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((bool)(Original_HABILITADO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(CODIGO_CLIENTE));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12584,6 +12664,7 @@ SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MA
                     string NACIONALIDAD, 
                     System.DateTime FECHA_NACIMIENTO, 
                     global::System.Nullable<bool> DUPLICADO, 
+                    global::System.Nullable<bool> HABILITADO, 
                     int Original_CODIGO_CLIENTE, 
                     string Original_NOMBRE, 
                     string Original_APELLIDO, 
@@ -12596,8 +12677,9 @@ SELECT CODIGO_CLIENTE, NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MA
                     string Original_PAIS, 
                     string Original_NACIONALIDAD, 
                     System.DateTime Original_FECHA_NACIMIENTO, 
-                    global::System.Nullable<bool> Original_DUPLICADO) {
-            return this.Update(NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MAIL, TELEFONO, DIRECCION, LOCALIDAD, PAIS, NACIONALIDAD, FECHA_NACIMIENTO, DUPLICADO, Original_CODIGO_CLIENTE, Original_NOMBRE, Original_APELLIDO, Original_IDENTIFICACION, Original_TIPO_IDENTIFICACION, Original_MAIL, Original_TELEFONO, Original_DIRECCION, Original_LOCALIDAD, Original_PAIS, Original_NACIONALIDAD, Original_FECHA_NACIMIENTO, Original_DUPLICADO, Original_CODIGO_CLIENTE);
+                    global::System.Nullable<bool> Original_DUPLICADO, 
+                    global::System.Nullable<bool> Original_HABILITADO) {
+            return this.Update(NOMBRE, APELLIDO, IDENTIFICACION, TIPO_IDENTIFICACION, MAIL, TELEFONO, DIRECCION, LOCALIDAD, PAIS, NACIONALIDAD, FECHA_NACIMIENTO, DUPLICADO, HABILITADO, Original_CODIGO_CLIENTE, Original_NOMBRE, Original_APELLIDO, Original_IDENTIFICACION, Original_TIPO_IDENTIFICACION, Original_MAIL, Original_TELEFONO, Original_DIRECCION, Original_LOCALIDAD, Original_PAIS, Original_NACIONALIDAD, Original_FECHA_NACIMIENTO, Original_DUPLICADO, Original_HABILITADO, Original_CODIGO_CLIENTE);
         }
     }
     
