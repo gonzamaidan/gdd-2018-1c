@@ -80,7 +80,29 @@ namespace FrbaHotel.GenerarModificacionReserva
         {
 
         }
+        private void conHoteles(String query, SqlCommand cmd)
+        {
+            if (Program.sesion.getRol() != "Guest")
+            {
+                StringBuilder queryBuilder = new StringBuilder(query);
+                SqlCommand getHotelesCmd = new SqlCommand("SELECT ID_HOTEL FROM LOS_MAGIOS.HOTELES_POR_USUARIO WHERE USUARIO = @Usuario", baseDeDatos);
+                getHotelesCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
+                getHotelesCmd.Parameters["@Usuario"].Value = Program.sesion.getUsuario();
+                SqlDataAdapter sda = new SqlDataAdapter(getHotelesCmd);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                queryBuilder.Append(" WHERE ID_HOTEL IN ("); 
+                int i = 0;
+                foreach (DataRow item in dt.Rows)
+                {
+                    queryBuilder.Append("@IdHotel" + i + ", ");
+                    cmd.Parameters.Add("@IdHotel" + i, SqlDbType.Int);
+                    cmd.Parameters["@IdHotel" + i].Value = item[0];
+                }
+                query = queryBuilder.Remove(queryBuilder.Length - 2, 2).Append(")").ToString();
 
+            }
+        }
         private void botonBuscarDisponibilidad_Click(object sender, EventArgs e)
         {
             this.conRegimen = this.checkBox1.Checked;
@@ -113,6 +135,7 @@ namespace FrbaHotel.GenerarModificacionReserva
                         queryDisponibildad.Parameters["@FechaHasta"].Value = fechaHasta;
                         queryDisponibildad.Parameters["@CodigoRegimen"].Value = codigoRegimen;
                         queryDisponibildad.Parameters["@CantidadPersonas"].Value = this.cantidadPersonas;
+                        conHoteles(queryStringDisponibilidad, queryDisponibildad);
                     }
                     else
                     {
@@ -124,7 +147,9 @@ namespace FrbaHotel.GenerarModificacionReserva
                         queryDisponibildad.Parameters["@FechaDesde"].Value = fechaDesde;
                         queryDisponibildad.Parameters["@FechaHasta"].Value = fechaHasta;
                         queryDisponibildad.Parameters["@CantidadPersonas"].Value = this.cantidadPersonas;
+                        conHoteles(queryStringDisponibilidad, queryDisponibildad);
                     }
+                    
                     SqlDataAdapter adapter = new SqlDataAdapter(queryDisponibildad);
                     DataTable resultados = new DataTable();
                     adapter.Fill(resultados);
@@ -236,22 +261,22 @@ namespace FrbaHotel.GenerarModificacionReserva
 
                     int idClienteSeleccionado = -1;
 
-                    //TODO: Este usuario deberia sacarlo del login
-                    String usuario = "admin";
+
+                    String usuario = Program.sesion.getUsuario();
                     if(!flagModificacionReserva)
                         while (idClienteSeleccionado == -1)
                             {
                                 AbmCliente.ListadoClientes busquedaCliente = new AbmCliente.ListadoClientes();
                                 DialogResult result = busquedaCliente.ShowDialog();
 
-                                /*if (busquedaCliente.idClienteSeleccionado != -1)
+                                if (busquedaCliente.idClienteSeleccionado != -1)
                                     idClienteSeleccionado = busquedaCliente.idClienteSeleccionado;
                                 else
                                 {
 
                                     MessageBox.Show("Debe seleccionar un cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     return;
-                                }*/
+                                }
                             }
 
 

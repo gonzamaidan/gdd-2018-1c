@@ -63,6 +63,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tIPOSIDENTIFICACIONBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tIPOS_IDENTIFICACIONTableAdapter = new FrbaHotel.GD1C2018DataSetTableAdapters.TIPOS_IDENTIFICACIONTableAdapter();
+            this.seleccionClienteBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).BeginInit();
@@ -345,11 +346,22 @@
             // 
             this.tIPOS_IDENTIFICACIONTableAdapter.ClearBeforeFill = true;
             // 
+            // seleccionClienteBtn
+            // 
+            this.seleccionClienteBtn.Location = new System.Drawing.Point(12, 380);
+            this.seleccionClienteBtn.Name = "seleccionClienteBtn";
+            this.seleccionClienteBtn.Size = new System.Drawing.Size(75, 23);
+            this.seleccionClienteBtn.TabIndex = 16;
+            this.seleccionClienteBtn.Text = "Seleccionar";
+            this.seleccionClienteBtn.UseVisualStyleBackColor = true;
+            this.seleccionClienteBtn.Click += new System.EventHandler(this.seleccionClienteBtn_Click);
+            // 
             // ListadoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(919, 415);
+            this.Controls.Add(this.seleccionClienteBtn);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
@@ -414,5 +426,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.BindingSource tIPOSIDENTIFICACIONBindingSource;
         private GD1C2018DataSetTableAdapters.TIPOS_IDENTIFICACIONTableAdapter tIPOS_IDENTIFICACIONTableAdapter;
+        private System.Windows.Forms.Button seleccionClienteBtn;
     }
 }

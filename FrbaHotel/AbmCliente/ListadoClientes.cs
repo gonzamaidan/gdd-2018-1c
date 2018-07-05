@@ -14,7 +14,8 @@ namespace FrbaHotel.AbmCliente
 {
     public partial class ListadoClientes : Form
     {
-        Int32 idClienteSeleccionado;
+        public Int32 idClienteSeleccionado;
+        Boolean obtenerCliente = false;
         SqlConnection baseDeDatos;
         int tipoDni;
 
@@ -22,7 +23,26 @@ namespace FrbaHotel.AbmCliente
         {
             InitializeComponent();
             baseDeDatos = ConexionBD.conectar();
+            this.seleccionClienteBtn.Visible = false;
+            this.seleccionClienteBtn.Enabled = false;
 
+        }
+        public ListadoClientes(Boolean obtenerCliente)
+        {
+            InitializeComponent();
+            baseDeDatos = ConexionBD.conectar();
+            this.obtenerCliente = obtenerCliente;
+            if (obtenerCliente)
+            {
+                this.seleccionClienteBtn.Enabled = true;
+                this.seleccionClienteBtn.Visible = true;
+                this.button1.Enabled = false;
+                this.button1.Visible = false;
+                this.buttonBorrar.Visible = false;
+                this.buttonBorrar.Enabled = false;
+                this.buttonEditar.Visible = false;
+                this.buttonEditar.Enabled = false;
+            }
         }
 
         private void ListadoClientes_Load(object sender, EventArgs e)
@@ -93,6 +113,11 @@ namespace FrbaHotel.AbmCliente
                         queryGetClientes.Parameters.Add("@tipoDni", SqlDbType.Int);
                         queryGetClientes.Parameters["@tipoDni"].Value = tipoDni;
                     }
+                    if (obtenerCliente) 
+                    {
+                        queryBuilder.Append(" DUPLICADO = 0");
+                        //Agregar que cuando no busque inhabilitados tampoco
+                    }
 
                     queryGetClientes.CommandText = queryBuilder.Remove(queryBuilder.Length - 3, 3).ToString();
                     queryGetClientes.Connection = baseDeDatos;
@@ -130,6 +155,21 @@ namespace FrbaHotel.AbmCliente
         {
             ComboBox cmb = (ComboBox)sender;
             tipoDni = (int)cmb.SelectedValue;
+        }
+
+        private void seleccionClienteBtn_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewClientes.SelectedRows.Count == 1)
+            {
+                MessageBox.Show("Cliente seleccionado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.idClienteSeleccionado = Int32.Parse(dataGridViewClientes.SelectedRows[0].Cells[0].Value.ToString());
+                this.Close();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

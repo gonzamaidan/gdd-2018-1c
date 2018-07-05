@@ -319,7 +319,7 @@ FROM gd_esquema.Maestra
 WHERE Factura_Nro IS NOT NULL
 
 INSERT INTO LOS_MAGIOS.ITEM_FACTURA(PRECIO_UNIDAD, CANTIDAD, CODIGO_CONSUMIBLE, NUMERO_FACTURA)
-SELECT Item_Factura_Monto / Item_Factura_Cantidad, Item_Factura_Cantidad, Consumible_Codigo, Factura_Nro
+SELECT Item_Factura_Cantidad, Item_Factura_Monto, Consumible_Codigo, Factura_Nro
 FROM gd_esquema.Maestra
 WHERE Factura_Nro IS NOT NULL
 
