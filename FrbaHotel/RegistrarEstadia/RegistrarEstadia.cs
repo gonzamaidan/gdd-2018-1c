@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FrbaHotel.GenerarModificacionReserva;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,7 +51,7 @@ namespace FrbaHotel.RegistrarEstadia
             try
             {
                 this.baseDeDatos.Open();
-                SqlCommand query = new SqlCommand("SELECT * FROM LOS_MAGIOS.RESERVAS WHERE CODIGO_RESERVA = @codReserva AND FECHA_DESDE = '2017-01-01'", baseDeDatos);
+                SqlCommand query = new SqlCommand("SELECT * FROM LOS_MAGIOS.RESERVAS WHERE CODIGO_RESERVA = @codReserva", baseDeDatos);
                 query.Parameters.Add("@codReserva", SqlDbType.Int);
                 query.Parameters["@codReserva"].Value = this.textBox1.Text;
                 int reserva = (int)query.ExecuteScalar();
@@ -69,6 +70,56 @@ namespace FrbaHotel.RegistrarEstadia
             
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.baseDeDatos.Open();
+                //SqlCommand query = new SqlCommand("SELECT * FROM LOS_MAGIOS.RESERVAS WHERE CODIGO_RESERVA = @codReserva AND FECHA_DESDE = '2017-07-05'", baseDeDatos);
+                SqlCommand query = new SqlCommand("SELECT * FROM LOS_MAGIOS.RESERVAS WHERE CODIGO_RESERVA = @codReserva AND FECHA_DESDE = @fecha", baseDeDatos);
+                query.Parameters.Add("@codReserva", SqlDbType.Int);
+                query.Parameters["@codReserva"].Value = this.textBox1.Text;
+                query.Parameters.Add("@fecha", SqlDbType.Date);
+                query.Parameters["@fecha"].Value = Program.fechaHoy;
+                int reserva = (int)query.ExecuteScalar();
+                nuevaEstadia(reserva);
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                DialogResult dialogResult = MessageBox.Show("El numero de reserva no es correcto. Desea generar una nueva reserva?", "Atencion", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    new GenerarReservas().ShowDialog();
+                }
+                
+            }
+            finally
+            {
+                this.baseDeDatos.Close();
+            }
+        }
+
+        private void nuevaEstadia(int reserva)
+        {
+            try
+            {
+                SqlCommand queryNuevaEstadia = new SqlCommand("INSERT INTO LOS_MAGIOS.ESTADIAS(CODIGO_RESERVA, FECHA_INGRESO) VALUES (@codReserva, @ingreso)", baseDeDatos);
+                //SqlCommand queryNuevaEstadia = new SqlCommand("INSERT INTO LOS_MAGIOS.ESTADIAS(CODIGO_RESERVA, FECHA_INGRESO) VALUES (999999, @ingreso)", baseDeDatos);
+                
+                queryNuevaEstadia.Parameters.Add("@codReserva", SqlDbType.Int);
+                queryNuevaEstadia.Parameters["@codReserva"].Value = reserva;
+                queryNuevaEstadia.Parameters.Add("@ingreso", SqlDbType.Date);
+                queryNuevaEstadia.Parameters["@ingreso"].Value = Program.fechaHoy;
+                queryNuevaEstadia.ExecuteNonQuery();
+            }
+            catch (SqlException exc)
+            {
+                Console.WriteLine(exc.Message + " " + exc.StackTrace);
+                MessageBox.Show("No se pudo registar la estadia. Intente nuevamente");
+            }
+  
+        }
 
 
     }
