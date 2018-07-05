@@ -36,20 +36,5 @@ namespace FrbaHotel
             //Application.Run(new AbmUsuario.BuscadorForm());
             Application.Run(new Login.ventanaPrincipal());
         }
-
-        public static String hashPassword(String password)
-        {
-            byte[] bytes = Encoding.UTF8.GetBytes(password);
-            SHA256Managed provider = new SHA256Managed();
-            byte[] hash = provider.ComputeHash(bytes);
-            String hashedPassword = "";
-            foreach (byte x in hash)
-            {
-                hashedPassword += String.Format("{0:X2}", x);
-            }
-            return hashedPassword;
-        }
-
-        
     }
 }

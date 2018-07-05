@@ -298,7 +298,7 @@ namespace FrbaHotel.AbmUsuario
         private void editarUsuario(SqlTransaction transaction)
         {
 
-            SqlCommand editarUsuarioCmd = new SqlCommand("UPDATE LOS_MAGIOS.USUARIOS SET CONTRASENA = @Contrasena, NOMBRE = @Nombre, APELLIDO = @Apellido, MAIL = @Mail, TELEFONO = @Telefono, " +
+            SqlCommand editarUsuarioCmd = new SqlCommand("UPDATE LOS_MAGIOS.USUARIOS SET CONTRASENA = HASHBYTES('SHA2_256', @Contrasena), NOMBRE = @Nombre, APELLIDO = @Apellido, MAIL = @Mail, TELEFONO = @Telefono, " +
                                                         "DIRECCION = @Direccion, FECHA_DE_NACIMIENTO = @FechaNac, IDENTIFICACION = @Identificacion, TIPO_IDENTIFICACION = @TipoIdentificacion WHERE USUARIO = @Usuario", baseDeDatos);
             editarUsuarioCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
             editarUsuarioCmd.Parameters.Add("@Contrasena", SqlDbType.VarChar);
@@ -313,7 +313,7 @@ namespace FrbaHotel.AbmUsuario
 
 
             editarUsuarioCmd.Parameters["@Usuario"].Value = usuarioAModificar;
-            editarUsuarioCmd.Parameters["@Contrasena"].Value = Program.hashPassword(passwordTB.Text);
+            editarUsuarioCmd.Parameters["@Contrasena"].Value = passwordTB.Text;
             editarUsuarioCmd.Parameters["@Nombre"].Value = nombreTB.Text;
             editarUsuarioCmd.Parameters["@Apellido"].Value = apellidoTB.Text;
             editarUsuarioCmd.Parameters["@Mail"].Value = mailTB.Text;
@@ -330,7 +330,7 @@ namespace FrbaHotel.AbmUsuario
         {
 
             SqlCommand insertarUsuarioCmd = new SqlCommand("INSERT INTO LOS_MAGIOS.USUARIOS(USUARIO, CONTRASENA, NOMBRE, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_DE_NACIMIENTO, IDENTIFICACION, TIPO_IDENTIFICACION) " +
-                                                        " VALUES(@Usuario, @Contrasena, @Nombre, @Apellido, @Mail, @Telefono, @Direccion, @FechaNac, @Identificacion, @TipoIdentificacion)", baseDeDatos);
+                                                        " VALUES(@Usuario, HASHBYTES('SHA2_256',@Contrasena), @Nombre, @Apellido, @Mail, @Telefono, @Direccion, @FechaNac, @Identificacion, @TipoIdentificacion)", baseDeDatos);
             insertarUsuarioCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
             insertarUsuarioCmd.Parameters.Add("@Contrasena", SqlDbType.VarChar);
             insertarUsuarioCmd.Parameters.Add("@Nombre", SqlDbType.VarChar);
@@ -344,7 +344,7 @@ namespace FrbaHotel.AbmUsuario
 
 
             insertarUsuarioCmd.Parameters["@Usuario"].Value = usuarioTB.Text;
-            insertarUsuarioCmd.Parameters["@Contrasena"].Value = Program.hashPassword(passwordTB.Text);
+            insertarUsuarioCmd.Parameters["@Contrasena"].Value = passwordTB.Text;
             insertarUsuarioCmd.Parameters["@Nombre"].Value = nombreTB.Text;
             insertarUsuarioCmd.Parameters["@Apellido"].Value = apellidoTB.Text;
             insertarUsuarioCmd.Parameters["@Mail"].Value = mailTB.Text;
