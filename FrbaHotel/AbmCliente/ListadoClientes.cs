@@ -117,8 +117,7 @@ namespace FrbaHotel.AbmCliente
                     }
                     if (obtenerCliente) 
                     {
-                        queryBuilder.Append(" DUPLICADO = 0");
-                        //Agregar que cuando no busque inhabilitados tampoco
+                        queryBuilder.Append(" DUPLICADO = 0 AND HABILITADO = 1 AND");
                     }
 
                     queryGetClientes.CommandText = queryBuilder.Remove(queryBuilder.Length - 3, 3).ToString();
