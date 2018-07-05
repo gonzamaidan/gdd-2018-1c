@@ -38,11 +38,11 @@ namespace FrbaHotel
             return Tabla.Rows.Count;
         }
 
-        public int encontrarRolSegunUsuario(string user, int unRol)
+        public int encontrarRolSegunUsuario(string user, int unRol, out String nombreRol)
         {
             DataTable Tabla = new DataTable();
             comando.Connection = unaConexion.abrirConexion();
-            comando.CommandText = "SELECT A.USUARIO,B.ID_ROL FROM LOS_MAGIOS.USUARIOS A INNER JOIN LOS_MAGIOS.ROLES_POR_USUARIO B ON A.USUARIO = B.USUARIO  WHERE A.USUARIO ='"+ user+"'";
+            comando.CommandText = "SELECT RU.USUARIO, R.ID_ROL, R.NOMBRE FROM LOS_MAGIOS.ROLES R JOIN LOS_MAGIOS.ROLES_POR_USUARIO RU ON R.ID_ROL = RU.ID_ROL WHERE R.ESTADO = 1 AND RU.USUARIO ='" + user + "'";
             LeerFilas = comando.ExecuteReader();
             Tabla.Load(LeerFilas);
             LeerFilas.Close();
@@ -50,7 +50,10 @@ namespace FrbaHotel
             unRol = (from DataRow dr in Tabla.Rows
                      where (string)dr["USUARIO"] == user
                      select (int)dr["ID_ROL"]).FirstOrDefault();
-
+            nombreRol = (
+                from DataRow dr in Tabla.Rows
+                where (string)dr["USUARIO"] == user
+                select (string)dr["NOMBRE"]).FirstOrDefault();
             return unRol;
         }
 

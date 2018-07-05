@@ -36,25 +36,17 @@ namespace FrbaHotel.Login
             loguear = objUsuario.iniciarSesion();
             if (loguear.Read()==true)
             {
+                Program.sesion.setUsuario(txtUsuario.Text);
                 if(objRolUsuario.contarRolesSegunUsuario(txtUsuario.Text) == 1)
                 {
                     int unRol = 0;
-                    if(objRolUsuario.encontrarRolSegunUsuario(txtUsuario.Text,unRol) ==1) // si es igual a 1 por ejemplo es admin
-                    {
-                        ventanaAdmin nuevaVentanaAdmin = new ventanaAdmin();
-                        this.Hide();
-                        nuevaVentanaAdmin.Show();
-                    }
-
-                    else if (objRolUsuario.encontrarRolSegunUsuario(txtUsuario.Text, unRol) == 2) // si es igual a 2 por ejemplo es recepcionista
-                    {
-                        ventanaRecepcionista nuevaVentanaRecepcionista = new ventanaRecepcionista();
-                        this.Hide();
-                        nuevaVentanaRecepcionista.Show();
-                    }
-
-                    //solo agrego casos para el if dependiendo el numero que me devuelve del rol
-
+                    string rol;
+                    Program.sesion.setIdRol(objRolUsuario.encontrarRolSegunUsuario(txtUsuario.Text,unRol, out rol));
+                    Program.sesion.setRol(rol);
+                    ventanaAdmin nuevaVentanaAdmin = new ventanaAdmin();
+                    this.Hide();
+                    nuevaVentanaAdmin.Show();
+                    
                 }
                 else if(objRolUsuario.contarRolesSegunUsuario(txtUsuario.Text) >= 2)
                 {

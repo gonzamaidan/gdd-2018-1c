@@ -124,6 +124,7 @@
     <Compile Include="CancelarReserva\CancelarReserva.Designer.cs">
       <DependentUpon>CancelarReserva.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases varias\Sesion.cs" />
     <Compile Include="Clases varias\conexion.cs" />
     <Compile Include="Clases varias\conexionUsuarios.cs" />
     <Compile Include="Clases varias\listados.cs" />
@@ -248,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login\listadoDeRol.resx">
       <DependentUpon>listadoDeRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\ventanaAdmin.resx">
+      <DependentUpon>ventanaAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\ventanaPrincipal.resx">
       <DependentUpon>ventanaPrincipal.cs</DependentUpon>
