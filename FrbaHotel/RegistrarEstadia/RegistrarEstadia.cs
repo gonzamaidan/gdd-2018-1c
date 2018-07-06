@@ -51,11 +51,14 @@ namespace FrbaHotel.RegistrarEstadia
             try
             {
                 this.baseDeDatos.Open();
-                SqlCommand query = new SqlCommand("SELECT * FROM LOS_MAGIOS.RESERVAS WHERE CODIGO_RESERVA = @codReserva", baseDeDatos);
+                SqlCommand query = new SqlCommand("SELECT a.CODIGO_RESERVA FROM LOS_MAGIOS.ESTADIAS a, LOS_MAGIOS.RESERVAS b WHERE a.CODIGO_RESERVA = @codReserva AND b.CODIGO_RESERVA = @codReserva AND A.FECHA_EGRESO IS NULL AND B.FECHA_DESDE<=@fecha", baseDeDatos);
                 query.Parameters.Add("@codReserva", SqlDbType.Int);
                 query.Parameters["@codReserva"].Value = this.textBox1.Text;
+                query.Parameters.Add("@fecha", SqlDbType.Date);
+                query.Parameters["@fecha"].Value = Program.fechaHoy;
                 int reserva = (int)query.ExecuteScalar();
                 new RegistrarConsumible.RegistrarConsumible(this.textBox1.Text).ShowDialog();
+                finalizarEstadia(reserva);
             }
             catch (Exception exc)
             {
@@ -76,23 +79,40 @@ namespace FrbaHotel.RegistrarEstadia
             {
                 this.baseDeDatos.Open();
                 //SqlCommand query = new SqlCommand("SELECT * FROM LOS_MAGIOS.RESERVAS WHERE CODIGO_RESERVA = @codReserva AND FECHA_DESDE = '2017-07-05'", baseDeDatos);
-                SqlCommand query = new SqlCommand("SELECT * FROM LOS_MAGIOS.RESERVAS WHERE CODIGO_RESERVA = @codReserva AND FECHA_DESDE = @fecha", baseDeDatos);
+                SqlCommand query = new SqlCommand("SELECT CODIGO_RESERVA, FECHA_DESDE FROM LOS_MAGIOS.RESERVAS WHERE CODIGO_RESERVA = @codReserva AND FECHA_DESDE <= @fecha AND FECHA_HASTA>= @fecha AND (ID_ESTADO_RESERVA=1 OR ID_ESTADO_RESERVA=2)", baseDeDatos);
                 query.Parameters.Add("@codReserva", SqlDbType.Int);
                 query.Parameters["@codReserva"].Value = this.textBox1.Text;
                 query.Parameters.Add("@fecha", SqlDbType.Date);
                 query.Parameters["@fecha"].Value = Program.fechaHoy;
-                int reserva = (int)query.ExecuteScalar();
-                nuevaEstadia(reserva);
+                SqlDataReader reader = query.ExecuteReader();
+
+                reader.Read();
+                int reserva = (int)reader[0];
+                if (Program.fechaHoy == (DateTime)reader[1])
+                {
+                    reader.Close();
+                    nuevaEstadia(reserva);
+                }
+                else
+                {
+                    //TODO redireccionar a cancelarReserva
+                    DialogResult dialogResult = MessageBox.Show("La reserva fue cancelada. Desea generar una nueva reserva?", "Atencion", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        new GenerarReservas().ShowDialog();
+                    }
+                }
+                               
             }
             catch (Exception exc)
             {
-                Console.WriteLine(exc.Message);
-                DialogResult dialogResult = MessageBox.Show("El numero de reserva no es correcto. Desea generar una nueva reserva?", "Atencion", MessageBoxButtons.YesNo);
+                Console.WriteLine(exc.Message + " " + exc.StackTrace);
+                DialogResult dialogResult = MessageBox.Show("El numero de reserva no es correcto o la reserva fue cancelada. Desea generar una nueva reserva?", "Atencion", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     new GenerarReservas().ShowDialog();
                 }
-                
+               
             }
             finally
             {
@@ -100,6 +120,7 @@ namespace FrbaHotel.RegistrarEstadia
             }
         }
 
+        
         private void nuevaEstadia(int reserva)
         {
             try
@@ -112,6 +133,7 @@ namespace FrbaHotel.RegistrarEstadia
                 queryNuevaEstadia.Parameters.Add("@ingreso", SqlDbType.Date);
                 queryNuevaEstadia.Parameters["@ingreso"].Value = Program.fechaHoy;
                 queryNuevaEstadia.ExecuteNonQuery();
+                MessageBox.Show("Estadia registrada con exito!");
             }
             catch (SqlException exc)
             {
@@ -119,6 +141,18 @@ namespace FrbaHotel.RegistrarEstadia
                 MessageBox.Show("No se pudo registar la estadia. Intente nuevamente");
             }
   
+        }
+
+        private void finalizarEstadia(int numeroReserva)
+        {
+            SqlCommand queryNuevaEstadia = new SqlCommand("UPDATE LOS_MAGIOS.ESTADIAS SET FECHA_EGRESO = @fecha WHERE CODIGO_RESERVA=@codReserva", baseDeDatos);
+      
+            queryNuevaEstadia.Parameters.Add("@codReserva", SqlDbType.Int);
+            queryNuevaEstadia.Parameters["@codReserva"].Value = numeroReserva;
+            queryNuevaEstadia.Parameters.Add("@ingreso", SqlDbType.Date);
+            queryNuevaEstadia.Parameters["@ingreso"].Value = Program.fechaHoy;
+            queryNuevaEstadia.ExecuteNonQuery();
+            MessageBox.Show("Estadia Finalizada con exito!");
         }
 
 
