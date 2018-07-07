@@ -76,7 +76,7 @@ namespace FrbaHotel.Clases_varias
             fecha = ajustarFecha(anio, trimestre);
             DataTable Tabla = new DataTable();
             comando.Connection = unaConexion.abrirConexion();
-            comando.CommandText = "";
+            comando.CommandText = "SELECT TOP 5 HB.NUMERO_HABITACION 'Numero habitacion', HT.NOMBRE 'Nombre hotel', SUM(DATEDIFF(day,E.FECHA_INGRESO,E.FECHA_EGRESO)) 'Dias ocupados', COUNT(DISTINCT E.CODIGO_RESERVA) 'Veces ocupado' FROM LOS_MAGIOS.ESTADIAS E JOIN LOS_MAGIOS.HABITACIONES_POR_RESERVA HPR ON E.CODIGO_RESERVA = HPR.CODIGO_RESERVA JOIN LOS_MAGIOS.HABITACIONES HB ON HB.ID_HOTEL = HPR.ID_HOTEL AND HB.NUMERO_HABITACION = HPR.NUMERO_HABITACION JOIN LOS_MAGIOS.HOTELES HT ON HT.ID_HOTEL =  HB.ID_HOTEL WHERE E.FECHA_INGRESO"+fecha+" GROUP BY HB.NUMERO_HABITACION, HT.NOMBRE ORDER BY SUM(DATEDIFF(day,E.FECHA_INGRESO,E.FECHA_EGRESO)) DESC, COUNT(DISTINCT E.CODIGO_RESERVA) DESC";
             LeerFilas = comando.ExecuteReader();
             Tabla.Load(LeerFilas);
             LeerFilas.Close();
@@ -91,7 +91,7 @@ namespace FrbaHotel.Clases_varias
             fecha = ajustarFecha(anio, trimestre);
             DataTable Tabla = new DataTable();
             comando.Connection = unaConexion.abrirConexion();
-            comando.CommandText = "";
+            comando.CommandText = "SELECT TOP 5 C.CODIGO_CLIENTE 'Codigo cliente',C.APELLIDO 'Apellido',C.NOMBRE 'Nombre',(CONVERT(int,SUM(CASE WHEN I.CODIGO_CONSUMIBLE IS NULL THEN I.PRECIO_UNIDAD * I.CANTIDAD END) / 20) + CONVERT(int,SUM(CASE WHEN I.CODIGO_CONSUMIBLE IS NOT NULL THEN I.PRECIO_UNIDAD * I.CANTIDAD END) / 10)) 'Puntos' FROM LOS_MAGIOS.CLIENTES C JOIN LOS_MAGIOS.CLIENTES_POR_RESERVA CPR ON CPR.CODIGO_CLIENTE = C.CODIGO_CLIENTE JOIN LOS_MAGIOS.FACTURA F ON F.CODIGO_RESERVA = CPR.CODIGO_RESERVA JOIN LOS_MAGIOS.ITEM_FACTURA I ON I.NUMERO_FACTURA = F.NUMERO_FACTURA WHERE F.FECHA_FACTURA"+fecha+" GROUP BY C.CODIGO_CLIENTE, C.APELLIDO, C.NOMBRE ORDER BY 'Puntos' desc";
             LeerFilas = comando.ExecuteReader();
             Tabla.Load(LeerFilas);
             LeerFilas.Close();
