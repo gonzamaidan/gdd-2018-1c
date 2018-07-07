@@ -57,12 +57,13 @@ namespace FrbaHotel.RegistrarEstadia
                 query.Parameters.Add("@fecha", SqlDbType.Date);
                 query.Parameters["@fecha"].Value = Program.fechaHoy;
                 int reserva = (int)query.ExecuteScalar();
+                registrarEgreso(reserva);
                 new RegistrarConsumible.RegistrarConsumible(this.textBox1.Text).ShowDialog();
-                finalizarEstadia(reserva);
+                
             }
-            catch (Exception exc)
+            catch (SqlException exc)
             {
-                Console.WriteLine(exc.StackTrace);
+                Console.WriteLine(exc.Message + exc.StackTrace);
                 MessageBox.Show("No Existe el numero de reserva ingresado");
             }
             finally
@@ -143,16 +144,16 @@ namespace FrbaHotel.RegistrarEstadia
   
         }
 
-        private void finalizarEstadia(int numeroReserva)
+        private void registrarEgreso(int numeroReserva)
         {
             SqlCommand queryNuevaEstadia = new SqlCommand("UPDATE LOS_MAGIOS.ESTADIAS SET FECHA_EGRESO = @fecha WHERE CODIGO_RESERVA=@codReserva", baseDeDatos);
       
             queryNuevaEstadia.Parameters.Add("@codReserva", SqlDbType.Int);
             queryNuevaEstadia.Parameters["@codReserva"].Value = numeroReserva;
-            queryNuevaEstadia.Parameters.Add("@ingreso", SqlDbType.Date);
-            queryNuevaEstadia.Parameters["@ingreso"].Value = Program.fechaHoy;
+            queryNuevaEstadia.Parameters.Add("@fecha", SqlDbType.Date);
+            queryNuevaEstadia.Parameters["@fecha"].Value = Program.fechaHoy;
             queryNuevaEstadia.ExecuteNonQuery();
-            MessageBox.Show("Estadia Finalizada con exito!");
+   
         }
 
 

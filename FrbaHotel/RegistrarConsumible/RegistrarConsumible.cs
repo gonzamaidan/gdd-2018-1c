@@ -22,6 +22,7 @@ namespace FrbaHotel.RegistrarConsumible
             baseDeDatos = ConexionBD.conectar();
             this.dataGridView1.AllowUserToAddRows = false;
             numeroDeReserva = numeroReserva;
+            obtenerRegimenes();
         }
 
         public void agregarConsumible(string codigo, string producto, string precio)
@@ -89,22 +90,26 @@ namespace FrbaHotel.RegistrarConsumible
                 
                 foreach (DataGridViewRow row in this.dataGridView1.Rows)
                 {
-                    commandFactura = new SqlCommand("INSERT INTO LOS_MAGIOS.ITEM_FACTURA(NUMERO_FACTURA, CANTIDAD, PRECIO_UNIDAD,"
-                + " CODIGO_CONSUMIBLE) VALUES(@nroFactura, @cantidad, @precio, @codConsumible)", baseDeDatos);
-                    commandFactura.Connection = baseDeDatos;
-                    commandFactura.Transaction = transaction;
-                    //commandFactura.Parameters.Add("@idItem", SqlDbType.Int);
-                    commandFactura.Parameters.Add("@nroFactura", SqlDbType.Int);
-                    commandFactura.Parameters.Add("@cantidad", SqlDbType.Int);
-                    commandFactura.Parameters.Add("@precio", SqlDbType.Decimal);
-                    commandFactura.Parameters.Add("@codConsumible", SqlDbType.Int);
-                    //commandFactura.Parameters["@idItem"].Value = lastItem;
-                    commandFactura.Parameters["@nroFactura"].Value = numeroFactura;
-                    commandFactura.Parameters["@cantidad"].Value = Convert.ToInt32(row.Cells[3].Value);
-                    commandFactura.Parameters["@precio"].Value = Convert.ToDecimal(row.Cells[2].Value);
-                    commandFactura.Parameters["@codConsumible"].Value =Convert.ToInt32(row.Cells[0].Value);
-                    commandFactura.ExecuteNonQuery();
-                    lastItem++;
+                    if (row.Index != 0)//Salteo la fila de la reserva
+                    {
+                        commandFactura = new SqlCommand("INSERT INTO LOS_MAGIOS.ITEM_FACTURA(NUMERO_FACTURA, CANTIDAD, PRECIO_UNIDAD,"
+                            + " CODIGO_CONSUMIBLE) VALUES(@nroFactura, @cantidad, @precio, @codConsumible)", baseDeDatos);
+                        commandFactura.Connection = baseDeDatos;
+                        commandFactura.Transaction = transaction;
+                        //commandFactura.Parameters.Add("@idItem", SqlDbType.Int);
+                        commandFactura.Parameters.Add("@nroFactura", SqlDbType.Int);
+                        commandFactura.Parameters.Add("@cantidad", SqlDbType.Int);
+                        commandFactura.Parameters.Add("@precio", SqlDbType.Decimal);
+                        commandFactura.Parameters.Add("@codConsumible", SqlDbType.Int);
+                        //commandFactura.Parameters["@idItem"].Value = lastItem;
+                        commandFactura.Parameters["@nroFactura"].Value = numeroFactura;
+                        commandFactura.Parameters["@cantidad"].Value = Convert.ToInt32(row.Cells[3].Value);
+                        commandFactura.Parameters["@precio"].Value = Convert.ToDecimal(row.Cells[2].Value);
+                        commandFactura.Parameters["@codConsumible"].Value = Convert.ToInt32(row.Cells[0].Value);
+                        commandFactura.ExecuteNonQuery();
+                        lastItem++;
+                    }
+
                 }
 
 
@@ -147,6 +152,25 @@ namespace FrbaHotel.RegistrarConsumible
             }
 
             return total;
+        }
+
+        private void obtenerRegimenes()
+        {
+            this.baseDeDatos.Open();
+            SqlCommand query = new SqlCommand("SELECT DESCRIPCION b, (SELECT DATEDIFF(day, FECHA_INGRESO, FECHA_EGRESO)+1 FROM LOS_MAGIOS.ESTADIAS WHERE CODIGO_RESERVA =@codReserva)*"+
+"PRECIO_DOLARES B, (SELECT COUNT(*) FROM LOS_MAGIOS.CLIENTES_POR_RESERVA WHERE CODIGO_RESERVA=@codReserva) FROM LOS_MAGIOS.REGIMENES b, LOS_MAGIOS.RESERVAS c WHERE c.CODIGO_RESERVA=@codReserva AND b.CODIGO_REGIMEN = c.CODIGO_REGIMEN", baseDeDatos);
+            query.Parameters.Add("@codReserva", SqlDbType.Int);
+            query.Parameters["@codReserva"].Value = numeroDeReserva;
+            SqlDataReader reader = query.ExecuteReader();
+            reader.Read();
+            this.dataGridView1.Rows.Add();
+            this.dataGridView1.Rows[0].Cells[0].Value = numeroDeReserva;
+            this.dataGridView1.Rows[0].Cells[1].Value = reader[0].ToString();
+            this.dataGridView1.Rows[0].Cells[2].Value = reader[1].ToString();
+            this.dataGridView1.Rows[0].Cells[3].Value = reader[2].ToString();
+            reader.Close();
+            this.baseDeDatos.Close();
+
         }
     }
 }
