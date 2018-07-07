@@ -30,8 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewClientes = new System.Windows.Forms.DataGridView();
-            this.cLIENTESBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cODIGOCLIENTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.APELLIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDENTIFICACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TIPO_IDENTIFICACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TELEFONO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIRECCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOCALIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PAIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NACIONALIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA_NACIMIENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DUPLICADO = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.HABILITADO = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cLIENTESBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2018DataSet = new FrbaHotel.GD1C2018DataSet();
+            this.cLIENTESBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cLIENTESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cLIENTESTableAdapter = new FrbaHotel.GD1C2018DataSetTableAdapters.CLIENTESTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,30 +70,16 @@
             this.cLIENTESBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.fKCLIENTESCODIG4F87BD05BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cLIENTES_POR_RESERVATableAdapter = new FrbaHotel.GD1C2018DataSetTableAdapters.CLIENTES_POR_RESERVATableAdapter();
-            this.cLIENTESBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.cODIGOCLIENTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.APELLIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDENTIFICACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TIPO_IDENTIFICACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TELEFONO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIRECCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOCALIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PAIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NACIONALIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FECHA_NACIMIENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DUPLICADO = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.HABILITADO = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.seleccionClienteBtn = new System.Windows.Forms.Button();
+            this.selecClienteBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKCLIENTESCODIG4F87BD05BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewClientes
@@ -110,15 +111,118 @@
             this.dataGridViewClientes.Size = new System.Drawing.Size(895, 235);
             this.dataGridViewClientes.TabIndex = 0;
             // 
-            // cLIENTESBindingSource1
+            // cODIGOCLIENTEDataGridViewTextBoxColumn
             // 
-            this.cLIENTESBindingSource1.DataMember = "CLIENTES";
-            this.cLIENTESBindingSource1.DataSource = this.gD1C2018DataSet;
+            this.cODIGOCLIENTEDataGridViewTextBoxColumn.DataPropertyName = "CODIGO_CLIENTE";
+            this.cODIGOCLIENTEDataGridViewTextBoxColumn.HeaderText = "CODIGO_CLIENTE";
+            this.cODIGOCLIENTEDataGridViewTextBoxColumn.Name = "cODIGOCLIENTEDataGridViewTextBoxColumn";
+            this.cODIGOCLIENTEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // NOMBRE
+            // 
+            this.NOMBRE.DataPropertyName = "NOMBRE";
+            this.NOMBRE.HeaderText = "NOMBRE";
+            this.NOMBRE.Name = "NOMBRE";
+            this.NOMBRE.ReadOnly = true;
+            // 
+            // APELLIDO
+            // 
+            this.APELLIDO.DataPropertyName = "APELLIDO";
+            this.APELLIDO.HeaderText = "APELLIDO";
+            this.APELLIDO.Name = "APELLIDO";
+            this.APELLIDO.ReadOnly = true;
+            // 
+            // IDENTIFICACION
+            // 
+            this.IDENTIFICACION.DataPropertyName = "IDENTIFICACION";
+            this.IDENTIFICACION.HeaderText = "IDENTIFICACION";
+            this.IDENTIFICACION.Name = "IDENTIFICACION";
+            this.IDENTIFICACION.ReadOnly = true;
+            // 
+            // TIPO_IDENTIFICACION
+            // 
+            this.TIPO_IDENTIFICACION.DataPropertyName = "TIPO_IDENTIFICACION";
+            this.TIPO_IDENTIFICACION.HeaderText = "TIPO_IDENTIFICACION";
+            this.TIPO_IDENTIFICACION.Name = "TIPO_IDENTIFICACION";
+            this.TIPO_IDENTIFICACION.ReadOnly = true;
+            // 
+            // MAIL
+            // 
+            this.MAIL.DataPropertyName = "MAIL";
+            this.MAIL.HeaderText = "MAIL";
+            this.MAIL.Name = "MAIL";
+            this.MAIL.ReadOnly = true;
+            // 
+            // TELEFONO
+            // 
+            this.TELEFONO.DataPropertyName = "TELEFONO";
+            this.TELEFONO.HeaderText = "TELEFONO";
+            this.TELEFONO.Name = "TELEFONO";
+            this.TELEFONO.ReadOnly = true;
+            // 
+            // DIRECCION
+            // 
+            this.DIRECCION.DataPropertyName = "DIRECCION";
+            this.DIRECCION.HeaderText = "DIRECCION";
+            this.DIRECCION.Name = "DIRECCION";
+            this.DIRECCION.ReadOnly = true;
+            // 
+            // LOCALIDAD
+            // 
+            this.LOCALIDAD.DataPropertyName = "LOCALIDAD";
+            this.LOCALIDAD.HeaderText = "LOCALIDAD";
+            this.LOCALIDAD.Name = "LOCALIDAD";
+            this.LOCALIDAD.ReadOnly = true;
+            // 
+            // PAIS
+            // 
+            this.PAIS.DataPropertyName = "PAIS";
+            this.PAIS.HeaderText = "PAIS";
+            this.PAIS.Name = "PAIS";
+            this.PAIS.ReadOnly = true;
+            // 
+            // NACIONALIDAD
+            // 
+            this.NACIONALIDAD.DataPropertyName = "NACIONALIDAD";
+            this.NACIONALIDAD.HeaderText = "NACIONALIDAD";
+            this.NACIONALIDAD.Name = "NACIONALIDAD";
+            this.NACIONALIDAD.ReadOnly = true;
+            // 
+            // FECHA_NACIMIENTO
+            // 
+            this.FECHA_NACIMIENTO.DataPropertyName = "FECHA_NACIMIENTO";
+            this.FECHA_NACIMIENTO.HeaderText = "FECHA_NACIMIENTO";
+            this.FECHA_NACIMIENTO.Name = "FECHA_NACIMIENTO";
+            this.FECHA_NACIMIENTO.ReadOnly = true;
+            // 
+            // DUPLICADO
+            // 
+            this.DUPLICADO.DataPropertyName = "DUPLICADO";
+            this.DUPLICADO.HeaderText = "DUPLICADO";
+            this.DUPLICADO.Name = "DUPLICADO";
+            this.DUPLICADO.ReadOnly = true;
+            // 
+            // HABILITADO
+            // 
+            this.HABILITADO.DataPropertyName = "HABILITADO";
+            this.HABILITADO.HeaderText = "HABILITADO";
+            this.HABILITADO.Name = "HABILITADO";
+            this.HABILITADO.ReadOnly = true;
+            // 
+            // cLIENTESBindingSource3
+            // 
+            this.cLIENTESBindingSource3.DataMember = "CLIENTES";
+            this.cLIENTESBindingSource3.DataSource = this.gD1C2018DataSet;
             // 
             // gD1C2018DataSet
             // 
             this.gD1C2018DataSet.DataSetName = "GD1C2018DataSet";
             this.gD1C2018DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cLIENTESBindingSource1
+            // 
+            this.cLIENTESBindingSource1.DataMember = "CLIENTES";
+            this.cLIENTESBindingSource1.DataSource = this.gD1C2018DataSet;
             // 
             // cLIENTESBindingSource
             // 
@@ -299,108 +403,6 @@
             // 
             this.cLIENTES_POR_RESERVATableAdapter.ClearBeforeFill = true;
             // 
-            // cLIENTESBindingSource3
-            // 
-            this.cLIENTESBindingSource3.DataMember = "CLIENTES";
-            this.cLIENTESBindingSource3.DataSource = this.gD1C2018DataSet;
-            // 
-            // cODIGOCLIENTEDataGridViewTextBoxColumn
-            // 
-            this.cODIGOCLIENTEDataGridViewTextBoxColumn.DataPropertyName = "CODIGO_CLIENTE";
-            this.cODIGOCLIENTEDataGridViewTextBoxColumn.HeaderText = "CODIGO_CLIENTE";
-            this.cODIGOCLIENTEDataGridViewTextBoxColumn.Name = "cODIGOCLIENTEDataGridViewTextBoxColumn";
-            this.cODIGOCLIENTEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // NOMBRE
-            // 
-            this.NOMBRE.DataPropertyName = "NOMBRE";
-            this.NOMBRE.HeaderText = "NOMBRE";
-            this.NOMBRE.Name = "NOMBRE";
-            this.NOMBRE.ReadOnly = true;
-            // 
-            // APELLIDO
-            // 
-            this.APELLIDO.DataPropertyName = "APELLIDO";
-            this.APELLIDO.HeaderText = "APELLIDO";
-            this.APELLIDO.Name = "APELLIDO";
-            this.APELLIDO.ReadOnly = true;
-            // 
-            // IDENTIFICACION
-            // 
-            this.IDENTIFICACION.DataPropertyName = "IDENTIFICACION";
-            this.IDENTIFICACION.HeaderText = "IDENTIFICACION";
-            this.IDENTIFICACION.Name = "IDENTIFICACION";
-            this.IDENTIFICACION.ReadOnly = true;
-            // 
-            // TIPO_IDENTIFICACION
-            // 
-            this.TIPO_IDENTIFICACION.DataPropertyName = "TIPO_IDENTIFICACION";
-            this.TIPO_IDENTIFICACION.HeaderText = "TIPO_IDENTIFICACION";
-            this.TIPO_IDENTIFICACION.Name = "TIPO_IDENTIFICACION";
-            this.TIPO_IDENTIFICACION.ReadOnly = true;
-            // 
-            // MAIL
-            // 
-            this.MAIL.DataPropertyName = "MAIL";
-            this.MAIL.HeaderText = "MAIL";
-            this.MAIL.Name = "MAIL";
-            this.MAIL.ReadOnly = true;
-            // 
-            // TELEFONO
-            // 
-            this.TELEFONO.DataPropertyName = "TELEFONO";
-            this.TELEFONO.HeaderText = "TELEFONO";
-            this.TELEFONO.Name = "TELEFONO";
-            this.TELEFONO.ReadOnly = true;
-            // 
-            // DIRECCION
-            // 
-            this.DIRECCION.DataPropertyName = "DIRECCION";
-            this.DIRECCION.HeaderText = "DIRECCION";
-            this.DIRECCION.Name = "DIRECCION";
-            this.DIRECCION.ReadOnly = true;
-            // 
-            // LOCALIDAD
-            // 
-            this.LOCALIDAD.DataPropertyName = "LOCALIDAD";
-            this.LOCALIDAD.HeaderText = "LOCALIDAD";
-            this.LOCALIDAD.Name = "LOCALIDAD";
-            this.LOCALIDAD.ReadOnly = true;
-            // 
-            // PAIS
-            // 
-            this.PAIS.DataPropertyName = "PAIS";
-            this.PAIS.HeaderText = "PAIS";
-            this.PAIS.Name = "PAIS";
-            this.PAIS.ReadOnly = true;
-            // 
-            // NACIONALIDAD
-            // 
-            this.NACIONALIDAD.DataPropertyName = "NACIONALIDAD";
-            this.NACIONALIDAD.HeaderText = "NACIONALIDAD";
-            this.NACIONALIDAD.Name = "NACIONALIDAD";
-            this.NACIONALIDAD.ReadOnly = true;
-            // 
-            // FECHA_NACIMIENTO
-            // 
-            this.FECHA_NACIMIENTO.DataPropertyName = "FECHA_NACIMIENTO";
-            this.FECHA_NACIMIENTO.HeaderText = "FECHA_NACIMIENTO";
-            this.FECHA_NACIMIENTO.Name = "FECHA_NACIMIENTO";
-            this.FECHA_NACIMIENTO.ReadOnly = true;
-            // 
-            // DUPLICADO
-            // 
-            this.DUPLICADO.DataPropertyName = "DUPLICADO";
-            this.DUPLICADO.HeaderText = "DUPLICADO";
-            this.DUPLICADO.Name = "DUPLICADO";
-            this.DUPLICADO.ReadOnly = true;
-            // 
-            // HABILITADO
-            // 
-            this.HABILITADO.DataPropertyName = "HABILITADO";
-            this.HABILITADO.HeaderText = "HABILITADO";
-            this.HABILITADO.Name = "HABILITADO";
-            this.HABILITADO.ReadOnly = true;
             // seleccionClienteBtn
             // 
             this.seleccionClienteBtn.Location = new System.Drawing.Point(12, 380);
@@ -410,13 +412,23 @@
             this.seleccionClienteBtn.Text = "Seleccionar";
             this.seleccionClienteBtn.UseVisualStyleBackColor = true;
             this.seleccionClienteBtn.Click += new System.EventHandler(this.seleccionClienteBtn_Click);
-
+            // 
+            // selecClienteBTN
+            // 
+            this.selecClienteBTN.Location = new System.Drawing.Point(12, 420);
+            this.selecClienteBTN.Name = "selecClienteBTN";
+            this.selecClienteBTN.Size = new System.Drawing.Size(75, 23);
+            this.selecClienteBTN.TabIndex = 17;
+            this.selecClienteBTN.Text = "Seleccionar";
+            this.selecClienteBTN.UseVisualStyleBackColor = true;
+            this.selecClienteBTN.Click += new System.EventHandler(this.selecClienteBTN_Click);
             // 
             // ListadoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(919, 455);
+            this.Controls.Add(this.selecClienteBTN);
             this.Controls.Add(this.buttonHabilitar);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label5);
@@ -438,13 +450,13 @@
             this.Text = "ListadoClientes";
             this.Load += new System.EventHandler(this.ListadoClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fKCLIENTESCODIG4F87BD05BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,5 +506,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn HABILITADO;
         private System.Windows.Forms.BindingSource cLIENTESBindingSource3;
         private System.Windows.Forms.Button seleccionClienteBtn;
+        private System.Windows.Forms.Button selecClienteBTN;
     }
 }

@@ -142,6 +142,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GD1C2018DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GenerarModificacionReserva\SiNoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenerarModificacionReserva\SiNoForm.Designer.cs">
+      <DependentUpon>SiNoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GenerarModificacionReserva\HabitacionPK.cs" />
     <Compile Include="GenerarModificacionReserva\ModificarReserva.cs">
       <SubType>Form</SubType>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CancelarReserva\CancelarReserva.resx">
       <DependentUpon>CancelarReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenerarModificacionReserva\SiNoForm.resx">
+      <DependentUpon>SiNoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GenerarModificacionReserva\ModificarReserva.resx">
       <DependentUpon>ModificarReserva.cs</DependentUpon>

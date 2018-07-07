@@ -80,9 +80,9 @@ namespace FrbaHotel.GenerarModificacionReserva
         {
 
         }
-        private void conHoteles(String query, SqlCommand cmd)
+        private String conHoteles(String query, SqlCommand cmd)
         {
-            if (Program.sesion.getRol() != "Guest")
+            if (Program.sesion.getRol() != "GUEST")
             {
                 StringBuilder queryBuilder = new StringBuilder(query);
                 SqlCommand getHotelesCmd = new SqlCommand("SELECT ID_HOTEL FROM LOS_MAGIOS.HOTELES_POR_USUARIO WHERE USUARIO = @Usuario", baseDeDatos);
@@ -98,10 +98,12 @@ namespace FrbaHotel.GenerarModificacionReserva
                     queryBuilder.Append("@IdHotel" + i + ", ");
                     cmd.Parameters.Add("@IdHotel" + i, SqlDbType.Int);
                     cmd.Parameters["@IdHotel" + i].Value = item[0];
+                    i++;
                 }
-                query = queryBuilder.Remove(queryBuilder.Length - 2, 2).Append(")").ToString();
+                return queryBuilder.Remove(queryBuilder.Length - 2, 2).Append(")").ToString();
 
             }
+            return query;
         }
         private void botonBuscarDisponibilidad_Click(object sender, EventArgs e)
         {
@@ -126,7 +128,7 @@ namespace FrbaHotel.GenerarModificacionReserva
                     {
                         this.codigoRegimen = (int)this.regimenesComboBox.SelectedValue;
                         String queryStringDisponibilidad = "SELECT * FROM LOS_MAGIOS.DAR_DISPONIBILIDAD_CON_REGIMEN(@FechaDesde, @FechaHasta,@CodigoRegimen, @CantidadPersonas)";
-                        queryDisponibildad = new SqlCommand(queryStringDisponibilidad, baseDeDatos);
+                        queryDisponibildad = new SqlCommand();
                         queryDisponibildad.Parameters.Add("@FechaDesde", SqlDbType.Date);
                         queryDisponibildad.Parameters.Add("@FechaHasta", SqlDbType.Date);
                         queryDisponibildad.Parameters.Add("@CodigoRegimen", SqlDbType.Int);
@@ -135,19 +137,21 @@ namespace FrbaHotel.GenerarModificacionReserva
                         queryDisponibildad.Parameters["@FechaHasta"].Value = fechaHasta;
                         queryDisponibildad.Parameters["@CodigoRegimen"].Value = codigoRegimen;
                         queryDisponibildad.Parameters["@CantidadPersonas"].Value = this.cantidadPersonas;
-                        conHoteles(queryStringDisponibilidad, queryDisponibildad);
+                        queryDisponibildad.CommandText = conHoteles(queryStringDisponibilidad, queryDisponibildad);
+                        queryDisponibildad.Connection = baseDeDatos;
                     }
                     else
                     {
                         String queryStringDisponibilidad = "SELECT * FROM LOS_MAGIOS.DAR_DISPONIBILIDAD_SIN_REGIMEN(@FechaDesde, @FechaHasta, @CantidadPersonas)";
-                        queryDisponibildad = new SqlCommand(queryStringDisponibilidad, baseDeDatos);
+                        queryDisponibildad = new SqlCommand();
                         queryDisponibildad.Parameters.Add("@FechaDesde", SqlDbType.Date);
                         queryDisponibildad.Parameters.Add("@FechaHasta", SqlDbType.Date);
                         queryDisponibildad.Parameters.Add("@CantidadPersonas", SqlDbType.Int);
                         queryDisponibildad.Parameters["@FechaDesde"].Value = fechaDesde;
                         queryDisponibildad.Parameters["@FechaHasta"].Value = fechaHasta;
                         queryDisponibildad.Parameters["@CantidadPersonas"].Value = this.cantidadPersonas;
-                        conHoteles(queryStringDisponibilidad, queryDisponibildad);
+                        queryDisponibildad.CommandText = conHoteles(queryStringDisponibilidad, queryDisponibildad);
+                        queryDisponibildad.Connection = baseDeDatos;
                     }
                     
                     SqlDataAdapter adapter = new SqlDataAdapter(queryDisponibildad);
@@ -262,23 +266,36 @@ namespace FrbaHotel.GenerarModificacionReserva
                     int idClienteSeleccionado = -1;
 
 
+                    
                     String usuario = Program.sesion.getUsuario();
                     if(!flagModificacionReserva)
-                        while (idClienteSeleccionado == -1)
+                    {
+                        DialogResult sino = new SiNoForm().ShowDialog();
+                        if (sino.Equals(DialogResult.Yes))
+                        {
+                            AbmCliente.FormCliente ventana = new AbmCliente.FormCliente();
+                            ventana.ShowDialog();
+                            if (ventana.codigoClienteCreado != -1)
+                                idClienteSeleccionado = ventana.codigoClienteCreado;
+                            else
                             {
-                                AbmCliente.ListadoClientes busquedaCliente = new AbmCliente.ListadoClientes();
-                                DialogResult result = busquedaCliente.ShowDialog();
-
-                                if (busquedaCliente.idClienteSeleccionado != -1)
-                                    idClienteSeleccionado = busquedaCliente.idClienteSeleccionado;
-                                else
-                                {
-
-                                    MessageBox.Show("Debe seleccionar un cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return;
-                                }
+                                MessageBox.Show("No se creo el cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
                             }
+                        } else {
+                            AbmCliente.ListadoClientes busquedaCliente = new AbmCliente.ListadoClientes(true);
+                            DialogResult result = busquedaCliente.ShowDialog();
 
+                            if (busquedaCliente.idClienteSeleccionado != -1)
+                                idClienteSeleccionado = busquedaCliente.idClienteSeleccionado;
+                            else
+                            {
+
+                                MessageBox.Show("Debe seleccionar un cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                    }
 
                     if (!this.conRegimen)
                     {

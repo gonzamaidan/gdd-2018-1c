@@ -32,9 +32,21 @@ namespace FrbaHotel.Login
         private void btnGenerarReserva_Click(object sender, EventArgs e)
         {
             Program.sesion.setUsuario("guest");
-            Program.sesion.setRol("Guest");
+            Program.sesion.setRol("GUEST");
             Program.sesion.setIdRol(3);
             GenerarModificacionReserva.GenerarReservas ventana = new GenerarModificacionReserva.GenerarReservas();
+            ventana.Show();
+           
+        }
+
+        private void btnModificarReserva_Click(object sender, EventArgs e)
+        {
+            Program.sesion.setUsuario("guest");
+            Program.sesion.setRol("GUEST");
+            Program.sesion.setIdRol(3);
+            GenerarModificacionReserva.ModificarReserva ventana = new GenerarModificacionReserva.ModificarReserva();
+            ventana.Show();
+
         }
     }
 }

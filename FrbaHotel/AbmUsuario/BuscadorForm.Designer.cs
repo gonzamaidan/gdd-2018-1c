@@ -60,6 +60,7 @@
             this.tIPOS_IDENTIFICACIONTableAdapter = new FrbaHotel.GD1C2018DataSetTableAdapters.TIPOS_IDENTIFICACIONTableAdapter();
             this.fillBy1ToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillBy1ToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.nuevoUsuario = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rOLESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource)).BeginInit();
@@ -322,11 +323,22 @@
             this.fillBy1ToolStripButton.Text = "FillBy1";
             this.fillBy1ToolStripButton.Click += new System.EventHandler(this.fillBy1ToolStripButton_Click);
             // 
+            // nuevoUsuario
+            // 
+            this.nuevoUsuario.Location = new System.Drawing.Point(513, 239);
+            this.nuevoUsuario.Name = "nuevoUsuario";
+            this.nuevoUsuario.Size = new System.Drawing.Size(75, 23);
+            this.nuevoUsuario.TabIndex = 56;
+            this.nuevoUsuario.Text = "Crear";
+            this.nuevoUsuario.UseVisualStyleBackColor = true;
+            this.nuevoUsuario.Click += new System.EventHandler(this.nuevoUsuario_Click);
+            // 
             // BuscadorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(639, 467);
+            this.Controls.Add(this.nuevoUsuario);
             this.Controls.Add(this.fillBy1ToolStrip);
             this.Controls.Add(this.tipoIdCheckBox);
             this.Controls.Add(this.rolCB);
@@ -399,5 +411,6 @@
         private GD1C2018DataSetTableAdapters.TIPOS_IDENTIFICACIONTableAdapter tIPOS_IDENTIFICACIONTableAdapter;
         private System.Windows.Forms.ToolStrip fillBy1ToolStrip;
         private System.Windows.Forms.ToolStripButton fillBy1ToolStripButton;
+        private System.Windows.Forms.Button nuevoUsuario;
     }
 }

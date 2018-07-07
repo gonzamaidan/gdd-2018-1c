@@ -13,6 +13,7 @@ namespace FrbaHotel.AbmCliente
 {
     public partial class FormCliente : Form
     {
+        public Int32 codigoClienteCreado = -1;
         Boolean editar;
         SqlConnection baseDeDatos;
         Int32 id_cliente;
@@ -169,7 +170,11 @@ namespace FrbaHotel.AbmCliente
                     queryInsert.ExecuteNonQuery();
                     //SqlDataReader reader = queryInsert.execute();
 
+                    SqlCommand getIdCliente = new SqlCommand("SELECT MAX(CODIGO_CLIENTE) FROM LOS_MAGIOS.CLIENTES", baseDeDatos);
+                    codigoClienteCreado = Int32.Parse(getIdCliente.ExecuteScalar().ToString());
+
                     MessageBox.Show("El Cliente se creo satisfactoriamente", "Cliente Creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
                 else
                 {
@@ -193,6 +198,8 @@ namespace FrbaHotel.AbmCliente
                     queryInsert.ExecuteNonQuery();
                     MessageBox.Show("El cliente se actualizo correctamente", "Cliente modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                this.Hide();
+                this.Close();
 
             }
             catch (Exception exc)
@@ -235,8 +242,7 @@ namespace FrbaHotel.AbmCliente
         private void buttonSalir_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ListadoClientes formHotel = new ListadoClientes();
-            formHotel.ShowDialog();
+            this.Close();
         }
     }
 }

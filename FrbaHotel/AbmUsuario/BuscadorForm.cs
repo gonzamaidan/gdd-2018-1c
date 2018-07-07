@@ -188,5 +188,13 @@ namespace FrbaHotel.AbmUsuario
                 this.baseDeDatos.Close();
             }
         }
+
+        private void nuevoUsuario_Click(object sender, EventArgs e)
+        {
+            AltaForm ventana = new AltaForm();
+            ventana.Show();
+            this.Hide();
+            this.Close();
+        }
     }
 }

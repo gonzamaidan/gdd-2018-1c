@@ -14,7 +14,7 @@ namespace FrbaHotel.AbmCliente
 {
     public partial class ListadoClientes : Form
     {
-        public Int32 idClienteSeleccionado;
+        public Int32 idClienteSeleccionado = -1;
         Boolean obtenerCliente = false;
         SqlConnection baseDeDatos;
         int tipoDni;
@@ -23,8 +23,8 @@ namespace FrbaHotel.AbmCliente
         {
             InitializeComponent();
             baseDeDatos = ConexionBD.conectar();
-            this.seleccionClienteBtn.Visible = false;
-            this.seleccionClienteBtn.Enabled = false;
+            this.selecClienteBTN.Visible = false;
+            this.selecClienteBTN.Enabled = false;
 
         }
         public ListadoClientes(Boolean obtenerCliente)
@@ -34,14 +34,20 @@ namespace FrbaHotel.AbmCliente
             this.obtenerCliente = obtenerCliente;
             if (obtenerCliente)
             {
-                this.seleccionClienteBtn.Enabled = true;
-                this.seleccionClienteBtn.Visible = true;
+                this.selecClienteBTN.Enabled = true;
+                this.selecClienteBTN.Visible = true;
                 this.button1.Enabled = false;
                 this.button1.Visible = false;
                 this.buttonBorrar.Visible = false;
                 this.buttonBorrar.Enabled = false;
                 this.buttonEditar.Visible = false;
                 this.buttonEditar.Enabled = false;
+                this.buttonHabilitar.Visible = false;
+                this.buttonHabilitar.Enabled = false;
+                this.textBoxNombre.Visible = false;
+                this.textBoxApellido.Visible = false;
+                this.label1.Visible = false;
+                this.label2.Visible = false;
             }
         }
 
@@ -52,7 +58,7 @@ namespace FrbaHotel.AbmCliente
             // TODO: This line of code loads data into the 'gD1C2018DataSet.TIPOS_IDENTIFICACION' table. You can move, or remove it, as needed.
             this.tIPOS_IDENTIFICACIONTableAdapter.Fill(this.gD1C2018DataSet.TIPOS_IDENTIFICACION);
             // TODO: This line of code loads data into the 'gD1C2018DataSet.CLIENTES' table. You can move, or remove it, as needed.
-            this.cLIENTESTableAdapter.Fill(this.gD1C2018DataSet.CLIENTES);
+            //this.cLIENTESTableAdapter.Fill(this.gD1C2018DataSet.CLIENTES);
 
         }
 
@@ -232,6 +238,11 @@ namespace FrbaHotel.AbmCliente
             {
                 MessageBox.Show("Debe seleccionar un cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void selecClienteBTN_Click(object sender, EventArgs e)
+        {
+            seleccionClienteBtn_Click(sender, e);
         }
     }
 }

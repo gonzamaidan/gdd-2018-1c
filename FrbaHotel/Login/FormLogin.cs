@@ -46,6 +46,7 @@ namespace FrbaHotel.Login
                     ventanaAdmin nuevaVentanaAdmin = new ventanaAdmin();
                     this.Hide();
                     nuevaVentanaAdmin.Show();
+                    this.Close();
                     
                 }
                 else if(objRolUsuario.contarRolesSegunUsuario(txtUsuario.Text) >= 2)
@@ -55,6 +56,7 @@ namespace FrbaHotel.Login
                     listadoDeRol nuevaVentanaListadoDeRol = new listadoDeRol();
                     this.Hide();
                     nuevaVentanaListadoDeRol.Show();
+                    this.Close();
                     
                 }
             }
@@ -64,7 +66,13 @@ namespace FrbaHotel.Login
                 MessageBox.Show("Usuario/Contraseña invalida"); 
                 
             }
-            else { ventanaSesionCaducada sesionCaducada = new ventanaSesionCaducada(); this.Hide(); sesionCaducada.Show(); }
+            else 
+            { 
+                ventanaSesionCaducada sesionCaducada = new ventanaSesionCaducada();
+                this.Hide();
+                sesionCaducada.Show();
+                this.Close(); 
+            }
         }
 
     }
