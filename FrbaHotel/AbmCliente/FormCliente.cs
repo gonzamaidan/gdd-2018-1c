@@ -67,6 +67,14 @@ namespace FrbaHotel.AbmCliente
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int numeric;
+            if (!int.TryParse(this.textBoxTelefono.Text, out numeric) ||
+                !int.TryParse(this.textBoxNroDoc.Text, out numeric))
+            {
+                MessageBox.Show("El numero de telefono y dni deben ser numericos. ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (verificarTextBoxNoVacios() || editar)
             {
 
@@ -220,7 +228,13 @@ namespace FrbaHotel.AbmCliente
             // TODO: This line of code loads data into the 'gD1C2018DataSet.TIPOS_IDENTIFICACION' table. You can move, or remove it, as needed.
             this.tIPOS_IDENTIFICACIONTableAdapter.Fill(this.gD1C2018DataSet.TIPOS_IDENTIFICACION);
             if (editar)
+            {
                 tipoDni = this.gD1C2018DataSet.TIPOS_IDENTIFICACION[0].TIPO_IDENTIFICACION;
+            }
+            else
+            {
+                tipoDni = this.gD1C2018DataSet.TIPOS_IDENTIFICACION[0].TIPO_IDENTIFICACION;
+            }
 
             foreach (DataRowView item in this.comboBoxTipoDoc.Items)
             {
@@ -235,8 +249,15 @@ namespace FrbaHotel.AbmCliente
 
         private void comboBoxTipoDoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboBox cmb = (ComboBox)sender;
-            tipoDni = (int)cmb.SelectedValue;
+            try
+            {
+                ComboBox cmb = (ComboBox)sender;
+                tipoDni = (int)cmb.SelectedValue;
+            }
+            catch
+            {
+                return;
+            }
         }
 
         private void buttonSalir_Click(object sender, EventArgs e)
