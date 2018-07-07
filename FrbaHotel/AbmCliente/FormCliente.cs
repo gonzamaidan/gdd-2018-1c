@@ -227,14 +227,7 @@ namespace FrbaHotel.AbmCliente
         {
             // TODO: This line of code loads data into the 'gD1C2018DataSet.TIPOS_IDENTIFICACION' table. You can move, or remove it, as needed.
             this.tIPOS_IDENTIFICACIONTableAdapter.Fill(this.gD1C2018DataSet.TIPOS_IDENTIFICACION);
-            if (editar)
-            {
-                tipoDni = this.gD1C2018DataSet.TIPOS_IDENTIFICACION[0].TIPO_IDENTIFICACION;
-            }
-            else
-            {
-                tipoDni = this.gD1C2018DataSet.TIPOS_IDENTIFICACION[0].TIPO_IDENTIFICACION;
-            }
+            tipoDni = this.gD1C2018DataSet.TIPOS_IDENTIFICACION[0].TIPO_IDENTIFICACION;
 
             foreach (DataRowView item in this.comboBoxTipoDoc.Items)
             {
