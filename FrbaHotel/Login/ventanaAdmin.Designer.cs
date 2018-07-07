@@ -37,9 +37,9 @@
             this.btnListadoRoles = new System.Windows.Forms.Button();
             this.btnRegistrarEstadia = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnListadoHabitacion = new System.Windows.Forms.Button();
             this.btnFacturarEstadia = new System.Windows.Forms.Button();
             this.btnRegistrarConsumible = new System.Windows.Forms.Button();
+            this.btnListadoUsuarios = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listadoClientesBtn
@@ -120,6 +120,7 @@
             this.btnRegistrarEstadia.TabIndex = 7;
             this.btnRegistrarEstadia.Text = "Registrar Estadia";
             this.btnRegistrarEstadia.UseVisualStyleBackColor = true;
+            this.btnRegistrarEstadia.Click += new System.EventHandler(this.btnRegistrarEstadia_Click);
             // 
             // btnSalir
             // 
@@ -129,16 +130,7 @@
             this.btnSalir.TabIndex = 9;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
-            // 
-            // btnListadoHabitacion
-            // 
-            this.btnListadoHabitacion.Location = new System.Drawing.Point(50, 204);
-            this.btnListadoHabitacion.Name = "btnListadoHabitacion";
-            this.btnListadoHabitacion.Size = new System.Drawing.Size(148, 23);
-            this.btnListadoHabitacion.TabIndex = 8;
-            this.btnListadoHabitacion.Text = "Listado Habitacion";
-            this.btnListadoHabitacion.UseVisualStyleBackColor = true;
-            this.btnListadoHabitacion.Click += new System.EventHandler(this.btnListadoHabitacion_Click);
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnFacturarEstadia
             // 
@@ -158,15 +150,25 @@
             this.btnRegistrarConsumible.Text = "Registrar Consumible";
             this.btnRegistrarConsumible.UseVisualStyleBackColor = true;
             // 
+            // btnListadoUsuarios
+            // 
+            this.btnListadoUsuarios.Location = new System.Drawing.Point(50, 204);
+            this.btnListadoUsuarios.Name = "btnListadoUsuarios";
+            this.btnListadoUsuarios.Size = new System.Drawing.Size(148, 23);
+            this.btnListadoUsuarios.TabIndex = 14;
+            this.btnListadoUsuarios.Text = "Listado Usuarios";
+            this.btnListadoUsuarios.UseVisualStyleBackColor = true;
+            this.btnListadoUsuarios.Click += new System.EventHandler(this.btnListadoUsuarios_Click);
+            // 
             // ventanaAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 349);
+            this.Controls.Add(this.btnListadoUsuarios);
             this.Controls.Add(this.btnRegistrarConsumible);
             this.Controls.Add(this.btnFacturarEstadia);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnListadoHabitacion);
             this.Controls.Add(this.btnRegistrarEstadia);
             this.Controls.Add(this.btnListadoRoles);
             this.Controls.Add(this.btnCancelarReserva);
@@ -176,7 +178,7 @@
             this.Controls.Add(this.btnGenerarReserva);
             this.Controls.Add(this.listadoClientesBtn);
             this.Name = "ventanaAdmin";
-            this.Text = "ventanaAdmin";
+            this.Text = "Menu";
             this.Load += new System.EventHandler(this.ventanaAdmin_Load_1);
             this.ResumeLayout(false);
 
@@ -193,8 +195,8 @@
         private System.Windows.Forms.Button btnListadoRoles;
         private System.Windows.Forms.Button btnRegistrarEstadia;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnListadoHabitacion;
         private System.Windows.Forms.Button btnFacturarEstadia;
         private System.Windows.Forms.Button btnRegistrarConsumible;
+        private System.Windows.Forms.Button btnListadoUsuarios;
     }
 }

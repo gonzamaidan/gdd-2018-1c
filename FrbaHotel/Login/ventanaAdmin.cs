@@ -12,20 +12,32 @@ namespace FrbaHotel.Login
 {
     public partial class ventanaAdmin : Form
     {
+        private static Int32 ABM_CLIENTES = 1;
+        private static Int32 ABM_HOTELES = 2;
+        private static Int32 ABM_ROL = 3;
+        private static Int32 ABM_USUARIO = 4;
+        private static Int32 CANCELAR_RESERVA = 5;
+        private static Int32 GENERAR_RESERVA = 6;
+        private static Int32 MODIFICAR_RESERVA = 7;
+        private static Int32 LISTADO_ESTADISTICO = 8;
+        private static Int32 REGISTRAR_CONSUMIBLE = 9;
+        private static Int32 REGISTRAR_ESTADIA = 10;
+        private static Int32 FACTURAR_ESTADIA = 11;
         public ventanaAdmin()
         {
             InitializeComponent();
-            listadoClientesBtn.Enabled = Program.sesion.getFuncionalidades().Contains(1);
-            listadoHotelesBtn.Enabled = Program.sesion.getFuncionalidades().Contains(2);
-            btnListadoEstadistico.Enabled = Program.sesion.getFuncionalidades().Contains(1);
-            btnListadoEstadistico.Enabled = Program.sesion.getFuncionalidades().Contains(2);
-            btnListadoRoles.Enabled = Program.sesion.getFuncionalidades().Contains(1);
-            btnGenerarReserva.Enabled = Program.sesion.getFuncionalidades().Contains(2);
-            btnModificarReserva.Enabled = Program.sesion.getFuncionalidades().Contains(2);
-            btnCancelarReserva.Enabled = Program.sesion.getFuncionalidades().Contains(2);
-            btnRegistrarEstadia.Enabled = Program.sesion.getFuncionalidades().Contains(2);
-            btnRegistrarConsumible.Enabled = Program.sesion.getFuncionalidades().Contains(2);
-            btnFacturarEstadia.Enabled = Program.sesion.getFuncionalidades().Contains(2);
+            listadoClientesBtn.Enabled = Program.sesion.getFuncionalidades().Contains(ABM_CLIENTES);
+            listadoHotelesBtn.Enabled = Program.sesion.getFuncionalidades().Contains(ABM_HOTELES);
+            btnListadoEstadistico.Enabled = Program.sesion.getFuncionalidades().Contains(LISTADO_ESTADISTICO);
+            btnListadoRoles.Enabled = Program.sesion.getFuncionalidades().Contains(ABM_ROL);
+
+            btnGenerarReserva.Enabled = Program.sesion.getFuncionalidades().Contains(GENERAR_RESERVA);
+            btnModificarReserva.Enabled = Program.sesion.getFuncionalidades().Contains(MODIFICAR_RESERVA);
+            btnCancelarReserva.Enabled = Program.sesion.getFuncionalidades().Contains(CANCELAR_RESERVA);
+
+            btnRegistrarEstadia.Enabled = Program.sesion.getFuncionalidades().Contains(REGISTRAR_ESTADIA);
+            btnRegistrarConsumible.Enabled = Program.sesion.getFuncionalidades().Contains(REGISTRAR_CONSUMIBLE);
+            btnFacturarEstadia.Enabled = Program.sesion.getFuncionalidades().Contains(FACTURAR_ESTADIA);
 
         }
 
@@ -72,6 +84,7 @@ namespace FrbaHotel.Login
         private void btnListadoHabitacion_Click(object sender, EventArgs e)
         {
             //le hardcodie un entero
+            //Esto se accede por mediod e la pantalla de hoteles
             AbmHabitacion.ListadoHabitaciones ventana = new AbmHabitacion.ListadoHabitaciones(1);
             ventana.Show();
         }
@@ -86,6 +99,23 @@ namespace FrbaHotel.Login
         {
             CancelarReserva.CancelarReserva ventana = new CancelarReserva.CancelarReserva();
             ventana.Show();
+        }
+
+        private void btnRegistrarEstadia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnListadoUsuarios_Click(object sender, EventArgs e)
+        {
+            AbmUsuario.BuscadorForm ventana = new AbmUsuario.BuscadorForm();
+            ventana.Show();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
         }
     }
 }
