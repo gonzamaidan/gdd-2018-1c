@@ -45,5 +45,47 @@ namespace FrbaHotel.Login
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GenerarModificacionReserva.GenerarReservas ventana = new GenerarModificacionReserva.GenerarReservas();
+            ventana.Show();
+        }
+
+        private void ventanaAdmin_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnListadoEstadistico_Click(object sender, EventArgs e)
+        {
+            FrbaHotel.ListadoEstadistico.listadoEstadistico ventana = new FrbaHotel.ListadoEstadistico.listadoEstadistico();
+            ventana.Show();
+        }
+
+        private void btnListadoRoles_Click(object sender, EventArgs e)
+        {
+            AbmRol.ventanaRoles ventana = new AbmRol.ventanaRoles();
+            ventana.Show();
+        }
+
+        private void btnListadoHabitacion_Click(object sender, EventArgs e)
+        {
+            //le hardcodie un entero
+            AbmHabitacion.ListadoHabitaciones ventana = new AbmHabitacion.ListadoHabitaciones(1);
+            ventana.Show();
+        }
+
+        private void btnModificarReserva_Click(object sender, EventArgs e)
+        {
+            GenerarModificacionReserva.ModificarReserva ventana = new GenerarModificacionReserva.ModificarReserva();
+            ventana.Show();
+        }
+
+        private void btnCancelarReserva_Click(object sender, EventArgs e)
+        {
+            CancelarReserva.CancelarReserva ventana = new CancelarReserva.CancelarReserva();
+            ventana.Show();
+        }
     }
 }
