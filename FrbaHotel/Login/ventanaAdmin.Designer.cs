@@ -140,6 +140,7 @@
             this.btnFacturarEstadia.TabIndex = 12;
             this.btnFacturarEstadia.Text = "Facturar Estadia";
             this.btnFacturarEstadia.UseVisualStyleBackColor = true;
+            this.btnFacturarEstadia.Visible = false;
             // 
             // btnRegistrarConsumible
             // 
@@ -149,6 +150,8 @@
             this.btnRegistrarConsumible.TabIndex = 13;
             this.btnRegistrarConsumible.Text = "Registrar Consumible";
             this.btnRegistrarConsumible.UseVisualStyleBackColor = true;
+            this.btnRegistrarConsumible.Visible = false;
+            this.btnRegistrarConsumible.Click += new System.EventHandler(this.btnRegistrarConsumible_Click);
             // 
             // btnListadoUsuarios
             // 

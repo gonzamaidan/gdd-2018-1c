@@ -61,7 +61,7 @@ namespace FrbaHotel.RegistrarEstadia
                 new RegistrarConsumible.RegistrarConsumible(this.textBox1.Text).ShowDialog();
                 
             }
-            catch (SqlException exc)
+            catch (Exception exc)
             {
                 Console.WriteLine(exc.Message + exc.StackTrace);
                 MessageBox.Show("No Existe el numero de reserva ingresado");

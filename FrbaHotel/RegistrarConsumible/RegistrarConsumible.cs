@@ -58,18 +58,25 @@ namespace FrbaHotel.RegistrarConsumible
             {
                 String queryNumeroFactura = "SELECT MAX(NUMERO_FACTURA) + 1 FROM LOS_MAGIOS.FACTURA";
                 numeroFactura = (int)(new SqlCommand(queryNumeroFactura, baseDeDatos).ExecuteScalar());
-                
-            }catch (Exception exc)
+
+            }
+            catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
                 throw new Exception();
             }
+            finally
+            {
+                baseDeDatos.Close();
+            }
 
+            baseDeDatos.Open();
             SqlTransaction transaction = baseDeDatos.BeginTransaction();
             try
             {
+                
                 SqlCommand commandFactura = new SqlCommand("INSERT INTO LOS_MAGIOS.FACTURA(NUMERO_FACTURA, CODIGO_RESERVA, FECHA_FACTURA,"
-                +" TOTAL_FACTURA, INCONSISTENTE) VALUES(@nroFactura, @codReserva, @fecha, @total, 1)", baseDeDatos);
+                + " TOTAL_FACTURA, INCONSISTENTE) VALUES(@nroFactura, @codReserva, @fecha, @total, 1)", baseDeDatos);
                 commandFactura.Connection = baseDeDatos;
                 commandFactura.Transaction = transaction;
                 commandFactura.Parameters.Add("@nroFactura", SqlDbType.Int);
@@ -87,7 +94,7 @@ namespace FrbaHotel.RegistrarConsumible
                 commandFactura.Connection = baseDeDatos;
                 commandFactura.Transaction = transaction;
                 int lastItem = (int)commandFactura.ExecuteScalar();
-                
+
                 foreach (DataGridViewRow row in this.dataGridView1.Rows)
                 {
                     if (row.Index != 0)//Salteo la fila de la reserva
@@ -121,6 +128,13 @@ namespace FrbaHotel.RegistrarConsumible
                 MessageBox.Show(exc.Message);
                 transaction.Rollback();
             }
+            finally
+            {
+                baseDeDatos.Close();
+            }
+            MessageBox.Show("Factura numero "+ numeroFactura + " realizada", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Hide();
+            this.Close();
 
 
         }

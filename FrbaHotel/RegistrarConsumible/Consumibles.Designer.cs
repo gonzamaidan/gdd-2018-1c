@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -47,51 +47,13 @@
             this.codigo,
             this.producto,
             this.precio});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 38);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 31);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(415, 289);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(311, 235);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(475, 361);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 34);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Seleccionar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(92, 361);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(83, 34);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Modificar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(265, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Para cada operacion seleccione una Fila";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(15, 361);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(71, 34);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Nuevo";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // codigo
             // 
@@ -109,11 +71,56 @@
             this.precio.HeaderText = "Precio";
             this.precio.Name = "precio";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(356, 293);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(78, 28);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Seleccionar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(69, 293);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(62, 28);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Modificar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(200, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Para cada operacion seleccione una Fila";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(11, 293);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(53, 28);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Nuevo";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(277, 361);
+            this.button4.Location = new System.Drawing.Point(208, 293);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(192, 34);
+            this.button4.Size = new System.Drawing.Size(144, 28);
             this.button4.TabIndex = 5;
             this.button4.Text = "Guardar Nuevo Registro";
             this.button4.UseVisualStyleBackColor = true;
@@ -121,15 +128,16 @@
             // 
             // Consumibles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 407);
+            this.ClientSize = new System.Drawing.Size(443, 331);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Consumibles";
             this.Text = "Consumibles";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

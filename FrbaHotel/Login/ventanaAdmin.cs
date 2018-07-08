@@ -103,7 +103,8 @@ namespace FrbaHotel.Login
 
         private void btnRegistrarEstadia_Click(object sender, EventArgs e)
         {
-
+            RegistrarEstadia.RegistrarEstadia ventana = new RegistrarEstadia.RegistrarEstadia();
+            ventana.Show();
         }
 
         private void btnListadoUsuarios_Click(object sender, EventArgs e)
@@ -116,6 +117,12 @@ namespace FrbaHotel.Login
         {
             this.Hide();
             this.Close();
+        }
+
+        private void btnRegistrarConsumible_Click(object sender, EventArgs e)
+        {
+           // RegistrarConsumible.CodigoReserva ventana = new RegistrarConsumible.CodigoReserva();
+           // ventana.Show();
         }
     }
 }
