@@ -96,7 +96,7 @@ namespace FrbaHotel.RegistrarConsumible
                 
                 foreach (DataGridViewRow row in this.dataGridView1.Rows)
                 {
-                    if(row.Index == 0 || row.Index == 1)
+                    if(row.Index == 0)
                     {
                         commandFactura = new SqlCommand("INSERT INTO LOS_MAGIOS.ITEM_FACTURA(NUMERO_FACTURA, CANTIDAD, PRECIO_UNIDAD"
                             + ") VALUES(@nroFactura, @cantidad, @precio)", baseDeDatos);
@@ -200,7 +200,7 @@ namespace FrbaHotel.RegistrarConsumible
             {
                 isAllInclusive = true;
                 this.dataGridView1.Rows.Add();
-                this.dataGridView1.Rows[1].Cells[0].Value = numeroDeReserva;
+                this.dataGridView1.Rows[1].Cells[0].Value = 1;
                 this.dataGridView1.Rows[1].Cells[1].Value = "BENEFICIOS ALL INCLUSIVE";
                 this.dataGridView1.Rows[1].Cells[2].Value = 0;
                 this.dataGridView1.Rows[1].Cells[3].Value = 1;
