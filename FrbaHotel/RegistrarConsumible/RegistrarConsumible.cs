@@ -90,25 +90,32 @@ namespace FrbaHotel.RegistrarConsumible
                 
                 foreach (DataGridViewRow row in this.dataGridView1.Rows)
                 {
-                    if (row.Index != 0)//Salteo la fila de la reserva
+                    if(row.Index == 0)
                     {
-                        commandFactura = new SqlCommand("INSERT INTO LOS_MAGIOS.ITEM_FACTURA(NUMERO_FACTURA, CANTIDAD, PRECIO_UNIDAD,"
+                        commandFactura = new SqlCommand("INSERT INTO LOS_MAGIOS.ITEM_FACTURA(NUMERO_FACTURA, CANTIDAD, PRECIO_UNIDAD"
+                            + ") VALUES(@nroFactura, @cantidad, @precio)", baseDeDatos);
+                    }
+                    else{
+                    commandFactura = new SqlCommand("INSERT INTO LOS_MAGIOS.ITEM_FACTURA(NUMERO_FACTURA, CANTIDAD, PRECIO_UNIDAD,"
                             + " CODIGO_CONSUMIBLE) VALUES(@nroFactura, @cantidad, @precio, @codConsumible)", baseDeDatos);
+                        commandFactura.Parameters.Add("@codConsumible", SqlDbType.Int);
+                        commandFactura.Parameters["@codConsumible"].Value = Convert.ToInt32(row.Cells[0].Value);
+                    }
+                        
                         commandFactura.Connection = baseDeDatos;
                         commandFactura.Transaction = transaction;
                         //commandFactura.Parameters.Add("@idItem", SqlDbType.Int);
                         commandFactura.Parameters.Add("@nroFactura", SqlDbType.Int);
                         commandFactura.Parameters.Add("@cantidad", SqlDbType.Int);
                         commandFactura.Parameters.Add("@precio", SqlDbType.Decimal);
-                        commandFactura.Parameters.Add("@codConsumible", SqlDbType.Int);
                         //commandFactura.Parameters["@idItem"].Value = lastItem;
                         commandFactura.Parameters["@nroFactura"].Value = numeroFactura;
                         commandFactura.Parameters["@cantidad"].Value = Convert.ToInt32(row.Cells[3].Value);
                         commandFactura.Parameters["@precio"].Value = Convert.ToDecimal(row.Cells[2].Value);
-                        commandFactura.Parameters["@codConsumible"].Value = Convert.ToInt32(row.Cells[0].Value);
+                                  
                         commandFactura.ExecuteNonQuery();
                         lastItem++;
-                    }
+                    
 
                 }
 
