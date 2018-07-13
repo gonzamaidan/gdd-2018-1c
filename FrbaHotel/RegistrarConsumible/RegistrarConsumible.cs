@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FrbaHotel.RegistrarEstadia;
 
 namespace FrbaHotel.RegistrarConsumible
 {
@@ -77,7 +78,7 @@ namespace FrbaHotel.RegistrarConsumible
             {
                 
                 SqlCommand commandFactura = new SqlCommand("INSERT INTO LOS_MAGIOS.FACTURA(NUMERO_FACTURA, CODIGO_RESERVA, FECHA_FACTURA,"
-                + " TOTAL_FACTURA, INCONSISTENTE) VALUES(@nroFactura, @codReserva, @fecha, @total, 1)", baseDeDatos);
+                + " TOTAL_FACTURA, INCONSISTENTE) VALUES(@nroFactura, @codReserva, @fecha, @total, 0)", baseDeDatos);
                 commandFactura.Connection = baseDeDatos;
                 commandFactura.Transaction = transaction;
                 commandFactura.Parameters.Add("@nroFactura", SqlDbType.Int);
@@ -112,11 +113,9 @@ namespace FrbaHotel.RegistrarConsumible
                         
                         commandFactura.Connection = baseDeDatos;
                         commandFactura.Transaction = transaction;
-                        //commandFactura.Parameters.Add("@idItem", SqlDbType.Int);
                         commandFactura.Parameters.Add("@nroFactura", SqlDbType.Int);
                         commandFactura.Parameters.Add("@cantidad", SqlDbType.Int);
                         commandFactura.Parameters.Add("@precio", SqlDbType.Decimal);
-                        //commandFactura.Parameters["@idItem"].Value = lastItem;
                         commandFactura.Parameters["@nroFactura"].Value = numeroFactura;
                         commandFactura.Parameters["@cantidad"].Value = Convert.ToInt32(row.Cells[3].Value);
                         commandFactura.Parameters["@precio"].Value = Convert.ToDecimal(row.Cells[2].Value);
@@ -126,9 +125,6 @@ namespace FrbaHotel.RegistrarConsumible
                     
 
                 }
-
-
-
                 transaction.Commit();
             }
             catch (Exception exc)
@@ -141,7 +137,11 @@ namespace FrbaHotel.RegistrarConsumible
             {
                 baseDeDatos.Close();
             }
-            MessageBox.Show("Factura numero "+ numeroFactura + " realizada", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult dialogResult = MessageBox.Show("Factura numero "+ numeroFactura + " realizada. Se procede a efectuar el pago de la misma", "Atencion", MessageBoxButtons.OK);
+            if (dialogResult == DialogResult.OK)
+            {
+                new Facturacion(numeroFactura).ShowDialog();
+            }
             this.Hide();
             this.Close();
 
