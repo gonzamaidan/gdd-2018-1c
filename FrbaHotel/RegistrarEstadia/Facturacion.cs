@@ -73,7 +73,6 @@ namespace FrbaHotel.RegistrarEstadia
             this.baseDeDatos.Open();
             try
             {
-
                 SqlCommand commandItemPago = new SqlCommand("INSERT INTO LOS_MAGIOS.ITEM_PAGO(CODIGO_PAGO, NUMERO_FACTURA, NUMERO_TARJETA, VENCIMIENTO_TARJETA)"
                 + " VALUES(@codPago, @nroFactura, @nroTarjeta, @vencTarjeta)", baseDeDatos);
                 commandItemPago.Parameters.Add("@nroFactura", SqlDbType.Int);
@@ -86,7 +85,8 @@ namespace FrbaHotel.RegistrarEstadia
                 commandItemPago.Parameters["@nroTarjeta"].Value = this.textBox2.Text;
                 commandItemPago.Parameters["@vencTarjeta"].Value = this.textBox3.Text;
                 commandItemPago.ExecuteNonQuery();
-                MessageBox.Show("Pago registrado con exito!");         
+                MessageBox.Show("Pago registrado con exito!");
+                this.Close();
            }
             catch (Exception exc)
             {
