@@ -1,3 +1,4 @@
+DROP TRIGGER LOS_MAGIOS.ADMIN_HOTELES;
 DROP TABLE LOS_MAGIOS.CLIENTES_POR_RESERVA;
 DROP TABLE LOS_MAGIOS.BAJA_HOTELES;
 DROP TABLE LOS_MAGIOS.ITEM_FACTURA;
@@ -232,8 +233,74 @@ CREATE TABLE LOS_MAGIOS.CLIENTES_POR_RESERVA (
 	CODIGO_RESERVA INTEGER REFERENCES LOS_MAGIOS.RESERVAS(CODIGO_RESERVA),
 	PRIMARY KEY (CODIGO_CLIENTE, CODIGO_RESERVA)
 )
+GO
+
+CREATE TRIGGER LOS_MAGIOS.ADMIN_HOTELES ON LOS_MAGIOS.HOTELES AFTER INSERT 
+AS
+DECLARE C CURSOR FOR (SELECT ID_HOTEL FROM inserted)
+DECLARE @IdHotel INTEGER
+OPEN C
+FETCH NEXT FROM C INTO @IdHotel
+WHILE @@FETCH_STATUS = 0
+BEGIN
+	INSERT INTO LOS_MAGIOS.HOTELES_POR_USUARIO(ID_HOTEL,USUARIO) VALUES(@IdHotel, 'admin')
+	FETCH NEXT FROM C INTO @IdHotel
+END
+CLOSE C
+DEALLOCATE C
+GO
+
 
 -- # INSERT DE TABLAS
+INSERT INTO LOS_MAGIOS.TIPOS_IDENTIFICACION(DESCRIPCION) VALUES('Pasaporte'),('DNI');
+
+INSERT INTO LOS_MAGIOS.ROLES(NOMBRE,ESTADO) VALUES
+('ADMINISTRADOR',1),
+('RECEPCIONISTA',1),
+('GUEST',1)
+
+--Ver si vale la pena aceptar en todos los campos nulos, para no tener que completar todos los datos en este insert.					   
+INSERT INTO LOS_MAGIOS.USUARIOS(USUARIO,NOMBRE,CONTRASENA, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_DE_NACIMIENTO,TIPO_IDENTIFICACION, IDENTIFICACION) VALUES
+('admin','admin',HASHBYTES('SHA2_256','admin'), 'admin', 'admin@admin.com', '48638459', 'Admin 458 9D', DATEFROMPARTS (1993,03,14), 1, 0),
+
+('guest','',HASHBYTES('SHA2_256','0'), '', '', '', '', DATEFROMPARTS (1993,03,14), 1, 1);					   
+
+INSERT INTO LOS_MAGIOS.ROLES_POR_USUARIO(USUARIO,ID_ROL) VALUES
+('admin',1),	
+
+('guest', 3);
+GO
+
+INSERT INTO LOS_MAGIOS.FUNCIONALIDADES(DESCRIPCION) VALUES
+('ABM Clientes'),
+('ABM Hoteles'),
+('ABM Rol'),
+('ABM Usuario'),
+('Cancelar reserva'),
+('Generar Reserva'),
+('Modificar Reserva'),
+('Listado estadistico'),
+('Registrar consumible'),
+('Registrar estadia'),
+('Facturar estadia');
+
+INSERT INTO LOS_MAGIOS.FUNCIONALIDADES_POR_ROL(ID_ROL,ID_FUNCIONALIDAD) VALUES
+(1,1),
+(1,2),
+(1,3),
+(1,4),
+(1,5),
+(1,6),
+(1,7),
+(1,8),
+(1,9),
+(1,10),
+(1,11),
+(2,1),
+(3,5),
+(3,6),
+(3,7);
+
 -- ## INSERT TABLA REGIMENES
 INSERT INTO LOS_MAGIOS.REGIMENES(DESCRIPCION, PRECIO_DOLARES)
 SELECT DISTINCT Regimen_Descripcion, Regimen_Precio
@@ -287,9 +354,6 @@ SELECT DISTINCT Reserva_Codigo,Habitacion_Numero, ID_HOTEL
 FROM gd_esquema.Maestra JOIN LOS_MAGIOS.HOTELES ON LTRIM(RTRIM(Hotel_Calle)) + ' ' + LTRIM(RTRIM(STR(Hotel_Nro_Calle))) = DIRECCION
 ORDER BY Reserva_Codigo
 
-
-INSERT INTO LOS_MAGIOS.TIPOS_IDENTIFICACION(DESCRIPCION) VALUES('Pasaporte');
-
 INSERT INTO LOS_MAGIOS.CLIENTES(IDENTIFICACION, TIPO_IDENTIFICACION, APELLIDO, NOMBRE, FECHA_NACIMIENTO, NACIONALIDAD, MAIL, DIRECCION) (
 SELECT DISTINCT Cliente_Pasaporte_Nro, 1, Cliente_Apellido, Cliente_Nombre, Cliente_Fecha_Nac, Cliente_Nacionalidad, Cliente_Mail, Cliente_Dom_Calle + ' ' + STR(Cliente_Nro_Calle) + ' ' + STR(Cliente_Piso) + ' ' + Cliente_Depto
 FROM gd_esquema.Maestra
@@ -340,54 +404,7 @@ SELECT DISTINCT Reserva_Codigo, CODIGO_CLIENTE
 FROM gd_esquema.Maestra JOIN LOS_MAGIOS.CLIENTES ON (IDENTIFICACION = Cliente_Pasaporte_Nro AND (Cliente_Apellido + 
 			Cliente_Nombre) = (APELLIDO + NOMBRE ))
 
-INSERT INTO LOS_MAGIOS.ROLES(NOMBRE,ESTADO) VALUES
-('ADMINISTRADOR',1),
-('RECEPCIONISTA',1),
-('GUEST',1)
-
---Ver si vale la pena aceptar en todos los campos nulos, para no tener que completar todos los datos en este insert.					   
-INSERT INTO LOS_MAGIOS.USUARIOS(USUARIO,NOMBRE,CONTRASENA, APELLIDO, MAIL, TELEFONO, DIRECCION, FECHA_DE_NACIMIENTO,TIPO_IDENTIFICACION, IDENTIFICACION) VALUES
-('admin','admin',HASHBYTES('SHA2_256','admin'), 'admin', 'admin@admin.com', '48638459', 'Admin 458 9D', DATEFROMPARTS (1993,03,14), 1, 0),
-
-('guest','',HASHBYTES('SHA2_256','0'), '', '', '', '', DATEFROMPARTS (1993,03,14), 1, 1);					   
-
-INSERT INTO LOS_MAGIOS.ROLES_POR_USUARIO(USUARIO,ID_ROL) VALUES
-('admin',1),	
-
-('guest', 3);
 GO
-
-INSERT INTO LOS_MAGIOS.FUNCIONALIDADES(DESCRIPCION) VALUES
-('ABM Clientes'),
-('ABM Hoteles'),
-('ABM Rol'),
-('ABM Usuario'),
-('Cancelar reserva'),
-('Generar Reserva'),
-('Modificar Reserva'),
-('Listado estadistico'),
-('Registrar consumible'),
-('Registrar estadia'),
-('Facturar estadia');
-
-INSERT INTO LOS_MAGIOS.FUNCIONALIDADES_POR_ROL(ID_ROL,ID_FUNCIONALIDAD) VALUES
-(1,1),
-(1,2),
-(1,3),
-(1,4),
-(1,5),
-(1,6),
-(1,7),
-(1,8),
-(1,9),
-(1,10),
-(1,11),
-(2,1),
-(3,5),
-(3,6),
-(3,7);
-GO
-
 CREATE FUNCTION LOS_MAGIOS.INCREMENTO_POR_ESTRELLAS(@ESTRELLAS INT) 
 RETURNS INTEGER
 AS BEGIN

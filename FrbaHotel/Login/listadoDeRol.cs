@@ -41,7 +41,7 @@ namespace FrbaHotel.Login
             Program.sesion.setRol(cmbListaRoles.Text);
             Program.sesion.setIdRol((Int32)cmbListaRoles.SelectedValue);
            
-            ventanaAdmin nuevaVentanaAdmin = new ventanaAdmin();
+            ventanaAdmin nuevaVentanaAdmin = new ventanaAdmin("A");
             //COMO HAGO QUE CARGUE LOS BOTONES SEGUN EL ROL????????
             //LA IDEA ES PASAR EN EL CONSTRUCTOR PARA QUE SE CARGUE, ADEMAS DEL NOMBRE DE HOTEL
             this.Hide();

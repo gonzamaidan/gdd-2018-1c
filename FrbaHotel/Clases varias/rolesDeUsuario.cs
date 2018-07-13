@@ -84,7 +84,7 @@ namespace FrbaHotel
           
             DataTable Tabla = new DataTable();
             comando.Connection = unaConexion.abrirConexion();
-            comando.CommandText = "SELECT A.ID_ROL AS 'ID_ROL', A.NOMBRE AS 'NOMBRE' FROM LOS_MAGIOS.ROLES A INNER JOIN LOS_MAGIOS.ROLES_POR_USUARIO B ON A.ID_ROL = B.ID_ROL INNER JOIN LOS_MAGIOS.USUARIOS C ON B.USUARIO = C.USUARIO WHERE C.NOMBRE ="+usuario;
+            comando.CommandText = "SELECT A.ID_ROL AS 'ID_ROL', A.NOMBRE AS 'NOMBRE' FROM LOS_MAGIOS.ROLES A INNER JOIN LOS_MAGIOS.ROLES_POR_USUARIO B ON A.ID_ROL = B.ID_ROL INNER JOIN LOS_MAGIOS.USUARIOS C ON B.USUARIO = C.USUARIO WHERE C.NOMBRE = '"+usuario + "'";
             LeerFilas = comando.ExecuteReader();
             Tabla.Load(LeerFilas);
             LeerFilas.Close();

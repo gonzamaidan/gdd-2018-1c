@@ -39,7 +39,8 @@ namespace FrbaHotel.Login
             if (loguear.Read()==true)
             {
                 Program.sesion.setUsuario(txtUsuario.Text);
-                if(objRolUsuario.contarRolesSegunUsuario(txtUsuario.Text) == 1)
+                Int32 cantidadRoles = objRolUsuario.contarRolesSegunUsuario(txtUsuario.Text);
+                if(cantidadRoles == 1)
                 {
                     int unRol = 0;
                     string rol;
@@ -53,7 +54,7 @@ namespace FrbaHotel.Login
                     this.Close();
                     
                 }
-                else if(objRolUsuario.contarRolesSegunUsuario(txtUsuario.Text) >= 2)
+                else if(cantidadRoles >= 2)
                 {
                     //lo mando a la ventana para que elija que rol quiere elegir
 
@@ -61,8 +62,10 @@ namespace FrbaHotel.Login
                     this.Hide();
                     nuevaVentanaListadoDeRol.Show();
                     this.Close();
-                    
+
                 }
+                else MessageBox.Show("El usuario no tiene ningun rol"); 
+
             }
             else if (intentos < 2) 
             {
