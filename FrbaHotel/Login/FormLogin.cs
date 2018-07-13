@@ -15,6 +15,8 @@ namespace FrbaHotel.Login
     public partial class FormLogin : Form
     {
         int intentos = 0;
+        string unHotelLogueado;
+        int unIdHoteLogueado;
         public FormLogin()
         {
             InitializeComponent();
@@ -41,9 +43,11 @@ namespace FrbaHotel.Login
                 {
                     int unRol = 0;
                     string rol;
-                    Program.sesion.setIdRol(objRolUsuario.encontrarRolSegunUsuario(txtUsuario.Text,unRol, out rol));
+                    Program.sesion.setIdRol(objRolUsuario.encontrarRolSegunUsuario(txtUsuario.Text,unRol, out rol, ref unHotelLogueado, ref unIdHoteLogueado));
                     Program.sesion.setRol(rol);
-                    ventanaAdmin nuevaVentanaAdmin = new ventanaAdmin();
+                    //COMO HAGO PARA QUE LA VENTANA CARGUE DIRECTAMENTE LOS BOTONES SEGUN EL ROL?????
+                    //LA IDEA ES PASAR EN EL CONSTRUCTOR PARA QUE SE CARGUE
+                    ventanaAdmin nuevaVentanaAdmin = new ventanaAdmin(unHotelLogueado); 
                     this.Hide();
                     nuevaVentanaAdmin.Show();
                     this.Close();
@@ -53,7 +57,7 @@ namespace FrbaHotel.Login
                 {
                     //lo mando a la ventana para que elija que rol quiere elegir
 
-                    listadoDeRol nuevaVentanaListadoDeRol = new listadoDeRol();
+                    listadoDeRol nuevaVentanaListadoDeRol = new listadoDeRol(txtUsuario.Text);
                     this.Hide();
                     nuevaVentanaListadoDeRol.Show();
                     this.Close();

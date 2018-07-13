@@ -30,7 +30,7 @@ namespace FrbaHotel
         {
             DataTable Tabla = new DataTable();
             comando.Connection = unaConexion.abrirConexion();
-            comando.CommandText = "SELECT A.USUARIO,B.ID_ROL FROM LOS_MAGIOS.USUARIOS A INNER JOIN LOS_MAGIOS.ROLES_POR_USUARIO B ON A.USUARIO = B.USUARIO  WHERE A.USUARIO ='"+ user+"'";
+            comando.CommandText = "SELECT A.USUARIO,B.ID_ROL,D.ID_HOTEL FROM LOS_MAGIOS.USUARIOS A INNER JOIN LOS_MAGIOS.ROLES_POR_USUARIO B ON A.USUARIO = B.USUARIO INNER JOIN LOS_MAGIOS.HOTELES_POR_USUARIO C ON B.USUARIO = C.USUARIO INNER JOIN LOS_MAGIOS.HOTELES D ON C.ID_HOTEL = D.ID_HOTEL  WHERE A.USUARIO ='"+ user+"'";
             LeerFilas = comando.ExecuteReader();
             Tabla.Load(LeerFilas);
             LeerFilas.Close();
@@ -38,11 +38,11 @@ namespace FrbaHotel
             return Tabla.Rows.Count;
         }
 
-        public int encontrarRolSegunUsuario(string user, int unRol, out String nombreRol)
+        public int encontrarRolSegunUsuario(string user, int unRol, out String nombreRol,ref string hotelLogueado,ref int idHotelLogueado)
         {
             DataTable Tabla = new DataTable();
             comando.Connection = unaConexion.abrirConexion();
-            comando.CommandText = "SELECT RU.USUARIO, R.ID_ROL, R.NOMBRE FROM LOS_MAGIOS.ROLES R JOIN LOS_MAGIOS.ROLES_POR_USUARIO RU ON R.ID_ROL = RU.ID_ROL WHERE R.ESTADO = 1 AND RU.USUARIO ='" + user + "'";
+            comando.CommandText = "SELECT RU.USUARIO, R.ID_ROL, R.NOMBRE, HO.NOMBRE AS 'NOMBRE_HOTEL', HO.ID_HOTEL AS 'ID_HOTEL' FROM LOS_MAGIOS.ROLES R JOIN LOS_MAGIOS.ROLES_POR_USUARIO RU ON R.ID_ROL = RU.ID_ROL INNER JOIN LOS_MAGIOS.USUARIOS US ON US.USUARIO=RU.USUARIO INNER JOIN LOS_MAGIOS.HOTELES_POR_USUARIOS HPU ON HPU.USUARIO = US.USUARIO INNER JOIN LOS_MAGIOS.HOTELES HO ON HPU.ID_HOTEL = HO.ID_HOTEL  WHERE R.ESTADO = 1 AND RU.USUARIO ='" + user + "'";
             LeerFilas = comando.ExecuteReader();
             Tabla.Load(LeerFilas);
             LeerFilas.Close();
@@ -54,15 +54,37 @@ namespace FrbaHotel
                 from DataRow dr in Tabla.Rows
                 where (string)dr["USUARIO"] == user
                 select (string)dr["NOMBRE"]).FirstOrDefault();
+            hotelLogueado = (
+                from DataRow dr in Tabla.Rows
+                where (string)dr["USUARIO"] == user
+                select (string)dr["NOMBRE_HOTEL"]).FirstOrDefault();
+            idHotelLogueado = (
+                from DataRow dr in Tabla.Rows
+                where (string)dr["USUARIO"] == user
+                select (int)dr["ID_HOTEL"]).FirstOrDefault();          
+
             return unRol;
         }
 
-        public DataTable listarRoles() 
+        public DataTable listarRoles()
+        {
+
+            DataTable Tabla = new DataTable();
+            comando.Connection = unaConexion.abrirConexion();
+            comando.CommandText = "SELECT * FROM LOS_MAGIOS.ROLES WHERE NOMBRE  != 'GUEST' OR NOMBRE != 'HUESPED' ";
+            LeerFilas = comando.ExecuteReader();
+            Tabla.Load(LeerFilas);
+            LeerFilas.Close();
+            unaConexion.cerrarConexion();
+            return Tabla;
+        }
+
+        public DataTable listarRoles(string usuario) 
         {
           
             DataTable Tabla = new DataTable();
             comando.Connection = unaConexion.abrirConexion();
-            comando.CommandText = "SELECT * FROM LOS_MAGIOS.ROLES WHERE NOMBRE != 'GUEST' OR NOMBRE != 'guest' OR NOMBRE != 'HUESPED' OR NOMBRE != 'huesped' ";
+            comando.CommandText = "SELECT A.ID_ROL AS 'ID_ROL', A.NOMBRE AS 'NOMBRE' FROM LOS_MAGIOS.ROLES A INNER JOIN LOS_MAGIOS.ROLES_POR_USUARIO B ON A.ID_ROL = B.ID_ROL INNER JOIN LOS_MAGIOS.USUARIOS C ON B.USUARIO = C.USUARIO WHERE C.NOMBRE ="+usuario;
             LeerFilas = comando.ExecuteReader();
             Tabla.Load(LeerFilas);
             LeerFilas.Close();

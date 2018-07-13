@@ -40,11 +40,13 @@
             this.btnFacturarEstadia = new System.Windows.Forms.Button();
             this.btnRegistrarConsumible = new System.Windows.Forms.Button();
             this.btnListadoUsuarios = new System.Windows.Forms.Button();
+            this.txtBoxHotelLogueado = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listadoClientesBtn
             // 
-            this.listadoClientesBtn.Location = new System.Drawing.Point(50, 34);
+            this.listadoClientesBtn.Location = new System.Drawing.Point(44, 55);
             this.listadoClientesBtn.Name = "listadoClientesBtn";
             this.listadoClientesBtn.Size = new System.Drawing.Size(148, 23);
             this.listadoClientesBtn.TabIndex = 0;
@@ -54,7 +56,7 @@
             // 
             // btnGenerarReserva
             // 
-            this.btnGenerarReserva.Location = new System.Drawing.Point(233, 34);
+            this.btnGenerarReserva.Location = new System.Drawing.Point(227, 55);
             this.btnGenerarReserva.Name = "btnGenerarReserva";
             this.btnGenerarReserva.Size = new System.Drawing.Size(150, 23);
             this.btnGenerarReserva.TabIndex = 1;
@@ -64,7 +66,7 @@
             // 
             // btnListadoEstadistico
             // 
-            this.btnListadoEstadistico.Location = new System.Drawing.Point(50, 121);
+            this.btnListadoEstadistico.Location = new System.Drawing.Point(44, 142);
             this.btnListadoEstadistico.Name = "btnListadoEstadistico";
             this.btnListadoEstadistico.Size = new System.Drawing.Size(148, 23);
             this.btnListadoEstadistico.TabIndex = 2;
@@ -74,7 +76,7 @@
             // 
             // listadoHotelesBtn
             // 
-            this.listadoHotelesBtn.Location = new System.Drawing.Point(50, 78);
+            this.listadoHotelesBtn.Location = new System.Drawing.Point(44, 99);
             this.listadoHotelesBtn.Name = "listadoHotelesBtn";
             this.listadoHotelesBtn.Size = new System.Drawing.Size(148, 23);
             this.listadoHotelesBtn.TabIndex = 3;
@@ -84,7 +86,7 @@
             // 
             // btnModificarReserva
             // 
-            this.btnModificarReserva.Location = new System.Drawing.Point(233, 78);
+            this.btnModificarReserva.Location = new System.Drawing.Point(227, 99);
             this.btnModificarReserva.Name = "btnModificarReserva";
             this.btnModificarReserva.Size = new System.Drawing.Size(150, 23);
             this.btnModificarReserva.TabIndex = 4;
@@ -94,7 +96,7 @@
             // 
             // btnCancelarReserva
             // 
-            this.btnCancelarReserva.Location = new System.Drawing.Point(233, 121);
+            this.btnCancelarReserva.Location = new System.Drawing.Point(227, 142);
             this.btnCancelarReserva.Name = "btnCancelarReserva";
             this.btnCancelarReserva.Size = new System.Drawing.Size(150, 23);
             this.btnCancelarReserva.TabIndex = 5;
@@ -104,7 +106,7 @@
             // 
             // btnListadoRoles
             // 
-            this.btnListadoRoles.Location = new System.Drawing.Point(50, 162);
+            this.btnListadoRoles.Location = new System.Drawing.Point(44, 183);
             this.btnListadoRoles.Name = "btnListadoRoles";
             this.btnListadoRoles.Size = new System.Drawing.Size(148, 23);
             this.btnListadoRoles.TabIndex = 6;
@@ -114,7 +116,7 @@
             // 
             // btnRegistrarEstadia
             // 
-            this.btnRegistrarEstadia.Location = new System.Drawing.Point(233, 162);
+            this.btnRegistrarEstadia.Location = new System.Drawing.Point(227, 183);
             this.btnRegistrarEstadia.Name = "btnRegistrarEstadia";
             this.btnRegistrarEstadia.Size = new System.Drawing.Size(150, 23);
             this.btnRegistrarEstadia.TabIndex = 7;
@@ -134,7 +136,7 @@
             // 
             // btnFacturarEstadia
             // 
-            this.btnFacturarEstadia.Location = new System.Drawing.Point(233, 248);
+            this.btnFacturarEstadia.Location = new System.Drawing.Point(227, 269);
             this.btnFacturarEstadia.Name = "btnFacturarEstadia";
             this.btnFacturarEstadia.Size = new System.Drawing.Size(150, 23);
             this.btnFacturarEstadia.TabIndex = 12;
@@ -144,7 +146,7 @@
             // 
             // btnRegistrarConsumible
             // 
-            this.btnRegistrarConsumible.Location = new System.Drawing.Point(233, 204);
+            this.btnRegistrarConsumible.Location = new System.Drawing.Point(227, 225);
             this.btnRegistrarConsumible.Name = "btnRegistrarConsumible";
             this.btnRegistrarConsumible.Size = new System.Drawing.Size(150, 23);
             this.btnRegistrarConsumible.TabIndex = 13;
@@ -155,7 +157,7 @@
             // 
             // btnListadoUsuarios
             // 
-            this.btnListadoUsuarios.Location = new System.Drawing.Point(50, 204);
+            this.btnListadoUsuarios.Location = new System.Drawing.Point(44, 225);
             this.btnListadoUsuarios.Name = "btnListadoUsuarios";
             this.btnListadoUsuarios.Size = new System.Drawing.Size(148, 23);
             this.btnListadoUsuarios.TabIndex = 14;
@@ -163,11 +165,30 @@
             this.btnListadoUsuarios.UseVisualStyleBackColor = true;
             this.btnListadoUsuarios.Click += new System.EventHandler(this.btnListadoUsuarios_Click);
             // 
+            // txtBoxHotelLogueado
+            // 
+            this.txtBoxHotelLogueado.Location = new System.Drawing.Point(179, 5);
+            this.txtBoxHotelLogueado.Name = "txtBoxHotelLogueado";
+            this.txtBoxHotelLogueado.ReadOnly = true;
+            this.txtBoxHotelLogueado.Size = new System.Drawing.Size(198, 20);
+            this.txtBoxHotelLogueado.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Usted se encuentra logueado en:";
+            // 
             // ventanaAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 349);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtBoxHotelLogueado);
             this.Controls.Add(this.btnListadoUsuarios);
             this.Controls.Add(this.btnRegistrarConsumible);
             this.Controls.Add(this.btnFacturarEstadia);
@@ -184,6 +205,7 @@
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.ventanaAdmin_Load_1);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -201,5 +223,7 @@
         private System.Windows.Forms.Button btnFacturarEstadia;
         private System.Windows.Forms.Button btnRegistrarConsumible;
         private System.Windows.Forms.Button btnListadoUsuarios;
+        private System.Windows.Forms.TextBox txtBoxHotelLogueado;
+        private System.Windows.Forms.Label label1;
     }
 }

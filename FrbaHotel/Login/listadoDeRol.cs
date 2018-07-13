@@ -13,8 +13,11 @@ namespace FrbaHotel.Login
 {
     public partial class listadoDeRol : Form
     {
-        public listadoDeRol()
+        string unUsuario;
+      
+        public listadoDeRol(string usuario)
         {
+            unUsuario = usuario;
             InitializeComponent();
         }
 
@@ -27,7 +30,7 @@ namespace FrbaHotel.Login
         {
 
             rolesDeUsuario objRoles = new rolesDeUsuario();
-            cmbListaRoles.DataSource = objRoles.listarRoles();
+            cmbListaRoles.DataSource = objRoles.listarRoles(unUsuario);
             cmbListaRoles.DisplayMember = "NOMBRE";
             cmbListaRoles.ValueMember = "ID_ROL";
 
@@ -39,6 +42,8 @@ namespace FrbaHotel.Login
             Program.sesion.setIdRol((Int32)cmbListaRoles.SelectedValue);
            
             ventanaAdmin nuevaVentanaAdmin = new ventanaAdmin();
+            //COMO HAGO QUE CARGUE LOS BOTONES SEGUN EL ROL????????
+            //LA IDEA ES PASAR EN EL CONSTRUCTOR PARA QUE SE CARGUE, ADEMAS DEL NOMBRE DE HOTEL
             this.Hide();
             this.Close();
             

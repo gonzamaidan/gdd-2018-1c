@@ -23,7 +23,7 @@ namespace FrbaHotel.Login
         private static Int32 REGISTRAR_CONSUMIBLE = 9;
         private static Int32 REGISTRAR_ESTADIA = 10;
         private static Int32 FACTURAR_ESTADIA = 11;
-        public ventanaAdmin()
+        public ventanaAdmin(string unHotelLogueado)
         {
             InitializeComponent();
             listadoClientesBtn.Enabled = Program.sesion.getFuncionalidades().Contains(ABM_CLIENTES);
@@ -38,7 +38,7 @@ namespace FrbaHotel.Login
             btnRegistrarEstadia.Enabled = Program.sesion.getFuncionalidades().Contains(REGISTRAR_ESTADIA);
             btnRegistrarConsumible.Enabled = Program.sesion.getFuncionalidades().Contains(REGISTRAR_CONSUMIBLE);
             btnFacturarEstadia.Enabled = Program.sesion.getFuncionalidades().Contains(FACTURAR_ESTADIA);
-
+            txtBoxHotelLogueado.Text = unHotelLogueado;
         }
 
         private void listadoCliente_Click(object sender, EventArgs e)
