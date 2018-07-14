@@ -162,5 +162,10 @@ namespace FrbaHotel.AbmRol
             nuevaVentanaFuncionalidades.Show();
         }
 
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
