@@ -1,4 +1,5 @@
 ﻿using FrbaHotel.GenerarModificacionReserva;
+using FrbaHotel.CancelarReserva;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -79,7 +80,6 @@ namespace FrbaHotel.RegistrarEstadia
             try
             {
                 this.baseDeDatos.Open();
-                //SqlCommand query = new SqlCommand("SELECT * FROM LOS_MAGIOS.RESERVAS WHERE CODIGO_RESERVA = @codReserva AND FECHA_DESDE = '2017-07-05'", baseDeDatos);
                 SqlCommand query = new SqlCommand("SELECT CODIGO_RESERVA, FECHA_DESDE FROM LOS_MAGIOS.RESERVAS WHERE CODIGO_RESERVA = @codReserva AND FECHA_DESDE <= @fecha AND FECHA_HASTA>= @fecha AND (ID_ESTADO_RESERVA=1 OR ID_ESTADO_RESERVA=2)", baseDeDatos);
                 query.Parameters.Add("@codReserva", SqlDbType.Int);
                 query.Parameters["@codReserva"].Value = this.textBox1.Text;
@@ -93,10 +93,13 @@ namespace FrbaHotel.RegistrarEstadia
                 {
                     reader.Close();
                     nuevaEstadia(reserva);
+                    this.baseDeDatos.Close();
                 }
                 else
                 {
-                    //TODO redireccionar a cancelarReserva
+                    this.baseDeDatos.Close();
+                    MessageBox.Show("La fecha de ingreso no corresponde a la fecha actual. Se procede a cancelar la reserva...");
+                    new CancelarReserva.CancelarReserva().ShowDialog();
                     DialogResult dialogResult = MessageBox.Show("La reserva fue cancelada. Desea generar una nueva reserva?", "Atencion", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
@@ -107,6 +110,7 @@ namespace FrbaHotel.RegistrarEstadia
             }
             catch (Exception exc)
             {
+                this.baseDeDatos.Close();
                 Console.WriteLine(exc.Message + " " + exc.StackTrace);
                 DialogResult dialogResult = MessageBox.Show("El numero de reserva no es correcto o la reserva fue cancelada. Desea generar una nueva reserva?", "Atencion", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
@@ -115,17 +119,12 @@ namespace FrbaHotel.RegistrarEstadia
                 }
                
             }
-            finally
-            {
-                this.baseDeDatos.Close();
-            }
+
         }
 
         
         private void nuevaEstadia(int reserva)
         {
-            try
-            {
                 SqlCommand queryNuevaEstadia = new SqlCommand("INSERT INTO LOS_MAGIOS.ESTADIAS(CODIGO_RESERVA, FECHA_INGRESO) VALUES (@codReserva, @ingreso)", baseDeDatos);
                 //SqlCommand queryNuevaEstadia = new SqlCommand("INSERT INTO LOS_MAGIOS.ESTADIAS(CODIGO_RESERVA, FECHA_INGRESO) VALUES (999999, @ingreso)", baseDeDatos);
                 
@@ -135,13 +134,6 @@ namespace FrbaHotel.RegistrarEstadia
                 queryNuevaEstadia.Parameters["@ingreso"].Value = Program.fechaHoy;
                 queryNuevaEstadia.ExecuteNonQuery();
                 MessageBox.Show("Estadia registrada con exito!");
-            }
-            catch (SqlException exc)
-            {
-                Console.WriteLine(exc.Message + " " + exc.StackTrace);
-                MessageBox.Show("No se pudo registar la estadia. Intente nuevamente");
-            }
-  
         }
 
         private void registrarEgreso(int numeroReserva)
