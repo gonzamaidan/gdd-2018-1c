@@ -19,8 +19,8 @@ namespace FrbaHotel.Clases_varias
         public string ajustarFecha(string anio,int trimestre)
         {
             if (trimestre == 1) { return " BETWEEN '" + anio + "-01-01' AND '" + anio + "-03-31'"; }
-            if (trimestre == 2) { return " BETWEEN '" + anio + "-04-01' AND '" + anio + "-06-31'"; }
-            if (trimestre == 3) { return " BETWEEN '" + anio + "-07-01' AND '" + anio + "-09-31'"; }
+            if (trimestre == 2) { return " BETWEEN '" + anio + "-04-01' AND '" + anio + "-06-30'"; }
+            if (trimestre == 3) { return " BETWEEN '" + anio + "-07-01' AND '" + anio + "-09-30'"; }
             if (trimestre == 4) { return " BETWEEN '" + anio + "-10-01' AND '" + anio + "-12-31'"; }
             else { return "error"; }
         }
@@ -47,7 +47,8 @@ namespace FrbaHotel.Clases_varias
             fecha = ajustarFecha(anio, trimestre);
             DataTable Tabla = new DataTable();
             comando.Connection = unaConexion.abrirConexion();
-            comando.CommandText = "SELECT TOP 5 A.NOMBRE,COUNT(F.ID_ITEM_FACTURA) AS CONTADOR FROM LOS_MAGIOS.HOTELES A INNER JOIN LOS_MAGIOS.HABITACIONES B ON A.ID_HOTEL=B.ID_HOTEL INNER JOIN LOS_MAGIOS.HABITACIONES_POR_RESERVA C ON B.NUMERO_HABITACION=C.NUMERO_HABITACION AND B.ID_HOTEL=C.ID_HOTEL INNER JOIN LOS_MAGIOS.RESERVAS D ON C.CODIGO_RESERVA=D.CODIGO_RESERVA INNER JOIN LOS_MAGIOS.FACTURA E ON D.CODIGO_RESERVA = E.CODIGO_RESERVA INNER JOIN LOS_MAGIOS.ITEM_FACTURA F ON E.NUMERO_FACTURA=F.NUMERO_FACTURA INNER JOIN LOS_MAGIOS.CONSUMIBLES G ON F.CODIGO_CONSUMIBLE=G.CODIGO_CONSUMIBLE WHERE E.FECHA_FACTURA"+fecha+" GROUP BY A.NOMBRE ORDER BY CONTADOR ASC";
+            comando.CommandText = "SELECT TOP 5 A.NOMBRE,COUNT(F.ID_ITEM_FACTURA) AS CONTADOR FROM LOS_MAGIOS.HOTELES A INNER JOIN LOS_MAGIOS.HABITACIONES B ON A.ID_HOTEL=B.ID_HOTEL INNER JOIN LOS_MAGIOS.HABITACIONES_POR_RESERVA C ON B.NUMERO_HABITACION=C.NUMERO_HABITACION AND B.ID_HOTEL=C.ID_HOTEL INNER JOIN LOS_MAGIOS.RESERVAS D ON C.CODIGO_RESERVA=D.CODIGO_RESERVA INNER JOIN LOS_MAGIOS.FACTURA E ON D.CODIGO_RESERVA = E.CODIGO_RESERVA INNER JOIN LOS_MAGIOS.ITEM_FACTURA F ON E.NUMERO_FACTURA=F.NUMERO_FACTURA INNER JOIN LOS_MAGIOS.CONSUMIBLES G ON F.CODIGO_CONSUMIBLE=G.CODIGO_CONSUMIBLE WHERE E.FECHA_FACTURA@fecha GROUP BY A.NOMBRE ORDER BY CONTADOR ASC";
+            comando.Parameters.AddWithValue("@fecha", DateTime.Now.Date);
             LeerFilas = comando.ExecuteReader();
             Tabla.Load(LeerFilas);
             LeerFilas.Close();
