@@ -196,5 +196,24 @@ namespace FrbaHotel.AbmUsuario
             this.Hide();
             this.Close();
         }
+
+        private void salirBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+        }
+
+        private void limpiarBtn_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is TextBox)
+                {
+                    TextBox textBox = c as TextBox;
+                    textBox.Text = "";
+                }
+                this.dataGridView1.DataSource = null;
+            }
+        }
     }
 }

@@ -402,5 +402,28 @@ namespace FrbaHotel.AbmUsuario
             }
 
         }
+
+        private void limpiarBtn_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is TextBox)
+                {
+                    TextBox textBox = c as TextBox;
+                    if(c !=  this.usuarioTB || !this.flagEdicion)
+                        textBox.Text = "";
+                }
+            }
+            for (int i = 0; i < hotelesCLB.Items.Count; i++)
+            {
+                hotelesCLB.SetItemChecked(i, false);
+            }
+        }
+
+        private void salirBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+        }
     }
 }
