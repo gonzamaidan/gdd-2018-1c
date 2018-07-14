@@ -109,6 +109,7 @@ namespace FrbaHotel.GenerarModificacionReserva
         }
         private void botonBuscarDisponibilidad_Click(object sender, EventArgs e)
         {
+            validarNoShow();
             this.conRegimen = this.checkBox1.Checked;
             this.cantidadPersonas = (int)this.numericUpDown1.Value;
             this.fechaDesdeSeleccionada = fechaDesde.Date;
@@ -171,6 +172,30 @@ namespace FrbaHotel.GenerarModificacionReserva
                 {
                     baseDeDatos.Close();
                 }
+        }
+
+        private void validarNoShow()
+        {
+            try
+            {
+                baseDeDatos.Open();
+                SqlCommand validarNoShowCmd = new SqlCommand("UPDATE LOS_MAGIOS.RESERVAS SET ID_ESTADO_RESERVA = 5 WHERE ID_ESTADO_RESERVA IN (1,2) AND FECHA_DESDE < @FechaHoy", baseDeDatos);
+                validarNoShowCmd.Parameters.Add("@FechaHoy", SqlDbType.Date);
+                validarNoShowCmd.Parameters["@FechaHoy"].Value = Program.fechaHoy;
+
+                int reservasCanceladas = validarNoShowCmd.ExecuteNonQuery();
+                if(reservasCanceladas > 0) MessageBox.Show("Se cancelaron por no-show " + reservasCanceladas + " reservas", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.StackTrace);
+                MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                baseDeDatos.Close();
+            }
         }
 
         private void regimenesComboBox_SelectedIndexChanged(object sender, EventArgs e)
