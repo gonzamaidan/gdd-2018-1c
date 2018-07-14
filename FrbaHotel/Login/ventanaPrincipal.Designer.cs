@@ -32,6 +32,7 @@
             this.btnModificarReserva = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.cancelarReserva = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGenerarReserva
@@ -56,7 +57,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(53, 116);
+            this.btnLogin.Location = new System.Drawing.Point(53, 163);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(183, 41);
             this.btnLogin.TabIndex = 2;
@@ -74,11 +75,22 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // cancelarReserva
+            // 
+            this.cancelarReserva.Location = new System.Drawing.Point(53, 116);
+            this.cancelarReserva.Name = "cancelarReserva";
+            this.cancelarReserva.Size = new System.Drawing.Size(183, 41);
+            this.cancelarReserva.TabIndex = 4;
+            this.cancelarReserva.Text = "Cancelar Reserva";
+            this.cancelarReserva.UseVisualStyleBackColor = true;
+            this.cancelarReserva.Click += new System.EventHandler(this.cancelarReserva_Click);
+            // 
             // ventanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.cancelarReserva);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnModificarReserva);
@@ -95,5 +107,6 @@
         private System.Windows.Forms.Button btnModificarReserva;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button cancelarReserva;
     }
 }

@@ -48,6 +48,8 @@
             this.mailTB = new System.Windows.Forms.TextBox();
             this.numeroIdTB = new System.Windows.Forms.TextBox();
             this.tipoIdCB = new System.Windows.Forms.ComboBox();
+            this.tIPOSIDENTIFICACIONBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD1C2018DataSet1 = new FrbaHotel.GD1C2018DataSet();
             this.rOLESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2018DataSet = new FrbaHotel.GD1C2018DataSet();
             this.rOLESTableAdapter = new FrbaHotel.GD1C2018DataSetTableAdapters.ROLESTableAdapter();
@@ -64,16 +66,15 @@
             this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.fillByToolStrip1 = new System.Windows.Forms.ToolStrip();
             this.fillByToolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.gD1C2018DataSet1 = new FrbaHotel.GD1C2018DataSet();
-            this.tIPOSIDENTIFICACIONBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tIPOS_IDENTIFICACIONTableAdapter = new FrbaHotel.GD1C2018DataSetTableAdapters.TIPOS_IDENTIFICACIONTableAdapter();
+            this.limpiarBtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rOLESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOTELESBindingSource)).BeginInit();
             this.fillByToolStrip.SuspendLayout();
             this.fillByToolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -235,6 +236,16 @@
             this.tipoIdCB.TabIndex = 18;
             this.tipoIdCB.ValueMember = "TIPO_IDENTIFICACION";
             // 
+            // tIPOSIDENTIFICACIONBindingSource
+            // 
+            this.tIPOSIDENTIFICACIONBindingSource.DataMember = "TIPOS_IDENTIFICACION";
+            this.tIPOSIDENTIFICACIONBindingSource.DataSource = this.gD1C2018DataSet1;
+            // 
+            // gD1C2018DataSet1
+            // 
+            this.gD1C2018DataSet1.DataSetName = "GD1C2018DataSet";
+            this.gD1C2018DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // rOLESBindingSource
             // 
             this.rOLESBindingSource.DataMember = "ROLES";
@@ -306,7 +317,7 @@
             // 
             // guardarBtn
             // 
-            this.guardarBtn.Location = new System.Drawing.Point(405, 405);
+            this.guardarBtn.Location = new System.Drawing.Point(37, 405);
             this.guardarBtn.Name = "guardarBtn";
             this.guardarBtn.Size = new System.Drawing.Size(75, 23);
             this.guardarBtn.TabIndex = 24;
@@ -316,12 +327,13 @@
             // 
             // salirBtn
             // 
-            this.salirBtn.Location = new System.Drawing.Point(145, 405);
+            this.salirBtn.Location = new System.Drawing.Point(451, 405);
             this.salirBtn.Name = "salirBtn";
             this.salirBtn.Size = new System.Drawing.Size(75, 23);
             this.salirBtn.TabIndex = 25;
             this.salirBtn.Text = "Salir";
             this.salirBtn.UseVisualStyleBackColor = true;
+            this.salirBtn.Click += new System.EventHandler(this.salirBtn_Click);
             // 
             // hOTELESTableAdapter
             // 
@@ -365,25 +377,26 @@
             this.fillByToolStripButton1.Text = "FillBy";
             this.fillByToolStripButton1.Click += new System.EventHandler(this.fillByToolStripButton1_Click);
             // 
-            // gD1C2018DataSet1
-            // 
-            this.gD1C2018DataSet1.DataSetName = "GD1C2018DataSet";
-            this.gD1C2018DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tIPOSIDENTIFICACIONBindingSource
-            // 
-            this.tIPOSIDENTIFICACIONBindingSource.DataMember = "TIPOS_IDENTIFICACION";
-            this.tIPOSIDENTIFICACIONBindingSource.DataSource = this.gD1C2018DataSet1;
-            // 
             // tIPOS_IDENTIFICACIONTableAdapter
             // 
             this.tIPOS_IDENTIFICACIONTableAdapter.ClearBeforeFill = true;
+            // 
+            // limpiarBtn
+            // 
+            this.limpiarBtn.Location = new System.Drawing.Point(262, 405);
+            this.limpiarBtn.Name = "limpiarBtn";
+            this.limpiarBtn.Size = new System.Drawing.Size(75, 23);
+            this.limpiarBtn.TabIndex = 28;
+            this.limpiarBtn.Text = "Limpiar";
+            this.limpiarBtn.UseVisualStyleBackColor = true;
+            this.limpiarBtn.Click += new System.EventHandler(this.limpiarBtn_Click);
             // 
             // AltaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 448);
+            this.Controls.Add(this.limpiarBtn);
             this.Controls.Add(this.fillByToolStrip1);
             this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.salirBtn);
@@ -415,6 +428,8 @@
             this.Name = "AltaForm";
             this.Text = "Alta usuario";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rOLESBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOTELESBindingSource)).EndInit();
@@ -422,8 +437,6 @@
             this.fillByToolStrip.PerformLayout();
             this.fillByToolStrip1.ResumeLayout(false);
             this.fillByToolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,5 +482,6 @@
         private GD1C2018DataSet gD1C2018DataSet1;
         private System.Windows.Forms.BindingSource tIPOSIDENTIFICACIONBindingSource;
         private GD1C2018DataSetTableAdapters.TIPOS_IDENTIFICACIONTableAdapter tIPOS_IDENTIFICACIONTableAdapter;
+        private System.Windows.Forms.Button limpiarBtn;
     }
 }

@@ -15,6 +15,7 @@ namespace FrbaHotel.Clases_varias
         private List<Int32> funcionalidades = new List<Int32>();
         private SqlConnection baseDeDatos;
         private Int32 idRol;
+        private Int32 idHotel;
 
         public Sesion(SqlConnection baseDeDatos)
         {
@@ -66,6 +67,15 @@ namespace FrbaHotel.Clases_varias
         public void setFuncionalidades(List<Int32> funcionalidades)
         {
             this.funcionalidades = funcionalidades;
+        }
+
+        public void setIdHotel(Int32 idHotel)
+        {
+            this.idHotel = idHotel;
+        }
+        public Int32 getIdHotel()
+        {
+            return this.idHotel;
         }
 
 

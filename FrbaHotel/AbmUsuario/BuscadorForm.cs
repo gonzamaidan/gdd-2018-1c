@@ -170,9 +170,11 @@ namespace FrbaHotel.AbmUsuario
             {
                 baseDeDatos.Open();
                 if (dataGridView1.SelectedRows.Count != 1) throw new Exception("Seleccione 1 usuario");
+                String usuario = dataGridView1.SelectedRows[0].Cells["USUARIO"].Value.ToString();
+                validarHotel(usuario);
                 SqlCommand eliminarUsuarioCmd = new SqlCommand("UPDATE LOS_MAGIOS.USUARIOS SET ESTADO = 0 WHERE USUARIO = @Usuario", baseDeDatos);
                 eliminarUsuarioCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
-                eliminarUsuarioCmd.Parameters["@Usuario"].Value = dataGridView1.SelectedRows[0].Cells["USUARIO"].Value;
+                eliminarUsuarioCmd.Parameters["@Usuario"].Value = usuario;
                 eliminarUsuarioCmd.ExecuteNonQuery();
                 MessageBox.Show("Usuario eliminado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.buscarBtn_Click(sender, e);
@@ -189,12 +191,41 @@ namespace FrbaHotel.AbmUsuario
             }
         }
 
+        private void validarHotel(string usuario)
+        {
+            SqlCommand validarHotelCmd = new SqlCommand("SELECT COUNT(*) FROM LOS_MAGIOS.HOTELES_POR_USUARIO WHERE ID_HOTEL = @IdHotel AND USUARIO = @Usuario", baseDeDatos);
+            validarHotelCmd.Parameters.Add("@IdHotel", SqlDbType.Int);
+            validarHotelCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
+            validarHotelCmd.Parameters["@IdHotel"].Value = Program.sesion.getIdHotel();
+            validarHotelCmd.Parameters["@Usuario"].Value = usuario;
+            if (((Int32)validarHotelCmd.ExecuteScalar()) == 0) throw new Exception("No se puede dar de baja un usuario que no trabaja en el hotel en el que se encuentra logueado");
+        }
+
         private void nuevoUsuario_Click(object sender, EventArgs e)
         {
             AltaForm ventana = new AltaForm();
             ventana.Show();
             this.Hide();
             this.Close();
+        }
+
+        private void salirBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+        }
+
+        private void limpiarBtn_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is TextBox)
+                {
+                    TextBox textBox = c as TextBox;
+                    textBox.Text = "";
+                }
+                this.dataGridView1.DataSource = null;
+            }
         }
     }
 }

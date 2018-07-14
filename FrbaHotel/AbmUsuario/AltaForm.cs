@@ -65,6 +65,9 @@ namespace FrbaHotel.AbmUsuario
             this.guardarBtn.Text = "Modificar";
             this.usuarioTB.Text = usuario;
             this.usuarioTB.Enabled = false;
+            this.passwordTB.Text = "A";
+            this.passwordTB.Enabled = false;
+            this.passwordTB.Visible = false;
 
         }
 
@@ -180,6 +183,7 @@ namespace FrbaHotel.AbmUsuario
                 }
                 else
                 {
+                    validarHotelUsuario();
                     SqlTransaction transaction = baseDeDatos.BeginTransaction("EditarUsuario");
                     try
                     {
@@ -217,6 +221,16 @@ namespace FrbaHotel.AbmUsuario
             }
             
 
+        }
+
+        private void validarHotelUsuario()
+        {
+            SqlCommand validarHotelCmd = new SqlCommand("SELECT COUNT(*) FROM LOS_MAGIOS.HOTELES_POR_USUARIO WHERE ID_HOTEL = @IdHotel AND USUARIO = @Usuario", baseDeDatos);
+            validarHotelCmd.Parameters.Add("@IdHotel", SqlDbType.Int);
+            validarHotelCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
+            validarHotelCmd.Parameters["@IdHotel"].Value = Program.sesion.getIdHotel();
+            validarHotelCmd.Parameters["@Usuario"].Value = usuarioAModificar;
+            if (((Int32) validarHotelCmd.ExecuteScalar()) == 0) throw new Exception("No se puede editar un usuario que no trabaja en el hotel en el que se encuentra logueado");
         }
 
         private void validarDatosNumericos()
@@ -298,10 +312,10 @@ namespace FrbaHotel.AbmUsuario
         private void editarUsuario(SqlTransaction transaction)
         {
 
-            SqlCommand editarUsuarioCmd = new SqlCommand("UPDATE LOS_MAGIOS.USUARIOS SET CONTRASENA = HASHBYTES('SHA2_256', @Contrasena), NOMBRE = @Nombre, APELLIDO = @Apellido, MAIL = @Mail, TELEFONO = @Telefono, " +
+            SqlCommand editarUsuarioCmd = new SqlCommand("UPDATE LOS_MAGIOS.USUARIOS SET NOMBRE = @Nombre, APELLIDO = @Apellido, MAIL = @Mail, TELEFONO = @Telefono, " +
                                                         "DIRECCION = @Direccion, FECHA_DE_NACIMIENTO = @FechaNac, IDENTIFICACION = @Identificacion, TIPO_IDENTIFICACION = @TipoIdentificacion WHERE USUARIO = @Usuario", baseDeDatos);
             editarUsuarioCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
-            editarUsuarioCmd.Parameters.Add("@Contrasena", SqlDbType.VarChar);
+            
             editarUsuarioCmd.Parameters.Add("@Nombre", SqlDbType.VarChar);
             editarUsuarioCmd.Parameters.Add("@Apellido", SqlDbType.VarChar);
             editarUsuarioCmd.Parameters.Add("@Mail", SqlDbType.VarChar);
@@ -313,7 +327,7 @@ namespace FrbaHotel.AbmUsuario
 
 
             editarUsuarioCmd.Parameters["@Usuario"].Value = usuarioAModificar;
-            editarUsuarioCmd.Parameters["@Contrasena"].Value = passwordTB.Text;
+            
             editarUsuarioCmd.Parameters["@Nombre"].Value = nombreTB.Text;
             editarUsuarioCmd.Parameters["@Apellido"].Value = apellidoTB.Text;
             editarUsuarioCmd.Parameters["@Mail"].Value = mailTB.Text;
@@ -401,6 +415,29 @@ namespace FrbaHotel.AbmUsuario
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void limpiarBtn_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is TextBox)
+                {
+                    TextBox textBox = c as TextBox;
+                    if(c !=  this.usuarioTB || !this.flagEdicion)
+                        textBox.Text = "";
+                }
+            }
+            for (int i = 0; i < hotelesCLB.Items.Count; i++)
+            {
+                hotelesCLB.SetItemChecked(i, false);
+            }
+        }
+
+        private void salirBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
         }
     }
 }

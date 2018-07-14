@@ -167,6 +167,12 @@
     <Compile Include="ListadoEstadistico\listadoEstadistico.Designer.cs">
       <DependentUpon>listadoEstadistico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login\EditarPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\EditarPass.Designer.cs">
+      <DependentUpon>EditarPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,7 +217,9 @@
     <Compile Include="RegistrarConsumible\RegistrarConsumible.Designer.cs">
       <DependentUpon>RegistrarConsumible.cs</DependentUpon>
     </Compile>
-    <Compile Include="RegistrarEstadia\Facturacion.cs" />
+    <Compile Include="RegistrarEstadia\Facturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RegistrarEstadia\Facturacion.Designer.cs">
       <DependentUpon>Facturacion.cs</DependentUpon>
     </Compile>
@@ -268,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListadoEstadistico\listadoEstadistico.resx">
       <DependentUpon>listadoEstadistico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\EditarPass.resx">
+      <DependentUpon>EditarPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
