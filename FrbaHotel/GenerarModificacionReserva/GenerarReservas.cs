@@ -465,5 +465,26 @@ namespace FrbaHotel.GenerarModificacionReserva
             Console.WriteLine("Clientes por reserva generados: " + codigoReserva + "|" + clientes.ToString());
         }
 
+        private void salirBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+        }
+
+        private void limpiarBtn_Click(object sender, EventArgs e)
+        {
+            this.numericUpDown1.Value = 1;
+            this.calendarDesde.TodayDate = Program.fechaHoy;
+            this.calendarDesde.SelectionStart = Program.fechaHoy;
+            this.calendarDesde.SelectionEnd = Program.fechaHoy;
+
+            this.calendarHasta.TodayDate = Program.fechaHoy;
+            this.calendarHasta.SelectionStart = Program.fechaHoy;
+            this.calendarHasta.SelectionEnd = Program.fechaHoy;
+            this.checkBox1.Checked = false;
+
+            this.dataGridView1.DataSource = null;
+        }
+
     }
 }
