@@ -217,6 +217,12 @@
     <Compile Include="RegistrarConsumible\RegistrarConsumible.Designer.cs">
       <DependentUpon>RegistrarConsumible.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegistrarEstadia\Facturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrarEstadia\Facturacion.Designer.cs">
+      <DependentUpon>Facturacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarEstadia\RegistrarEstadia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarConsumible\RegistrarConsumible.resx">
       <DependentUpon>RegistrarConsumible.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrarEstadia\Facturacion.resx">
+      <DependentUpon>Facturacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarEstadia\RegistrarEstadia.resx">
       <DependentUpon>RegistrarEstadia.cs</DependentUpon>
