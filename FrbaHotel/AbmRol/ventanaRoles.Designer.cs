@@ -30,7 +30,6 @@
         {
             this.btnCrearRol = new System.Windows.Forms.Button();
             this.btnModificarRol = new System.Windows.Forms.Button();
-            this.btnEliminarRol = new System.Windows.Forms.Button();
             this.dgvRoles = new System.Windows.Forms.DataGridView();
             this.btnFuncionalidades = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
@@ -61,16 +60,6 @@
             this.btnModificarRol.UseVisualStyleBackColor = true;
             this.btnModificarRol.Click += new System.EventHandler(this.btnModificarRol_Click);
             // 
-            // btnEliminarRol
-            // 
-            this.btnEliminarRol.Location = new System.Drawing.Point(303, 368);
-            this.btnEliminarRol.Name = "btnEliminarRol";
-            this.btnEliminarRol.Size = new System.Drawing.Size(107, 23);
-            this.btnEliminarRol.TabIndex = 5;
-            this.btnEliminarRol.Text = "Eliminar";
-            this.btnEliminarRol.UseVisualStyleBackColor = true;
-            this.btnEliminarRol.Click += new System.EventHandler(this.btnEliminarRol_Click);
-            // 
             // dgvRoles
             // 
             this.dgvRoles.AllowUserToAddRows = false;
@@ -85,7 +74,7 @@
             // 
             // btnFuncionalidades
             // 
-            this.btnFuncionalidades.Location = new System.Drawing.Point(431, 330);
+            this.btnFuncionalidades.Location = new System.Drawing.Point(431, 292);
             this.btnFuncionalidades.Name = "btnFuncionalidades";
             this.btnFuncionalidades.Size = new System.Drawing.Size(125, 23);
             this.btnFuncionalidades.TabIndex = 12;
@@ -95,7 +84,7 @@
             // 
             // btnAtras
             // 
-            this.btnAtras.Location = new System.Drawing.Point(431, 368);
+            this.btnAtras.Location = new System.Drawing.Point(431, 330);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(125, 23);
             this.btnAtras.TabIndex = 13;
@@ -143,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 404);
+            this.ClientSize = new System.Drawing.Size(578, 369);
             this.Controls.Add(this.txtNombreRol);
             this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.label2);
@@ -151,7 +140,6 @@
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnFuncionalidades);
             this.Controls.Add(this.dgvRoles);
-            this.Controls.Add(this.btnEliminarRol);
             this.Controls.Add(this.btnModificarRol);
             this.Controls.Add(this.btnCrearRol);
             this.Name = "ventanaRoles";
@@ -167,7 +155,6 @@
 
         private System.Windows.Forms.Button btnCrearRol;
         private System.Windows.Forms.Button btnModificarRol;
-        private System.Windows.Forms.Button btnEliminarRol;
         private System.Windows.Forms.DataGridView dgvRoles;
         private System.Windows.Forms.Button btnFuncionalidades;
         private System.Windows.Forms.Button btnAtras;
