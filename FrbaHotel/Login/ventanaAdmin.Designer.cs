@@ -42,6 +42,7 @@
             this.btnListadoUsuarios = new System.Windows.Forms.Button();
             this.txtBoxHotelLogueado = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.editarPasswordBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listadoClientesBtn
@@ -146,7 +147,7 @@
             // 
             // btnRegistrarConsumible
             // 
-            this.btnRegistrarConsumible.Location = new System.Drawing.Point(227, 225);
+            this.btnRegistrarConsumible.Location = new System.Drawing.Point(44, 269);
             this.btnRegistrarConsumible.Name = "btnRegistrarConsumible";
             this.btnRegistrarConsumible.Size = new System.Drawing.Size(150, 23);
             this.btnRegistrarConsumible.TabIndex = 13;
@@ -182,11 +183,22 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Usted se encuentra logueado en:";
             // 
+            // editarPasswordBtn
+            // 
+            this.editarPasswordBtn.Location = new System.Drawing.Point(227, 225);
+            this.editarPasswordBtn.Name = "editarPasswordBtn";
+            this.editarPasswordBtn.Size = new System.Drawing.Size(148, 23);
+            this.editarPasswordBtn.TabIndex = 17;
+            this.editarPasswordBtn.Text = "Editar Password";
+            this.editarPasswordBtn.UseVisualStyleBackColor = true;
+            this.editarPasswordBtn.Click += new System.EventHandler(this.editarPasswordBtn_Click);
+            // 
             // ventanaAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 349);
+            this.Controls.Add(this.editarPasswordBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBoxHotelLogueado);
             this.Controls.Add(this.btnListadoUsuarios);
@@ -225,5 +237,6 @@
         private System.Windows.Forms.Button btnListadoUsuarios;
         private System.Windows.Forms.TextBox txtBoxHotelLogueado;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button editarPasswordBtn;
     }
 }

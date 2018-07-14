@@ -124,5 +124,11 @@ namespace FrbaHotel.Login
            // RegistrarConsumible.CodigoReserva ventana = new RegistrarConsumible.CodigoReserva();
            // ventana.Show();
         }
+
+        private void editarPasswordBtn_Click(object sender, EventArgs e)
+        {
+            EditarPass ventana = new EditarPass();
+            ventana.Show();
+        }
     }
 }
