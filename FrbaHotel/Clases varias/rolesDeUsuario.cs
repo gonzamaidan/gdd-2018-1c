@@ -42,7 +42,7 @@ namespace FrbaHotel
         {
             DataTable Tabla = new DataTable();
             comando.Connection = unaConexion.abrirConexion();
-            comando.CommandText = "SELECT RU.USUARIO, R.ID_ROL, R.NOMBRE, HO.NOMBRE AS 'NOMBRE_HOTEL', HO.ID_HOTEL AS 'ID_HOTEL' FROM LOS_MAGIOS.ROLES R JOIN LOS_MAGIOS.ROLES_POR_USUARIO RU ON R.ID_ROL = RU.ID_ROL INNER JOIN LOS_MAGIOS.USUARIOS US ON US.USUARIO=RU.USUARIO INNER JOIN LOS_MAGIOS.HOTELES_POR_USUARIOS HPU ON HPU.USUARIO = US.USUARIO INNER JOIN LOS_MAGIOS.HOTELES HO ON HPU.ID_HOTEL = HO.ID_HOTEL  WHERE R.ESTADO = 1 AND RU.USUARIO ='" + user + "'";
+            comando.CommandText = "SELECT RU.USUARIO, R.ID_ROL, R.NOMBRE, HO.NOMBRE AS 'NOMBRE_HOTEL', HO.ID_HOTEL AS 'ID_HOTEL' FROM LOS_MAGIOS.ROLES R JOIN LOS_MAGIOS.ROLES_POR_USUARIO RU ON R.ID_ROL = RU.ID_ROL INNER JOIN LOS_MAGIOS.USUARIOS US ON US.USUARIO=RU.USUARIO INNER JOIN LOS_MAGIOS.HOTELES_POR_USUARIO HPU ON HPU.USUARIO = US.USUARIO INNER JOIN LOS_MAGIOS.HOTELES HO ON HPU.ID_HOTEL = HO.ID_HOTEL  WHERE R.ESTADO = 1 AND RU.USUARIO ='" + user + "'";
             LeerFilas = comando.ExecuteReader();
             Tabla.Load(LeerFilas);
             LeerFilas.Close();
@@ -168,10 +168,10 @@ namespace FrbaHotel
 
         }
 
-        public void eliminarFuncionalidadEnRol(int idFuncionalidad)
+        public void eliminarFuncionalidadEnRol(int idFuncionalidad, int idRol)
         {
             comando.Connection = unaConexion.abrirConexion();
-            comando.CommandText = "DELETE LOS_MAGIOS.FUNCIONALIDADES_POR_ROL WHERE ID_FUNCIONALIDAD=" + idFuncionalidad;
+            comando.CommandText = "DELETE LOS_MAGIOS.FUNCIONALIDADES_POR_ROL WHERE ID_FUNCIONALIDAD=" + idFuncionalidad+" AND ID_ROL="+idRol;
             comando.ExecuteNonQuery();
         }
     }

@@ -61,8 +61,6 @@ namespace FrbaHotel.AbmHoteles
 
         private void setearAdminHotel()
         {
-            try
-            {
                 SqlCommand queryInsert = new SqlCommand("INSERT INTO LOS_MAGIOS.HOTELES_POR_USUARIO(ID_HOTEL,USUARIO)"
                                                  + "VALUES(@id_hotel, @usuario)", baseDeDatos, tran);
 
@@ -73,22 +71,10 @@ namespace FrbaHotel.AbmHoteles
 
                 queryInsert.CommandType = CommandType.Text;
                 queryInsert.ExecuteNonQuery();
-
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.StackTrace);
-                MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tran.Rollback();
-            }
         }
 
         private void setearRegimenes()
         {
-
-            try
-            {
-
                 SqlCommand cmd = baseDeDatos.CreateCommand();
                 cmd.Transaction = tran;
                 cmd.CommandText = "DELETE FROM LOS_MAGIOS.REGIMENES_POR_HOTEL WHERE ID_HOTEL = @id_hotel";
@@ -114,13 +100,6 @@ namespace FrbaHotel.AbmHoteles
                         }
                     }
                 }
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.StackTrace);
-                MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tran.Rollback();
-            }
         }
 
         public FormNewHotel(Int32 id)
@@ -270,6 +249,12 @@ namespace FrbaHotel.AbmHoteles
                     queryInsert.CommandType = CommandType.Text;
                     queryInsert.ExecuteNonQuery();
                     MessageBox.Show("El Hotel se actualizo correctamente", "Habitacion Creada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    tran.Commit();
+
+                    this.Hide();
+                    BusquedaHotel busqedaHotel = new BusquedaHotel();
+                    busqedaHotel.ShowDialog();
                 }
 
             }
@@ -282,13 +267,8 @@ namespace FrbaHotel.AbmHoteles
 
             finally
             {
-                tran.Commit();
                 baseDeDatos.Close();
-                this.Hide();
-                BusquedaHotel busqedaHotel = new BusquedaHotel();
-                busqedaHotel.ShowDialog();
             }
-
         }
 
         private void FormNewHotel_Load(object sender, EventArgs e)

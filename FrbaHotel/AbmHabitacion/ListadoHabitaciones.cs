@@ -96,6 +96,8 @@ namespace FrbaHotel.AbmHabitacion
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
+            AbmHoteles.BusquedaHotel formHotel = new AbmHoteles.BusquedaHotel();
+            formHotel.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
