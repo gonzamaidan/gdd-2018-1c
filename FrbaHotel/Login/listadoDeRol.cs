@@ -46,6 +46,7 @@ namespace FrbaHotel.Login
                 //Program.sesion.setIdRol((Int32)cmbListaRoles.SelectedValue);
                 Program.sesion.setIdRol((Int32)dgvRolesDeUsuario.CurrentRow.Cells["ID_ROL"].Value);
                 unHotel = dgvRolesDeUsuario.CurrentRow.Cells["NOMBRE_HOTEL"].Value.ToString();
+                Program.sesion.setIdHotel(Int32.Parse(dgvRolesDeUsuario.CurrentRow.Cells["ID_HOTEL"].Value.ToString()));
                 ventanaAdmin nuevaVentanaAdmin = new ventanaAdmin(unHotel);
                 this.Hide();
                 this.Close();

@@ -45,6 +45,7 @@ namespace FrbaHotel.Login
                     int unRol = 0;
                     string rol;
                     Program.sesion.setIdRol(objRolUsuario.encontrarRolSegunUsuario(txtUsuario.Text,unRol, out rol, ref unHotelLogueado, ref unIdHoteLogueado));
+                    Program.sesion.setIdHotel(unIdHoteLogueado);
                     Program.sesion.setRol(rol);
                     ventanaAdmin nuevaVentanaAdmin = new ventanaAdmin(unHotelLogueado); 
                     this.Hide();

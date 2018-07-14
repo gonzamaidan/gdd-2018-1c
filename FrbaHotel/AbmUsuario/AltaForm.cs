@@ -183,6 +183,7 @@ namespace FrbaHotel.AbmUsuario
                 }
                 else
                 {
+                    validarHotelUsuario();
                     SqlTransaction transaction = baseDeDatos.BeginTransaction("EditarUsuario");
                     try
                     {
@@ -220,6 +221,16 @@ namespace FrbaHotel.AbmUsuario
             }
             
 
+        }
+
+        private void validarHotelUsuario()
+        {
+            SqlCommand validarHotelCmd = new SqlCommand("SELECT COUNT(*) FROM LOS_MAGIOS.HOTELES_POR_USUARIO WHERE ID_HOTEL = @IdHotel AND USUARIO = @Usuario", baseDeDatos);
+            validarHotelCmd.Parameters.Add("@IdHotel", SqlDbType.Int);
+            validarHotelCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
+            validarHotelCmd.Parameters["@IdHotel"].Value = Program.sesion.getIdHotel();
+            validarHotelCmd.Parameters["@Usuario"].Value = usuarioAModificar;
+            if (((Int32) validarHotelCmd.ExecuteScalar()) == 0) throw new Exception("No se puede editar un usuario que no trabaja en el hotel en el que se encuentra logueado");
         }
 
         private void validarDatosNumericos()
