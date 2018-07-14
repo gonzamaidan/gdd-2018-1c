@@ -41,10 +41,17 @@ namespace FrbaHotel.AbmRol
             {
                 try
                 {
-                    insertarRol(txtNombreRol.Text, cmbEstado.Text);
-                    MessageBox.Show("Se inserto correctamente");
-                    mostrarProductos();
-                    limpiarForm();
+                    if (!(string.IsNullOrEmpty(txtNombreRol.Text)))
+                    {
+                        insertarRol(txtNombreRol.Text, cmbEstado.Text);
+                        MessageBox.Show("Se inserto correctamente");
+                        mostrarProductos();
+                        limpiarForm();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El nombre del Rol se encuentra vacio");
+                    }
                 }
                 catch (Exception error)
                 {
@@ -57,11 +64,18 @@ namespace FrbaHotel.AbmRol
             {
                 try
                 {
-                    ModificarRol(idRol, txtNombreRol.Text, cmbEstado.Text);
-                    MessageBox.Show("Se inserto correctamente");
-                    mostrarProductos();
-                    limpiarForm();
-                    Editar = false;
+                    if (!(string.IsNullOrEmpty(txtNombreRol.Text)))
+                    {
+                        ModificarRol(idRol, txtNombreRol.Text, cmbEstado.Text);
+                        MessageBox.Show("Se inserto correctamente");
+                        mostrarProductos();
+                        limpiarForm();
+                        Editar = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El nombre del Rol se encuentra vacio");
+                    }
                 }
                 catch (Exception error)
                 {
