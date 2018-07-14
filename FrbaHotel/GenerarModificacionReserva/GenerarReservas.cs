@@ -85,22 +85,24 @@ namespace FrbaHotel.GenerarModificacionReserva
             if (Program.sesion.getRol() != "GUEST")
             {
                 StringBuilder queryBuilder = new StringBuilder(query);
-                SqlCommand getHotelesCmd = new SqlCommand("SELECT ID_HOTEL FROM LOS_MAGIOS.HOTELES_POR_USUARIO WHERE USUARIO = @Usuario", baseDeDatos);
+                /*SqlCommand getHotelesCmd = new SqlCommand("SELECT ID_HOTEL FROM LOS_MAGIOS.HOTELES_POR_USUARIO WHERE USUARIO = @Usuario", baseDeDatos);
                 getHotelesCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
                 getHotelesCmd.Parameters["@Usuario"].Value = Program.sesion.getUsuario();
                 SqlDataAdapter sda = new SqlDataAdapter(getHotelesCmd);
                 DataTable dt = new DataTable();
-                sda.Fill(dt);
-                queryBuilder.Append(" WHERE ID_HOTEL IN ("); 
-                int i = 0;
+                sda.Fill(dt);*/
+                queryBuilder.Append(" WHERE ID_HOTEL = @IdHotel");
+                cmd.Parameters.Add("@IdHotel", SqlDbType.Int);
+                cmd.Parameters["@IdHotel"].Value = Program.sesion.getIdHotel();
+                /*int i = 0;
                 foreach (DataRow item in dt.Rows)
                 {
                     queryBuilder.Append("@IdHotel" + i + ", ");
                     cmd.Parameters.Add("@IdHotel" + i, SqlDbType.Int);
                     cmd.Parameters["@IdHotel" + i].Value = item[0];
                     i++;
-                }
-                return queryBuilder.Remove(queryBuilder.Length - 2, 2).Append(")").ToString();
+                }*/
+                return queryBuilder.ToString();
 
             }
             return query;
