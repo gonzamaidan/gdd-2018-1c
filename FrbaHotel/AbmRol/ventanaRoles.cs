@@ -139,21 +139,21 @@ namespace FrbaHotel.AbmRol
             objRoles.eliminarRol(id);
         }
 
-        private void btnEliminarRol_Click(object sender, EventArgs e)
-        {
-            if (dgvRoles.SelectedRows.Count > 0)
-            {
-                idRol = Convert.ToInt32(dgvRoles.CurrentRow.Cells["ID_ROL"].Value.ToString());
-                objRoles.eliminarRol(idRol);
-                MessageBox.Show("Eliminado con exito");
-                mostrarProductos();
-            }
-            else
-            {
-                MessageBox.Show("Seleccione una fila a eliminar");
-            }
+        //private void btnEliminarRol_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvRoles.SelectedRows.Count > 0)
+        //    {
+        //        idRol = Convert.ToInt32(dgvRoles.CurrentRow.Cells["ID_ROL"].Value.ToString());
+        //        objRoles.eliminarRol(idRol);
+        //        MessageBox.Show("Eliminado con exito");
+        //        mostrarProductos();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Seleccione una fila a eliminar");
+        //    }
             
-        }
+        //}
 
         private void btnFuncionalidades_Click(object sender, EventArgs e)
         {
