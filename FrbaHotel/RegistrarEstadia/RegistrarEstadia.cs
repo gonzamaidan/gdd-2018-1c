@@ -68,7 +68,19 @@ namespace FrbaHotel.RegistrarEstadia
                 if (Program.fechaHoy == (DateTime)reader[1])
                 {
                     reader.Close();
-                    nuevaEstadia(reserva);
+                    SqlTransaction transaction = baseDeDatos.BeginTransaction();
+                    try
+                    {
+                        nuevaEstadia(reserva, transaction);
+                        registrarClientes(reserva, transaction);
+                        transaction.Commit();
+                        MessageBox.Show("Estadia registrada con exito!");
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                    }
+
                     this.baseDeDatos.Close();
                 }
                 else
@@ -97,17 +109,18 @@ namespace FrbaHotel.RegistrarEstadia
 
         }
 
-        
-        private void nuevaEstadia(int reserva)
+
+        private void nuevaEstadia(int reserva, SqlTransaction transaction)
         {
                 SqlCommand queryNuevaEstadia = new SqlCommand("INSERT INTO LOS_MAGIOS.ESTADIAS(CODIGO_RESERVA, FECHA_INGRESO) VALUES (@codReserva, @ingreso)", baseDeDatos);
-                
+                queryNuevaEstadia.Connection = baseDeDatos;
+                queryNuevaEstadia.Transaction = transaction;
                 queryNuevaEstadia.Parameters.Add("@codReserva", SqlDbType.Int);
                 queryNuevaEstadia.Parameters["@codReserva"].Value = reserva;
                 queryNuevaEstadia.Parameters.Add("@ingreso", SqlDbType.Date);
                 queryNuevaEstadia.Parameters["@ingreso"].Value = Program.fechaHoy;
                 queryNuevaEstadia.ExecuteNonQuery();
-                MessageBox.Show("Estadia registrada con exito!");
+                
         }
 
         private void registrarEgreso(int numeroReserva)
@@ -158,9 +171,77 @@ namespace FrbaHotel.RegistrarEstadia
             {
                 Console.WriteLine(e.StackTrace);
                 MessageBox.Show(e.Message, "La fecha de ingreso no corresponde a la fecha actual. No se ha podido cancelar la reserva", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                transaction.Rollback();
             }
 
 
         }
+
+        private void registrarClientes(int nroReserva, SqlTransaction transaction)
+        {
+            SqlCommand queryHuespedes = new SqlCommand("SELECT TH.CANTIDAD_PERSONAS FROM LOS_MAGIOS.TIPOS_HABITACION TH, "+
+            "LOS_MAGIOS.HABITACIONES_POR_RESERVA HR, LOS_MAGIOS.HABITACIONES H WHERE HR.CODIGO_RESERVA = @codReserva AND HR.ID_HOTEL = H.ID_HOTEL AND HR.NUMERO_HABITACION = H.NUMERO_HABITACION AND H.CODIGO_TIPO_HABITACION = TH.CODIGO_TIPO_HABITACION", baseDeDatos);
+            queryHuespedes.Connection = baseDeDatos;
+            queryHuespedes.Transaction = transaction;
+            queryHuespedes.Parameters.Add("@codReserva", SqlDbType.Int);
+            queryHuespedes.Parameters["@codReserva"].Value = nroReserva;
+            int cantidad = (int)queryHuespedes.ExecuteScalar();
+            cantidad--;
+            int idCliente;
+
+            for (int i = 1; i <= cantidad; i++)
+            {
+                DialogResult dialogResult = MessageBox.Show("El huesped " + i +" es nuevo?", "Atencion", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    AbmCliente.FormCliente ventana = new AbmCliente.FormCliente();
+                    ventana.ShowDialog();
+                    if (ventana.codigoClienteCreado != -1)
+                        idCliente = ventana.codigoClienteCreado;
+                    else
+                    {
+                        MessageBox.Show("No se creo el cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        throw new Exception("No se creo el cliente");
+                    }
+                }
+                else
+                {
+                    ListadoClientesEstadia busquedaCliente = new ListadoClientesEstadia(true);
+                    DialogResult result = busquedaCliente.ShowDialog();
+
+                    if (busquedaCliente.idClienteSeleccionado != -1)
+                        idCliente = busquedaCliente.idClienteSeleccionado;
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar un cliente", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        throw new Exception("Debe seleccionar un cliente");
+                    }
+                }
+                ingresarClientePorReserva(idCliente, nroReserva, transaction);
+            }
+
+
+        }
+
+        private void ingresarClientePorReserva(int idCliente, int nroReserva, SqlTransaction transaction)
+        {
+            try
+            {
+                SqlCommand queryClientePorReserva = new SqlCommand("INSERT INTO LOS_MAGIOS.CLIENTES_POR_RESERVA(CODIGO_CLIENTE, CODIGO_RESERVA) VALUES(@CodigoCliente, @codReserva)", baseDeDatos);
+                queryClientePorReserva.Connection = baseDeDatos;
+                queryClientePorReserva.Transaction = transaction;
+                queryClientePorReserva.Parameters.Add("@codReserva", SqlDbType.Int);
+                queryClientePorReserva.Parameters["@codReserva"].Value = nroReserva;
+                queryClientePorReserva.Parameters.Add("@CodigoCliente", SqlDbType.Int);
+                queryClientePorReserva.Parameters["@CodigoCliente"].Value = idCliente;
+                queryClientePorReserva.ExecuteNonQuery();
+                Console.WriteLine("Cliente por reserva generado: " + nroReserva + "|" + idCliente.ToString());
+            }
+            catch (SqlException exc)
+            {
+                MessageBox.Show(exc.Message.ToString());
+            }
+        }
+
     }
 }
