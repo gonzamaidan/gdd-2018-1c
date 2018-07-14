@@ -40,6 +40,7 @@
             this.hABITACIONESTableAdapter = new FrbaHotel.GD1C2018DataSetTableAdapters.HABITACIONESTableAdapter();
             this.fKHABITACIONESPOR3E52440BBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hABITACIONES_POR_RESERVATableAdapter = new FrbaHotel.GD1C2018DataSetTableAdapters.HABITACIONES_POR_RESERVATableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHabitaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hABITACIONESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).BeginInit();
@@ -64,14 +65,15 @@
             this.button3.TabIndex = 25;
             this.button3.Text = "Salir";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(576, 435);
+            this.button2.Location = new System.Drawing.Point(674, 88);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(103, 23);
             this.button2.TabIndex = 24;
-            this.button2.Text = "Dar de Baja Hotel";
+            this.button2.Text = "Deshabilitar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -129,11 +131,22 @@
             // 
             this.hABITACIONES_POR_RESERVATableAdapter.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(674, 117);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(103, 23);
+            this.button1.TabIndex = 36;
+            this.button1.Text = "Habilitar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ListadoHabitaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 477);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonNuevoHotel);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -162,6 +175,7 @@
         private GD1C2018DataSetTableAdapters.HABITACIONESTableAdapter hABITACIONESTableAdapter;
         private System.Windows.Forms.BindingSource fKHABITACIONESPOR3E52440BBindingSource;
         private GD1C2018DataSetTableAdapters.HABITACIONES_POR_RESERVATableAdapter hABITACIONES_POR_RESERVATableAdapter;
+        private System.Windows.Forms.Button button1;
 
     }
 }

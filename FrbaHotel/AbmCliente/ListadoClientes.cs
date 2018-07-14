@@ -184,7 +184,7 @@ namespace FrbaHotel.AbmCliente
             }
             else
             {
-                MessageBox.Show("El cliente ya ésta habilitado", "Cliente habilitado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El cliente ya ésta deshabilitado", "Cliente habilitado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
         }

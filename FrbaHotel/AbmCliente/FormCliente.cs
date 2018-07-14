@@ -75,55 +75,54 @@ namespace FrbaHotel.AbmCliente
                 return;
             }
 
+            if (dateTimePickerNacimiento.Value > Program.fechaHoy)
+            {
+                MessageBox.Show("La fecha de nacimiento es invalida ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (verificarTextBoxNoVacios() || editar)
             {
-
                 baseDeDatos.Open();
-                if (!editar)
+
+                string consulta = "Select * From LOS_MAGIOS.CLIENTES h Where h.IDENTIFICACION = @id AND h.TIPO_IDENTIFICACION = @tipoId";
+                if (editar)
+                    consulta = consulta + " AND CODIGO_CLIENTE !=" + id_cliente;
+                SqlCommand comando = new SqlCommand(consulta, baseDeDatos);
+                comando.Parameters.Add(new SqlParameter("@id", Convert.ToInt32(this.textBoxNroDoc.Text)));
+                comando.Parameters.Add(new SqlParameter("@tipoId", tipoDni));
+ 
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                if (reader.HasRows)
                 {
-                    string consulta = "Select * From LOS_MAGIOS.CLIENTES h Where h.IDENTIFICACION = @id AND h.TIPO_IDENTIFICACION = @tipoId";
-                    SqlCommand comando = new SqlCommand(consulta, baseDeDatos);
-                    comando.Parameters.Add(new SqlParameter("@id", Convert.ToInt32(this.textBoxNroDoc.Text)));
-                    comando.Parameters.Add(new SqlParameter("@tipoId", this.comboBoxTipoDoc.Text));
 
-                    SqlDataReader reader = comando.ExecuteReader();
+                    MessageBox.Show("Ya existe una Cliente con esta identificacion", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    baseDeDatos.Close();
+                    return;
+                }
+                reader.Close();
 
-                    if (reader.HasRows)
-                    {
-
-                        MessageBox.Show("Ya existe una Cliente con esta identificacion", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        baseDeDatos.Close();
-                    }
-                    else
-                    {
-                        reader.Close();
-
+                
                         string consulta2 = "Select * From LOS_MAGIOS.CLIENTES h Where h.MAIL = @mail";
+                        if (editar)
+                            consulta2 = consulta2 + " AND CODIGO_CLIENTE !=" + id_cliente;
+
                         SqlCommand comando2 = new SqlCommand(consulta2, baseDeDatos);
                         comando2.Parameters.Add(new SqlParameter("@mail", this.textBoxMail.Text));
-                        //comando2.Parameters.Add(new SqlParameter("@tipoId", this.comboBoxTipoDoc.Text));
 
                         reader = comando2.ExecuteReader();
 
                         if (reader.HasRows)
                         {
-
                             MessageBox.Show("Ya existe una Cliente con este mail", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             baseDeDatos.Close();
+                            return;
                         }
-                        else
-                        {
-                            reader.Close();
-                            MetodoCrear();
+                        reader.Close();
 
-                        }
-
-                    }
-                }
-                else
-                {
-                    MetodoCrear();
-                }
+                MetodoCrear();
             }
             else
             {
@@ -227,17 +226,17 @@ namespace FrbaHotel.AbmCliente
         {
             // TODO: This line of code loads data into the 'gD1C2018DataSet.TIPOS_IDENTIFICACION' table. You can move, or remove it, as needed.
             this.tIPOS_IDENTIFICACIONTableAdapter.Fill(this.gD1C2018DataSet.TIPOS_IDENTIFICACION);
-            tipoDni = this.gD1C2018DataSet.TIPOS_IDENTIFICACION[0].TIPO_IDENTIFICACION;
 
             foreach (DataRowView item in this.comboBoxTipoDoc.Items)
             {
-
                 if (item.Row.ItemArray[0].ToString() == tipoDniEditar)
                 {
                     this.comboBoxTipoDoc.SelectedIndex = this.comboBoxTipoDoc.Items.IndexOf(item);
                     tipoDni = this.gD1C2018DataSet.TIPOS_IDENTIFICACION[this.comboBoxTipoDoc.Items.IndexOf(item)].TIPO_IDENTIFICACION;
+                    return;
                 }
             }
+            tipoDni = this.gD1C2018DataSet.TIPOS_IDENTIFICACION[0].TIPO_IDENTIFICACION;
         }
 
         private void comboBoxTipoDoc_SelectedIndexChanged(object sender, EventArgs e)

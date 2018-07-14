@@ -203,9 +203,19 @@
             0,
             0,
             0});
+            this.numericUpDownEstrellas.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownEstrellas.Name = "numericUpDownEstrellas";
             this.numericUpDownEstrellas.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownEstrellas.TabIndex = 18;
+            this.numericUpDownEstrellas.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // checkedListBox1
             // 

@@ -132,5 +132,25 @@ namespace FrbaHotel.AbmHoteles
             FormNewHotel formHotel = new FormNewHotel();
             formHotel.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void buttonHabitaciones_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridViewHoteles.SelectedRows.Count == 1)
+            {
+                MessageBox.Show("Se pasa a ver las habitaciones del hotel seleccionado", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
+                AbmHabitacion.ListadoHabitaciones listadoHabitaciones = new AbmHabitacion.ListadoHabitaciones(Int32.Parse(dataGridViewHoteles.SelectedRows[0].Cells[0].Value.ToString()));
+                listadoHabitaciones.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un hotel", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

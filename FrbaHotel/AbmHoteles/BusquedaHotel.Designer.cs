@@ -31,6 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridViewHoteles = new System.Windows.Forms.DataGridView();
             this.ID_HOTEL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nOMBREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eSTRELLASDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cIUDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pAISDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fECHACREACIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hOTELESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD1C2018DataSet = new FrbaHotel.GD1C2018DataSet();
             this.hOTELESTableAdapter = new FrbaHotel.GD1C2018DataSetTableAdapters.HOTELESTableAdapter();
@@ -47,11 +52,7 @@
             this.numericEstrellas = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonNuevoHotel = new System.Windows.Forms.Button();
-            this.fECHACREACIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pAISDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cIUDADDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eSTRELLASDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOMBREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonHabitaciones = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHoteles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOTELESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).BeginInit();
@@ -60,6 +61,7 @@
             // 
             // dataGridViewHoteles
             // 
+            this.dataGridViewHoteles.AllowUserToAddRows = false;
             this.dataGridViewHoteles.AllowUserToDeleteRows = false;
             this.dataGridViewHoteles.AutoGenerateColumns = false;
             this.dataGridViewHoteles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -73,6 +75,7 @@
             this.dataGridViewHoteles.DataSource = this.hOTELESBindingSource;
             this.dataGridViewHoteles.Location = new System.Drawing.Point(12, 149);
             this.dataGridViewHoteles.Name = "dataGridViewHoteles";
+            this.dataGridViewHoteles.ReadOnly = true;
             this.dataGridViewHoteles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewHoteles.Size = new System.Drawing.Size(765, 261);
             this.dataGridViewHoteles.TabIndex = 0;
@@ -84,6 +87,38 @@
             this.ID_HOTEL.HeaderText = "ID_HOTEL";
             this.ID_HOTEL.Name = "ID_HOTEL";
             this.ID_HOTEL.ReadOnly = true;
+            // 
+            // nOMBREDataGridViewTextBoxColumn
+            // 
+            this.nOMBREDataGridViewTextBoxColumn.DataPropertyName = "NOMBRE";
+            this.nOMBREDataGridViewTextBoxColumn.HeaderText = "NOMBRE";
+            this.nOMBREDataGridViewTextBoxColumn.Name = "nOMBREDataGridViewTextBoxColumn";
+            // 
+            // eSTRELLASDataGridViewTextBoxColumn
+            // 
+            this.eSTRELLASDataGridViewTextBoxColumn.DataPropertyName = "ESTRELLAS";
+            this.eSTRELLASDataGridViewTextBoxColumn.FillWeight = 80F;
+            this.eSTRELLASDataGridViewTextBoxColumn.HeaderText = "ESTRELLAS";
+            this.eSTRELLASDataGridViewTextBoxColumn.Name = "eSTRELLASDataGridViewTextBoxColumn";
+            this.eSTRELLASDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // cIUDADDataGridViewTextBoxColumn
+            // 
+            this.cIUDADDataGridViewTextBoxColumn.DataPropertyName = "CIUDAD";
+            this.cIUDADDataGridViewTextBoxColumn.HeaderText = "CIUDAD";
+            this.cIUDADDataGridViewTextBoxColumn.Name = "cIUDADDataGridViewTextBoxColumn";
+            // 
+            // pAISDataGridViewTextBoxColumn
+            // 
+            this.pAISDataGridViewTextBoxColumn.DataPropertyName = "PAIS";
+            this.pAISDataGridViewTextBoxColumn.HeaderText = "PAIS";
+            this.pAISDataGridViewTextBoxColumn.Name = "pAISDataGridViewTextBoxColumn";
+            // 
+            // fECHACREACIONDataGridViewTextBoxColumn
+            // 
+            this.fECHACREACIONDataGridViewTextBoxColumn.DataPropertyName = "FECHA_CREACION";
+            this.fECHACREACIONDataGridViewTextBoxColumn.HeaderText = "FECHA_CREACION";
+            this.fECHACREACIONDataGridViewTextBoxColumn.Name = "fECHACREACIONDataGridViewTextBoxColumn";
             // 
             // hOTELESBindingSource
             // 
@@ -101,9 +136,9 @@
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(702, 41);
+            this.buttonEditar.Location = new System.Drawing.Point(693, 41);
             this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEditar.Size = new System.Drawing.Size(84, 23);
             this.buttonEditar.TabIndex = 1;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
@@ -111,9 +146,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(702, 70);
+            this.button2.Location = new System.Drawing.Point(693, 100);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(84, 23);
             this.button2.TabIndex = 2;
             this.button2.Text = "Dar de Baja";
             this.button2.UseVisualStyleBackColor = true;
@@ -127,6 +162,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Salir";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBoxNombre
             // 
@@ -209,51 +245,30 @@
             // 
             // buttonNuevoHotel
             // 
-            this.buttonNuevoHotel.Location = new System.Drawing.Point(702, 12);
+            this.buttonNuevoHotel.Location = new System.Drawing.Point(693, 12);
             this.buttonNuevoHotel.Name = "buttonNuevoHotel";
-            this.buttonNuevoHotel.Size = new System.Drawing.Size(75, 23);
+            this.buttonNuevoHotel.Size = new System.Drawing.Size(84, 23);
             this.buttonNuevoHotel.TabIndex = 21;
             this.buttonNuevoHotel.Text = "Nuevo Hotel";
             this.buttonNuevoHotel.UseVisualStyleBackColor = true;
             this.buttonNuevoHotel.Click += new System.EventHandler(this.buttonNuevoHotel_Click);
             // 
-            // fECHACREACIONDataGridViewTextBoxColumn
+            // buttonHabitaciones
             // 
-            this.fECHACREACIONDataGridViewTextBoxColumn.DataPropertyName = "FECHA_CREACION";
-            this.fECHACREACIONDataGridViewTextBoxColumn.HeaderText = "FECHA_CREACION";
-            this.fECHACREACIONDataGridViewTextBoxColumn.Name = "fECHACREACIONDataGridViewTextBoxColumn";
-            // 
-            // pAISDataGridViewTextBoxColumn
-            // 
-            this.pAISDataGridViewTextBoxColumn.DataPropertyName = "PAIS";
-            this.pAISDataGridViewTextBoxColumn.HeaderText = "PAIS";
-            this.pAISDataGridViewTextBoxColumn.Name = "pAISDataGridViewTextBoxColumn";
-            // 
-            // cIUDADDataGridViewTextBoxColumn
-            // 
-            this.cIUDADDataGridViewTextBoxColumn.DataPropertyName = "CIUDAD";
-            this.cIUDADDataGridViewTextBoxColumn.HeaderText = "CIUDAD";
-            this.cIUDADDataGridViewTextBoxColumn.Name = "cIUDADDataGridViewTextBoxColumn";
-            // 
-            // eSTRELLASDataGridViewTextBoxColumn
-            // 
-            this.eSTRELLASDataGridViewTextBoxColumn.DataPropertyName = "ESTRELLAS";
-            this.eSTRELLASDataGridViewTextBoxColumn.FillWeight = 80F;
-            this.eSTRELLASDataGridViewTextBoxColumn.HeaderText = "ESTRELLAS";
-            this.eSTRELLASDataGridViewTextBoxColumn.Name = "eSTRELLASDataGridViewTextBoxColumn";
-            this.eSTRELLASDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // nOMBREDataGridViewTextBoxColumn
-            // 
-            this.nOMBREDataGridViewTextBoxColumn.DataPropertyName = "NOMBRE";
-            this.nOMBREDataGridViewTextBoxColumn.HeaderText = "NOMBRE";
-            this.nOMBREDataGridViewTextBoxColumn.Name = "nOMBREDataGridViewTextBoxColumn";
+            this.buttonHabitaciones.Location = new System.Drawing.Point(693, 70);
+            this.buttonHabitaciones.Name = "buttonHabitaciones";
+            this.buttonHabitaciones.Size = new System.Drawing.Size(84, 23);
+            this.buttonHabitaciones.TabIndex = 22;
+            this.buttonHabitaciones.Text = "Habitaciones";
+            this.buttonHabitaciones.UseVisualStyleBackColor = true;
+            this.buttonHabitaciones.Click += new System.EventHandler(this.buttonHabitaciones_Click);
             // 
             // BusquedaHotel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(828, 463);
+            this.Controls.Add(this.buttonHabitaciones);
             this.Controls.Add(this.buttonNuevoHotel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.numericEstrellas);
@@ -306,5 +321,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cIUDADDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pAISDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fECHACREACIONDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button buttonHabitaciones;
     }
 }

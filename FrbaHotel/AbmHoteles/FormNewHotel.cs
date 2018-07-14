@@ -23,6 +23,7 @@ namespace FrbaHotel.AbmHoteles
         DataTable dtRegimenesPorHotel;
         DataTable dtRegimenes;
         public static string fechaHoyString = ConfigurationManager.AppSettings["fechaHoy"];
+        SqlTransaction tran;
 
         public FormNewHotel()
         {
@@ -60,7 +61,6 @@ namespace FrbaHotel.AbmHoteles
 
         private void setearRegimenes()
         {
-            SqlTransaction tran = baseDeDatos.BeginTransaction();
 
             try
             {
@@ -90,7 +90,6 @@ namespace FrbaHotel.AbmHoteles
                         }
                     }
                 }
-                tran.Commit();
             }
             catch (Exception exc)
             {
@@ -130,6 +129,12 @@ namespace FrbaHotel.AbmHoteles
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int numeric;
+            if (!int.TryParse(this.textBoxTelefono.Text, out numeric))
+            {
+                MessageBox.Show("El numero de telefono debe ser numericos. ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (verificarTextBoxNoVacios() || editar)
             {
 
@@ -185,15 +190,23 @@ namespace FrbaHotel.AbmHoteles
 
         private void MetodoCrear()
         {
+            tran = baseDeDatos.BeginTransaction();
+
             try
             {
                 if (!editar)
                 {
                     SqlCommand queryInsert = new SqlCommand("INSERT INTO LOS_MAGIOS.HOTELES(NOMBRE, MAIL, TELEFONO, DIRECCION, ESTRELLAS, CIUDAD, PAIS, FECHA_CREACION)"
                                                                  + "VALUES(@nombre, @mail, @telefono, @direccion, @estrellas, @ciudad, @pais, @fechaCreacion)", baseDeDatos);
+                    queryInsert.Transaction = tran;
+
+                    String queryCodigoReserva = "SELECT MAX(ID_HOTEL) + 1 FROM LOS_MAGIOS.HOTELES";
 
                     // else if (x == 1)
                     //    comando = new SqlCommand("AEFI.actualizar_Habitacion", conexion);
+                    SqlCommand querymax = new SqlCommand(queryCodigoReserva, baseDeDatos);
+                    querymax.Transaction = tran;
+                    id_hotel = (int)(querymax.ExecuteScalar());
 
 
                     queryInsert.CommandType = CommandType.StoredProcedure;
@@ -208,14 +221,17 @@ namespace FrbaHotel.AbmHoteles
 
                     queryInsert.CommandType = CommandType.Text;
                     queryInsert.ExecuteNonQuery();
-                    //SqlDataReader reader = queryInsert.execute();
+                    
 
-                    MessageBox.Show("La Habitacion se creo satisfactoriamente", "Habitacion Creada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //SqlDataReader reader = queryInsert.execute();
+                    setearRegimenes();
+                    MessageBox.Show("El Hotel se creo satisfactoriamente", "Habitacion Creada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     SqlCommand queryInsert = new SqlCommand("UPDATE LOS_MAGIOS.HOTELES " +
                                                             "SET NOMBRE = @nombre, MAIL = @mail, TELEFONO = @telefono, DIRECCION = @direccion, ESTRELLAS = @estrellas, CIUDAD = @ciudad, PAIS = @pais Where ID_HOTEL = @id", baseDeDatos);
+                    queryInsert.Transaction = tran;
                     queryInsert.CommandType = CommandType.StoredProcedure;
                     queryInsert.Parameters.Add(new SqlParameter("@nombre", this.textBoxNombre.Text));
                     queryInsert.Parameters.Add(new SqlParameter("@mail", this.textBoxMail.Text));
@@ -228,19 +244,24 @@ namespace FrbaHotel.AbmHoteles
                     setearRegimenes();
                     queryInsert.CommandType = CommandType.Text;
                     queryInsert.ExecuteNonQuery();
-                    MessageBox.Show("La Habitacion se actualizo correctamente", "Habitacion Creada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El Hotel se actualizo correctamente", "Habitacion Creada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }
             catch (Exception exc)
             {
+                tran.Rollback();
                 Console.WriteLine(exc.StackTrace);
                 MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             finally
             {
+                tran.Commit();
                 baseDeDatos.Close();
+                this.Hide();
+                BusquedaHotel busqedaHotel = new BusquedaHotel();
+                busqedaHotel.ShowDialog();
             }
 
         }

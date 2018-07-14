@@ -25,6 +25,10 @@ namespace FrbaHotel.AbmHabitacion
 
         private void ListadoHabitaciones_Load(object sender, EventArgs e)
         {
+            CargarTabla();
+        }
+
+        private void CargarTabla(){
             string consulta = "Select * From LOS_MAGIOS.HABITACIONES where ID_HOTEL = @id";
             SqlCommand comando2 = new SqlCommand(consulta, baseDeDatos);
             comando2.Parameters.Add(new SqlParameter("@id", idHotelSeleccionado));
@@ -32,7 +36,6 @@ namespace FrbaHotel.AbmHabitacion
             DataTable resultados = new DataTable();
             adapter.Fill(resultados);
             dataGridViewHabitaciones.DataSource = resultados;
-
         }
 
         private void buttonNuevoHotel_Click(object sender, EventArgs e)
@@ -47,7 +50,7 @@ namespace FrbaHotel.AbmHabitacion
             if (this.dataGridViewHabitaciones.SelectedRows.Count == 1)
             {
                 MessageBox.Show("Se pasa a editar la habitacion", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Int32 idHabitacion = Int32.Parse(dataGridViewHabitaciones.SelectedRows[0].Cells[0].Value.ToString());
+                Int32 idHabitacion = Int32.Parse(dataGridViewHabitaciones.SelectedRows[0].Cells[1].Value.ToString());
 
                 this.Hide();
                 FormNewHabitacion formNewHabitacion = new FormNewHabitacion(this.idHotelSeleccionado, idHabitacion);
@@ -61,16 +64,67 @@ namespace FrbaHotel.AbmHabitacion
 
         private void button2_Click(object sender, EventArgs e)
         {
+            baseDeDatos.Open();
+
             if (this.dataGridViewHabitaciones.SelectedRows.Count == 1)
             {
-                this.Hide();
-                //AbmHoteles.BajaHotel bajaHotel = new AbmHoteles.BajaHotel(Int32.Parse(dataGridViewHabitaciones.SelectedRows[0].Cells[0].Value.ToString()));
-                //bajaHotel.ShowDialog();
+                if ((Boolean)(dataGridViewHabitaciones.SelectedRows[0].Cells[5].Value) == true)
+                { 
+                    SqlCommand queryInsert = new SqlCommand("UPDATE LOS_MAGIOS.HABITACIONES " +
+                                                            "SET HABILITADO = 0 Where ID_HOTEL = @idHotel and NUMERO_HABITACION = @idHabitacion", baseDeDatos);
+                    queryInsert.CommandType = CommandType.StoredProcedure;
+                    queryInsert.Parameters.Add(new SqlParameter("@idHabitacion", Int32.Parse(dataGridViewHabitaciones.SelectedRows[0].Cells[1].Value.ToString())));
+                    queryInsert.Parameters.Add(new SqlParameter("@idHotel", idHotelSeleccionado));
+                    queryInsert.CommandType = CommandType.Text;
+                    queryInsert.ExecuteNonQuery();
+                    CargarTabla();
+                    MessageBox.Show("La Habitacion se dio de baja correctamente", "Habitacion dada de baja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("La Habitacion ya se encuentra dada de baja", "Habitacion dada de baja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un hotel", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar una habitacion", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            baseDeDatos.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            baseDeDatos.Open();
+            if (this.dataGridViewHabitaciones.SelectedRows.Count == 1)
+            {
+                if ((Boolean)(dataGridViewHabitaciones.SelectedRows[0].Cells[5].Value) == false)
+                {
+                    SqlCommand queryInsert = new SqlCommand("UPDATE LOS_MAGIOS.HABITACIONES " +
+                                                            "SET HABILITADO = 1 Where ID_HOTEL = @idHotel and NUMERO_HABITACION = @idHabitacion", baseDeDatos);
+                    queryInsert.CommandType = CommandType.StoredProcedure;
+                    queryInsert.Parameters.Add(new SqlParameter("@idHabitacion", Int32.Parse(dataGridViewHabitaciones.SelectedRows[0].Cells[1].Value.ToString())));
+                    queryInsert.Parameters.Add(new SqlParameter("@idHotel", idHotelSeleccionado));
+                    queryInsert.CommandType = CommandType.Text;
+                    queryInsert.ExecuteNonQuery();
+                    CargarTabla();
+                    MessageBox.Show("La Habitacion se habilito correctamente", "Habitacion habilitada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("La Habitacion ya se encuentra habilitada", "Habitacion dada de baja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una habitacion", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            baseDeDatos.Close();
         }
     }
 }

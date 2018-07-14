@@ -45,6 +45,11 @@ namespace FrbaHotel.AbmHoteles
         {
             try
             {
+                if (dateTimePicker1.Value > dateTimePicker2.Value)
+                {
+                    MessageBox.Show("La fecha desde no puede ser mayor a la fecha hasta.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 baseDeDatos.Open();
                 if (verificarReservas())
                 {
@@ -56,8 +61,8 @@ namespace FrbaHotel.AbmHoteles
 
                         queryInsert.CommandType = CommandType.StoredProcedure;
                         queryInsert.Parameters.Add(new SqlParameter("@idHotel", idHotel));
-                        queryInsert.Parameters.Add(new SqlParameter("@fechaInicioBaja", dateTimePicker2.Value));
-                        queryInsert.Parameters.Add(new SqlParameter("@fechaFinBaja", dateTimePicker1.Value));
+                        queryInsert.Parameters.Add(new SqlParameter("@fechaInicioBaja", dateTimePicker1.Value));
+                        queryInsert.Parameters.Add(new SqlParameter("@fechaFinBaja", dateTimePicker2.Value));
 
                         queryInsert.CommandType = CommandType.Text;
                         queryInsert.ExecuteNonQuery();

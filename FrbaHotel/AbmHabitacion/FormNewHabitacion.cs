@@ -52,7 +52,7 @@ namespace FrbaHotel.AbmHabitacion
                 this.codigoTipoHab = (Int32)item[4];
                 if (item[3].ToString().Equals("INTERIOR"))
                     this.radioBotonInterior.Checked = true;
-                if (item[3].ToString().Equals("EXTERIOR"))
+                if (item[3].ToString().Equals("EXTERNO"))
                     this.radioBotonExterior.Checked = true;
             }
         }
@@ -156,7 +156,11 @@ namespace FrbaHotel.AbmHabitacion
                     queryInsert.CommandType = CommandType.Text;
                     queryInsert.ExecuteNonQuery();
                     MessageBox.Show("La Habitacion se actualizo correctamente", "Habitacion Actualizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
+                this.Hide();
+                ListadoHabitaciones formHotel = new ListadoHabitaciones(idHotel);
+                formHotel.ShowDialog();
 
             }
             catch (Exception exc)
@@ -177,6 +181,17 @@ namespace FrbaHotel.AbmHabitacion
             // TODO: This line of code loads data into the 'gD1C2018DataSet.TIPOS_HABITACION' table. You can move, or remove it, as needed.
             this.tIPOS_HABITACIONTableAdapter.Fill(this.gD1C2018DataSet.TIPOS_HABITACION);
 
+            foreach (DataRowView item in this.comboBoxTipoHab.Items)
+            {
+                if (item.Row.ItemArray[0].ToString() == codigoTipoHab.ToString())
+                {
+                    this.comboBoxTipoHab.SelectedIndex = this.comboBoxTipoHab.Items.IndexOf(item);
+                    codigoTipoHab = this.gD1C2018DataSet.TIPOS_HABITACION[this.comboBoxTipoHab.Items.IndexOf(item)].CODIGO_TIPO_HABITACION;
+                    return;
+                }
+            }
+
+            codigoTipoHab = this.gD1C2018DataSet.TIPOS_HABITACION[0].CODIGO_TIPO_HABITACION;
         }
 
         private void fillByTipoHabitacionToolStripButton_Click(object sender, EventArgs e)
@@ -194,7 +209,7 @@ namespace FrbaHotel.AbmHabitacion
 
         private void seleccionarUbicacionExterior(object sender, EventArgs e)
         {
-            this.ubicacionHabitacion = "EXTERIOR";
+            this.ubicacionHabitacion = "EXTERNO";
         }
         private void seleccionarUbicacionInterior(object sender, EventArgs e)
         {
@@ -236,8 +251,8 @@ namespace FrbaHotel.AbmHabitacion
         private void botonSalir_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //ListadoHabitaciones formHotel = new ListadoHabitaciones(idHotel);
-            //formHotel.ShowDialog();
+            ListadoHabitaciones formHotel = new ListadoHabitaciones(idHotel);
+            formHotel.ShowDialog();
         }
     }
 }
