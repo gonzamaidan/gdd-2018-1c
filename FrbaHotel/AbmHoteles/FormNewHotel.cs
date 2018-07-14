@@ -59,6 +59,30 @@ namespace FrbaHotel.AbmHoteles
             }
         }
 
+        private void setearAdminHotel()
+        {
+            try
+            {
+                SqlCommand queryInsert = new SqlCommand("INSERT INTO LOS_MAGIOS.HOTELES_POR_USUARIO(ID_HOTEL,USUARIO)"
+                                                 + "VALUES(@id_hotel, @usuario)", baseDeDatos, tran);
+
+                queryInsert.CommandType = CommandType.StoredProcedure;
+                queryInsert.Parameters.Clear();
+                queryInsert.Parameters.Add(new SqlParameter("@id_hotel", id_hotel));
+                queryInsert.Parameters.Add(new SqlParameter("@usuario", Program.sesion.getUsuario()));
+
+                queryInsert.CommandType = CommandType.Text;
+                queryInsert.ExecuteNonQuery();
+
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.StackTrace);
+                MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tran.Rollback();
+            }
+        }
+
         private void setearRegimenes()
         {
 
@@ -225,6 +249,7 @@ namespace FrbaHotel.AbmHoteles
 
                     //SqlDataReader reader = queryInsert.execute();
                     setearRegimenes();
+                    setearAdminHotel();
                     MessageBox.Show("El Hotel se creo satisfactoriamente", "Habitacion Creada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
