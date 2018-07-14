@@ -59,6 +59,7 @@ namespace FrbaHotel.RegistrarConsumible
 
         private void button4_Click(object sender, EventArgs e)
         {
+            validarCeldas();
             baseDeDatos.Open();
             int numeroFactura = 0;
             try
@@ -219,5 +220,18 @@ namespace FrbaHotel.RegistrarConsumible
             this.baseDeDatos.Close();
 
         }
+
+        private void validarCeldas()
+        {
+            int value;
+            decimal value2;
+            foreach (DataGridViewRow row in this.dataGridView1.Rows)
+            {
+                if (!Decimal.TryParse(row.Cells[2].Value.ToString(), out value2)) throw new Exception("Ingrese un precio valido");
+                if (!Int32.TryParse(row.Cells[3].Value.ToString(), out value)) throw new Exception("Ingrese una cantidad valida");
+            }
+            
+        }
+
     }
 }

@@ -27,6 +27,16 @@ namespace FrbaHotel.AbmHoteles
             // TODO: This line of code loads data into the 'gD1C2018DataSet.HOTELES' table. You can move, or remove it, as needed.
             this.hOTELESTableAdapter.Fill(this.gD1C2018DataSet.HOTELES);
 
+            SqlCommand queryInsert = new SqlCommand("SELECT * FROM LOS_MAGIOS.HOTELES h where id_hotel in (select id_hotel from LOS_MAGIOS.HOTELES_POR_USUARIO where usuario = @usuario)", baseDeDatos);
+
+            queryInsert.Parameters.Add(new SqlParameter("@usuario", Program.sesion.getUsuario()));
+            SqlDataAdapter sda = new SqlDataAdapter(queryInsert);
+
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+            dataGridViewHoteles.DataSource = dt;
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -74,9 +84,17 @@ namespace FrbaHotel.AbmHoteles
                 {
                     baseDeDatos.Open();
 
+                    
 
-                    StringBuilder queryBuilder = new StringBuilder("SELECT * FROM LOS_MAGIOS.HOTELES WHERE ");
+
+
+
+                    StringBuilder queryBuilder = new StringBuilder("SELECT * FROM LOS_MAGIOS.HOTELES WHERE id_hotel in (select id_hotel from LOS_MAGIOS.HOTELES_POR_USUARIO where usuario = @usuario) AND ");
                     SqlCommand queryGetClientes = new SqlCommand();
+         
+                    queryGetClientes.Parameters.Add("@usuario", SqlDbType.VarChar);
+                    queryGetClientes.Parameters["@usuario"].Value = Program.sesion.getUsuario();
+
                     if (this.textBoxNombre.Text != null)
                     {
                         queryBuilder.Append(" upper(NOMBRE) like upper('%' + @Nombre + '%') AND");

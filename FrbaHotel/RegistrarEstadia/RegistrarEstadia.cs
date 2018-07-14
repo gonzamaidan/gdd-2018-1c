@@ -23,30 +23,6 @@ namespace FrbaHotel.RegistrarEstadia
             InitializeComponent();
         }
 
-        private void btnBuscarReserva_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.baseDeDatos.Open();
-                SqlCommand query = new SqlCommand("SELECT * FROM LOS_MAGIOS.RESERVAS WHERE CODIGO_RESERVA = @codReserva AND FECHA_DESDE = '2017-01-01'", baseDeDatos);
-                query.Parameters.Add("@codReserva", SqlDbType.Int);
-                query.Parameters["@codReserva"].Value = this.textBox1.Text;
-                int reserva = (int)query.ExecuteScalar();
-                MessageBox.Show(reserva.ToString());
-
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.StackTrace);
-                MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                this.baseDeDatos.Close();
-            }
-
-        }
-
         private void botonConsumibles_Click(object sender, EventArgs e)
         {
             try
@@ -97,9 +73,8 @@ namespace FrbaHotel.RegistrarEstadia
                 }
                 else
                 {
-                    this.baseDeDatos.Close();
-                    MessageBox.Show("La fecha de ingreso no corresponde a la fecha actual. Se procede a cancelar la reserva...");
-                    new CancelarReserva.CancelarReserva().ShowDialog();
+                    reader.Close();
+                    cancelarReserva(reserva);
                     DialogResult dialogResult = MessageBox.Show("La reserva fue cancelada. Desea generar una nueva reserva?", "Atencion", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
@@ -126,7 +101,6 @@ namespace FrbaHotel.RegistrarEstadia
         private void nuevaEstadia(int reserva)
         {
                 SqlCommand queryNuevaEstadia = new SqlCommand("INSERT INTO LOS_MAGIOS.ESTADIAS(CODIGO_RESERVA, FECHA_INGRESO) VALUES (@codReserva, @ingreso)", baseDeDatos);
-                //SqlCommand queryNuevaEstadia = new SqlCommand("INSERT INTO LOS_MAGIOS.ESTADIAS(CODIGO_RESERVA, FECHA_INGRESO) VALUES (999999, @ingreso)", baseDeDatos);
                 
                 queryNuevaEstadia.Parameters.Add("@codReserva", SqlDbType.Int);
                 queryNuevaEstadia.Parameters["@codReserva"].Value = reserva;
@@ -148,6 +122,45 @@ namespace FrbaHotel.RegistrarEstadia
    
         }
 
+        private void cancelarReserva(int numeroReserva)
+        {
+            SqlTransaction transaction = baseDeDatos.BeginTransaction();
+            try
+            {
+                SqlCommand updateFechaReservaCmd = new SqlCommand("UPDATE LOS_MAGIOS.RESERVAS SET ID_ESTADO_RESERVA = 5 "
+                                                  + " WHERE CODIGO_RESERVA = @CodigoReserva", baseDeDatos);
+                updateFechaReservaCmd.Connection = baseDeDatos;
+                updateFechaReservaCmd.Transaction = transaction;
+                updateFechaReservaCmd.Parameters.Add("@CodigoReserva", SqlDbType.Int);
+                updateFechaReservaCmd.Parameters["@CodigoReserva"].Value = numeroReserva;
+                updateFechaReservaCmd.ExecuteNonQuery();
+                
+                SqlCommand ingresarRegistroReservaCmd = new SqlCommand("INSERT INTO LOS_MAGIOS.REGISTRO_RESERVAS(CODIGO_RESERVA, FECHA,	ACCION, USUARIO) " +
+                     "VALUES (@CodigoReserva, @FechaHoy, @Accion, @Usuario)", baseDeDatos);
+                ingresarRegistroReservaCmd.Connection = baseDeDatos;
+                ingresarRegistroReservaCmd.Transaction = transaction;
+                ingresarRegistroReservaCmd.Parameters.Add("@CodigoReserva", SqlDbType.Int);
+                ingresarRegistroReservaCmd.Parameters.Add("@FechaHoy", SqlDbType.Date);
+                ingresarRegistroReservaCmd.Parameters["@FechaHoy"].Value = Program.fechaHoy;
+                ingresarRegistroReservaCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
+                ingresarRegistroReservaCmd.Parameters.Add("@Accion", SqlDbType.VarChar);
 
+                ingresarRegistroReservaCmd.Parameters["@CodigoReserva"].Value = numeroReserva;
+                ingresarRegistroReservaCmd.Parameters["@Usuario"].Value = Program.sesion.getUsuario();
+                ingresarRegistroReservaCmd.Parameters["@Accion"].Value = "CANCELADA-NO-SHOW";
+                ingresarRegistroReservaCmd.ExecuteNonQuery();
+                Console.WriteLine("Registro de reserva generado: " + numeroReserva + "|" + " Cancelacion por NO-SHOW");
+
+                transaction.Commit();
+                MessageBox.Show("La fecha de ingreso no corresponde a la fecha actual. La reserva ha sido cancelada");
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.StackTrace);
+                MessageBox.Show(e.Message, "La fecha de ingreso no corresponde a la fecha actual. No se ha podido cancelar la reserva", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
     }
 }

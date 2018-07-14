@@ -42,6 +42,7 @@ namespace FrbaHotel.RegistrarConsumible
             try
             {
                 this.baseDeDatos.Open();
+                validarCelda(0);//hardcodeado
                 SqlCommand updateConsumible = new SqlCommand("UPDATE LOS_MAGIOS.CONSUMIBLES SET DESCRIPCION = @descripcion, PRECIO_CONSUMIBLE = @precioConsumible " +
                                                               "WHERE CODIGO_CONSUMIBLE = @CodigoConsumible", baseDeDatos);
                 updateConsumible.Parameters.Add("@descripcion", SqlDbType.VarChar);
@@ -98,10 +99,11 @@ namespace FrbaHotel.RegistrarConsumible
         private void button3_Click(object sender, EventArgs e)
         {
             this.button3.Hide();
+            this.button2.Hide();
             this.dataGridView1.Rows.Add();
+            this.baseDeDatos.Open();
             try
             {
-                this.baseDeDatos.Open();
                 String queryCodigoConsumible = "SELECT MAX(CODIGO_CONSUMIBLE) + 1 FROM LOS_MAGIOS.CONSUMIBLES";
                 int codigoReserva = (int)(new SqlCommand(queryCodigoConsumible, baseDeDatos).ExecuteScalar());
                 this.dataGridView1.Rows[this.dataGridView1.Rows.Count - 1].Cells[0].Value = codigoReserva;
@@ -112,13 +114,19 @@ namespace FrbaHotel.RegistrarConsumible
                 Console.WriteLine(exc.StackTrace);
                 MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally
+            {
+                this.baseDeDatos.Close();
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             try
             {
+                this.baseDeDatos.Open();
                 int pos = this.dataGridView1.Rows.Count - 1;
+                validarCelda(pos);
                 SqlCommand comandIngresarConsumible = new SqlCommand("INSERT INTO LOS_MAGIOS.CONSUMIBLES(CODIGO_CONSUMIBLE, DESCRIPCION, PRECIO_CONSUMIBLE) VALUES (@codigo, @descripcion, @precio)", baseDeDatos);
                 comandIngresarConsumible.Parameters.Add("@descripcion", SqlDbType.VarChar);
                 comandIngresarConsumible.Parameters.Add("@precio", SqlDbType.Decimal);
@@ -135,9 +143,25 @@ namespace FrbaHotel.RegistrarConsumible
             }
             finally
             {
+                this.baseDeDatos.Close();
                 this.button4.Hide();
                 this.button3.Show();
+                this.button2.Show();
             }
         }
+
+        private void validarCelda(int pos)
+        {
+            decimal value;
+            if (pos == 0)
+            {
+                if (!Decimal.TryParse(this.dataGridView1.SelectedRows[0].Cells[2].Value.ToString(), out value)) throw new Exception("Ingrese un precio valido");
+            }
+            else
+            {
+                if (!Decimal.TryParse(this.dataGridView1.Rows[pos].Cells[2].Value.ToString(), out value)) throw new Exception("Ingrese un precio valido");
+            }
+        }
+
     }
 }
