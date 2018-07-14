@@ -123,7 +123,7 @@ namespace FrbaHotel.AbmRol
         {
             if (dgvFuncionalidades.SelectedRows.Count > 0)
             {
-                eliminarFuncionalidadEnRol(Convert.ToInt32(dgvFuncionalidades.CurrentRow.Cells["ID_FUNCIONALIDAD"].Value.ToString()), Convert.ToInt32(dgvRoles.CurrentRow.Cells["ID_ROL"].Value.ToString()));
+                eliminarFuncionalidadEnRol(Convert.ToInt32(dgvFuncionalidadesPorRol.CurrentRow.Cells["ID_FUNCIONALIDAD"].Value.ToString()), Convert.ToInt32(dgvRoles.CurrentRow.Cells["ID_ROL"].Value.ToString()));
                mostrarProductos();
                mostrarFuncionalidadesSegunRol(0);
                 
@@ -143,6 +143,11 @@ namespace FrbaHotel.AbmRol
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgvFuncionalidadesPorRol_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
 

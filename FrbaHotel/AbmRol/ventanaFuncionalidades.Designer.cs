@@ -62,6 +62,7 @@
             this.dgvFuncionalidadesPorRol.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFuncionalidadesPorRol.Size = new System.Drawing.Size(417, 203);
             this.dgvFuncionalidadesPorRol.TabIndex = 2;
+            this.dgvFuncionalidadesPorRol.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFuncionalidadesPorRol_CellContentClick);
             // 
             // btnGuardar
             // 
