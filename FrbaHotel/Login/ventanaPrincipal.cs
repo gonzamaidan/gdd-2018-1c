@@ -48,5 +48,14 @@ namespace FrbaHotel.Login
             ventana.Show();
 
         }
+
+        private void cancelarReserva_Click(object sender, EventArgs e)
+        {
+            Program.sesion.setUsuario("guest");
+            Program.sesion.setRol("GUEST");
+            Program.sesion.setIdRol(3);
+            CancelarReserva.CancelarReserva ventana = new CancelarReserva.CancelarReserva();
+            ventana.Show();
+        }
     }
 }

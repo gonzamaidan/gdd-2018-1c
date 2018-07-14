@@ -85,35 +85,38 @@ namespace FrbaHotel.GenerarModificacionReserva
             if (Program.sesion.getRol() != "GUEST")
             {
                 StringBuilder queryBuilder = new StringBuilder(query);
-                SqlCommand getHotelesCmd = new SqlCommand("SELECT ID_HOTEL FROM LOS_MAGIOS.HOTELES_POR_USUARIO WHERE USUARIO = @Usuario", baseDeDatos);
+                /*SqlCommand getHotelesCmd = new SqlCommand("SELECT ID_HOTEL FROM LOS_MAGIOS.HOTELES_POR_USUARIO WHERE USUARIO = @Usuario", baseDeDatos);
                 getHotelesCmd.Parameters.Add("@Usuario", SqlDbType.VarChar);
                 getHotelesCmd.Parameters["@Usuario"].Value = Program.sesion.getUsuario();
                 SqlDataAdapter sda = new SqlDataAdapter(getHotelesCmd);
                 DataTable dt = new DataTable();
-                sda.Fill(dt);
-                queryBuilder.Append(" WHERE ID_HOTEL IN ("); 
-                int i = 0;
+                sda.Fill(dt);*/
+                queryBuilder.Append(" WHERE ID_HOTEL = @IdHotel");
+                cmd.Parameters.Add("@IdHotel", SqlDbType.Int);
+                cmd.Parameters["@IdHotel"].Value = Program.sesion.getIdHotel();
+                /*int i = 0;
                 foreach (DataRow item in dt.Rows)
                 {
                     queryBuilder.Append("@IdHotel" + i + ", ");
                     cmd.Parameters.Add("@IdHotel" + i, SqlDbType.Int);
                     cmd.Parameters["@IdHotel" + i].Value = item[0];
                     i++;
-                }
-                return queryBuilder.Remove(queryBuilder.Length - 2, 2).Append(")").ToString();
+                }*/
+                return queryBuilder.ToString();
 
             }
             return query;
         }
         private void botonBuscarDisponibilidad_Click(object sender, EventArgs e)
         {
+            validarNoShow();
             this.conRegimen = this.checkBox1.Checked;
             this.cantidadPersonas = (int)this.numericUpDown1.Value;
             this.fechaDesdeSeleccionada = fechaDesde.Date;
             this.fechaHastaSeleccionada = fechaHasta.Date;
             if (fechaDesde > fechaHasta)
             {
-                MessageBox.Show("La fecha de inicio de la reserva no puede ser anterior a la fecha final de la reserva", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La fecha final de la reserva no puede ser anterior a la fecha inicial de la reserva", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (fechaDesde < Program.fechaHoy)
             {
@@ -169,6 +172,30 @@ namespace FrbaHotel.GenerarModificacionReserva
                 {
                     baseDeDatos.Close();
                 }
+        }
+
+        private void validarNoShow()
+        {
+            try
+            {
+                baseDeDatos.Open();
+                SqlCommand validarNoShowCmd = new SqlCommand("UPDATE LOS_MAGIOS.RESERVAS SET ID_ESTADO_RESERVA = 5 WHERE ID_ESTADO_RESERVA IN (1,2) AND FECHA_DESDE < @FechaHoy", baseDeDatos);
+                validarNoShowCmd.Parameters.Add("@FechaHoy", SqlDbType.Date);
+                validarNoShowCmd.Parameters["@FechaHoy"].Value = Program.fechaHoy;
+
+                int reservasCanceladas = validarNoShowCmd.ExecuteNonQuery();
+                if(reservasCanceladas > 0) MessageBox.Show("Se cancelaron por no-show " + reservasCanceladas + " reservas", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.StackTrace);
+                MessageBox.Show(exc.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                baseDeDatos.Close();
+            }
         }
 
         private void regimenesComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -463,6 +490,27 @@ namespace FrbaHotel.GenerarModificacionReserva
             clientesPorReservasCommand.Connection = baseDeDatos;
             clientesPorReservasCommand.ExecuteNonQuery();
             Console.WriteLine("Clientes por reserva generados: " + codigoReserva + "|" + clientes.ToString());
+        }
+
+        private void salirBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+        }
+
+        private void limpiarBtn_Click(object sender, EventArgs e)
+        {
+            this.numericUpDown1.Value = 1;
+            this.calendarDesde.TodayDate = Program.fechaHoy;
+            this.calendarDesde.SelectionStart = Program.fechaHoy;
+            this.calendarDesde.SelectionEnd = Program.fechaHoy;
+
+            this.calendarHasta.TodayDate = Program.fechaHoy;
+            this.calendarHasta.SelectionStart = Program.fechaHoy;
+            this.calendarHasta.SelectionEnd = Program.fechaHoy;
+            this.checkBox1.Checked = false;
+
+            this.dataGridView1.DataSource = null;
         }
 
     }

@@ -167,6 +167,12 @@
     <Compile Include="ListadoEstadistico\listadoEstadistico.Designer.cs">
       <DependentUpon>listadoEstadistico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login\EditarPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\EditarPass.Designer.cs">
+      <DependentUpon>EditarPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,12 +197,6 @@
     <Compile Include="Login\ventanaPrincipal.Designer.cs">
       <DependentUpon>ventanaPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\ventanaRecepcionista.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login\ventanaRecepcionista.Designer.cs">
-      <DependentUpon>ventanaRecepcionista.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login\ventanaSesionCaducada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +216,12 @@
     </Compile>
     <Compile Include="RegistrarConsumible\RegistrarConsumible.Designer.cs">
       <DependentUpon>RegistrarConsumible.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarEstadia\Facturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrarEstadia\Facturacion.Designer.cs">
+      <DependentUpon>Facturacion.cs</DependentUpon>
     </Compile>
     <Compile Include="RegistrarEstadia\RegistrarEstadia.cs">
       <SubType>Form</SubType>
@@ -271,6 +277,9 @@
     <EmbeddedResource Include="ListadoEstadistico\listadoEstadistico.resx">
       <DependentUpon>listadoEstadistico.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Login\EditarPass.resx">
+      <DependentUpon>EditarPass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarConsumible\RegistrarConsumible.resx">
       <DependentUpon>RegistrarConsumible.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrarEstadia\Facturacion.resx">
+      <DependentUpon>Facturacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarEstadia\RegistrarEstadia.resx">
       <DependentUpon>RegistrarEstadia.cs</DependentUpon>

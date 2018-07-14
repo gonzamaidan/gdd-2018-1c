@@ -19,6 +19,7 @@ namespace FrbaHotel.CancelarReserva
             baseDeDatos = ConexionBD.conectar();
             InitializeComponent();
             this.fechaCancelacionPicker.Value = Program.fechaHoy;
+            this.usuarioCanceladorTB.Text = Program.sesion.getUsuario();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -51,8 +52,10 @@ namespace FrbaHotel.CancelarReserva
                 var confirmar = MessageBox.Show("Confirme cancelar la reserva", "Cancelacion", MessageBoxButtons.YesNo);
                 if (confirmar == DialogResult.Yes)
                 {
-                    //chequear usuario para saber si es cancelad por cliente o recepcion
-                    updateEstadoReserva("CANCELADA-RECEPCION", codigoReserva);
+                    if(Program.sesion.getRol() == "GUEST")
+                        updateEstadoReserva("CANCELADA-CLIENTE", codigoReserva);
+                    else 
+                        updateEstadoReserva("CANCELADA-RECEPCION", codigoReserva);
                     ingresarRegistroReserva(usuarioCanceladorTB.Text, codigoReserva, "CANCELACION");
                     MessageBox.Show("Reserva cancelada", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -118,6 +121,12 @@ namespace FrbaHotel.CancelarReserva
             ingresarRegistroReservaCmd.Parameters["@Accion"].Value = accion;
             ingresarRegistroReservaCmd.ExecuteNonQuery();
             Console.WriteLine("Registro de reserva generado: " + codigoReserva + "|" + accion);
+        }
+
+        private void botonSalir_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
         }
     }
 }

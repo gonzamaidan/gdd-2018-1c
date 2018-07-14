@@ -61,6 +61,8 @@
             this.fillBy1ToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillBy1ToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.nuevoUsuario = new System.Windows.Forms.Button();
+            this.salirBtn = new System.Windows.Forms.Button();
+            this.limpiarBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rOLESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tIPOSIDENTIFICACIONBindingSource)).BeginInit();
@@ -333,11 +335,33 @@
             this.nuevoUsuario.UseVisualStyleBackColor = true;
             this.nuevoUsuario.Click += new System.EventHandler(this.nuevoUsuario_Click);
             // 
+            // salirBtn
+            // 
+            this.salirBtn.Location = new System.Drawing.Point(280, 424);
+            this.salirBtn.Name = "salirBtn";
+            this.salirBtn.Size = new System.Drawing.Size(75, 23);
+            this.salirBtn.TabIndex = 57;
+            this.salirBtn.Text = "Salir";
+            this.salirBtn.UseVisualStyleBackColor = true;
+            this.salirBtn.Click += new System.EventHandler(this.salirBtn_Click);
+            // 
+            // limpiarBtn
+            // 
+            this.limpiarBtn.Location = new System.Drawing.Point(280, 239);
+            this.limpiarBtn.Name = "limpiarBtn";
+            this.limpiarBtn.Size = new System.Drawing.Size(75, 23);
+            this.limpiarBtn.TabIndex = 58;
+            this.limpiarBtn.Text = "Limpiar";
+            this.limpiarBtn.UseVisualStyleBackColor = true;
+            this.limpiarBtn.Click += new System.EventHandler(this.limpiarBtn_Click);
+            // 
             // BuscadorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(639, 467);
+            this.Controls.Add(this.limpiarBtn);
+            this.Controls.Add(this.salirBtn);
             this.Controls.Add(this.nuevoUsuario);
             this.Controls.Add(this.fillBy1ToolStrip);
             this.Controls.Add(this.tipoIdCheckBox);
@@ -412,5 +436,7 @@
         private System.Windows.Forms.ToolStrip fillBy1ToolStrip;
         private System.Windows.Forms.ToolStripButton fillBy1ToolStripButton;
         private System.Windows.Forms.Button nuevoUsuario;
+        private System.Windows.Forms.Button salirBtn;
+        private System.Windows.Forms.Button limpiarBtn;
     }
 }

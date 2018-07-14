@@ -47,6 +47,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.generarReservaButton = new System.Windows.Forms.Button();
+            this.salirBtn = new System.Windows.Forms.Button();
+            this.limpiarBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rEGIMENESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD1C2018DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -124,6 +126,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(26, 373);
             this.dataGridView1.Name = "dataGridView1";
@@ -226,11 +231,33 @@
             this.generarReservaButton.UseVisualStyleBackColor = true;
             this.generarReservaButton.Click += new System.EventHandler(this.generarReservaButton_Click);
             // 
+            // salirBtn
+            // 
+            this.salirBtn.Location = new System.Drawing.Point(821, 530);
+            this.salirBtn.Name = "salirBtn";
+            this.salirBtn.Size = new System.Drawing.Size(75, 23);
+            this.salirBtn.TabIndex = 23;
+            this.salirBtn.Text = "Salir";
+            this.salirBtn.UseVisualStyleBackColor = true;
+            this.salirBtn.Click += new System.EventHandler(this.salirBtn_Click);
+            // 
+            // limpiarBtn
+            // 
+            this.limpiarBtn.Location = new System.Drawing.Point(821, 304);
+            this.limpiarBtn.Name = "limpiarBtn";
+            this.limpiarBtn.Size = new System.Drawing.Size(75, 23);
+            this.limpiarBtn.TabIndex = 24;
+            this.limpiarBtn.Text = "Limpiar";
+            this.limpiarBtn.UseVisualStyleBackColor = true;
+            this.limpiarBtn.Click += new System.EventHandler(this.limpiarBtn_Click);
+            // 
             // GenerarReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(931, 565);
+            this.Controls.Add(this.limpiarBtn);
+            this.Controls.Add(this.salirBtn);
             this.Controls.Add(this.generarReservaButton);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
@@ -279,5 +306,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button generarReservaButton;
+        private System.Windows.Forms.Button salirBtn;
+        private System.Windows.Forms.Button limpiarBtn;
     }
 }
