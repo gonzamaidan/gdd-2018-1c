@@ -55,9 +55,12 @@
             // 
             // dgvRolesDeUsuario
             // 
+            this.dgvRolesDeUsuario.AllowUserToAddRows = false;
+            this.dgvRolesDeUsuario.AllowUserToDeleteRows = false;
             this.dgvRolesDeUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRolesDeUsuario.Location = new System.Drawing.Point(15, 38);
             this.dgvRolesDeUsuario.Name = "dgvRolesDeUsuario";
+            this.dgvRolesDeUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRolesDeUsuario.Size = new System.Drawing.Size(499, 263);
             this.dgvRolesDeUsuario.TabIndex = 3;
             this.dgvRolesDeUsuario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRolesDeUsuario_CellContentClick);
