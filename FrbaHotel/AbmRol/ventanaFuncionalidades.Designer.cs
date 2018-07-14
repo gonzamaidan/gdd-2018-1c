@@ -63,9 +63,12 @@
             // 
             // dgvFuncionalidadesPorRol
             // 
+            this.dgvFuncionalidadesPorRol.AllowUserToAddRows = false;
+            this.dgvFuncionalidadesPorRol.AllowUserToDeleteRows = false;
             this.dgvFuncionalidadesPorRol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFuncionalidadesPorRol.Location = new System.Drawing.Point(24, 154);
             this.dgvFuncionalidadesPorRol.Name = "dgvFuncionalidadesPorRol";
+            this.dgvFuncionalidadesPorRol.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFuncionalidadesPorRol.Size = new System.Drawing.Size(417, 168);
             this.dgvFuncionalidadesPorRol.TabIndex = 2;
             // 
@@ -110,9 +113,12 @@
             // 
             // dgvRoles
             // 
+            this.dgvRoles.AllowUserToAddRows = false;
+            this.dgvRoles.AllowUserToDeleteRows = false;
             this.dgvRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRoles.Location = new System.Drawing.Point(24, 25);
             this.dgvRoles.Name = "dgvRoles";
+            this.dgvRoles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRoles.Size = new System.Drawing.Size(333, 98);
             this.dgvRoles.TabIndex = 8;
             this.dgvRoles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRoles_CellContentClick);
@@ -147,9 +153,12 @@
             // 
             // dgvFuncionalidades
             // 
+            this.dgvFuncionalidades.AllowUserToAddRows = false;
+            this.dgvFuncionalidades.AllowUserToDeleteRows = false;
             this.dgvFuncionalidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFuncionalidades.Location = new System.Drawing.Point(461, 25);
             this.dgvFuncionalidades.Name = "dgvFuncionalidades";
+            this.dgvFuncionalidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFuncionalidades.Size = new System.Drawing.Size(231, 376);
             this.dgvFuncionalidades.TabIndex = 12;
             // 
