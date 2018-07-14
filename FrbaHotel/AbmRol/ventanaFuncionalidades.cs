@@ -96,7 +96,7 @@ namespace FrbaHotel.AbmRol
                 insertarFuncionalidadEnRol(Convert.ToInt32(dgvRoles.CurrentRow.Cells["ID_ROL"].Value.ToString()), Convert.ToInt32(dgvFuncionalidades.CurrentRow.Cells["ID_FUNCIONALIDAD"].Value.ToString()));
                 MessageBox.Show("Se inserto correctamente");
                 mostrarProductos();
-                limpiarForm();
+             //   limpiarForm();
             }
             catch (Exception error)
             {
