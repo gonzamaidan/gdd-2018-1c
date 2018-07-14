@@ -244,5 +244,10 @@ namespace FrbaHotel.AbmCliente
         {
             seleccionClienteBtn_Click(sender, e);
         }
+
+        private void buttonSalir_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

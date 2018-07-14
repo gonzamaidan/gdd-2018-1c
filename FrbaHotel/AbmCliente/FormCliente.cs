@@ -224,6 +224,23 @@ namespace FrbaHotel.AbmCliente
 
         private void FormCliente_Load(object sender, EventArgs e)
         {
+
+            if (editar)
+            {
+                baseDeDatos.Open();
+
+                string consulta = "Select * From LOS_MAGIOS.CLIENTES h Where h.mail = '" + this.textBoxMail.Text + "' and h.codigo_cliente != " + id_cliente;
+
+                SqlCommand comando2 = new SqlCommand(consulta, baseDeDatos);
+                SqlDataReader reader = comando2.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    MessageBox.Show("Existen mas de un cliente con este email asignado. Por favor proveer de otro mail para este cliente. ", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                baseDeDatos.Close();
+            }
+
             // TODO: This line of code loads data into the 'gD1C2018DataSet.TIPOS_IDENTIFICACION' table. You can move, or remove it, as needed.
             this.tIPOS_IDENTIFICACIONTableAdapter.Fill(this.gD1C2018DataSet.TIPOS_IDENTIFICACION);
 
@@ -255,7 +272,8 @@ namespace FrbaHotel.AbmCliente
         private void buttonSalir_Click(object sender, EventArgs e)
         {
             this.Hide();
-            this.Close();
+            ListadoClientes formHotel = new ListadoClientes();
+            formHotel.ShowDialog();
         }
     }
 }
