@@ -113,7 +113,7 @@ namespace FrbaHotel.GenerarModificacionReserva
             this.fechaHastaSeleccionada = fechaHasta.Date;
             if (fechaDesde > fechaHasta)
             {
-                MessageBox.Show("La fecha de inicio de la reserva no puede ser anterior a la fecha final de la reserva", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La fecha final de la reserva no puede ser anterior a la fecha inicial de la reserva", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (fechaDesde < Program.fechaHoy)
             {
