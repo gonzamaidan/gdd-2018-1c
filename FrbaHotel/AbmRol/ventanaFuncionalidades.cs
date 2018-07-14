@@ -84,10 +84,10 @@ namespace FrbaHotel.AbmRol
         {
             objRoles.eliminarFuncionalidadEnRol(idFuncionalidad,idRol);
         }
-        private void limpiarForm()
-        {
-            txtFuncionalidad.Clear();
-        }
+        //private void limpiarForm()
+        //{
+        //    txtFuncionalidad.Clear();
+        //}
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
