@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtFuncionalidad = new System.Windows.Forms.TextBox();
             this.dgvFuncionalidadesPorRol = new System.Windows.Forms.DataGridView();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
             this.dgvRoles = new System.Windows.Forms.DataGridView();
@@ -54,13 +52,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Seleccione un rol";
             // 
-            // txtFuncionalidad
-            // 
-            this.txtFuncionalidad.Location = new System.Drawing.Point(24, 338);
-            this.txtFuncionalidad.Name = "txtFuncionalidad";
-            this.txtFuncionalidad.Size = new System.Drawing.Size(417, 20);
-            this.txtFuncionalidad.TabIndex = 1;
-            // 
             // dgvFuncionalidadesPorRol
             // 
             this.dgvFuncionalidadesPorRol.AllowUserToAddRows = false;
@@ -69,34 +60,24 @@
             this.dgvFuncionalidadesPorRol.Location = new System.Drawing.Point(24, 154);
             this.dgvFuncionalidadesPorRol.Name = "dgvFuncionalidadesPorRol";
             this.dgvFuncionalidadesPorRol.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFuncionalidadesPorRol.Size = new System.Drawing.Size(417, 168);
+            this.dgvFuncionalidadesPorRol.Size = new System.Drawing.Size(417, 203);
             this.dgvFuncionalidadesPorRol.TabIndex = 2;
             // 
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(24, 378);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(104, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(165, 23);
             this.btnGuardar.TabIndex = 4;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(134, 378);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(104, 23);
-            this.btnEditar.TabIndex = 5;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(244, 378);
+            this.btnEliminar.Location = new System.Drawing.Point(195, 378);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(104, 23);
+            this.btnEliminar.Size = new System.Drawing.Size(162, 23);
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -174,10 +155,8 @@
             this.Controls.Add(this.dgvRoles);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dgvFuncionalidadesPorRol);
-            this.Controls.Add(this.txtFuncionalidad);
             this.Controls.Add(this.label1);
             this.Name = "ventanaFuncionalidades";
             this.Text = "ventanaFuncionalidades";
@@ -193,10 +172,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtFuncionalidad;
         private System.Windows.Forms.DataGridView dgvFuncionalidadesPorRol;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.DataGridView dgvRoles;

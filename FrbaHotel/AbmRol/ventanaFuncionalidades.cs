@@ -80,9 +80,9 @@ namespace FrbaHotel.AbmRol
             objRoles.modificarFuncionalidadEnRol(idFuncionalidad,descripcionFuncionalidad);
         }
 
-        public void eliminarFuncionalidadEnRol(int idFuncionalidad)
+        public void eliminarFuncionalidadEnRol(int idFuncionalidad,int idRol)
         {
-            objRoles.eliminarFuncionalidadEnRol(idFuncionalidad);
+            objRoles.eliminarFuncionalidadEnRol(idFuncionalidad,idRol);
         }
         private void limpiarForm()
         {
@@ -105,25 +105,25 @@ namespace FrbaHotel.AbmRol
 
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (txtFuncionalidad.Text != "")
-            {
-                modificarFuncionalidadEnRol(Convert.ToInt32(dgvFuncionalidades.CurrentRow.Cells["ID_FUNCIONALIDAD"].Value.ToString()), txtFuncionalidad.Text);
-                mostrarFuncionalidades();
-            }
+        //private void btnEditar_Click(object sender, EventArgs e)
+        //{
+        //    if (txtFuncionalidad.Text != "")
+        //    {
+        //        modificarFuncionalidadEnRol(Convert.ToInt32(dgvFuncionalidades.CurrentRow.Cells["ID_FUNCIONALIDAD"].Value.ToString()), txtFuncionalidad.Text);
+        //        mostrarFuncionalidades();
+        //    }
 
-            else
-            {
-                MessageBox.Show("ingrese una nueva descripcion");
-            }
-        }
+        //    else
+        //    {
+        //        MessageBox.Show("ingrese una nueva descripcion");
+        //    }
+        //}
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgvFuncionalidades.SelectedRows.Count > 0)
             {
-               eliminarFuncionalidadEnRol(Convert.ToInt32(dgvFuncionalidades.CurrentRow.Cells["ID_FUNCIONALIDAD"].Value.ToString()));
+                eliminarFuncionalidadEnRol(Convert.ToInt32(dgvFuncionalidades.CurrentRow.Cells["ID_FUNCIONALIDAD"].Value.ToString()), Convert.ToInt32(dgvRoles.CurrentRow.Cells["ID_ROL"].Value.ToString()));
                mostrarProductos();
                mostrarFuncionalidadesSegunRol(0);
                 
@@ -133,6 +133,11 @@ namespace FrbaHotel.AbmRol
             {
                 MessageBox.Show("seleccione una funcionalidad a quitar");
             }
+        }
+
+        private void txtFuncionalidad_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
 

@@ -168,10 +168,10 @@ namespace FrbaHotel
 
         }
 
-        public void eliminarFuncionalidadEnRol(int idFuncionalidad)
+        public void eliminarFuncionalidadEnRol(int idFuncionalidad, int idRol)
         {
             comando.Connection = unaConexion.abrirConexion();
-            comando.CommandText = "DELETE LOS_MAGIOS.FUNCIONALIDADES_POR_ROL WHERE ID_FUNCIONALIDAD=" + idFuncionalidad;
+            comando.CommandText = "DELETE LOS_MAGIOS.FUNCIONALIDADES_POR_ROL WHERE ID_FUNCIONALIDAD=" + idFuncionalidad+" AND ID_ROL="+idRol;
             comando.ExecuteNonQuery();
         }
     }
