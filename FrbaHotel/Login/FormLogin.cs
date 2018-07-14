@@ -46,8 +46,6 @@ namespace FrbaHotel.Login
                     string rol;
                     Program.sesion.setIdRol(objRolUsuario.encontrarRolSegunUsuario(txtUsuario.Text,unRol, out rol, ref unHotelLogueado, ref unIdHoteLogueado));
                     Program.sesion.setRol(rol);
-                    //COMO HAGO PARA QUE LA VENTANA CARGUE DIRECTAMENTE LOS BOTONES SEGUN EL ROL?????
-                    //LA IDEA ES PASAR EN EL CONSTRUCTOR PARA QUE SE CARGUE
                     ventanaAdmin nuevaVentanaAdmin = new ventanaAdmin(unHotelLogueado); 
                     this.Hide();
                     nuevaVentanaAdmin.Show();

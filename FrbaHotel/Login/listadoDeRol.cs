@@ -14,6 +14,7 @@ namespace FrbaHotel.Login
     public partial class listadoDeRol : Form
     {
         string unUsuario;
+        string unHotel;
       
         public listadoDeRol(string usuario)
         {
@@ -30,25 +31,42 @@ namespace FrbaHotel.Login
         {
 
             rolesDeUsuario objRoles = new rolesDeUsuario();
-            cmbListaRoles.DataSource = objRoles.listarRoles(unUsuario);
-            cmbListaRoles.DisplayMember = "NOMBRE";
-            cmbListaRoles.ValueMember = "ID_ROL";
+            dgvRolesDeUsuario.DataSource = objRoles.listarRoles(unUsuario);
+
 
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Program.sesion.setRol(cmbListaRoles.Text);
-            Program.sesion.setIdRol((Int32)cmbListaRoles.SelectedValue);
-           
-            ventanaAdmin nuevaVentanaAdmin = new ventanaAdmin("A");
-            //COMO HAGO QUE CARGUE LOS BOTONES SEGUN EL ROL????????
-            //LA IDEA ES PASAR EN EL CONSTRUCTOR PARA QUE SE CARGUE, ADEMAS DEL NOMBRE DE HOTEL
-            this.Hide();
-            this.Close();
-            
-            nuevaVentanaAdmin.Show();
-           
+            if (dgvRolesDeUsuario.SelectedRows.Count > 0)
+            {
+
+                //Program.sesion.setRol(cmbListaRoles.Text);
+                Program.sesion.setRol(dgvRolesDeUsuario.CurrentRow.Cells["NOMBRE"].Value.ToString());
+                //Program.sesion.setIdRol((Int32)cmbListaRoles.SelectedValue);
+                Program.sesion.setIdRol((Int32)dgvRolesDeUsuario.CurrentRow.Cells["ID_ROL"].Value);
+                unHotel = dgvRolesDeUsuario.CurrentRow.Cells["NOMBRE_HOTEL"].Value.ToString();
+                ventanaAdmin nuevaVentanaAdmin = new ventanaAdmin(unHotel);
+                this.Hide();
+                this.Close();
+
+                nuevaVentanaAdmin.Show();
+
+                //idRol = Convert.ToInt32(dgvRoles.CurrentRow.Cells["ID_ROL"].Value.ToString());
+                //mostrarFuncionalidadesSegunRol(idRol);
+            }
+
+            else
+            {
+                MessageBox.Show("Selecciona una fila");
+            }  
+        }
+
+
+
+        private void dgvRolesDeUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
     }

@@ -29,30 +29,23 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbListaRoles = new System.Windows.Forms.ComboBox();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.dgvRolesDeUsuario = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRolesDeUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 44);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Elegi un rol";
             // 
-            // cmbListaRoles
-            // 
-            this.cmbListaRoles.FormattingEnabled = true;
-            this.cmbListaRoles.Location = new System.Drawing.Point(131, 41);
-            this.cmbListaRoles.Name = "cmbListaRoles";
-            this.cmbListaRoles.Size = new System.Drawing.Size(256, 21);
-            this.cmbListaRoles.TabIndex = 1;
-            // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(131, 107);
+            this.btnAceptar.Location = new System.Drawing.Point(178, 323);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(156, 32);
             this.btnAceptar.TabIndex = 2;
@@ -60,17 +53,27 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // dgvRolesDeUsuario
+            // 
+            this.dgvRolesDeUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRolesDeUsuario.Location = new System.Drawing.Point(15, 38);
+            this.dgvRolesDeUsuario.Name = "dgvRolesDeUsuario";
+            this.dgvRolesDeUsuario.Size = new System.Drawing.Size(499, 263);
+            this.dgvRolesDeUsuario.TabIndex = 3;
+            this.dgvRolesDeUsuario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRolesDeUsuario_CellContentClick);
+            // 
             // listadoDeRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 177);
+            this.ClientSize = new System.Drawing.Size(526, 378);
+            this.Controls.Add(this.dgvRolesDeUsuario);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.cmbListaRoles);
             this.Controls.Add(this.label1);
             this.Name = "listadoDeRol";
             this.Text = "listadoDeRol";
             this.Load += new System.EventHandler(this.listadoDeRol_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRolesDeUsuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -80,6 +83,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAceptar;
-        public System.Windows.Forms.ComboBox cmbListaRoles;
+        private System.Windows.Forms.DataGridView dgvRolesDeUsuario;
     }
 }
