@@ -223,6 +223,12 @@
     <Compile Include="RegistrarEstadia\Facturacion.Designer.cs">
       <DependentUpon>Facturacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegistrarEstadia\ListadoClientesEstadia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrarEstadia\ListadoClientesEstadia.Designer.cs">
+      <DependentUpon>ListadoClientesEstadia.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarEstadia\RegistrarEstadia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarEstadia\Facturacion.resx">
       <DependentUpon>Facturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrarEstadia\ListadoClientesEstadia.resx">
+      <DependentUpon>ListadoClientesEstadia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarEstadia\RegistrarEstadia.resx">
       <DependentUpon>RegistrarEstadia.cs</DependentUpon>
